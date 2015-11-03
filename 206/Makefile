@@ -11,7 +11,8 @@ endif
 all: build/main.pdf
 
 # hier Python-Skripte:
-build/plot.pdf: plot.py matplotlibrc | build
+build/plot_dampfdruck.pdf: build/plot.pdf
+build/plot.pdf: plot.py matplotlibrc dampfdruck.txt daten.txt | build
 	TEXINPUTS="$(pwd):$(pwd)/../latex-template/:" python plot.py
 
 # hier weitere Abhängigkeiten für build/main.pdf deklarieren:

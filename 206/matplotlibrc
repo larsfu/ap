@@ -12,3 +12,4 @@ savefig.pad_inches : 0 # savefig(pad_inches=...)
 text.usetex : True
 xtick.labelsize : 9
 ytick.labelsize : 9
+lines.markersize : 5

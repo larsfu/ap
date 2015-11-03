@@ -2,21 +2,35 @@ import matplotlib.pyplot as plt
 import numpy as np
 from scipy.optimize import curve_fit
 from scipy.constants.constants import C2K
+from scipy.stats import linregress
+
 
 #
 ##
 ###
-####   TODO: Fehlerrechnung, Massedurchsatz und Kompressorleistung
+####   TODO: Fehlerrechnung und Kompressorleistung
 ###
 ##
 #
 
-#Daten laden
+#Konstanten definieren
+R = 8.3144598
+
+#Messdaten laden
 t, T1, T2, pa, pb, P = np.genfromtxt("daten.txt", unpack = True)
+
+#Dampfdruckkurve laden
+dampf_p, dampf_T = np.genfromtxt("dampfdruck.txt", unpack = True)
 
 #Temperaturen in Kelvin konvertieren
 T1 = C2K(T1)
 T2 = C2K(T2)
+dampf_T = C2K(dampf_T)
+
+#Drücke in Pascal umrechnen
+pa *= 100000
+pb *= 100000
+dampf_p *= 100000
 
 #Fit-Funktion für die Temperaturkurve (siehe 5b)
 def T(t, A, B, C, α):
@@ -38,10 +52,11 @@ test_T1 = dTdt(test_points, *params1)
 test_T2 = dTdt(test_points, *params2)
 
 #Wärmeleistung ins warme Reservoir bestimmen
-dQ1 *= (750 + 16719) #TODO: Wärmekapazität von Wasser korrigieren
+test_T1 *= (750 + 16719) #TODO: Wärmekapazität von Wasser korrigieren
+test_T2 *= (750 + 16719)
 
 #Quotient aus Wärmeleistung und gemittelter elektrischer Leistung (= Gütezahl)
-ν = dQ1 / np.mean(P)
+ν = test_T1 / np.mean(P)
 
 #Gütezahlen ausgeben
 print(ν)
@@ -51,14 +66,29 @@ print(ν)
 #Ideale Wirkungsgrade ausgeben
 print(ν_ideal)
 
+#Auswertung der Dampfdruckkurve
+dampf_p = np.log(dampf_p)
+dampf_T = 1 / dampf_T
+
+#Lineare Regression des logarithmierten Drucks über der reziproken Temperatur
+result = linregress(dampf_T, dampf_p) # (slope, intercept, r_value, p_value, std_err)
+L = -result[0] * R
+
+#Massendurchsatz berechnen
+m = test_T2 / L
+
+#Massendurchsätze ausgeben
+print(m)
+
+
 #Auswerte-Stellen für die Fits generieren
 x = np.linspace(0, 1800, 1000)
 
-#Messwerte plotten
-plt.plot(t, T1, 'rx', label='$T_1$', markersize = 4)
-plt.plot(t, T2, 'bx', label='$T_2$', markersize = 4)
+#Temperaturen plotten
+plt.plot(t, T1, 'rx', label='$T_1$')
+plt.plot(t, T2, 'bx', label='$T_2$')
 
-#Fits plotten
+#Temperatur-Fits plotten
 plt.plot(x, T(x, *params1), 'r-')
 plt.plot(x, T(x, *params2), 'b-')
 
@@ -66,11 +96,25 @@ plt.plot(x, T(x, *params2), 'b-')
 plt.xlabel(r'$t / \si{\second}$')
 plt.ylabel(r'$T / \si{\kelvin}$')
 
-#Legende
+#Legende, Layout, speichern
 plt.legend(loc='best')
-
-#Layout
 plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
-
-#Plot speichern
 plt.savefig('build/plot.pdf')
+
+#Plot leeren
+plt.clf()
+
+#Dampfdruckkurve plotten (+ Lineare Regression)
+x = np.linspace(0.0025, 0.004, 10)
+plt.plot(dampf_T, dampf_p, 'rx', label='Dampfdruckkurve')
+plt.plot(x, result[0] * x + result[1], 'b-', label='Lineare Regression')
+plt.xlim(0.00265, 0.0039)
+
+#Achsenbeschriftung
+plt.xlabel(r'$T^{-1} / \si{\per\kelvin}$')
+plt.ylabel(r'$\ln(p / \si{\Pa})$')
+
+#Legende, Layout, speichern
+plt.legend(loc='best')
+plt.tight_layout(pad=0, h_pad=1.08, w_pad=1.08)
+plt.savefig('build/plot_dampfdruck.pdf')
