@@ -1,0 +1,24 @@
+\documentclass{scrartcl}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{fontspec}
+\usepackage[
+math-style=ISO,
+bold-style=ISO,
+sans-style=italic,
+nabla=upright,
+partial=upright,
+]{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage[
+per-mode=reciprocal,
+]{siunitx}
+
+\begin{document}
+  \begin{equation}
+    \displaystyle
+    \sigma_m = \frac{\sqrt{\frac{1}{N-2} \sum^N_{i=1} (y_i - b - mx_i)^2}}{\sqrt{\sum_{i=1}^N (x_i - \overline{x})^2}}
+  \end{equation}
+\end{document}
