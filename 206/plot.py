@@ -8,13 +8,15 @@ from scipy.stats import linregress
 #
 ##
 ###
-####   TODO: Fehlerrechnung und Kompressorleistung
+####   TODO: Fehlerrechnung, ρ bestimmen
 ###
 ##
 #
 
 #Konstanten definieren
 R = 8.3144598
+κ = 1.139
+ρ0 = 5.51 #T = 0°C, p = 1bar
 
 #Messdaten laden
 t, T1, T2, pa, pb, P = np.genfromtxt("daten.txt", unpack = True)
@@ -45,7 +47,7 @@ params1, pcov1 = curve_fit(T, t, T1, maxfev = 1000000, p0 = (1, 1e-2, 295, 1.5))
 params2, pcov2 = curve_fit(T, t, T2, maxfev = 1000000, p0 = (-0.01, 1e-2, 295, 1.5))
 
 #4 Testzeitpunkte in der Messung
-test_points = [100, 600, 1000, 1600]
+test_points = np.array([120, 600, 990, 1590])
 
 #Bestimmung des Differentialquotienten der Fit-Funktion zu den Testzeitpunkten
 test_T1 = dTdt(test_points, *params1)
@@ -75,11 +77,21 @@ result = linregress(dampf_T, dampf_p) # (slope, intercept, r_value, p_value, std
 L = -result[0] * R
 
 #Massendurchsatz berechnen
-m = test_T2 / L
+#TODO: Ist das Minus korrekt?
+m = -test_T2 / L
 
 #Massendurchsätze ausgeben
 print(m)
 
+#Berechnung der mechanischen Kompressorleistung
+test_pa = pa[test_points//30]
+test_pb = pb[test_points//30]
+
+#TODO: ρ aus ρ0 mit idealem Gasgesetz bestimmen
+ρ = ρ0 * 3
+N = 1 / (κ - 1) * (test_pb * (test_pa / test_pb) ** (1 / κ) - test_pa) / ρ * m
+
+print(N)
 
 #Auswerte-Stellen für die Fits generieren
 x = np.linspace(0, 1800, 1000)
