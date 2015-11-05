@@ -1,0 +1,54 @@
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{390.44997559bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.97720329)%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{content/Aufbau.pdf}}%
+    \put(0.26766547,0.95889439){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Rührmotoren}}}%
+    \put(0.75182166,0.58215282){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Temperaturfühler}}}%
+    \put(0.76432267,0.10341318){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{elektr. Uhr}}}%
+    \put(0.8936555,0.1773277){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{zum Netz}}}%
+    \put(0.60125115,0.09742175){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Wattmeter}}}%
+    \put(0.13622599,0.1773277){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Kompressor}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{content/Aufbau.pdf}}%
+    \put(0.70387691,0.70918199){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Dig. Thermometer}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=3]{content/Aufbau.pdf}}%
+    \put(0.53730314,0.72854486){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$p_b$}}}%
+    \put(0.21828674,0.73084923){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$p_a$}}}%
+    \put(0.46953514,0.31870977){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Reservoir 1}}}%
+    \put(0.09565956,0.33499964){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Rerservoir 2}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=4]{content/Aufbau.pdf}}%
+    \put(0.23872453,0.49742685){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{t}}}%
+    \put(0.24595156,0.49742685){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{hermisch isolierter}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=5]{content/Aufbau.pdf}}%
+    \put(0.34377051,0.73754943){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Drosselventil}}}%
+    \put(0.76027571,0.66415774){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{25°}}}%
+    \put(0.79822379,0.66415774){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{C}}}%
+    \put(0.21582899,0.66646211){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{5°}}}%
+    \put(0.23995166,0.66646211){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{C}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=6]{content/Aufbau.pdf}}%
+    \put(0.1953899,0.06607832){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Motor}}}%
+    \put(0.25434845,0.46927302){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Wasserbehälter}}}%
+    \put(0.16445807,0.61697435){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Dig. Thermometer}}}%
+  \end{picture}%
+\endgroup%
