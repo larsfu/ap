@@ -3,20 +3,27 @@ import numpy as np
 from scipy.optimize import curve_fit
 from scipy.constants.constants import C2K
 from scipy.stats import linregress
+import uncertainties as unc
+import uncertainties.unumpy as unp
+from maketable import maketable
 
 
 #
 ##
 ###
-####   TODO: Fehlerrechnung, ρ bestimmen
+####   TODO: ρ bestimmen
 ###
 ##
 #
 
-#Konstanten definieren
-R = 8.3144598
+#Konstanten definieren (CODATA 2014)
+R = unc.ufloat(8.3144598, 0.0000048)
+
+#Variablen definieren
 κ = 1.139
 ρ0 = 5.51 #T = 0°C, p = 1bar
+sigma_T = 0.1
+p_offset = 1
 
 #Messdaten laden
 t, T1, T2, pa, pb, P = np.genfromtxt("daten.txt", unpack = True)
@@ -28,6 +35,14 @@ dampf_p, dampf_T = np.genfromtxt("dampfdruck.txt", unpack = True)
 T1 = C2K(T1)
 T2 = C2K(T2)
 dampf_T = C2K(dampf_T)
+
+#Druck-Offset anwenden
+pa += p_offset
+pb += p_offset
+
+#Fehler auf Drücke anwenden
+pa = unp.uarray(pa, 0.2)
+pb = unp.uarray(pb, 1.0)
 
 #Drücke in Pascal umrechnen
 pa *= 100000
@@ -43,18 +58,23 @@ def dTdt(t, A, B, C, α):
     return ((A * α * t ** (α - 1) * (1 + B * t ** α)) - (A * t ** α) * (B * α * t ** (α - 1))) / (1 + B * t ** α) ** 2
 
 #Curve Fits an die Messwerte mit ausprobierten Anfangswerten
-params1, pcov1 = curve_fit(T, t, T1, maxfev = 1000000, p0 = (1, 1e-2, 295, 1.5))
-params2, pcov2 = curve_fit(T, t, T2, maxfev = 1000000, p0 = (-0.01, 1e-2, 295, 1.5))
+params1, pcov1 = curve_fit(T, t, T1, maxfev = 1000000, p0 = (1, 1e-2, 295, 1.5), sigma = sigma_T)
+params2, pcov2 = curve_fit(T, t, T2, maxfev = 1000000, p0 = (-0.01, 1e-2, 295, 1.5), sigma = sigma_T)
+
+#Parameter mit Standardfehler aus Kovarianzmatrix berechnen
+params1_u = unc.correlated_values(params1, pcov1)
+params2_u = unc.correlated_values(params2, pcov2)
+
 
 #4 Testzeitpunkte in der Messung
 test_points = np.array([120, 600, 990, 1590])
 
 #Bestimmung des Differentialquotienten der Fit-Funktion zu den Testzeitpunkten
-test_T1 = dTdt(test_points, *params1)
-test_T2 = dTdt(test_points, *params2)
+test_T1 = dTdt(test_points, *params1_u)
+test_T2 = dTdt(test_points, *params2_u)
 
 #Wärmeleistung ins warme Reservoir bestimmen
-test_T1 *= (750 + 16719) #TODO: Wärmekapazität von Wasser korrigieren
+test_T1 *= (750 + 16719) #TODO: Wärmekapazität von Wasser korrigieren + Fehler!
 test_T2 *= (750 + 16719)
 
 #Quotient aus Wärmeleistung und gemittelter elektrischer Leistung (= Gütezahl)
@@ -64,7 +84,7 @@ test_T2 *= (750 + 16719)
 print(ν)
 
 #Wirkungsgrade einer idealen Wärmepumpe bei den Temperaturniveaus der Testzeitpunkte bestimmen
-ν_ideal = T(test_points, *params1)/(T(test_points, *params1) - T(test_points, *params2))
+ν_ideal = T(test_points, *params1_u)/(T(test_points, *params1_u) - T(test_points, *params2_u))
 #Ideale Wirkungsgrade ausgeben
 print(ν_ideal)
 
@@ -91,18 +111,24 @@ test_pb = pb[test_points//30]
 ρ = ρ0 * 3
 N = 1 / (κ - 1) * (test_pb * (test_pa / test_pb) ** (1 / κ) - test_pa) / ρ * m
 
+#Mechanische Kompressorleistung berechnen
 print(N)
+
+#Tabelle der Ergebnisse generieren und speichern
+maketable((test_points, ν, ν_ideal, m*1000, N), "build/table.tex")
+#Selbiges für die Messdaten
+maketable((np.int_(t), T1, T2, np.int_(unp.nominal_values(pa)/1000), np.int_(unp.nominal_values(pb)/1000), np.int_(P)), "build/table_data.tex")
 
 #Auswerte-Stellen für die Fits generieren
 x = np.linspace(0, 1800, 1000)
 
 #Temperaturen plotten
-plt.plot(t, T1, 'rx', label='$T_1$')
-plt.plot(t, T2, 'bx', label='$T_2$')
+plt.errorbar(t, T1, yerr=np.ones(len(t)) * sigma_T, fmt = 'r.', label='$T_1$')
+plt.errorbar(t, T2, yerr=np.ones(len(t)) * sigma_T, fmt = 'b.', label='$T_2$')
 
 #Temperatur-Fits plotten
-plt.plot(x, T(x, *params1), 'r-')
-plt.plot(x, T(x, *params2), 'b-')
+plt.plot(x, T(x, *params1), 'r-', label='Fit für $T_1$')
+plt.plot(x, T(x, *params2), 'b-', label='Fit für $T_2$')
 
 #Achsenbeschriftung
 plt.xlabel(r'$t / \si{\second}$')
