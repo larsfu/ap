@@ -43,7 +43,7 @@
     & $t / \si{\second}$
     & \multicolumn{2}{c}{$ν$}
     & \multicolumn{2}{c}{$ν_{\mathrm{ideal}}$}
-    & \multicolumn{2}{c}{$\partial_t m / \si{\gram\per\second}$}
+    & \multicolumn{2}{c}{$\dot m / \si{\gram\per\second}$}
     & \multicolumn{2}{c}{$N / \si{\watt}$} \\
     \midrule
     \input{table.tex}
@@ -53,6 +53,23 @@
 
 \begin{table}
   \scriptsize
+  \centering
+  \caption{Dampfdruckkurve von Dichlordifluormethan.}
+  \label{tab:dampfdruck}
+  \begin{tabular}{l@{}
+      S[table-format=3.2]
+      S[table-format=4.0]
+    }
+    \toprule
+    & $T / \si{\kelvin}$
+    & $p/ \si{\kilo\pascal}$\\
+    \midrule
+    \input{table_dampfdruck.tex}
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{table}
   \centering
   \caption{Messdaten.}
   \label{tab:messdaten}

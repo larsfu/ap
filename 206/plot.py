@@ -89,11 +89,11 @@ print(ν)
 print(ν_ideal)
 
 #Auswertung der Dampfdruckkurve
-dampf_p = np.log(dampf_p)
-dampf_T = 1 / dampf_T
+dampf_p_log = np.log(dampf_p)
+dampf_T_reziprok = 1 / dampf_T
 
 #Lineare Regression des logarithmierten Drucks über der reziproken Temperatur
-result = linregress(dampf_T, dampf_p) # (slope, intercept, r_value, p_value, std_err)
+result = linregress(dampf_T_reziprok, dampf_p_log) # (slope, intercept, r_value, p_value, std_err)
 L = -result[0] * R
 
 #Massendurchsatz berechnen
@@ -118,6 +118,8 @@ print(N)
 maketable((test_points, ν, ν_ideal, m*1000, N), "build/table.tex")
 #Selbiges für die Messdaten
 maketable((np.int_(t), T1, T2, np.int_(unp.nominal_values(pa)/1000), np.int_(unp.nominal_values(pb)/1000), np.int_(P)), "build/table_data.tex")
+#Und die Dampfdruckkurve
+maketable((dampf_T, np.int_(dampf_p/1000)), "build/table_dampfdruck.tex")
 
 #Auswerte-Stellen für die Fits generieren
 x = np.linspace(0, 1800, 1000)
@@ -144,7 +146,7 @@ plt.clf()
 
 #Dampfdruckkurve plotten (+ Lineare Regression)
 x = np.linspace(0.0025, 0.004, 10)
-plt.plot(dampf_T, dampf_p, 'rx', label='Dampfdruckkurve')
+plt.plot(dampf_T_reziprok, dampf_p_log, 'rx', label='Dampfdruckkurve')
 plt.plot(x, result[0] * x + result[1], 'b-', label='Lineare Regression')
 plt.xlim(0.00265, 0.0039)
 
