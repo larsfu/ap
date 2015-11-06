@@ -94,7 +94,7 @@ dampf_T_reziprok = 1 / dampf_T
 
 #Lineare Regression des logarithmierten Drucks über der reziproken Temperatur
 result = linregress(dampf_T_reziprok, dampf_p_log) # (slope, intercept, r_value, p_value, std_err)
-L = -result[0] * R
+L = -unc.ufloat(result[0], result[4]) * R
 
 #Massendurchsatz berechnen
 #TODO: Ist das Minus korrekt?
