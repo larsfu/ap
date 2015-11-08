@@ -33,7 +33,7 @@
     \put(0.4100047,0.62722569){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$S$}}}%
     \put(0.39617651,0.83448094){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$D$}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=2]{content/Schema_Waermepumpe.pdf}}%
-    \put(-0.01513757,0.43143317){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Verdampfung}}}%
+    \put(0.02513757,0.43143317){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Verdampfung}}}%
     \put(0.80626339,0.38849148){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Kondensation}}}%
     \put(0.18464824,0.73180437){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$p_a$}}}%
     \put(0.73388264,0.73182732){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$p_b$}}}%
