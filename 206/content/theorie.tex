@@ -7,6 +7,7 @@ Im folgenden Experiment wird die Wärmepumpe, welche die Wärmeenergie zwischen 
 Aus dem ersten und zweiten Hauptsatz der Thermodynamik folgt die Formel für die Güteziffer einer idealen Wärmepumpe, welche das Verhältnis der Wärmemenge und der aufzuwendenden Arbeit beschreibt.
 
 \begin{equation}
+\label{eqn:güte_ideal}
 ν_{\mathrm{ideal}} = \frac{Q_{1}}{A} = \frac{T_{1}}{T_{1}-T_{2}}
 \end{equation}
 
@@ -23,12 +24,14 @@ Im folgenden soll die reale Güteziffer berechnet werden. Diese errechnet sich a
 Aufgrund von Ausgleichsrechnung durch eine Fitfunktion wird im weiteren Verlauf mit Differentialquotienten anstelle von Differenzenquotienten gerechnet.
 
 \begin{equation}
+\label{eqn:güteziffer1}
 \frac{\mathrm{d}Q_{1}}{\mathrm{d}t} = (m_{1} c_w + m_k c_k)\frac {\mathrm{d}T_{1}}{\mathrm{d}t}
 \end{equation}
 
 Dabei ist $m_{1} c_w$ die Wärmekapazität des Wassers im Reservoir 1 und $m_k c_k$ entspricht der Wärmekapazität der Kupferschlange und des Eimers. Somit gilt für die Güteziffer
 
 \begin{equation}
+\label{eqn:güteziffer2}
 ν = \frac{\mathrm{d}Q_{1}}{\mathrm{d}t N}
 \end{equation}
 
@@ -38,6 +41,7 @@ mit N als gemittelte Leistungsaufnahme des Kompressors.
 Auch der Massendurchsatz lässt sich mit Hilfe des Differentialquotienten berechnen. Für die entzogene Wärmemenge des zweiten Reservoirs gilt
 
 \begin{equation}
+\label{eqn:durchsatz1}
 \frac{\mathrm{d}Q_{2}}{\mathrm{d}t} = (m_2 c_w + m_kc_k)\frac{\mathrm{d}T_{2}}{\mathrm{d}t}
 \end{equation}
 
@@ -46,6 +50,7 @@ mit $m_{2} c_w$ als Wärmekapazität des Wassers im Reservoir 2.
 Der Wärmeentzug erfolgt durch Verdampfung und deshalb gilt außerdem
 
 \begin{equation}
+\label{eqn:durchsatz2}
 \frac{\mathrm{d}Q_{2}}{\mathrm{d}t} = L\frac{\mathrm{d}m}{\mathrm{d}t}
 \end{equation}
 
@@ -68,6 +73,7 @@ Damit folgt für die mechanische Kompressorleistung
 
 
 \begin{equation}
+\label{eqn:mechleistung}
 N_\text{mech} = \frac{\mathrm{d}A_m}{\mathrm{d}t} = \frac{1}{\kappa -1}\biggl(p_b \sqrt[\kappa]{\frac{p_a}{p_b}}-p_a\biggr)\frac{\mathrm{d}V_a}{\mathrm{d}t} = \frac{1}{\kappa-1}\biggl(p_b \sqrt[\kappa]{\frac{p_a}{p_b}}-p_a\biggr)\frac{1}{\rho} \frac{\mathrm{d}m} {\mathrm{d}t}
 \end{equation}
 

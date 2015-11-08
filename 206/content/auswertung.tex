@@ -1,72 +1,156 @@
 \section{Auswertung}
-\label{sec:Auswertung}
+\label{sec:auswertung}
 
-\begin{equation}
-  T(t) = \frac{A t^\alpha}{1+Bt^\alpha} + C
-\end{equation}
+\subsection{Güteziffer}
+  \label{subsec:güteziffer}
+  Es soll die reale Güteziffer der Wärmepumpe ermittelt werden. Diese ergibt sich nach (\ref{eqn:güteziffer1}) und (\ref{eqn:güteziffer2}) zu
+  \begin{equation}
+    ν = \frac{(m_{1} c_w + m_k c_k)}{N}\frac {\mathrm{d}T_{1}}{\mathrm{d}t}.
+  \end{equation}
+  Der dort auftretende Differentialquotient $\frac {\mathrm{d}T_{1}}{\mathrm{d}t}$ lässt sich durch einen Fit der Messdaten an eine Funktion der Form
+  \begin{equation}
+    T(t) = \frac{A t^\alpha}{1+Bt^\alpha} + C
+  \end{equation}
+  errechnen. Die Messdaten ergeben folgende Koeffizienten (von Einheiten wurde mangels physikalischen Sinns abgesehen):
 
-\begin{equation}
-  %((A * α * t ** (α - 1) * (1 + B * t ** α)) - (A * t ** α) * (B * α * t ** (α - 1))) / (1 + B * t ** α) ** 2
-  \frac{\mathrm{d}T(t)}{\mathrm{d}t} = \frac{αAt^{α - 1} \cdot (1 + B t^α) - A t^α \cdot αBt^{α - 1}}{(1 + B t^ α)^ 2}
-\end{equation}
-
-\begin{figure}
-  \centering
-  \includegraphics{plot.pdf}
-  \caption{Plot des Temperaturverlaufs.}
-  \label{fig:temperatur}
-\end{figure}
-
-\begin{figure}
-  \centering
-  \includegraphics{plot_dampfdruck.pdf}
-  \caption{Plot der Dampfdruckkurve.}
-  \label{fig:dampfdruck}
-\end{figure}
-
-\begin{table}
-  \centering
-  \caption{Ergebnisse der Auswertung.}
-  \label{tab:ergebnisse}
-  \sisetup{
-    round-mode=places,
-    round-precision=3,
-  }
-  \begin{tabular}{
-      l@{}
-      S[table-format=4.0]
-      S[table-format=1.3] @{${}\pm{}$} S[table-format=1.3]
-      S[table-format=2.3] @{${}\pm{}$} S[table-format=1.3]
-      S[table-format=2.3] @{${}\pm{}$} S[table-format=1.3]
-      S[table-format=3.3] @{${}\pm{}$} S[table-format=2.3]}
-    \toprule
-    & $t / \si{\second}$
-    & \multicolumn{2}{c}{$ν$}
-    & \multicolumn{2}{c}{$ν_{\mathrm{ideal}}$}
-    & \multicolumn{2}{c}{$\dot m / \si{\gram\per\second}$}
-    & \multicolumn{2}{c}{$N / \si{\watt}$} \\
-    \midrule
-    \input{table.tex}
-    \bottomrule
-  \end{tabular}
-\end{table}
-
-\begin{table}
-  \centering
-  \caption{Dampfdruckkurve von Dichlordifluormethan.}
-  \label{tab:dampfdruck}
-  \begin{tabular}{l@{}
-      S[table-format=3.2]
-      S[table-format=4.0]
+  \begin{table}[!h]
+    \centering
+    \caption{Koeffizienten des nichtlinearen Fits.}
+    \label{tab:koeffizienten}
+    \sisetup{
+      round-mode=places,
+      round-precision=1,
     }
-    \toprule
-    & $T / \si{\kelvin}$
-    & $p/ \si{\kilo\pascal}$\\
-    \midrule
-    \input{table_dampfdruck.tex}
-    \bottomrule
-  \end{tabular}
-\end{table}
+    \begin{tabular}{
+        l@{}
+        S[table-format=1.1e2] @{${}\pm{}$} S[table-format=1.1e2]
+        S[table-format=1.1e2] @{${}\pm{}$} S[table-format=1.1e2]
+        S[table-format=1.1e1] @{${}\pm{}$} S[table-format=1.1e2]
+        S[table-format=1.1e0] @{${}\pm{}$} S[table-format=1.1e2]}
+      \toprule
+      & \multicolumn{2}{c}{$A$}
+      & \multicolumn{2}{c}{$B$}
+      & \multicolumn{2}{c}{$C$}
+      & \multicolumn{2}{c}{$\alpha$} \\
+      \midrule
+      \input{coefficients.tex}
+      \bottomrule
+    \end{tabular}
+  \end{table}
+  Mithilfe der zeitlichen Ableitung von $T(t)$
+
+  \begin{equation}
+    \frac{\mathrm{d}T(t)}{\mathrm{d}t} = \frac{αAt^{α - 1} \cdot (1 + B t^α) - A t^α \cdot αBt^{α - 1}}{(1 + B t^ α)^ 2}
+  \end{equation}
+
+  und der Wärmekapazität $c_w = \SI{9999(9)}{\joule\per\kilogram\per\kelvin}$ sowie Dichte (unter Normalbedingungen) von Wasser $\rho = \SI{1(1)}{\kilogram\per\meter\cubed}$ und der angegebenen Wärmekapazität der Apparatur $c_km_k = \SI{750(10)}{\joule\per\kelvin}$ kann dann die Güteziffer zu verschiedenen Zeitpunkten ermittelt werden.
+
+  Im Vergleich dazu sollte nach (\ref{eqn:güte_ideal}) zu den selben Zeitpunkten die Güteziffer einer idealen Wärmepumpe ermittelt werden, die bei den entsprechenden Temperaturniveaus arbeitet.
+
+  Die Ergebnisse sind Tabelle \ref{tab:ergebnisse_güte} und Abb. \ref{fig:temperatur} zu entnehmen.
+
+  \begin{table}
+    \centering
+    \caption{Ermittelte Gütezahlen.}
+    \label{tab:ergebnisse_güte}
+    \sisetup{
+      round-mode=places,
+      round-precision=3,
+    }
+    \begin{tabular}{
+        l@{}
+        S[table-format=4.0]
+        S[table-format=1.3] @{${}\pm{}$} S[table-format=1.3]
+        S[table-format=2.3] @{${}\pm{}$} S[table-format=1.3]
+        S[table-format=2.3] @{${}\pm{}$} S[table-format=1.3]}
+      \toprule
+      & $t / \si{\second}$
+      & \multicolumn{2}{c}{$ν$}
+      & \multicolumn{2}{c}{$ν_{\mathrm{ideal}}$}
+      & \multicolumn{2}{c}{$ν / ν_{\mathrm{ideal}}$} \\
+      %& \multicolumn{2}{c}{$\dot m / \si{\gram\per\second}$}
+      %& \multicolumn{2}{c}{$N / \si{\watt}$} \\
+      \midrule
+      \input{table_guete.tex}
+      \bottomrule
+    \end{tabular}
+  \end{table}
+
+  \begin{figure}
+    \centering
+    \includegraphics{plot.pdf}
+    \caption{Plot des Temperaturverlaufs und der Fits.}
+    \label{fig:temperatur}
+  \end{figure}
+
+\subsection{Massendurchsatz}
+  Außerdem soll der Massendurchsatz des Kreislaufes ermittelt werden. Dies geschieht, indem (\ref{eqn:durchsatz1}) und (\ref{eqn:durchsatz2}) zu
+  \begin{equation}
+    \frac{\mathrm{d}m}{\mathrm{d}t} = \dot m = \frac{(m_{2} c_w + m_k c_k)}{L}\frac {\mathrm{d}T_{2}}{\mathrm{d}t}
+  \end{equation}
+  umgestellt werden. Der Differentialquotient $\frac {\mathrm{d}T_{2}}{\mathrm{d}t}$ wird exakt wie in Abschnitt \ref{subsec:güteziffer} mittels nichtlinearer Ausgleichsrechnung bestimmt. Die Verdampfungswärme $L$ lässt sich aus der (vom Manometer abgelesenen) Dampfdruckkurve von Dichlordifluormethan (Tabelle \ref{tab:dampfdruck}) mithilfe einer linearen Regression des logarithmierten Drucks über die reziproke Temperatur ermitteln. Es gilt nach \cite{anleitung203}
+  \begin{equation}
+    \ln p = -\frac{L}{R} \frac {1}{T} + \mathrm{const.}
+  \end{equation}
+  Damit ergibt sich $L$ zu $-R \cdot a$ mit der Steigung $a$ der Ausgleichsgeraden. Eine grafische Darstellung der Dampfdruckkurve findet sich in Abb. \ref {fig:dampfdruck}, die Ergebnisse für den Massendurchsatz in Tabelle \ref{tab:ergebnisse_durchsatz}.
+
+  \begin{table}
+    \centering
+    \caption{Ermittelte Massendurchsätze.}
+    \label{tab:ergebnisse_durchsatz}
+    \sisetup{
+      round-mode=places,
+      round-precision=3,
+    }
+    \begin{tabular}{
+        l@{}
+        S[table-format=4.0]
+        S[table-format=1.3] @{${}\pm{}$} S[table-format=1.3]}
+      \toprule
+      & $t / \si{\second}$
+      & \multicolumn{2}{c}{$\dot m$} \\
+      \midrule
+      \input{table_massendurchsatz.tex}
+      \bottomrule
+    \end{tabular}
+  \end{table}
+
+  \begin{figure}
+    \centering
+    \includegraphics{plot_dampfdruck.pdf}
+    \caption{Plot der Dampfdruckkurve.}
+    \label{fig:dampfdruck}
+  \end{figure}
+
+  \begin{table}
+    \centering
+    \caption{Dampfdruckkurve von Dichlordifluormethan.}
+    \label{tab:dampfdruck}
+    \begin{tabular}{l@{}
+        S[table-format=3.2]
+        S[table-format=4.0]
+      }
+      \toprule
+      & $T / \si{\kelvin}$
+      & $p/ \si{\kilo\pascal}$\\
+      \midrule
+      \input{table_dampfdruck.tex}
+      \bottomrule
+    \end{tabular}
+  \end{table}
+
+\subsection{Mechanische Kompressorleistung}
+  Zuletzt sollte die menchanische Leistung des Kompressors ermittelt werden. Diese ist nach (\ref{eqn:mechleistung})
+  \begin{equation}
+    N_\mathrm{mech} = \frac{1}{\kappa-1}\biggl(p_b \sqrt[\kappa]{\frac{p_a}{p_b}}-p_a\biggr)\frac{1}{\rho} \frac{\mathrm{d}m} {\mathrm{d}t}.
+  \end{equation}
+  Dabei ist die Dichte $\rho$ mithilfe der allgemeinen Gasgleichung zu bestimmen:
+  \begin{align}
+    pV &=nRT \\
+    \Leftrightarrow \frac{pV}{T} &= nR
+    \intertext{Im geschlossenen System gilt: $nR = \mathrm{const.}$ Also ist }
+    \frac{p_1 V_1}{T_1} = \frac{p_2 V_2}{T_2}
+  \end{align}
 
 \begin{table}
   \scriptsize

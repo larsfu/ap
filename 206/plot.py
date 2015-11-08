@@ -11,7 +11,7 @@ from maketable import maketable
 #
 ##
 ###
-####   TODO: ρ bestimmen
+####   TODO: ρ bestimmen, Wärmakapazität von Wasser mit Fehler
 ###
 ##
 #
@@ -65,6 +65,7 @@ params2, pcov2 = curve_fit(T, t, T2, maxfev = 1000000, p0 = (-0.01, 1e-2, 295, 1
 params1_u = unc.correlated_values(params1, pcov1)
 params2_u = unc.correlated_values(params2, pcov2)
 
+maketable(params1_u, "build/coefficients.tex", True)
 
 #4 Testzeitpunkte in der Messung
 test_points = np.array([120, 600, 990, 1590])
@@ -74,8 +75,9 @@ test_T1 = dTdt(test_points, *params1_u)
 test_T2 = dTdt(test_points, *params2_u)
 
 #Wärmeleistung ins warme Reservoir bestimmen
-test_T1 *= (750 + 16719) #TODO: Wärmekapazität von Wasser korrigieren + Fehler!
-test_T2 *= (750 + 16719)
+wärmekapazität = (unc.ufloat(750, 10) + unc.ufloat(16719, 200)) #TODO: Wärmekapazität von Wasser korrigieren + Fehler!
+test_T1 *= wärmekapazität
+test_T2 *= wärmekapazität
 
 #Quotient aus Wärmeleistung und gemittelter elektrischer Leistung (= Gütezahl)
 ν = test_T1 / np.mean(P)
@@ -87,6 +89,9 @@ print(ν)
 ν_ideal = T(test_points, *params1_u)/(T(test_points, *params1_u) - T(test_points, *params2_u))
 #Ideale Wirkungsgrade ausgeben
 print(ν_ideal)
+
+#Verhältnis bestimmen
+verhältnis = ν / ν_ideal
 
 #Auswertung der Dampfdruckkurve
 dampf_p_log = np.log(dampf_p)
@@ -115,11 +120,13 @@ N = 1 / (κ - 1) * (test_pb * (test_pa / test_pb) ** (1 / κ) - test_pa) / ρ * 
 print(N)
 
 #Tabelle der Ergebnisse generieren und speichern
-maketable((test_points, ν, ν_ideal, m*1000, N), "build/table.tex")
+maketable((test_points, ν, ν_ideal, verhältnis), "build/table_guete.tex", False)
+maketable((test_points, m*1000), "build/table_massendurchsatz.tex", False)
+maketable((test_points, N), "build/table_kompressorleistung.tex", False)
 #Selbiges für die Messdaten
-maketable((np.int_(t), T1, T2, np.int_(unp.nominal_values(pa)/1000), np.int_(unp.nominal_values(pb)/1000), np.int_(P)), "build/table_data.tex")
+maketable((np.int_(t), T1, T2, np.int_(unp.nominal_values(pa)/1000), np.int_(unp.nominal_values(pb)/1000), np.int_(P)), "build/table_data.tex", False)
 #Und die Dampfdruckkurve
-maketable((dampf_T, np.int_(dampf_p/1000)), "build/table_dampfdruck.tex")
+maketable((dampf_T, np.int_(dampf_p/1000)), "build/table_dampfdruck.tex", False)
 
 #Auswerte-Stellen für die Fits generieren
 x = np.linspace(0, 1800, 1000)
