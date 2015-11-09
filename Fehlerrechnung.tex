@@ -1,0 +1,45 @@
+\section{Fehlerrechnung}
+\label{sec:Fehlerrechnung}
+
+Mittelwert
+\begin{equation}
+\overline{v_i} = \frac{1}{n} \sum_{i=1}^n x_i
+\end{equation}
+
+Standardabweichung
+\begin{equation}
+s_i = \sqrt{\frac{1}{N - 1} \sum_{j=1}^N \left(v_j - \overline{v_i}\right)^2}
+\end{equation}
+
+wobei $v_j$ ($j = 1, ..., N$) zufällige Fehler beschreibt.
+
+Streuung der Mittelwerte
+\begin{equation}
+\sigma_i = \frac{s_i}{\sqrt{N}} = \sqrt{\frac{\sum_{j=1}^N \left(v_j - \overline{v_i}\right)^2}{N \left(N - 1 \right)}}
+\end{equation}
+
+\subsection{Gaußfehler}
+Hat man eine fehlerbehaftete Funktion f mit k als fehlerbehafteter Größe und $\sigma_k$ als Ungenauigkeit, gilt:
+
+\begin{equation}
+\Delta x_k = \frac{\mathrm{d}f}{\mathrm{d}k}\sigma_k
+\end{equation}
+
+Relativer Gaußfehler
+\begin{equation}
+\Delta x_\text{k, rel} = 1 \stackrel{+}{-} \frac{\Delta x_k}{|x|}\cdot 100\%
+\end{equation}
+
+Absoluter Gaußfehler
+\begin{equation}
+\Delta x_i = \sqrt{\left(\frac{\mathrm{d}f}{\mathrm{d}k_{1}}\cdot \sigma_{k_{1}})^2 + \left(\frac{\mathrm{d}f}{\mathrm{d}k_{2}}\cdot \sigma_{k_{2}})^2 + ...}
+\end{equation}
+
+\subsection{Lineare Regression}
+\begin{equation}
+\sigma ^2 = \sum_{k=1}^N \left(y_k - \left(\frac{\overline{xy} - \overline{x}\cdot\overline{y}}{\overline{x^2} - (\overline{x})^2}x_k + \left(\overline{y} - \overline{B}\overline{x}\overline{B}\right)\right)\right)^2
+\end{equation}
+
+Für lineare Funktionen gilt $\frac{\overline{xy} - \overline{x}\cdot\overline{y}}{\overline{x^2} - (\overline{x})^2} = m$ und $\overline{y} - \overline{B}\overline{x}\overline{B} = \b\cdot\sigma^2$ und somit für N Messwerte:
+\begin{equation}
+\sigma_m ^2 = \frac{\sigma^2}{N\left(\overline{y}^2 - \overline{x}^2\right)}
