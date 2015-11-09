@@ -11,7 +11,7 @@
   \begin{equation}
     T(t) = \frac{A t^\alpha}{1+Bt^\alpha} + C
   \end{equation}
-  errechnen. Die Messdaten ergeben folgende Koeffizienten (von Einheiten wurde mangels physikalischen Sinns abgesehen):
+  errechnen. Die Messdaten ergeben die in Tabelle \ref{tab:koeffizienten} angegebenen Koeffizienten (von Einheiten wurde mangels physikalischen Sinns abgesehen):
 
   \begin{table}[!h]
     \centering
@@ -92,7 +92,7 @@
   \begin{equation}
     \ln p = -\frac{L}{R} \frac {1}{T} + \mathrm{const.}
   \end{equation}
-  Damit ergibt sich $L$ zu $-R \cdot a$ mit der Steigung $a$ der Ausgleichsgeraden. Eine grafische Darstellung der Dampfdruckkurve findet sich in Abb. \ref {fig:dampfdruck}, die Ergebnisse für den Massendurchsatz in Tabelle \ref{tab:ergebnisse_durchsatz}.
+  Damit ergibt sich $L$ zu $-R \cdot a$ mit der Steigung $a$ der Ausgleichsgeraden. Eine grafische Darstellung der Dampfdruckkurve findet sich in Abb. \ref {fig:dampfdruck}, die Ergebnisse für den Massendurchsatz in Tabelle \ref{tab:ergebnisse_durchsatz}, wobei das negative Vorzeichen, welches die \enquote{Flussrichtung} der Masse bestimmt, ignoriert wird .
 
   \begin{table}
     \centering
@@ -108,7 +108,7 @@
         S[table-format=1.3] @{${}\pm{}$} S[table-format=1.3]}
       \toprule
       & $t / \si{\second}$
-      & \multicolumn{2}{c}{$\dot m$} \\
+      & \multicolumn{2}{c}{$\dot m / \si{\gram\per\second}$} \\
       \midrule
       \input{table_massendurchsatz.tex}
       \bottomrule
@@ -145,35 +145,68 @@
     N_\mathrm{mech} = \frac{1}{\kappa-1}\biggl(p_b \sqrt[\kappa]{\frac{p_a}{p_b}}-p_a\biggr)\frac{1}{\rho} \frac{\mathrm{d}m} {\mathrm{d}t}.
   \end{equation}
   Dabei ist die Dichte $\rho$ mithilfe der allgemeinen Gasgleichung zu bestimmen:
+
   \begin{align}
     pV &=nRT \\
     \Leftrightarrow \frac{pV}{T} &= nR
     \intertext{Im geschlossenen System gilt: $nR = \mathrm{const.}$ Also ist }
-    \frac{p_1 V_1}{T_1} = \frac{p_2 V_2}{T_2}
+    \frac{p_0 V_0}{T_0} = \frac{p_2 V_2}{T_2}
+    \intertext{mit $V = \frac{m}{\rho}$ folgt}
+    \frac{p_0 m_0}{\rho_0 T_0} = \frac{p_2 m_2}{\rho_2 T_2},
+    \intertext{da $m_0 = m_2$ ergibt sich}
+    \frac{p_0}{\rho_0 T_0} = \frac{p_2}{T_2 \rho_2} \Leftrightarrow \rho_2 = \frac{\rho_0 T_0 p_2}{T_2 p_0}
+    \intertext{mit $\rho_{2} = \rho$ und $p_{2} = p_a$ also}
+    \rho = \frac {\rho_0 T_0 p_a}{T_2 p_0}
   \end{align}
 
-\begin{table}
-  \scriptsize
-  \centering
-  \caption{Messdaten.}
-  \label{tab:messdaten}
-  \begin{tabular}{l@{}
-      S[table-format=4.0]
-      S[table-format=3.2]
-      S[table-format=3.2]
-      S[table-format=3.0]
-      S[table-format=4.0]
-      S[table-format=3.0]
+  In der Versuchsanleitung\cite{anleitung206} sind die Werte $\rho_{0} = \SI{5.51}{\gram\per\liter}$, $p_{0} = \SI{1}{\bar}$, $T_{0} = \SI{0}{\celsius}$ und $\kappa = \num{1.14}$ gegeben, die restlichen Größen werden den Messdaten entnommen. Die berechneten mechanischen Kompressorleistungen finden sich in Tabelle \ref{tab:ergebnisse_leistung}.
+
+  \begin{table}
+    \centering
+    \caption{Ermittelte Leistungen.}
+    \label{tab:ergebnisse_leistung}
+    \sisetup{
+      round-mode=places,
+      round-precision=3,
     }
-    \toprule
-    & $t / \si{\second}$
-    & $T_{1} / \si{\kelvin}$
-    & $T_{2} / \si{\kelvin}$
-    & $p_a / \si{\kilo\pascal}$
-    & $p_b / \si{\kilo\pascal}$
-    & $P / \si{\watt}$ \\
-    \midrule
-    \input{table_data.tex}
-    \bottomrule
-  \end{tabular}
-\end{table}
+    \begin{tabular}{
+        l@{}
+        S[table-format=4.0]
+        S[table-format=2.3] @{${}\pm{}$} S[table-format=2.3]}
+      \toprule
+      & $t / \si{\second}$
+      & \multicolumn{2}{c}{$N / \si{\watt}$} \\
+      \midrule
+      \input{table_kompressorleistung.tex}
+      \bottomrule
+    \end{tabular}
+  \end{table}
+  \newpage
+  \subsection{Messdaten}
+  \begin{table}
+    \tiny
+    \centering
+    \caption{Messdaten.}
+    \label{tab:messdaten}
+    \begin{tabular}{l@{}
+        S[table-format=4.0]
+        S[table-format=3.2]
+        S[table-format=3.2]
+        S[table-format=3.0]
+        S[table-format=4.0]
+        S[table-format=3.0]
+      }
+      \toprule
+      & $t / \si{\second}$
+      & $T_{1} / \si{\kelvin}$
+      & $T_{2} / \si{\kelvin}$
+      & $p_a / \si{\kilo\pascal}$
+      & $p_b / \si{\kilo\pascal}$
+      & $P / \si{\watt}$ \\
+      \midrule
+      \input{table_data.tex}
+      \bottomrule
+    \end{tabular}
+  \end{table}
+
+\nocite{*}
