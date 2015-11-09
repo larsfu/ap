@@ -21,7 +21,9 @@ R = unc.ufloat(8.3144598, 0.0000048)
 
 #Variablen definieren
 κ = 1.139
-ρ0 = 5.51 #T = 0°C, p = 1bar
+ρ0 = 5.51
+T0 = 273.15
+p0 = 100000
 sigma_T = 0.1
 p_offset = 1
 
@@ -102,7 +104,6 @@ result = linregress(dampf_T_reziprok, dampf_p_log) # (slope, intercept, r_value,
 L = -unc.ufloat(result[0], result[4]) * R
 
 #Massendurchsatz berechnen
-#TODO: Ist das Minus korrekt?
 m = -test_T2 / L
 
 #Massendurchsätze ausgeben
@@ -112,12 +113,11 @@ print(m)
 test_pa = pa[test_points//30]
 test_pb = pb[test_points//30]
 
-#TODO: ρ aus ρ0 mit idealem Gasgesetz bestimmen
-ρ = ρ0 * 3
+ρ = ρ0 * T0 * test_pa / (T2[test_points//30] * p0)
 N = 1 / (κ - 1) * (test_pb * (test_pa / test_pb) ** (1 / κ) - test_pa) / ρ * m
 
 #Mechanische Kompressorleistung berechnen
-print(N)
+#print(N)
 
 #Tabelle der Ergebnisse generieren und speichern
 maketable((test_points, ν, ν_ideal, verhältnis), "build/table_guete.tex", False)
