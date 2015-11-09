@@ -11,7 +11,7 @@ from maketable import maketable
 #
 ##
 ###
-####   TODO: ρ bestimmen, Wärmakapazität von Wasser mit Fehler
+####   TODO:
 ###
 ##
 #
@@ -26,6 +26,11 @@ T0 = 273.15
 p0 = 100000
 sigma_T = 0.1
 p_offset = 1
+v = unc.ufloat(4/1000, 0.0004)
+c_w = unc.ufloat((4219 + 4180)/2, 40)
+rho_wasser = unc.ufloat((999.84 + 988.5)/2, 10)
+M = 120.913
+print(c_w)
 
 #Messdaten laden
 t, T1, T2, pa, pb, P = np.genfromtxt("daten.txt", unpack = True)
@@ -77,7 +82,7 @@ test_T1 = dTdt(test_points, *params1_u)
 test_T2 = dTdt(test_points, *params2_u)
 
 #Wärmeleistung ins warme Reservoir bestimmen
-wärmekapazität = (unc.ufloat(750, 10) + unc.ufloat(16719, 200)) #TODO: Wärmekapazität von Wasser korrigieren + Fehler!
+wärmekapazität = (unc.ufloat(750, 10) + c_w*v*rho_wasser)
 test_T1 *= wärmekapazität
 test_T2 *= wärmekapazität
 
@@ -85,12 +90,12 @@ test_T2 *= wärmekapazität
 ν = test_T1 / np.mean(P)
 
 #Gütezahlen ausgeben
-print(ν)
+#print(ν)
 
 #Wirkungsgrade einer idealen Wärmepumpe bei den Temperaturniveaus der Testzeitpunkte bestimmen
 ν_ideal = T(test_points, *params1_u)/(T(test_points, *params1_u) - T(test_points, *params2_u))
 #Ideale Wirkungsgrade ausgeben
-print(ν_ideal)
+#print(ν_ideal)
 
 #Verhältnis bestimmen
 verhältnis = ν / ν_ideal
@@ -102,10 +107,11 @@ dampf_T_reziprok = 1 / dampf_T
 #Lineare Regression des logarithmierten Drucks über der reziproken Temperatur
 result = linregress(dampf_T_reziprok, dampf_p_log) # (slope, intercept, r_value, p_value, std_err)
 L = -unc.ufloat(result[0], result[4]) * R
+maketable((R, L), "build/table_verdampfungswärme.tex", False)
 
 #Massendurchsatz berechnen
 m = -test_T2 / L
-
+m *= M
 #Massendurchsätze ausgeben
 print(m)
 
@@ -114,14 +120,14 @@ test_pa = pa[test_points//30]
 test_pb = pb[test_points//30]
 
 ρ = ρ0 * T0 * test_pa / (T2[test_points//30] * p0)
-N = 1 / (κ - 1) * (test_pb * (test_pa / test_pb) ** (1 / κ) - test_pa) / ρ * m
+N = 1 / (κ - 1) * (test_pb * (test_pa / test_pb) ** (1 / κ) - test_pa) / ρ * (m / 1000)
 
 #Mechanische Kompressorleistung berechnen
 #print(N)
 
 #Tabelle der Ergebnisse generieren und speichern
 maketable((test_points, ν, ν_ideal, verhältnis), "build/table_guete.tex", False)
-maketable((test_points, m*1000), "build/table_massendurchsatz.tex", False)
+maketable((test_points, m), "build/table_massendurchsatz.tex", False)
 maketable((test_points, N), "build/table_kompressorleistung.tex", False)
 #Selbiges für die Messdaten
 maketable((np.int_(t), T1, T2, np.int_(unp.nominal_values(pa)/1000), np.int_(unp.nominal_values(pb)/1000), np.int_(P)), "build/table_data.tex", False)

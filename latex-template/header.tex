@@ -7,6 +7,9 @@
 % Paket float verbessern
 \usepackage{scrhack}
 
+% Seitenränder etc.
+\usepackage[a4paper]{geometry}
+
 % Warnung, falls nochmal kompiliert werden muss
 \usepackage[aux]{rerunfilecheck}
 
@@ -100,6 +103,7 @@
 % Literaturverzeichnis
 \usepackage[
   backend=biber,
+  sorting=none
 ]{biblatex}
 % Quellendatenbank
 \addbibresource{../lit.bib}
