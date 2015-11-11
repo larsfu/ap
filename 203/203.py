@@ -7,6 +7,7 @@ from scipy.optimize import curve_fit
 import scipy.constants as const
 import scipy
 import math
+import uncertainties
 
 T, p = np.genfromtxt("teil1.txt", unpack=True)
 T2, p2 = np.genfromtxt("teil2.txt", unpack=True)
@@ -20,7 +21,7 @@ T2 = C2K(T2)
 T = C2K(T)
 T = 1/T
 
-print(list(zip(T*1e5, (T*1e5)%5*20/5, (p -9)*100/9.3)))
+print(list(zip(T2, p2/1000)))
 slope, intercept, r_value, p_value, std_err = linregress(T, p)
 print(linregress(T, p))
 
@@ -46,11 +47,14 @@ L = -slope * R
 delta_R = 0.0000048
 print('{}±{}'.format(L, np.sqrt(slope**2 * delta_R**2 + R**2 * SE**2)))
 
-L /= 6.022140857e23
-La = 8.3144598 * 373 / 6.022140857e23
-Li = L - La
-#print(Li / 1.6021766208e-19)
+L = uncertainties.ufloat(L, np.sqrt(slope**2 * delta_R**2 + R**2 * SE**2))
 
+L /= 6.022140857e23
+La = uncertainties.ufloat(8.3144598, 0.0000048) * 373 / 6.022140857e23
+Li = L - La
+print(Li / 1.6021766208e-19)
+
+'''
 def pol(x, a, b, c, d):
     return a*x**3 + b*x**2 + c*x + d
 
@@ -87,3 +91,4 @@ plt.yticks([np.e**9, np.e**10, np.e**11, np.e**12], [r'$\mathrm{e}^{9}$', r'$\ma
 plt.ylim(np.e**9,np.e**12)
 
 plt.savefig('203_plot.pdf')
+'''

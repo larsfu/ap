@@ -80,7 +80,7 @@
   \begin{figure}[htpb]
     \centering
     \includegraphics{plot.pdf}
-    \caption{Plot des Temperaturverlaufs und der Fits.}
+    \caption{Plot des Temperaturverlaufs und der Fits. Auf Fehlerbalken wurde zwecks verbesserter Lesbarkeit verzichtet.}
     \label{fig:temperatur}
   \end{figure}
 
@@ -94,7 +94,26 @@
   \begin{equation}
     \ln p = -\frac{L}{R} \frac {1}{T} + \mathrm{const.}
   \end{equation}
-  Damit ergibt sich $L$ zu $-R \cdot a$ mit der Steigung $a$ der Ausgleichsgeraden und der universellen Gaskonstante $R = \SI[separate-uncertainty=false]{8.3144598(48)}{\joule\per\mol\per\kelvin}$\cite{codata}. Der Durchsatz in \si{\mol\per\second} wird noch mit der molaren Masse $M = \SI{120.913}{\gram\per\mol}$\cite[267]{gase} des Kältemittels multipliziert um nicht nur die Anzahl der Moleküle, sondern die Masse zu erhalten. Eine grafische Darstellung der Dampfdruckkurve findet sich in Abb. \ref {fig:dampfdruck}, die Ergebnisse für den Massendurchsatz in Tabelle \ref{tab:ergebnisse_durchsatz}, wobei das negative Vorzeichen, welches die \enquote{Flussrichtung} der Masse bestimmt, ignoriert wird.
+  Damit ergibt sich $L$ zu $-R \cdot a$ mit der Steigung $a$ der Ausgleichsgeraden und der universellen Gaskonstante $R = \SI[separate-uncertainty=false]{8.3144598(48)}{\joule\per\mol\per\kelvin}$\cite{codata}. Der Durchsatz in \si{\mol\per\second} wird noch mit der molaren Masse $M = \SI{120.913}{\gram\per\mol}$\cite[267]{gase} des Kältemittels multipliziert um nicht nur die Anzahl der Moleküle, sondern die Masse zu erhalten. Eine grafische Darstellung der Dampfdruckkurve findet sich in Abb. \ref {fig:dampfdruck}, das Ergebnis für die Verdampfungswärme in Tabelle \ref{tab:ergebnis_L}, die Ergebnisse für den Massendurchsatz in Tabelle \ref{tab:ergebnisse_durchsatz}, wobei das negative Vorzeichen, welches die \enquote{Flussrichtung} der Masse bestimmt, ignoriert wird.
+
+  \begin{table}[htbp]
+    \centering
+    \caption{Ermittelte Verdampfungswärme.}
+    \label{tab:ergebnis_L}
+    \sisetup{
+      round-mode=places,
+      round-precision=3,
+    }
+    \begin{tabular}{
+        l@{}
+        S[table-format=5.3] @{${}\pm{}$} S[table-format=3.3]}
+      \toprule
+      & \multicolumn{2}{c}{$ L / \si{\joule\per\mol}$} \\
+      \midrule
+      \input{table_verdampfungswärme.tex}
+      \bottomrule
+    \end{tabular}
+  \end{table}
 
   \begin{table}[htbp]
     \centering

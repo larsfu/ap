@@ -50,6 +50,7 @@ pb += p_offset
 #Fehler auf Drücke anwenden
 pa = unp.uarray(pa, 0.2)
 pb = unp.uarray(pb, 1.0)
+dampf_p = unp.uarray(dampf_p, np.append(np.ones(15)*0.2, np.ones(15)*1))
 
 #Drücke in Pascal umrechnen
 pa *= 100000
@@ -101,13 +102,13 @@ test_T2 *= wärmekapazität
 verhältnis = ν / ν_ideal
 
 #Auswertung der Dampfdruckkurve
-dampf_p_log = np.log(dampf_p)
+dampf_p_log = unp.log(dampf_p)
 dampf_T_reziprok = 1 / dampf_T
 
 #Lineare Regression des logarithmierten Drucks über der reziproken Temperatur
-result = linregress(dampf_T_reziprok, dampf_p_log) # (slope, intercept, r_value, p_value, std_err)
+result = linregress(dampf_T_reziprok, unp.nominal_values(dampf_p_log)) # (slope, intercept, r_value, p_value, std_err)
 L = -unc.ufloat(result[0], result[4]) * R
-maketable((R, L), "build/table_verdampfungswärme.tex", False)
+maketable([L], "build/table_verdampfungswärme.tex", False)
 
 #Massendurchsatz berechnen
 m = -test_T2 / L
@@ -132,14 +133,16 @@ maketable((test_points, N), "build/table_kompressorleistung.tex", False)
 #Selbiges für die Messdaten
 maketable((np.int_(t), T1, T2, np.int_(unp.nominal_values(pa)/1000), np.int_(unp.nominal_values(pb)/1000), np.int_(P)), "build/table_data.tex", False)
 #Und die Dampfdruckkurve
-maketable((dampf_T, np.int_(dampf_p/1000)), "build/table_dampfdruck.tex", False)
+maketable((dampf_T, np.int_(unp.nominal_values(dampf_p)/1000)), "build/table_dampfdruck.tex", False)
 
 #Auswerte-Stellen für die Fits generieren
 x = np.linspace(0, 1800, 1000)
 
 #Temperaturen plotten
-plt.errorbar(t, T1, yerr=np.ones(len(t)) * sigma_T, fmt = 'r.', label='$T_1$')
-plt.errorbar(t, T2, yerr=np.ones(len(t)) * sigma_T, fmt = 'b.', label='$T_2$')
+#plt.errorbar(t, T1, yerr=np.ones(len(t)) * sigma_T, fmt = 'r.', label='$T_1$')
+#plt.errorbar(t, T2, yerr=np.ones(len(t)) * sigma_T, fmt = 'b.', label='$T_2$')
+plt.plot(t, T1, 'rx', label='$T_1$')
+plt.plot(t, T2, 'bx', label='$T_2$')
 
 #Temperatur-Fits plotten
 plt.plot(x, T(x, *params1), 'r-', label='Fit für $T_1$')
@@ -159,7 +162,7 @@ plt.clf()
 
 #Dampfdruckkurve plotten (+ Lineare Regression)
 x = np.linspace(0.0025, 0.004, 10)
-plt.plot(dampf_T_reziprok, dampf_p_log, 'rx', label='Dampfdruckkurve')
+plt.errorbar(dampf_T_reziprok, unp.nominal_values(dampf_p_log), fmt='r.', yerr=unp.std_devs(dampf_p_log), label='Dampfdruckkurve')
 plt.plot(x, result[0] * x + result[1], 'b-', label='Lineare Regression')
 plt.xlim(0.00265, 0.0039)
 
