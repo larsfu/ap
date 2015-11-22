@@ -46,6 +46,7 @@ dampf_T = C2K(dampf_T)
 #Druck-Offset anwenden
 pa += p_offset
 pb += p_offset
+dampf_p += p_offset
 
 #Fehler auf Drücke anwenden
 pa = unp.uarray(pa, 0.2)
@@ -107,6 +108,7 @@ dampf_T_reziprok = 1 / dampf_T
 
 #Lineare Regression des logarithmierten Drucks über der reziproken Temperatur
 result = linregress(dampf_T_reziprok, unp.nominal_values(dampf_p_log)) # (slope, intercept, r_value, p_value, std_err)
+print(-unc.ufloat(result[0], result[4]))
 L = -unc.ufloat(result[0], result[4]) * R
 maketable([L], "build/table_verdampfungswärme.tex", False)
 
