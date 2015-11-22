@@ -11,7 +11,7 @@
   \end{equation}
   Der dort auftretende Differentialquotient $\frac {\mathrm{d}T_{1}}{\mathrm{d}t}$ lässt sich durch einen Fit der Messdaten an eine Funktion der Form
   \begin{equation}
-    T(t) = \frac{A t^\alpha}{1+Bt^\alpha} + C
+    T(t) = A t^2 + Bt + C
   \end{equation}
   errechnen. Die Messdaten ergeben die in Tabelle \ref{tab:koeffizienten} angegebenen Koeffizienten (von Einheiten wurde mangels physikalischen Sinns abgesehen):
 
@@ -20,32 +20,43 @@
     \caption{Koeffizienten des nichtlinearen Fits.}
     \label{tab:koeffizienten}
     \sisetup{
-      round-mode=places,
-      round-precision=1,
+      round-mode=figures,
+      round-precision=3,
     }
     \begin{tabular}{
-        l@{}
-        S[table-format=1.1e2] @{${}\pm{}$} S[table-format=1.1e2]
-        S[table-format=1.1e2] @{${}\pm{}$} S[table-format=1.1e2]
-        S[table-format=1.1e1] @{${}\pm{}$} S[table-format=1.1e2]
-        S[table-format=1.1e0] @{${}\pm{}$} S[table-format=1.1e2]}
+        c
+        S[table-format=1.2e2] @{${}\pm{}$} S[table-format=1.2e2]
+        S[table-format=1.2e2] @{${}\pm{}$} S[table-format=1.2e2]
+        S[table-format=1.2e1] @{${}\pm{}$} S[table-format=1.2e2]}
       \toprule
-      & \multicolumn{2}{c}{$A$}
-      & \multicolumn{2}{c}{$B$}
-      & \multicolumn{2}{c}{$C$}
-      & \multicolumn{2}{c}{$\alpha$} \\
+      Messpunkt & \multicolumn{2}{c}{$A / \si{\kelvin\per\second\squared}$}
+      & \multicolumn{2}{c}{$B / \si{\kelvin\per\second}$}
+      & \multicolumn{2}{c}{$C / \si{\kelvin}$}\\
       \midrule
-      \input{coefficients.tex}
+      $T_1$
+      \input{coefficients1.tex}
+      $T_2$
+      \input{coefficients2.tex}
       \bottomrule
     \end{tabular}
   \end{table}
   Mithilfe der zeitlichen Ableitung von $T(t)$
-
   \begin{equation}
-    \frac{\mathrm{d}T(t)}{\mathrm{d}t} = \frac{αAt^{α - 1} \cdot (1 + B t^α) - A t^α \cdot αBt^{α - 1}}{(1 + B t^ α)^ 2}
+    \frac{\mathrm{d}T(t)}{\mathrm{d}t} = 2At + B
   \end{equation}
-
-  und der Wärmekapazität $c_w = \SI{4.2 +- 0.04}{\kilo\joule\per\kilogram\per\kelvin}$ \cite[Dba2]{wärmeatlas} sowie Dichte von Wasser $\rho = \SI{994(10)}{\kilogram\per\meter\cubed}$ \cite[Dba2]{wärmeatlas} und der angegebenen Wärmekapazität der Apparatur $c_km_k = \SI{750(10)}{\joule\per\kelvin}$ kann dann die Güteziffer zu verschiedenen Zeitpunkten ermittelt werden.
+  und der Wärmekapazität
+  \begin{align}
+    c_w = \SI{4.2 +- 0.04}{\kilo\joule\per\kilogram\per\kelvin},
+  \end{align}
+  sowie Dichte von Wasser
+  \begin{align}
+    \rho = \SI{994(10)}{\kilogram\per\meter\cubed},
+  \end{align}
+  deren Wert nach \cite[Dba2]{wärmeatlas} im relevanten Temperaturbereich gemittelt wurden und der angegebenen Wärmekapazität der Apparatur
+  \begin{align}
+    c_km_k = \SI{750(10)}{\joule\per\kelvin}
+  \end{align}
+  kann dann die Güteziffer zu verschiedenen Zeitpunkten ermittelt werden.
 
   Im Vergleich dazu sollte nach (\ref{eqn:güte_ideal}) zu den selben Zeitpunkten die Güteziffer einer idealen Wärmepumpe ermittelt werden, die bei den entsprechenden Temperaturniveaus arbeitet.
   Die Ergebnisse sind Tabelle \ref{tab:ergebnisse_güte} und Abb. \ref{fig:temperatur} zu entnehmen.
@@ -55,20 +66,22 @@
     \caption{Ermittelte Gütezahlen.}
     \label{tab:ergebnisse_güte}
     \sisetup{
-      round-mode=places,
+      round-mode=figures,
       round-precision=3,
     }
     \begin{tabular}{
         l@{}
         S[table-format=4.0]
-        S[table-format=1.3] @{${}\pm{}$} S[table-format=1.3]
-        S[table-format=2.3] @{${}\pm{}$} S[table-format=1.3]
-        S[table-format=2.3] @{${}\pm{}$} S[table-format=1.3]}
+        S[table-format=3.0] @{${}\pm{}$} S[table-format=2.1]
+        S[table-format=1.2] @{${}\pm{}$} S[table-format=1.3]
+        S[table-format=2.2] @{${}\pm{}$} S[table-format=1.5]
+        S[table-format=1.4] @{${}\pm{}$} S[table-format=1.5]}
       \toprule
       & $t / \si{\second}$
-      & \multicolumn{2}{c}{$ν$}
+      & \multicolumn{2}{c}{$\sfrac{\mathrm{d}T}{\mathrm{d}t}$}
+      & \multicolumn{2}{c}{$ν_{\mathrm{real}}$}
       & \multicolumn{2}{c}{$ν_{\mathrm{ideal}}$}
-      & \multicolumn{2}{c}{$ν / ν_{\mathrm{ideal}}$} \\
+      & \multicolumn{2}{c}{$ν_{\mathrm{real}} / ν_{\mathrm{ideal}}$} \\
       %& \multicolumn{2}{c}{$\dot m / \si{\gram\per\second}$}
       %& \multicolumn{2}{c}{$N / \si{\watt}$} \\
       \midrule
@@ -90,24 +103,38 @@
   \begin{equation}
     \frac{\mathrm{d}m}{\mathrm{d}t} = \dot m = \frac{(m_{2} c_w + m_k c_k)}{L}\frac {\mathrm{d}T_{2}}{\mathrm{d}t}
   \end{equation}
-  umgestellt werden. Der Differentialquotient $\frac {\mathrm{d}T_{2}}{\mathrm{d}t}$ wird exakt wie in Abschnitt \ref{subsec:güteziffer} mittels nichtlinearer Ausgleichsrechnung bestimmt. Die Verdampfungswärme $L$ lässt sich aus der (vom Manometer abgelesenen) Dampfdruckkurve von Dichlordifluormethan (Tabelle \ref{tab:dampfdruck}) mithilfe einer linearen Regression des logarithmierten Drucks über die reziproke Temperatur ermitteln. Es gilt nach \cite{anleitung203}:
+  umgestellt werden. Der Differentialquotient $\frac {\mathrm{d}T_{2}}{\mathrm{d}t}$ wird exakt wie in Abschnitt \ref{subsec:güteziffer} mittels nichtlinearer Ausgleichsrechnung bestimmt. Die Verdampfungswärme $L$ lässt sich aus der (vom Manometer abgelesenen) Dampfdruckkurve von Dichlordifluormethan (Tabelle \ref{tab:dampfdruck}) mithilfe einer linearen Regression des logarithmierten Drucks über die reziproke Temperatur ermitteln. Nach \cite{anleitung203} gilt folgende Näherung der Clausius-Clapeyron-Gleichung für Temperaturen $T \ll T_\mathrm{kritisch}$:
   \begin{equation}
     \ln p = -\frac{L}{R} \frac {1}{T} + \mathrm{const.}
   \end{equation}
-  Damit ergibt sich $L$ zu $-R \cdot a$ mit der Steigung $a$ der Ausgleichsgeraden und der universellen Gaskonstante $R = \SI[separate-uncertainty=false]{8.3144598(48)}{\joule\per\mol\per\kelvin}$\cite{codata}. Der Durchsatz in \si{\mol\per\second} wird noch mit der molaren Masse $M = \SI{120.913}{\gram\per\mol}$\cite[267]{gase} des Kältemittels multipliziert um nicht nur die Anzahl der Moleküle, sondern die Masse zu erhalten. Eine grafische Darstellung der Dampfdruckkurve findet sich in Abb. \ref {fig:dampfdruck}, das Ergebnis für die Verdampfungswärme in Tabelle \ref{tab:ergebnis_L}, die Ergebnisse für den Massendurchsatz in Tabelle \ref{tab:ergebnisse_durchsatz}, wobei das negative Vorzeichen, welches die \enquote{Flussrichtung} der Masse bestimmt, ignoriert wird.
+  Damit ergibt sich
+  \begin{equation}
+    L = -R \cdot a
+  \end{equation}
+  mit der Steigung $a$ der Ausgleichsgeraden und der universellen Gaskonstante
+  \begin{equation}
+    R = \SI[separate-uncertainty=false]{8.3144598(48)}{\joule\per\mol\per\kelvin}
+  \end{equation}
+  \cite{codata}. Der Durchsatz in \si{\mol\per\second} wird noch mit der molaren Masse
+  \begin{equation}
+    M = \SI{120.913}{\gram\per\mol}
+  \end{equation}
+  \cite[267]{gase} des Kältemittels multipliziert um nicht nur die Anzahl der Moleküle, sondern die Masse zu erhalten. Eine grafische Darstellung der Dampfdruckkurve findet sich in Abb. \ref {fig:dampfdruck}, das Ergebnis für die Verdampfungswärme in Tabelle \ref{tab:ergebnis_L}, die Ergebnisse für den Massendurchsatz in Tabelle \ref{tab:ergebnisse_durchsatz}, wobei das negative Vorzeichen, welches die \enquote{Flussrichtung} der Masse bestimmt, ignoriert wird.
 
   \begin{table}[htbp]
     \centering
-    \caption{Ermittelte Verdampfungswärme.}
+    \caption{Ermittelte Steigung und Verdampfungswärme.}
     \label{tab:ergebnis_L}
     \sisetup{
-      round-mode=places,
-      round-precision=3,
+      round-mode=figures,
+      round-precision=4,
     }
     \begin{tabular}{
         l@{}
-        S[table-format=5.3] @{${}\pm{}$} S[table-format=3.3]}
+        S[table-format=4.0] @{${}\pm{}$} S[table-format=1.4]
+        S[table-format=5.0, round-precision=5] @{${}\pm{}$} S[table-format=2.1, round-precision=3]}
       \toprule
+      & \multicolumn{2}{c}{$ a / \si{\kelvin}$}
       & \multicolumn{2}{c}{$ L / \si{\joule\per\mol}$} \\
       \midrule
       \input{table_verdampfungswärme.tex}
@@ -161,7 +188,7 @@
   \end{table}
 
 \subsection{Mechanische Kompressorleistung}
-  Zuletzt sollte die menchanische Leistung des Kompressors ermittelt werden. Diese ist nach (\ref{eqn:mechleistung})
+  Zuletzt soll die mechanische Leistung des Kompressors ermittelt werden. Diese ist nach (\ref{eqn:mechleistung})
   \begin{equation}
     N_\mathrm{mech} = \frac{1}{\kappa-1}\biggl(p_b \sqrt[\kappa]{\frac{p_a}{p_b}}-p_a\biggr)\frac{1}{\rho} \frac{\mathrm{d}m} {\mathrm{d}t}.
   \end{equation}
@@ -180,22 +207,31 @@
     \rho &= \frac {\rho_0 T_0 p_a}{T_2 p_0}
   \end{align}
 
-  In der Versuchsanleitung\cite{anleitung206} sind die Werte $\rho_{0} = \SI{5.51}{\gram\per\liter}$, $p_{0} = \SI{1}{\bar}$, $T_{0} = \SI{0}{\celsius}$ und $\kappa = \num{1.14}$ gegeben, die restlichen Größen werden den Messdaten entnommen. Die berechneten mechanischen Kompressorleistungen finden sich in Tabelle \ref{tab:ergebnisse_leistung}.
+  In der Versuchsanleitung\cite{anleitung206} sind die Werte
+  \begin{align}
+    \rho_{0} &= \SI{5.51}{\gram\per\liter},\\
+    p_{0} &= \SI{1}{\bar},\\
+    T_{0} &= \SI{0}{\celsius},\\
+    \kappa &= \num{1.14}
+  \end{align}
+  gegeben, die restlichen Größen werden den Messdaten entnommen. Die berechneten mechanischen Kompressorleistungen finden sich in Tabelle \ref{tab:ergebnisse_leistung}.
 
   \begin{table}[htpb]
     \centering
     \caption{Ermittelte Leistungen.}
     \label{tab:ergebnisse_leistung}
     \sisetup{
-      round-mode=places,
+      round-mode=figures,
       round-precision=3,
     }
     \begin{tabular}{
         l@{}
         S[table-format=4.0]
-        S[table-format=2.3] @{${}\pm{}$} S[table-format=2.3]}
+        S[table-format=2.1] @{${}\pm{}$} S[table-format=1.2]
+        S[table-format=2.2] @{${}\pm{}$} S[table-format=1.2]}
       \toprule
       & $t / \si{\second}$
+      & \multicolumn{2}{c}{$\rho / \si{\kilo\gram\per\meter\cubed}$}
       & \multicolumn{2}{c}{$N_{\mathrm{mech}} / \si{\watt}$} \\
       \midrule
       \input{table_kompressorleistung.tex}

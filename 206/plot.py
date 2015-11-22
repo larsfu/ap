@@ -59,22 +59,27 @@ pb *= 100000
 dampf_p *= 100000
 
 #Fit-Funktion für die Temperaturkurve (siehe 5b)
-def T(t, A, B, C, α):
-    return A * t ** α / (1 + B * t ** α) + C
+#def T(t, A, B, C, α):
+#    return A * t ** α / (1 + B * t ** α) + C
+def T(t, A, B, C):
+    return A * t ** 2 + B * t  + C
 
 #Ableitung der Fit-Funktion für die Differentialquotienten
-def dTdt(t, A, B, C, α):
-    return ((A * α * t ** (α - 1) * (1 + B * t ** α)) - (A * t ** α) * (B * α * t ** (α - 1))) / (1 + B * t ** α) ** 2
+#def dTdt(t, A, B, C, α):
+#    return ((A * α * t ** (α - 1) * (1 + B * t ** α)) - (A * t ** α) * (B * α * t ** (α - 1))) / (1 + B * t ** α) ** 2
+def dTdt(t, A, B, C):
+    return 2 * A * t + B
 
 #Curve Fits an die Messwerte mit ausprobierten Anfangswerten
-params1, pcov1 = curve_fit(T, t, T1, maxfev = 1000000, p0 = (1, 1e-2, 295, 1.5), sigma = sigma_T)
-params2, pcov2 = curve_fit(T, t, T2, maxfev = 1000000, p0 = (-0.01, 1e-2, 295, 1.5), sigma = sigma_T)
+params1, pcov1 = curve_fit(T, t, T1, maxfev = 1000000, p0 = (1, 1e-2, 295), sigma = sigma_T)
+params2, pcov2 = curve_fit(T, t, T2, maxfev = 1000000, p0 = (-0.01, 1e-2, 295), sigma = sigma_T)
 
 #Parameter mit Standardfehler aus Kovarianzmatrix berechnen
 params1_u = unc.correlated_values(params1, pcov1)
 params2_u = unc.correlated_values(params2, pcov2)
 
-maketable(params1_u, "build/coefficients.tex", True)
+maketable(params1_u, "build/coefficients1.tex", True)
+maketable(params2_u, "build/coefficients2.tex", True)
 
 #4 Testzeitpunkte in der Messung
 test_points = np.array([120, 600, 990, 1590])
@@ -110,7 +115,7 @@ dampf_T_reziprok = 1 / dampf_T
 result = linregress(dampf_T_reziprok, unp.nominal_values(dampf_p_log)) # (slope, intercept, r_value, p_value, std_err)
 print(-unc.ufloat(result[0], result[4]))
 L = -unc.ufloat(result[0], result[4]) * R
-maketable([L], "build/table_verdampfungswärme.tex", False)
+maketable([-unc.ufloat(result[0], result[4]),L], "build/table_verdampfungswärme.tex", False)
 
 #Massendurchsatz berechnen
 m = -test_T2 / L
@@ -129,9 +134,9 @@ N = 1 / (κ - 1) * (test_pb * (test_pa / test_pb) ** (1 / κ) - test_pa) / ρ * 
 #print(N)
 
 #Tabelle der Ergebnisse generieren und speichern
-maketable((test_points, ν, ν_ideal, verhältnis), "build/table_guete.tex", False)
+maketable((test_points, test_T1, ν, ν_ideal, verhältnis), "build/table_guete.tex", False)
 maketable((test_points, m), "build/table_massendurchsatz.tex", False)
-maketable((test_points, N), "build/table_kompressorleistung.tex", False)
+maketable((test_points, ρ, N), "build/table_kompressorleistung.tex", False)
 #Selbiges für die Messdaten
 maketable((np.int_(t), T1, T2, np.int_(unp.nominal_values(pa)/1000), np.int_(unp.nominal_values(pb)/1000), np.int_(P)), "build/table_data.tex", False)
 #Und die Dampfdruckkurve
