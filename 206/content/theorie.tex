@@ -4,7 +4,20 @@
 Im folgenden Experiment wird die Wärmepumpe, welche die Wärmeenergie zwischen zwei Wärmereservoirs transportiert, untersucht. Um den Transport vom kälteren zum wärmeren Reservoir zu ermöglichen, muss Energie aufgewendet werden, was durch die Wärmepumpe gewährleistet wird.
 
 \subsection{Güteziffer}
-Aus dem ersten und zweiten Hauptsatz der Thermodynamik folgt die Formel für die Güteziffer einer idealen Wärmepumpe, welche das Verhältnis der Wärmemenge und der aufzuwendenden Arbeit beschreibt.
+Die ersten beiden Hauptsätze der Thermodynamik lauten
+\begin{equation}
+1.  \Delta U = \Delta Q + W
+\end {equation}
+mit $U$ als innerer Energie, $Q$ als Wärme und $T$ als Temepratur.
+\begin{equation}
+2.  \Delta S = \frac{\Delta Q}{T}
+\end{equation}
+für reversible Prozesse mit $\Delta S$ als Entropieänderung, $Q$ als Wärme und $T$ als Temeperatur. Für irreversible Prozesse gilt
+\begin{equation}
+\Delta S > \frac{\Delta Q}{T}
+\end {equation}
+
+Aus ihnen folgt die Formel für die Güteziffer einer idealen Wärmepumpe, welche das Verhältnis der Wärmemenge und der aufzuwendenden Arbeit beschreibt.
 
 \begin{equation}
 \label{eqn:güte_ideal}
@@ -13,7 +26,7 @@ Aus dem ersten und zweiten Hauptsatz der Thermodynamik folgt die Formel für die
 
 mit $Q_{1}$ als abgegebene Wärmemenge an das wärmere Reservoir, $Q_{2}$ als dem wärmeren Reservoir entzogene Wärmemenge, $T_{1}$ als Temperatur des wärmeren und $T_{2}$ als Temperatur des kälteren Reservoirs.
 
-Die Güteziffer der idealisierten Wärmepumpe ergibt sich aus der Annahme, dass der Prozess reversibel ist. Da im realistischen Fall der Prozess nicht vollständig reversibel ist, gilt nun:
+Die Güteziffer der idealisierten Wärmepumpe ergibt sich aus der Annahme, dass der Prozess reversibel ist, was bedeutet, das die aufgewendete Energie beim Umkehren des Prozesses vollständig zurück gewonnen werden kann. Da im realistischen Fall der Prozess nicht vollständig reversibel ist, gilt nun:
 
 \begin{equation}
 ν_{\mathrm{real}} < \frac{T_{1}}{T_{1} - T_{2}}
@@ -21,7 +34,6 @@ Die Güteziffer der idealisierten Wärmepumpe ergibt sich aus der Annahme, dass 
 
 Je kleiner die Temperaturdifferenz der Reservoirs desto kleiner ist die aufzuwendende Arbeit.
 Im folgenden soll die reale Güteziffer berechnet werden. Diese errechnet sich aus $\frac{\Delta T_{1}}{\Delta t}$, woraus sich die Güteziffer bestimmen lässt.
-Aufgrund von Ausgleichsrechnung durch eine Fitfunktion wird im weiteren Verlauf mit Differentialquotienten anstelle von Differenzenquotienten gerechnet.
 
 \begin{equation}
 \label{eqn:güteziffer1}
@@ -32,10 +44,10 @@ Dabei ist $m_{1} c_w$ die Wärmekapazität des Wassers im Reservoir 1 und $m_k c
 
 \begin{equation}
 \label{eqn:güteziffer2}
-ν = \frac{\mathrm{d}Q_{1}}{\mathrm{d}t} \frac{1}{N}
+ν_{\mathrm{real}} = \frac{\mathrm{d}Q_{1}}{\mathrm{d}t} \frac{1}{N}
 \end{equation}
 
-mit N als gemittelte Leistungsaufnahme des Kompressors.
+mit $N$ als gemittelte Leistungsaufnahme des Kompressors.
 
 \subsection{Massendurchsatz}
 Auch der Massendurchsatz lässt sich mit Hilfe des Differentialquotienten berechnen. Für die entzogene Wärmemenge des zweiten Reservoirs gilt
@@ -54,7 +66,7 @@ Der Wärmeentzug erfolgt durch Verdampfung und deshalb gilt außerdem
 \frac{\mathrm{d}Q_{2}}{\mathrm{d}t} = L\frac{\mathrm{d}m}{\mathrm{d}t}
 \end{equation}
 
-Bei bekannter Verdampfungswärme L kann der Massendurchsatz berechnet werden.
+Bei bekannter Verdampfungswärme $L$ kann der Massendurchsatz berechnet werden.
 
 \subsection{Bestimmung der mechanischen Kompressorleistung}
 Um das Volumen von $V_a$ auf $V_b$ zu reduzieren, leistet der Kompressor die Arbeit $A_m$
@@ -63,7 +75,7 @@ Um das Volumen von $V_a$ auf $V_b$ zu reduzieren, leistet der Kompressor die Arb
 A_m = - \int_{V_a}^{V_b} p \, \mathrm{d}V
 \end{equation}
 
-Nimmt man an, dass es sich um eine adiabatische Kompression handelt, gilt die Poissonsche Gleichung.
+Unter der Annahme, dass es sich um eine adiabatische Kompression handelt, gilt die Poissonsche Gleichung.
 
 \begin{equation}
 p_a V_a^{\kappa} = p_b V_b^{\kappa} = pV^{\kappa}
@@ -74,10 +86,10 @@ Damit folgt für die mechanische Kompressorleistung
 
 \begin{equation}
 \label{eqn:mechleistung}
-N_\text{mech} = \frac{\mathrm{d}A_m}{\mathrm{d}t} = \frac{1}{\kappa -1}\left(p_b \sqrt[\kappa]{\frac{p_a}{p_b}}-p_a\right)\frac{\mathrm{d}V_a}{\mathrm{d}t} = \frac{1}{\kappa-1}\left(p_b \sqrt[\kappa]{\frac{p_a}{p_b}}-p_a\right)\frac{1}{\rho} \frac{\mathrm{d}m} {\mathrm{d}t}
+N_\text{mech} = \frac{1}{\kappa-1}\left(p_b \sqrt[\kappa]{\frac{p_a}{p_b}}-p_a\right)\frac{1}{\rho} \frac{\mathrm{d}m} {\mathrm{d}t}
 \end{equation}
 
-mit $\rho$ als Dichte des gasförmigen Transportmediums (beim Druck $p_a$), welches man aus der idealen Gasgleichung bestimmen kann.
+mit $\rho$ als Dichte des gasförmigen Transportmediums (beim Druck $p_a$), welches aus der idealen Gasgleichung bestimmt werden kann.
 
 \section{Aufgabe}
 \label{sec:Aufgabe}
