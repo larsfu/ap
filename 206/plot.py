@@ -89,6 +89,8 @@ test_T1 = dTdt(test_points, *params1_u)
 test_T2 = dTdt(test_points, *params2_u)
 
 #Wärmeleistung ins warme Reservoir bestimmen
+print("c_w")
+print(v*rho_wasser*c_w)
 wärmekapazität = (unc.ufloat(750, 10) + c_w*v*rho_wasser)
 test_T1 *= wärmekapazität
 test_T2 *= wärmekapazität

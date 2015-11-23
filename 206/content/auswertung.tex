@@ -52,15 +52,40 @@
   \begin{align}
     \rho = \SI{994(10)}{\kilogram\per\meter\cubed},
   \end{align}
-  deren Wert nach \cite[Dba2]{wärmeatlas} im relevanten Temperaturbereich gemittelt wurden und der angegebenen Wärmekapazität der Apparatur
+  deren Wert nach \cite[Dba2]{wärmeatlas} im relevanten Temperaturbereich gemittelt wurden, des Volumen des Wassers im Reservoir
+  \begin{align}
+    V = \SI{4000 +- 0.4}{\milli\liter},
+  \end{align}
+  der daraus resultierenden Masse des Wassers
+  \begin{align}
+    m_1 = \SI{4.0+-0.4}{\kilogram},
+  \end{align}
+  und damit Wärmekapazität
+  \begin{align}
+    C = \SI{1.67(17)e4}{\joule\per\kelvin}
+  \end{align}
+   und der angegebenen Wärmekapazität der Apparatur
   \begin{align}
     c_km_k = \SI{750(10)}{\joule\per\kelvin}
   \end{align}
   kann dann die Güteziffer zu verschiedenen Zeitpunkten ermittelt werden.
 
-  Im Vergleich dazu sollte nach (\ref{eqn:güte_ideal}) zu den selben Zeitpunkten die Güteziffer einer idealen Wärmepumpe ermittelt werden, die bei den entsprechenden Temperaturniveaus arbeitet.
-  Die Ergebnisse sind Tabelle \ref{tab:ergebnisse_güte} und Abb. \ref{fig:temperatur} zu entnehmen.
-
+  Im Vergleich dazu sollte nach (\ref{eqn:güte_ideal}) zu den selben Zeitpunkten die Güteziffer einer idealen Wärmepumpe ermittelt werden, die bei den entsprechenden Temperaturniveaus arbeitet. Der Fehler für diese Größe wird mit
+  \begin{equation}
+    \Delta \nu_\mathrm{ideal} = \sqrt{\frac{1}{(T_1-T_2)^4} \cdot (T_2^2 \Delta T_1^2 + T_1^2 \Delta T_2^2)}
+  \end{equation}
+  bestimmt.
+  Die Ergebnisse sind Tabelle \ref{tab:ergebnisse_güte} und Abb. \ref{fig:temperatur} zu entnehmen, wobei der Fehler der realen Güteziffer
+  \begin{align}
+    (\Delta \nu_\mathrm{real})^2 &= \frac{1}{N^2}((c_w \dot{T}_1 V \Delta \rho)^2 + (c_w \rho \dot{T}_1 \Delta V)^2 \\
+    &\quad + (\rho \dot{T}_1 V \Delta c_w)^2 + (\dot{T}_1 \Delta C)^2 \\ &\quad + ((c_w \rho V + C) \Delta \dot{T}_1)^2)
+  \end{align}
+  \begin{align}
+  \intertext{mit}
+    m_k c_k &= C
+  \intertext{und}
+    \frac{\mathrm{d}T_1(t)}{\mathrm{d}t} &= \dot{T}_1
+  \end{align}
   \begin{table}[h]
     \centering
     \caption{Ermittelte Gütezahlen.}
@@ -78,7 +103,7 @@
         S[table-format=1.4] @{${}\pm{}$} S[table-format=1.5]}
       \toprule
       & $t / \si{\second}$
-      & \multicolumn{2}{c}{$\sfrac{\mathrm{d}T}{\mathrm{d}t}$}
+      & \multicolumn{2}{c}{$\sfrac{\mathrm{d}T}{\mathrm{d}t} / \si{\kelvin\per\second}$}
       & \multicolumn{2}{c}{$ν_{\mathrm{real}}$}
       & \multicolumn{2}{c}{$ν_{\mathrm{ideal}}$}
       & \multicolumn{2}{c}{$ν_{\mathrm{real}} / ν_{\mathrm{ideal}}$} \\
@@ -103,7 +128,12 @@
   \begin{equation}
     \frac{\mathrm{d}m}{\mathrm{d}t} = \dot m = \frac{(m_{2} c_w + m_k c_k)}{L}\frac {\mathrm{d}T_{2}}{\mathrm{d}t}
   \end{equation}
-  umgestellt werden. Der Differentialquotient $\frac {\mathrm{d}T_{2}}{\mathrm{d}t}$ wird exakt wie in Abschnitt \ref{subsec:güteziffer} mittels nichtlinearer Ausgleichsrechnung bestimmt. Die Verdampfungswärme $L$ lässt sich aus der (vom Manometer abgelesenen) Dampfdruckkurve von Dichlordifluormethan (Tabelle \ref{tab:dampfdruck}) mithilfe einer linearen Regression des logarithmierten Drucks über die reziproke Temperatur ermitteln. Nach \cite{anleitung203} gilt folgende Näherung der Clausius-Clapeyron-Gleichung für Temperaturen $T \ll T_\mathrm{kritisch}$:
+  umgestellt werden. Der Differentialquotient $\frac {\mathrm{d}T_{2}}{\mathrm{d}t}$ wird exakt wie in Abschnitt \ref{subsec:güteziffer} mittels nichtlinearer Ausgleichsrechnung bestimmt. Die Fehlerformel für $\dot m$ lautet
+  \begin{align}
+    (\Delta \dot m)^2 &= \frac{1}{L^2}((c_w \dot{T}_2 V \Delta \rho)^2 + (c_w \rho \dot{T}_2 \Delta V)^2 \\
+    &\quad + (\rho \dot{T}_2 V \Delta c_w)^2 + (\dot{T}_2 \Delta C)^2 \\ &\quad + ((c_w \rho V + C) \Delta \dot{T}_2)^2).
+  \end{align}
+  Die Verdampfungswärme $L$ lässt sich aus der (vom Manometer abgelesenen) Dampfdruckkurve von Dichlordifluormethan (Tabelle \ref{tab:dampfdruck}) mithilfe einer linearen Regression des logarithmierten Drucks über die reziproke Temperatur ermitteln. Nach \cite{anleitung203} gilt folgende Näherung der Clausius-Clapeyron-Gleichung für Temperaturen $T \ll T_\mathrm{kritisch}$:
   \begin{equation}
     \ln p = -\frac{L}{R} \frac {1}{T} + \mathrm{const.}
   \end{equation}
@@ -115,7 +145,11 @@
   \begin{equation}
     R = \SI[separate-uncertainty=false]{8.3144598(48)}{\joule\per\mol\per\kelvin}
   \end{equation}
-  \cite{codata}. Der Durchsatz in \si{\mol\per\second} wird noch mit der molaren Masse
+  \cite{codata}. Die Gaußsche Fehlerformel für $L$ ist damit
+  \begin{equation}
+    \Delta L = \sqrt{a^2 (\Delta R)^2 + R^2 (\Delta a)^2}
+  \end{equation}
+  Der Durchsatz in \si{\mol\per\second} wird noch mit der molaren Masse
   \begin{equation}
     M = \SI{120.913}{\gram\per\mol}
   \end{equation}
@@ -147,13 +181,13 @@
     \caption{Ermittelte Massendurchsätze.}
     \label{tab:ergebnisse_durchsatz}
     \sisetup{
-      round-mode=places,
+      round-mode=figures,
       round-precision=3,
     }
     \begin{tabular}{
         l@{}
         S[table-format=4.0]
-        S[table-format=1.3] @{${}\pm{}$} S[table-format=1.3]}
+        S[table-format=1.3] @{${}\pm{}$} S[table-format=1.4]}
       \toprule
       & $t / \si{\second}$
       & \multicolumn{2}{c}{$\dot m / \si{\gram\per\second}$} \\
@@ -174,25 +208,78 @@
     \centering
     \caption{Dampfdruckkurve von Dichlordifluormethan.}
     \label{tab:dampfdruck}
-    \begin{tabular}{l@{}
-        S[table-format=3.2]
-        S[table-format=4.0]
-      }
-      \toprule
-      & $T / \si{\kelvin}$
-      & $p/ \si{\kilo\pascal}$\\
-      \midrule
-      \input{table_dampfdruck.tex}
-      \bottomrule
-    \end{tabular}
+    \begin{subtable}{.49\textwidth}
+      \centering
+      \begin{tabular}{
+          S[table-format=3.2]
+          S[table-format=4.0]
+        }
+        \toprule
+        $T / \si{\kelvin}$
+        & $p/ \si{\kilo\pascal}$\\
+        \midrule
+         259.15 & 200 \\
+         272.15 & 300 \\
+         281.15 & 400 \\
+         289.15 & 500 \\
+         295.15 & 600 \\
+         300.15 & 700 \\
+         306.15 & 800 \\
+         311.15 & 900 \\
+         315.15 & 1000 \\
+         319.15 & 1100 \\
+         323.15 & 1200 \\
+         327.15 & 1300 \\
+         329.15 & 1400 \\
+         332.15 & 1500 \\
+         336.15 & 1600 \\
+        \bottomrule
+      \end{tabular}
+    \end{subtable}
+    \begin{subtable}{.49\textwidth}
+      \centering
+      \begin{tabular}{
+          S[table-format=3.2]
+          S[table-format=4.0]
+        }
+        \toprule
+        $T / \si{\kelvin}$
+        & $p/ \si{\kilo\pascal}$\\
+        \midrule
+        338.15 & 1700 \\
+        340.15 & 1800 \\
+        343.15 & 1900 \\
+        345.15 & 2000 \\
+        348.15 & 2100 \\
+        350.15 & 2200 \\
+        353.15 & 2300 \\
+        355.15 & 2400 \\
+        358.15 & 2500 \\
+        360.15 & 2600 \\
+        362.15 & 2700 \\
+        365.15 & 2800 \\
+        368.15 & 2900 \\
+        369.15 & 3000 \\
+        370.15 & 3100 \\
+        \bottomrule
+      \end{tabular}
+    \end{subtable}
   \end{table}
 
+\newpage
 \subsection{Mechanische Kompressorleistung}
   Zuletzt soll die mechanische Leistung des Kompressors ermittelt werden. Diese ist nach (\ref{eqn:mechleistung})
   \begin{equation}
     N_\mathrm{mech} = \frac{1}{\kappa-1}\biggl(p_b \sqrt[\kappa]{\frac{p_a}{p_b}}-p_a\biggr)\frac{1}{\rho} \frac{\mathrm{d}m} {\mathrm{d}t}.
   \end{equation}
-  Dabei ist die Dichte $\rho$ mithilfe der allgemeinen Gasgleichung zu bestimmen:
+  Die Messunsicherheit beträgt
+  \begin{align}
+    (\Delta N_\mathrm{mech})²
+    &= \left(\frac{1}{\kappa - 1}\left(p_b \sqrt[\kappa]{\frac{p_a}{p_b}} - p_a\right) \frac{1}{\rho} \Delta \dot m \right)² \\
+    &\quad + \left(\frac{1}{\kappa - 1}\left(p_b \sqrt[\kappa]{\frac{p_a}{p_b}} - p_a\right) \frac{1}{\rho^2} \dot m \Delta \rho \right)² \\
+    &\quad + \left(\frac{1}{\kappa - 1} \frac{1}{\rho} \dot m \left(\left(\frac{p_a}{p_b}\right)^{\sfrac{1}{\kappa}-1} -1 \right) \Delta p_a\right)² \\ &\quad + \left(\frac{1}{\kappa - 1} \frac{1}{\rho} \dot m \left(\sqrt[\kappa]{\frac{p_a}{p_b}} - p_a \left(\frac{p_a}{p_b}\right)^{\sfrac{1}{\kappa} - 1}\right) \Delta p_b \right)²
+  \end{align}
+  Die Dichte $\rho$ ist mithilfe der allgemeinen Gasgleichung zu bestimmen:
 
   \begin{align}
     pV &=nRT \\
@@ -205,6 +292,10 @@
     \frac{p_0}{\rho_0 T_0} = \frac{p_2}{T_2 \rho_2} &\Leftrightarrow \rho_2 = \frac{\rho_0 T_0 p_2}{T_2 p_0}
     \intertext{mit $\rho_{2} = \rho$ und $p_{2} = p_a$ also}
     \rho &= \frac {\rho_0 T_0 p_a}{T_2 p_0}
+  \end{align}
+  \begin{align}
+    \intertext{damit folgt für die Messunsicherheit}
+    \Delta \rho &= \sqrt{\left(\frac{\rho_0 T_0}{T_2 p_0} \Delta p_a\right)² + \left(\frac{\rho_0 T_0 p_a}{p_0 T_2^2} \Delta T_2\right)²}
   \end{align}
 
   In der Versuchsanleitung\cite{anleitung206} sind die Werte
@@ -238,7 +329,6 @@
       \bottomrule
     \end{tabular}
   \end{table}
-  \newpage
 
   \newgeometry{top=3cm, bottom=5cm}
   \subsection{Messdaten}
