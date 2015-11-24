@@ -17,6 +17,9 @@ build/plot.pdf: auswertung/plot.py matplotlibrc | build
 build/plot2.pdf: auswertung/plot2.py matplotlibrc | build
 	TEXINPUTS="$(pwd):$(pwd)/../latex-template/:" PYTHONPATH="../" python auswertung/plot2.py
 
+build/plot3.pdf: auswertung/plot3.py matplotlibrc | build
+	TEXINPUTS="$(pwd):$(pwd)/../latex-template/:" PYTHONPATH="../" python auswertung/plot3.py
+
 # hier weitere Abhängigkeiten für build/main.pdf deklarieren:
 build/main.pdf: build/plot2.pdf build/plot.pdf
 
