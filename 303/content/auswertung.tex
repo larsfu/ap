@@ -53,6 +53,8 @@ Wird die Ausgangsspannung in Abhängigkeit von der Phasenverschiebung gemessen, 
   \centering
   \caption{Ausgangsspannung ohne Rauschen}
   \label{tab:ohne_Rauschen}
+  \begin{subtable}{0.48\textwidth}
+  \centering
   \begin{tabular}{cc}
     \toprule {$\phi \:/\: °$} & {$U \:/\: \si{\volt}$} \\
     \midrule
@@ -68,6 +70,14 @@ Wird die Ausgangsspannung in Abhängigkeit von der Phasenverschiebung gemessen, 
      135 & -26.1 \\
      150 & -31.9  \\
      165 & -33.40 \\
+  \bottomrule
+  \end{tabular}
+  \end{subtable}
+  \begin{subtable}{0.48\textwidth}
+  \centering
+  \begin{tabular}{cc}
+    \toprule {$\phi \:/\: °$} & {$U \:/\: \si{\volt}$} \\
+    \midrule
      180 & -33.4  \\
      195 & -32.7  \\
      210 & -29.6  \\
@@ -80,8 +90,9 @@ Wird die Ausgangsspannung in Abhängigkeit von der Phasenverschiebung gemessen, 
      315 & 25.7 \\
      330 & 33.1 \\
      345 & 33.1 \\
-\bottomrule
-\end{tabular}
+  \bottomrule
+  \end{tabular}
+  \end{subtable}
 \end{table}
 
 Die gemessenen Werte sollen mit GLEICHUNG... verglichen werden.
@@ -145,6 +156,8 @@ Für die Ausgangsspannung in Abhängigkeit von der Phasenverschiebung ergeben si
   \centering
   \caption{Ausgangsspannung mit Rauschen}
   \label{tab:ohne_Rauschen}
+  \begin{subtable}{0.48\textwidth}
+    \centering
   \begin{tabular}{cc}
     \toprule {$\phi \:/\: °$} & {$U \:/\: \si{\volt}$} \\
     \midrule
@@ -160,6 +173,14 @@ Für die Ausgangsspannung in Abhängigkeit von der Phasenverschiebung ergeben si
     135	& -24.8 \\
     150	& -31.3 \\
     165 & -33.0 \\
+    \bottomrule
+    \end{tabular}
+  \end{subtable}
+  \begin{subtable}{0.48\textwidth}
+    \centering
+  \begin{tabular}{cc}
+    \toprule {$\phi \:/\: °$} & {$U \:/\: \si{\volt}$} \\
+    \midrule
     180	& -33.5 \\
     195	& -31.2 \\
     210	& -28.1 \\
@@ -174,6 +195,7 @@ Für die Ausgangsspannung in Abhängigkeit von der Phasenverschiebung ergeben si
     345	& 32.8 \\
     \bottomrule
     \end{tabular}
+  \end{subtable}
 \end{table}
 
 \subsection{Photodetektorschaltung}
@@ -184,8 +206,15 @@ Die Blinkfrequenz wird auf $f = \SI {321,3}{\Hz}$ und der Low-Pass-Amplifier auf
   \centering
   \caption{Photodetektorspannung $U_{\mathrm{out}}}$ in Abhängigkeit des Abstandes $r$
   \label{tab:photodetektor}
-  \begin{tabular}{cc}
-    \toprule {$r \:/\: meter$} & {$U_{\mathrm{out}} \:/\: \si{\volt}$} \\
+
+  \begin{subtable}{0.48\textwidth}
+    \centering
+  \sisetup{
+    round-mode=places,
+    round-precision=2,
+  }
+  \begin{tabular}{SS}
+    \toprule {$r \:/\: \si{\meter}$} & {$U_{\mathrm{out}} \:/\: \si{\volt}$} \\
     \midrule
      0.1 & 88.2 \\
      0.15 & 28.6 \\
@@ -205,28 +234,41 @@ Die Blinkfrequenz wird auf $f = \SI {321,3}{\Hz}$ und der Low-Pass-Amplifier auf
      0.85 & -6.72 \\
      0.9 & -6.80 \\
      0.95 & -6.84 \\
-     1 & -6.95 \\
-     1.05 & -7.01 \\
-     1.1 & -7.04 \\
-     1.15 & -7.08 \\
-     1.2 & -7.11 \\
-     1.25 & -7.14 \\
-     1.3 & -7.18 \\
-     1.35 & -7.21 \\
-     1.4 & -7.24 \\
-     1.45 & -7.27 \\
-     1.5 & -7.30 \\
-     1.55 & -7.34 \\
-     1.6 & -7.35 \\
-     1.65 & -7.37 \\
-     1.7 & -7.39 \\
-     1.75 & -7.43 \\
-     1.8 & -7.44 \\
-     1.85 & -7.43 \\
-     1.9 & -7.43 \\
      \bottomrule
     \end{tabular}
-   \end{table}
+  \end{subtable}
+  \begin{subtable}{0.48\textwidth}
+    \centering
+  \sisetup{
+    round-mode=places,
+    round-precision=2,
+  }
+  \begin{tabular}{SS}
+    \toprule {$r \:/\: \si{\meter}$} & {$U_{\mathrm{out}} \:/\: \si{\volt}$} \\
+    \midrule
+    1.0 & -6.95 \\
+    1.05 & -7.01 \\
+    1.1 & -7.04 \\
+    1.15 & -7.08 \\
+    1.2 & -7.11 \\
+    1.25 & -7.14 \\
+    1.3 & -7.18 \\
+    1.35 & -7.21 \\
+    1.4 & -7.24 \\
+    1.45 & -7.27 \\
+    1.5 & -7.30 \\
+    1.55 & -7.34 \\
+    1.6 & -7.35 \\
+    1.65 & -7.37 \\
+    1.7 & -7.39 \\
+    1.75 & -7.43 \\
+    1.8 & -7.44 \\
+    1.85 & -7.43 \\
+    1.9 & -7.43 \\
+    \bottomrule
+  \end{tabular}
+  \end{subtable}
+  \end{table}
 
 Die bereinigten Messwerte ergeben sich aus
 \begin{equation}
