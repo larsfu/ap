@@ -4,8 +4,17 @@ def format(row, reformat_with_exponent):
     row_reformatted = []
     for number in row:
         if isinstance(number, uncertainties.UFloat):
-            row_reformatted.append(number.n)
-            row_reformatted.append(number.s)
+            n = number.n
+            s = number.s
+            #Ist das wohl böse? Ist mir egal!
+            if n == 0:
+                n = int(0)
+            if s == 0:
+                s = int(0)
+            row_reformatted.append(n)
+            row_reformatted.append(s)
+        elif number == None:
+            row_reformatted.append('{}')
         else:
             row_reformatted.append(number)
     if(reformat_with_exponent):
@@ -13,7 +22,7 @@ def format(row, reformat_with_exponent):
     else:
         return '& '  +  ' & '.join(str(e) for e in row_reformatted) +  ' \\\\\n'
 
-def maketable(values, file_path, reformat_with_exponent):
+def maketable(values, file_path, reformat_with_exponent=False):
     output = ''
     if hasattr(values[0], '__iter__'):
         for row in zip(*values):

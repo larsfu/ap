@@ -1,2 +1,251 @@
 \section{Auswertung}
 \label{sec:Auswertung}
+
+\input{../fehlerrechnung.tex}
+\subsection{Widerstandsmessbrücke}
+Tabelle \ref{tab:a}
+\subsection{Kapazitätsmessbrücke}
+Tabelle \ref{tab:b1} und Tabelle \ref{tab:b2}
+\subsection{Induktivitätsmessbrücke}
+Tabelle \ref{tab:c}
+\subsection{Maxwellbrücke}
+Tabelle \ref{tab:d}
+\subsection{Wien-Robinson-Brücke}
+\subsection{Klirrfaktor}
+
+
+\begin{equation}
+  R_x = R_2 \frac{R_3}{R_4} \\
+  \num{0.0}
+\end{equation}
+
+\begin{table}
+  \centering
+  \caption{Ergebnisse der Widerstandsmessbrücke.}
+  \label{tab:a}
+  \sisetup{
+    round-mode=figures,
+    round-precision=3
+  }
+
+  \begin{tabular}{
+    l@{}
+    S[table-format=4.0] @{${}\pm{}$} S[table-format=1.4]
+    S[table-format=1.3] @{${}\pm{}$} S[table-format=1.6]
+    S[table-format=3.0] @{${}\pm{}$} S[table-format=1.3]
+    S[table-format=1.3] @{${}\pm{}$} S[table-format=1.6]
+    S[table-format=3.0] @{${}\pm{}$} S[table-format=1.3]}
+    \toprule
+    \multicolumn{3}{c}{} & \multicolumn{4}{c}{Wert 10} & \multicolumn{4}{c}{Wert 12} \\
+    %\midrule
+    &\multicolumn{2}{c}{$R_{2} / \Omega$} &
+    \multicolumn{2}{c}{$\sfrac{R_3}{R_4}$} &
+    \multicolumn{2}{c}{$R_{10} / \Omega$} &
+    \multicolumn{2}{c}{$\sfrac{R_3}{R_4}$} &
+    \multicolumn{2}{c}{$R_{12} / \Omega$} \\
+    \midrule
+    \input{build/a1.txt}
+    \midrule
+    \multicolumn{5}{r}{Mittelwert}\input{build/a2.txt}
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{table}
+  \centering
+  \caption{Ergebnisse der Kapazitätsmessbrücke.}
+  \label{tab:b1}
+  \sisetup{
+    zero-decimal-to-integer=true,
+    round-mode=figures,
+    round-precision=3
+  }
+
+  \begin{tabular}{
+    l@{}
+    S[table-format=3.0] @{${}\pm{}$} S[table-format=1.4]
+    S[table-format=3.0] @{${}\pm{}$} S[table-format=2.2]
+    S[table-format=1.3] @{${}\pm{}$} S[table-format=1.6]
+    S[table-format=3.0] @{${}\pm{}$} S[table-format=2.1]
+    S[table-format=3.0] @{${}\pm{}$} S[table-format=1.3]
+    }
+    \toprule
+    %\multicolumn{3}{c}{} & \multicolumn{4}{c}{Wert 10} & \multicolumn{4}{c}{Wert 12} \\
+    %\midrule
+    &\multicolumn{2}{c}{$C_{2} / \si{\nano\farad}$} &
+    \multicolumn{2}{c}{$R_2 / \si{\ohm}$} &
+    \multicolumn{2}{c}{$\sfrac{R_3}{R_4}$} &
+    \multicolumn{2}{c}{$R_x / \si{\ohm}$} &
+    \multicolumn{2}{c}{$C_x / \si{\nano\farad}$} \\
+    \midrule
+    \multicolumn{11}{c}{Wert 3}\\
+    \input{build/b1.txt}
+    \midrule
+    \multicolumn{11}{c}{Wert 1}\\
+    \input{build/b2.txt}
+    \midrule
+    \multicolumn{11}{c}{Wert 9}\\
+    \input{build/b3.txt}
+    %\multicolumn{5}{r}{Mittelwert}\input{build/a2.txt}
+    \bottomrule
+  \end{tabular}
+\end{table}
+\begin{table}
+  \centering
+  \caption{Gemittelte Ergebnisse der Kapazitätsmessbrücke.}
+  \label{tab:b2}
+  \sisetup{
+    zero-decimal-to-integer=true,
+    round-mode=figures,
+    round-precision=3
+  }
+
+  \begin{tabular}{
+    l@{}
+    c
+    S[table-format=3.0] @{${}\pm{}$} S[table-format=1.4]
+    S[table-format=3.0] @{${}\pm{}$} S[table-format=2.2]
+    }
+    \toprule
+    &&
+    \multicolumn{2}{c}{$R_x / \si{\ohm}$} &
+    \multicolumn{2}{c}{$C_x / \si{\nano\farad}$} \\
+    \midrule
+    \input{build/b4.txt}
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{table}
+  \centering
+  \caption{Ergebnisse der Induktivitätsmessbrücke.}
+  \label{tab:c}
+  \sisetup{
+    round-mode=figures,
+    round-precision=3
+  }
+
+  \begin{tabular}{
+    l@{}
+    S[table-format=2.1] @{${}\pm{}$} S[table-format=1.5]
+    S[table-format=2.1] @{${}\pm{}$} S[table-format=1.2]
+    S[table-format=1.2] @{${}\pm{}$} S[table-format=1.5]
+    S[table-format=3.0] @{${}\pm{}$} S[table-format=2.1]
+    S[table-format=3.0] @{${}\pm{}$} S[table-format=1.4]
+    }
+    \toprule
+    &\multicolumn{2}{c}{$L_{2} / \si{\micro\henry}$} &
+    \multicolumn{2}{c}{$R_2 / \si{\ohm}$} &
+    \multicolumn{2}{c}{$\sfrac{R_3}{R_4}$} &
+    \multicolumn{2}{c}{$R_{16} / \si{\ohm}$} &
+    \multicolumn{2}{c}{$L_{16} / \si{\micro\henry}$} \\
+    \midrule
+    \input{build/c1.txt}
+    \midrule
+    \multicolumn{7}{r}{Mittelwert} \input{build/c2.txt}
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{table}
+  \centering
+  \caption{Ergebnisse der Maxwellbrücke.}
+  \label{tab:d}
+  \sisetup{
+    round-mode=figures,
+    round-precision=3
+  }
+
+  \begin{tabular}{
+    l@{}
+    S[table-format=3.0] @{${}\pm{}$} S[table-format=1.4]
+    S[table-format=4.0] @{${}\pm{}$} S[table-format=2.2]
+    S[table-format=3.0] @{${}\pm{}$} S[table-format=2.2]
+    S[table-format=3.0] @{${}\pm{}$} S[table-format=1.2]
+    S[table-format=3.0] @{${}\pm{}$} S[table-format=2.1]
+    S[table-format=3.0] @{${}\pm{}$} S[table-format=1.2]
+    }
+    \toprule
+    &\multicolumn{2}{c}{$C_{4} / \si{\nano\farad}$} &
+    \multicolumn{2}{c}{$R_2 / \si{\ohm}$} &
+    \multicolumn{2}{c}{$R_3$} &
+    \multicolumn{2}{c}{$R_4 / \si{\ohm}$} &
+    \multicolumn{2}{c}{$R_{16} / \si{\ohm}$} &
+    \multicolumn{2}{c}{$L_{16} / \si{\micro\henry}$} \\
+    \midrule
+    \input{build/d1.txt}
+    \midrule
+    \multicolumn{9}{r}{Mittelwert} \input{build/d2.txt}
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{table}
+  \centering
+  \caption{Resonanzfrequenz der Wien-Robinson-Brücke.}
+  \label{tab:e}
+  \sisetup{
+    round-mode=figures,
+    round-precision=3
+  }
+
+  \begin{tabular}{
+    l@{}
+    S[table-format=3.0] @{${}\pm{}$} S[table-format=1.3]
+    S[table-format=3.0] @{${}\pm{}$} S[table-format=1.2]
+    S[table-format=4.0]
+    S[table-format=3.0] @{${}\pm{}$} S[table-format=2.1]
+    S[table-format=1.2] @{${}\pm{}$} S[table-format=1.4]}
+    \toprule
+    &\multicolumn{2}{c}{$R / \si{\ohm}$} &
+    \multicolumn{2}{c}{$C_3 / \si{\nano\farad}$} &
+    {$\nu_0^\mathrm{real} / \si{\hertz}$} &
+    \multicolumn{2}{c}{$\nu_0^\mathrm{ideal} / \si{\hertz}$} &
+    \multicolumn{2}{c}{$\nu_0^\mathrm{real}/\nu_0^\mathrm{ideal}$} \\
+    \midrule
+    \input{build/e.txt}
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{figure}
+  \centering
+  \includegraphics{build/e1.pdf}
+  \caption{Frequenzabhängigkeit der Wien-Robinson-Brücke.}
+  \label{fig:e1}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics{build/e2.pdf}
+  \caption{Vergrößerung von Abb. \ref{fig:e1} in der Nähe der Resonanzfrequenz.}
+  \label{fig:e2}
+\end{figure}
+
+\subsection{Messwerte}
+
+\begin{table}
+  \centering
+  \caption{Messwerte der Wien-Robinson-Brücke.}
+  \label{tab:e_mess}
+  \sisetup{
+    round-mode=off,
+    round-precision=3
+  }
+
+  \begin{tabular}{
+    l@{}
+    S[table-format=4.0]
+    S[table-format=3.1]|
+    S[table-format=5.0]
+    S[table-format=3.1]}
+    \toprule
+    &{$\nu / \si{\hertz}$} &
+    {$U_\mathrm{Br} / \si{\volt}$}
+    &{$\nu / \si{\hertz}$} &
+    {$U_\mathrm{Br} / \si{\volt}$}\\
+    \midrule
+    \input{build/e_mess.txt}
+    \bottomrule
+  \end{tabular}
+\end{table}
