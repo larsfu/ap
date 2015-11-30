@@ -1,5 +1,6 @@
 \section{Auswertung}
 \label{sec:Auswertung}
+
 Am Ausgang Osc. varieeren die Spannungsamplituden; Ref. leifert eine konstante Spannung, welche \SI {22,8}{\volt} beträgt.
 
 \subsection{Ohne Rauschen}
@@ -7,44 +8,48 @@ Ein sinusförmiges Signal mit $U = \SI{10}{\milli \volt}$ und $f = \SI{1}{\kilo 
 
 \begin{figure}
   \centering
-  \includegraphics[width=\textwidth]{bilder/Ohne Rauschen/1.JPG}
-  \caption{Phasenverschiebung 0°}.
-  \label{fig:bild1}
+  \begin{subfigure}{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{bilder/Ohne Rauschen/1.JPG}
+    \caption{Phasenverschiebung 0°.}
+    \label{fig:bild1}
+  \end{subfigure}
+  \begin{subfigure}{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{bilder/Ohne Rauschen/2.JPG}
+    \caption{Phasenverschiebung 90°.}
+    \label{fig:bild2}
+  \end{subfigure}
 \end{figure}
-
 \begin{figure}
   \centering
-  \includegraphics[width=\textwidth]{bilder/Ohne Rauschen/2.JPG}
-  \caption{Phasenverschiebung 90°}.
-  \label{fig:bild2}
+  \begin{subfigure}{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{bilder/Ohne Rauschen/3.JPG}
+    \caption{Phasenverschiebung 180°.}
+    \label{fig:bild3}
+  \end{subfigure}
+  \begin{subfigure}{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{bilder/Ohne Rauschen/4.JPG}
+    \caption{Phasenverschiebung 225°.}
+    \label{fig:bild4}
+  \end{subfigure}
 \end{figure}
-
 \begin{figure}
   \centering
-  \includegraphics[width=\textwidth]{bilder/Ohne Rauschen/3.JPG}
-  \caption{Phasenverschiebung 180°}.
-  \label{fig:bild3}
-\end{figure}
-
-\begin{figure}
-  \centering
-  \includegraphics[width=\textwidth]{bilder/Ohne Rauschen/4.JPG}
-  \caption{Phasenverschiebung 225°}.
-  \label{fig:bild4}
-\end{figure}
-
-\begin{figure}
-  \centering
-  \includegraphics[width=\textwidth]{bilder/Ohne Rauschen/5.JPG}
-  \caption{Phasenverschiebung 270°}.
-  \label{fig:bild5}
-\end{figure}
-
-\begin{figure}
-  \centering
-  \includegraphics[width=\textwidth]{bilder/Ohne Rauschen/6.JPG}
-  \caption{Signal nach Integratopn durch den Tiefpass}.
-  \label{fig:bild6}
+  \begin{subfigure}{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{bilder/Ohne Rauschen/5.JPG}
+    \caption{Phasenverschiebung 270°.}
+    \label{fig:bild5}
+  \end{subfigure}
+  \begin{subfigure}{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{bilder/Ohne Rauschen/6.JPG}
+    \caption{Signal nach Integration durch den Tiefpass.}
+    \label{fig:bild6}
+  \end{subfigure}
 \end{figure}
 
 Wird die Ausgangsspannung in Abhängigkeit von der Phasenverschiebung gemessen, ergeben sich folgende Messwerte.
@@ -95,61 +100,56 @@ Wird die Ausgangsspannung in Abhängigkeit von der Phasenverschiebung gemessen, 
   \end{subtable}
 \end{table}
 
-Die gemessenen Werte sollen mit GLEICHUNG... verglichen werden.
+Die gemessenen Werte sollen mit \ref{eqn:ganzwichtig} verglichen werden.
 
-
-\begin{figure}[htpb]
+\begin{figure}
   \centering
-  \includegraphics{plot.pdf}
-  \caption{Plot der Messwerte im Vergleich mit der Ausgangaangsspannung nach der Formel $U_{\mathrm{out}} = \frac{2}{pi}U_0 \cos(\phi)$ (mit $U_0 = \SI{22,8}{\volt}$)
-  \label{fig:}
+  \includegraphics[width=\textwidth]{build/plot.pdf}
+\caption{Ausgangsspannung in Abhängigkeit von der Phasenverschiebung ohne Rauschen.}
+  \label{fig:ohne_rauschen}
 \end{figure}
- Die Graphen unterscheiden sich lediglich in ihrer Amplitude.Die Amplitude des Graphen der Messwerte ist doppelt so groß wie die des Graphen, der sich aus GLEICHUNG... ergibt.
+Da der Lock-In-Detector Gain auf 2 eingestellt ist, wird \ref{eqn:ganzwichtig} mit 2 mulitpliziert.
 
  \subsection {Mit Rauschen}
  Unter Hinzufügen eines Rauschsignals sollen erneut fünf Phasen abgebildet werden.
-
- \begin{figure}
+\begin{figure}
+ \begin{subfigure}{0.48\textwidth}
    \centering
    \includegraphics[width=\textwidth]{bilder/Mit Rauschen/1.JPG}
- \caption{Phasenverschiebung 0°}.
+ \caption{Phasenverschiebung 0°.}
    \label{fig:1}
- \end{figure}
-
- \begin{figure}
+ \end{subfigure}
+ \begin{subfigure}{0.48\textwidth}
    \centering
    \includegraphics[width=\textwidth]{bilder/Mit Rauschen/2.JPG}
- \caption{Phasenverschiebung 90°}.
+ \caption{Phasenverschiebung 90°.}
    \label{fig:2}
- \end{figure}
-
- \begin{figure}
+ \end{subfigure}
+ \begin{subfigure}{0.48\textwidth}
    \centering
    \includegraphics[width=\textwidth]{bilder/Mit Rauschen/3.JPG}
- \caption{Phasenverschiebung 180°}.
+ \caption{Phasenverschiebung 180°.}
    \label{fig:3}
- \end{figure}
-
- \begin{figure}
+ \end{subfigure}
+ \begin{subfigure}{0.48\textwidth}
    \centering
    \includegraphics[width=\textwidth]{bilder/Mit Rauschen/4.JPG}
- \caption{Phasenverschiebung 225°}.
+ \caption{Phasenverschiebung 225°.}
    \label{fig:4}
- \end{figure}
-
- \begin{figure}
+ \end{subfigure}
+ \begin{subfigure}{0.48\textwidth}
    \centering
    \includegraphics[width=\textwidth]{bilder/Mit Rauschen/5.JPG}
- \caption{Phasenverschiebung 270°}.
+ \caption{Phasenverschiebung 270°.}
    \label{fig:5}
- \end{figure}
-
- \begin{figure}
+ \end{subfigure}
+ \begin{subfigure}{0.48\textwidth}
    \centering
    \includegraphics[width=\textwidth]{bilder/Mit Rauschen/6.JPG}
- \caption{Signal nach Integration durch den Tiefpass}.
+ \caption{Signal nach Integration durch den Tiefpass.}
    \label{fig:6}
- \end{figure}
+ \end{subfigure}
+\end{figure}
 
 Für die Ausgangsspannung in Abhängigkeit von der Phasenverschiebung ergeben sich folgende Messwerte.
 \begin{table}
@@ -198,13 +198,24 @@ Für die Ausgangsspannung in Abhängigkeit von der Phasenverschiebung ergeben si
   \end{subtable}
 \end{table}
 
+Auch diese Werte werden mit \ref{eqn:ganzwichtig} verglichen.
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{build/plot2.pdf}
+\caption{Ausgangsspannung in Abhängigkeit von der Phasenverschiebung mit Rauschen.}
+  \label{fig:mit_rauschen}
+\end{figure}
+\ref{eqn:ganzwichtig} wird ebenfalls mit 2 multipliziert.
+
+Die aufgenommenen Messwerte, sowie der Verlauf der Graphen mit und ohne Rauschen verhalten sich ähnlich.
+\newpage
 \subsection{Photodetektorschaltung}
 Bei ausgeschalteter LED beträgt die Spannung$U_{\mathrm{null} = \SI {-7,72}{\volt}}$.
 Die Blinkfrequenz wird auf $f = \SI {321,3}{\Hz}$ und der Low-Pass-Amplifier auf Gain 1000 eingestellt.
 
 \begin{table}
   \centering
-  \caption{Photodetektorspannung $U_{\mathrm{out}}}$ in Abhängigkeit des Abstandes $r$
+  \caption{Photodetektorspannung $U_{\mathrm{out}}$ in Abhängigkeit des Abstandes $r$}
   \label{tab:photodetektor}
 
   \begin{subtable}{0.48\textwidth}
@@ -272,5 +283,22 @@ Die Blinkfrequenz wird auf $f = \SI {321,3}{\Hz}$ und der Low-Pass-Amplifier auf
 
 Die bereinigten Messwerte ergeben sich aus
 \begin{equation}
-  U_{\mathrm{ber}} = \frac{U_{\mathrm{out}}}{\text{Gain}} - {U_{\mathrm{null}}}{1000}
+  U_\mathrm{ber} = \frac{U_\mathrm{out}}{\text{Gain}} - \frac{U_\mathrm{null}}{1000}.
 \end {equation}
+
+Bei einer linearen Ausgleichsrechnung der Werte $\ln r$ und $\ln U_\mathrm{ber}$ an die Funktion
+\begin{equation}
+  y = \alpha x + \beta
+\end{equation}
+ergeben sich die Koeffizienten
+\begin{align}
+  \alpha &= \SI{-1.895+- 0.026}{\volt\per\meter} \\
+  \beta &= \SI{-7.093 +- 0.020}{\volt}
+\end{align}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=1\textwidth]{build/plot3.pdf}
+  \caption{Doppelogarithmischer Plot von $U(r) = \symup{e}^\beta \cdot r^\alpha$.}
+  \label{fig:6475775843759}
+\end{figure}
