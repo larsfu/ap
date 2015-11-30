@@ -78,10 +78,10 @@ Tabelle \ref{tab:d}
     \multicolumn{2}{c}{$R_x / \si{\ohm}$} &
     \multicolumn{2}{c}{$C_x / \si{\nano\farad}$} \\
     \midrule
-    \multicolumn{11}{c}{Wert 3}\\
+    \multicolumn{11}{c}{Wert 1}\\
     \input{build/b1.txt}
     \midrule
-    \multicolumn{11}{c}{Wert 1}\\
+    \multicolumn{11}{c}{Wert 3}\\
     \input{build/b2.txt}
     \midrule
     \multicolumn{11}{c}{Wert 9}\\
@@ -194,8 +194,8 @@ Tabelle \ref{tab:d}
     S[table-format=3.0] @{${}\pm{}$} S[table-format=1.3]
     S[table-format=3.0] @{${}\pm{}$} S[table-format=1.2]
     S[table-format=4.0]
-    S[table-format=3.0] @{${}\pm{}$} S[table-format=2.1]
-    S[table-format=1.2] @{${}\pm{}$} S[table-format=1.4]}
+    S[table-format=4.0] @{${}\pm{}$} S[table-format=1.2]
+    S[table-format=1.3] @{${}\pm{}$} S[table-format=1.5]}
     \toprule
     &\multicolumn{2}{c}{$R / \si{\ohm}$} &
     \multicolumn{2}{c}{$C_3 / \si{\nano\farad}$} &
@@ -223,6 +223,151 @@ Tabelle \ref{tab:d}
 \end{figure}
 
 \subsection{Messwerte}
+
+\begin{table}
+  \centering
+  \caption{Messwerte der Wheatstone-Brücke.}
+  \label{tab:a_mess}
+  \sisetup{
+    round-mode=off,
+    round-precision=3
+  }
+
+  \begin{tabular}{
+    l@{}
+    S[table-format=4.1]
+    S[table-format=3.1]
+    S[table-format=3.1]
+    S[table-format=3.1]
+    S[table-format=3.1]}
+    \toprule
+    &&\multicolumn{2}{c}{Wert 10} & \multicolumn{2}{c}{Wert 12} \\
+    &{$R_2 / \si{\ohm}$} &
+    {$R_3 / \si{\ohm}$} &
+    {$R_4 / \si{\ohm}$} &
+    {$R_3 / \si{\ohm}$} &
+    {$R_4 / \si{\ohm}$} \\
+    \midrule
+    \input{build/a_mess.txt}
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{table}
+  \centering
+  \caption{Messwerte der Kapazitätsmessbrücke.}
+  \label{tab:b_mess1}
+  \sisetup{
+    round-mode=off,
+    round-precision=3
+  }
+
+  \begin{tabular}{
+    l@{}
+    S[table-format=3.1]
+    S[table-format=3.1]
+    S[table-format=3.1]
+    S[table-format=3.1]
+    S[table-format=3.1]
+    S[table-format=3.1]
+    S[table-format=3.1]
+    S[table-format=3.1]}
+    \toprule
+    &\multicolumn{4}{c}{Wert 1} & \multicolumn{4}{c}{Wert 3} \\
+    &{$C_2 / \si{\nano\farad}$} &
+    {$R_2 / \si{\ohm}$} &
+    {$R_3 / \si{\ohm}$} &
+    {$R_4 / \si{\ohm}$} &
+    {$C_2 / \si{\nano\farad}$} &
+    {$R_2 / \si{\ohm}$} &
+    {$R_3 / \si{\ohm}$} &
+    {$R_4 / \si{\ohm}$} \\
+    \midrule
+    \input{build/b_mess1.txt}
+    \bottomrule
+  \end{tabular}
+%\end{table}
+
+%\begin{table}
+%  \centering
+%  \caption{Messwerte der Kapazitätsmessbrücke.}
+%  \label{tab:b_mess2}
+%  \sisetup{
+%    round-mode=off,
+%    round-precision=3
+%  }
+
+  \begin{tabular}{
+    l@{}
+    S[table-format=3.1]
+    S[table-format=3.1]
+    S[table-format=3.1]
+    S[table-format=3.1]}
+    %\toprule
+    &\multicolumn{4}{c}{Wert 9} \\
+    &{$C_2 / \si{\nano\farad}$} &
+    {$R_2 / \si{\ohm}$} &
+    {$R_3 / \si{\ohm}$} &
+    {$R_4 / \si{\ohm}$} \\
+    \midrule
+    \input{build/b_mess2.txt}
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{table}
+  \centering
+  \caption{Messwerte der Induktivitätsmessbrücke.}
+  \label{tab:c_mess}
+  \sisetup{
+    round-mode=off,
+    round-precision=3
+  }
+
+  \begin{tabular}{
+    l@{}
+    S[table-format=2.1]
+    S[table-format=2.1]
+    S[table-format=3.1]
+    S[table-format=3.1]}
+    \toprule
+    & \multicolumn{4}{c}{Wert 16} \\
+    &{$L_2 / \si{\milli\henry}$} &
+    {$R_2 / \si{\ohm}$} &
+    {$R_3/ \si{\ohm}$} &
+    {$R_4 / \si{\ohm}$} \\
+    \midrule
+    \input{build/c_mess.txt}
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{table}
+  \centering
+  \caption{Messwerte der Maxwellbrücke.}
+  \label{tab:d_mess}
+  \sisetup{
+    round-mode=off,
+    round-precision=3
+  }
+
+  \begin{tabular}{
+    l@{}
+    S[table-format=3.1]
+    S[table-format=4.1]
+    S[table-format=3.1]
+    S[table-format=3.1]}
+    \toprule
+    & \multicolumn{4}{c}{Wert 16} \\
+    &{$C_4 / \si{\nano\farad}$} &
+    {$R_2 / \si{\ohm}$} &
+    {$R_3/ \si{\ohm}$} &
+    {$R_4 / \si{\ohm}$} \\
+    \midrule
+    \input{build/d_mess.txt}
+    \bottomrule
+  \end{tabular}
+\end{table}
 
 \begin{table}
   \centering

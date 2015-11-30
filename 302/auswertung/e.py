@@ -25,6 +25,12 @@ def q_th(omega):
 
 omega = ny/ny_0
 
+#Klirrfaktor
+k = (U_Br[17] / q_th(2)) / U_S
+print(k)
+
+
+
 x = np.linspace(0.01, 100, 1000000)
 plt.plot(x, q_th(x), 'b-', label='Theoretischer Wert')
 plt.plot(omega, q, 'rx', label='Messwerte')

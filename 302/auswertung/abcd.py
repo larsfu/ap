@@ -22,7 +22,12 @@ d = np.genfromtxt("daten/d.txt", unpack=True)
 d[0] *= 1e-9
 
 #Daten exportieren
-#maketable((*a)[:3], 'build/a_mess.txt')
+maketable((a[0][:3], a[1][:3], a[2][:3], a[1][3:], a[2][3:]), 'build/a_mess.txt')
+maketable((b[0][:3]*1e9, b[1][:3], b[2][:3], b[3][:3], b[0][3:]*1e9, b[1][3:], b[2][3:], b[3][3:]), 'build/b_mess1.txt')
+maketable((b[0][6:]*1e9, b[1][6:], b[2][6:], b[3][6:]), 'build/b_mess2.txt')
+maketable((c[0]*1e3, *c[1:]), 'build/c_mess.txt')
+maketable((d[0]*1e9, *d[1:]), 'build/d_mess.txt')
+
 
 #### Wheatstone-Brücke
 R3R4 = unp.uarray(a[1] / a[2], a[1]/a[2] * uncertainty_r3r4)
