@@ -27,7 +27,7 @@ omega = ny/ny_0
 
 #Klirrfaktor
 k = (U_Br[17] / q_th(2)) / U_S
-maketable((U_Br[17], q_th(2), k), 'build/f.txt')
+maketable((U_Br[17]*1000, q_th(2), k), 'build/f.txt')
 
 
 x = np.linspace(0.01, 100, 1000000)

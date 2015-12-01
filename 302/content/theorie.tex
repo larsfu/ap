@@ -151,7 +151,11 @@ Diese Schaltung enthält keine Abgleichelemente. Sie hat die Funktion eines elek
 \left\lvert\frac{U_\mathrm{Br,eff}}{U_S}\right\rvert^2 = {(\omega^2 R^2 C^2 -1)^2}{9((1 - \omega^2 R^2 C^2)^2 + 9\omega^2 R^2 C^2)}
 \end{equation}
 
-Wenn $\omega_0 = \frac{1}{RC}$, geht die Brückenspannung gegen Null. Frequenzen nahe $\omega_0$ werden abgeschwächt.
+Wenn
+\begin{equation}
+  \label{eqn:resonanz}
+  \omega_0 = \frac{1}{RC},
+\end{equation} geht die Brückenspannung gegen Null. Frequenzen nahe $\omega_0$ werden abgeschwächt.
 Mit $\Omega = \frac{\omega}{\omega_0}$ folgt:
 
 \begin{equation}
@@ -180,8 +184,15 @@ Mit $\Omega = \frac{\omega}{\omega_0}$ und Multiplikation mit dem konjugiert Kom
  \left\lvert\frac{U_\mathrm{Br}}{U_S}\right\rvert^2 = \frac{(\omega^2 - 1)^2}{(1 - \omega^2)^2 + 16\omega^2}
 \end{equation}
 
-Der Gehalt der Oberwellen im Verhältnis zur Grundwelle wird durch den Klirrfaktor $k$ berechnet.
-
+\subsection{Klirrfaktor}
+Der Gehalt der Oberwellen im Verhältnis zur Grundwelle des Frequenzgenerators wird durch den Klirrfaktor $k$ berechnet.
 \begin{equation}
+  \label{eqn:klirr1}
   k = \frac{\sqrt{\sum_{i=2}^N U_i^2}}{U_{1}}
 \end{equation}
+Unter der Annahme, dass die Oberwellen lediglich aus einer einzigen zusätzlichen Schwingung bestehen lässt sich dies zu
+\begin{equation}
+  \label{eqn:klirr2}
+  k = \frac{U_2}{U_1}
+\end{equation}
+vereinfachen.

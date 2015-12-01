@@ -92,8 +92,8 @@ Die Kapazitätswerte 1, 3 und 9 werden mit jeweils 3 verschiendenen Referenzkond
   \begin{tabular}{
     l@{}
     c
-    S[table-format=3.0] @{${}\pm{}$} S[table-format=1.4]
-    S[table-format=3.0] @{${}\pm{}$} S[table-format=2.2]
+    S[table-format=3.0] @{${}\pm{}$} S[table-format=1.2]
+    S[table-format=3.0] @{${}\pm{}$} S[table-format=1.2]
     }
     \toprule
     &&
@@ -176,7 +176,7 @@ Zum Vergleich wird die Messung der Induktivität 16 mit der Maxwellbrücke wiede
 \end{table}
 
 \subsection{Wien-Robinson-Brücke}
-Die Frequenzabhängigkeit einer Wien-Robinson-Brücke wurde gemessen, Ergebnisse finden sich in Tabelle \ref{tab:e}, Abb. \ref{fig:e1} und Abb. \ref{fig:e2}. Die Theoriekurven in den Graphen ergeben sich aus (\ref{eqn:wr}).
+Die Frequenzabhängigkeit einer Wien-Robinson-Brücke wurde gemessen, Ergebnisse finden sich in Tabelle \ref{tab:e}, Abb. \ref{fig:e1} und Abb. \ref{fig:e2}. Die Theoriekurven in den Graphen ergeben sich aus (\ref{eqn:wr}), $\nu_0^\mathrm{ideal}$ aus (\ref{eqn:resonanz}).
 
 \begin{table}
   \centering
@@ -221,8 +221,40 @@ Die Frequenzabhängigkeit einer Wien-Robinson-Brücke wurde gemessen, Ergebnisse
 \end{figure}
 
 \subsection{Klirrfaktor}
+Zuletzt wurde der Klirrfaktor $k$ des Funktionsgenerators Bestimmt. Dieser ist nach (\ref{eqn:klirr1}) bzw. (\ref{eqn:klirr2}) definiert. Dabei gilt
+\begin{equation}
+  U_2 = \frac{U_{Br}(\nu = \nu_0)}{f(2)},
+\end{equation}
+wobei
+\begin{equation}
+  f(\Omega) = \frac{{U}_{Br}}{{U}_S}(\Omega)
+\end{equation}
+aus (\ref{eqn:wr}) darstellt. Das Ergebnis findet sich in Tabelle \ref{tab:f}.
 
-TODO
+\begin{table}
+  \centering
+  \caption{Klirrfaktor.}
+  \label{tab:f}
+  \sisetup{
+    round-mode=figures,
+    round-precision=3
+  }
+
+  \begin{tabular}{
+    l@{}
+    S[table-format=1.2]
+    S[table-format=1.3]
+    S[table-format=1.5]}
+    \toprule
+    &
+    {$U_{Br}(\nu = \nu_0) / \si{\milli\volt}$} &
+    {$f(2)$} &
+    {$k$} \\
+    \midrule
+    \input{build/f.txt}
+    \bottomrule
+  \end{tabular}
+\end{table}
 
 \subsection{Messwerte}
 
