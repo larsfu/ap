@@ -16,7 +16,7 @@ for i in range(0,3):
     plt.legend(lns, labs, loc='upper right')
     #Glitches leugnen
     plt.xlim(0, (0.0010, 0.001, 0.0008)[i])
-    plt.xlabel(r'$t/s$')
+    ax1.set_xlabel(r'$t/s$')
     ax1.set_ylabel(r'$U_1/V$')
     ax2.set_ylabel(r'$U_2/V$')
     #plt.plot(x, U(x, params[0], params[1]), 'b-', markersize=1)
