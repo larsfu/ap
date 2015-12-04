@@ -14,12 +14,14 @@ all: build/main.pdf
 build/a1.pdf: auswertung/a.py matplotlibrc daten/a/*.csv | build
 	TEXINPUTS="$(pwd):$(pwd)/../latex-template/:" PYTHONPATH="../" python auswertung/a.py
 
-#Ich hab die restlichen Textdateien weggelassen..
 build/b1.pdf: auswertung/bc.py daten/bc.txt | build
 	TEXINPUTS="$(pwd):$(pwd)/../latex-template/:" PYTHONPATH="../" python auswertung/bc.py
 
+build/d1.pdf: auswertung/d.py | build
+	TEXINPUTS="$(pwd):$(pwd)/../latex-template/:" PYTHONPATH="../" python auswertung/d.py
+
 # hier weitere Abhängigkeiten für build/main.pdf deklarieren:
-build/main.pdf: build/a1.pdf build/b1.pdf
+build/main.pdf: build/a1.pdf build/b1.pdf build/d1.pdf
 
 build/main.pdf: FORCE | build
 	  TEXINPUTS="$(call translate,build:)" \
