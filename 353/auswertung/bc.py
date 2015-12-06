@@ -1,6 +1,8 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.optimize import curve_fit
+import uncertainties as unc
+from maketable import maketable
 
 f, U, a, U0 = np.genfromtxt('daten/bc.txt', unpack=True)
 a /= 1000
@@ -15,8 +17,11 @@ phi_ = a / (1/f) * 2 * np.pi
 
 paramsa, pcova = curve_fit(A, f, U/U0, p0=[1/742])
 paramsb, pcovb = curve_fit(phi, f, phi_, p0=[1/742])
+paramsa_u = unc.correlated_values(paramsa, pcova)
+paramsb_u = unc.correlated_values(paramsb, pcovb)
+maketable([paramsa_u], 'build/b1.txt', True)
+maketable([paramsb_u], 'build/b2.txt', True )
 
-print(paramsa[0], paramsb[0])
 
 x = np.linspace(0.2, 1000, 10000)
 plt.plot(x, A(x, *paramsa), 'b-', label='Messdaten')

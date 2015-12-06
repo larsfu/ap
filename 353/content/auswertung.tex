@@ -1,2 +1,120 @@
 \section{Auswertung}
 \label{sec:Auswertung}
+
+\input{../fehlerrechnung.tex}
+
+\subsection{Auf- und Entladevorgang}
+Die Zeitkonstante $\tau = RC$ eines RC-Kreises wird Anhand der Auf-/Entladekurve bestimmt. Dazu wird ein Stromkreis wie in Abb. \ref{fig:stromkreis1} genutzt, wobei $U_C$ mit einem digitalen Speicheroszilloskop gemessen wird. Der gemessene Spannungsverlauf findet sich in Abb. \ref{fig:entladekurve}.
+
+\begin{figure}
+  \centering
+  \includegraphics{build/a1.pdf}
+  \caption{Verlauf der Kondensatorspannung $U_C$ bei angelegter Rechteckspannung am RC-Kreis. Zur Bestimmung der Zeitkonstante wird der mit den schwarzen vertikalen Linien markierte Zeitbereich genutzt.}
+  \label{fig:entladekurve}
+\end{figure}
+
+Zur Auswertung wird nun das Spannungsoffset
+\begin{equation}
+  U_0 = \SI{-5.6}{\volt}
+\end{equation}
+korrigiert, die Messwerte logarithmiert und mittels linearer Regression die Steigung einer Ausgleichsgeraden ermittelt. Nach
+\begin{align}
+  U (t) &= U (0) \cdot \symup{e}^{\sfrac{-t}{RC}}\\
+  \ln{U(t)} &= \ln{(U (0) \cdot \symup{e}^{\sfrac{-t}{RC}})} \\
+  \ln{U(t)} &= \ln{U (0)} - \frac{1}{RC} \cdot t
+\end{align}
+
+ist also
+
+\begin{equation}
+  RC = -\frac{1}{a}
+\end{equation}
+
+mit der Steigung $a$ der Ausgleichsgeraden. Die logarithmierten Messwerte über die Zeit aufgetragen finden sich in Abb. \ref{fig:auswertung_a}, das Ergebnis in Tab. \ref{tab:ergebnis_a}.
+
+\begin{table}
+  \centering
+  \caption{Ergebnis der Auswertung der Zeitkonstante des RC-Kreises.}
+  \label{tab:ergebnis_a}
+  \sisetup{
+    round-mode=figures
+  }
+  \begin{tabular}{
+    l@{}
+    S[table-format=1.3e2, round-precision=4] @{${}\pm{}$} S[table-format=1.2e2, round-precision=3]
+  }
+    \toprule
+    & \multicolumn{2}{c}{RC / \si{\ohm\farad}} \\
+    \midrule
+    \input{build/a.txt}
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{figure}
+  \centering
+  \includegraphics{build/a2.pdf}
+  \caption{Logarithmierter Kondensatorspannungsverlauf mit Ausgleichsgerade.}
+  \label{fig:auswertung_a}
+\end{figure}
+
+\subsection{Schwingungsverhalten}
+Nun soll die Zeitkonstante auf andere Art und Weise ermittelt werden, undzwar dadurch, dass eine Wechselspannung an den RC-Kreis angelegt wird und dabei die resultierende Spannung bzw. Phasenverschiebung gemessen wird. Der Aufbau der Schaltung findet sich an Abb. \ref{fig:aufbau_b}. Hierbei wird die Zeitkonstante mittels nichtlinearer Ausgleichsrechnung an die der Formeln (\ref{eqn:}) und (\ref{eqn:}) bestimmt. Die Ergebnisse finden sich in Tabelle \ref{tab:ergebnis_b} und Abb. \ref{fig:auswertung_b1}/\ref{fig:auswertung_b2}.
+
+\begin{table}
+  \centering
+  \caption{Ergebnis der Auswertung der Zeitkonstante des RC-Kreises.}
+  \label{tab:ergebnis_b}
+  \sisetup{
+    round-mode=figures
+  }
+  \begin{tabular}{
+    l
+    S[table-format=1.3e2, round-precision=4] @{${}\pm{}$} S[table-format=1.2e2, round-precision=3]
+  }
+    \toprule
+    & \multicolumn{2}{c}{RC / \si{\ohm\farad}} \\
+    \midrule
+    Messreihe Amplitude \input{build/b1.txt}
+    Messreihe Phasenverschiebung \input{build/b2.txt}
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\begin{figure}
+  \centering
+  \includegraphics{build/b1.pdf}
+  \caption{Frequenzabhängigkeit des Verhältnisses der Amplitude am Kondensator zur angelegten Amplitude, einfachlogarithmische Darstellung.}
+  \label{fig:auswertung_b1}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics{build/b2.pdf}
+  \caption{Frequenzabhängigkeit der Phasenverschiebung von Kondensator- und Generatorspannung, einfachlogarithmische Darstellung.}
+  \label{fig:auswertung_b2}
+\end{figure}
+
+\subsection{Integrator}
+Bei ausreichend hohen Frequenzen $\omega \gg \sfrac{1}{RC}$ kann ein RC-Kreis als Integrationsglied verwendet werden. Die hochfrequenten Anteile der angelegten Spannung werden dabei aufintegriert. Einige Beispiele dazu finden sich in den Abbildungen \ref{fig:d1}, \ref{fig:d2} und \ref{fig:d3}.
+
+\begin{figure}
+  \centering
+  \includegraphics{build/d1.pdf}
+  \caption{.}
+  \label{fig:d1}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics{build/d2.pdf}
+  \caption{.}
+  \label{fig:d2}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics{build/d3.pdf}
+  \caption{.}
+  \label{fig:d3}
+\end{figure}
