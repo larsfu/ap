@@ -8,6 +8,6 @@ plt.ylabel(r'$U \ /\ \mathrm{V}$')
 plt.legend(loc='best')
 plt.xlim(0,360)
 
-plt.plot (x_syn,2*(2/np.pi)*22.8*np.cos(np.pi*x_syn/180),'g-',label="Ausgangsspannung")
+plt.plot (x_syn,33*np.cos(np.pi*x_syn/180),'g-',label="Ausgangsspannung")
 plt.legend(loc='best')
 plt.savefig('build/plot2.pdf')
