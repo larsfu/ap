@@ -20,7 +20,7 @@ mit $c > 0$, da A beschränkt sein muss.
 \begin{figure}
   \centering
   \includegraphics[scale=0.5]{content/RC-Kreis.jpg}
-  \caption{Schaltung eines RC-Kreises, Entladung(Stellung 1) und Aufladung (Stellung 2). Aus \cite{anleitung353}.}
+  \caption{Schaltung eines RC-Kreises, Entladung (Stellung 1) und Aufladung (Stellung 2). Aus \cite{anleitung353}.}
   \label{fig:rc-kreis}
 \end{figure}
 
@@ -41,6 +41,7 @@ ist, mit $RC$ als Zeitkonstante.
 
 Für die Spannung gilt dementsprechend
 \begin{equation}
+  \label{a}
   U(t) = U(0) e^{\frac{-t}{RC}}
 \end{equation}
 
@@ -59,11 +60,11 @@ mit $U_0$ als Spannung der anliegenden Spannungsquelle.
   \label{fig:rc-periodisch}
 \end{figure}
 
-Die nun anliegende Spannung ist eine Sinusspannung. Gilt für die Kreisfrequenz der anliegenden Spannung $\omega << \frac{1}{RC}$, ist die Spannung am Kondensator $U_C(t)$ gleich der anliegenden Spannung $U(t)$.
+Die nun anliegende Spannung ist eine Sinusspannung. Gilt für die Kreisfrequenz der anliegenden Spannung $\omega \ll \frac{1}{RC}$, ist die Spannung am Kondensator $U_C(t)$ gleich der anliegenden Spannung $U(t)$.
 Steigt die Anregungsfrequenz, entsteht eine Phasenverschiebung $\phi$ zwischen den beiden Spannungen mit vorauseilender Generatorspannung. Außerdem nimmt die Amplitude der Kondensatorspannung mit zunehmender Frequenz ab. Für die Spannung am Kondensator gilt allgemein
 
 \begin{equation}
-  U_C(t) = A(\omega) cos (\omega t + \phi(\omega))
+  U_C(t) = A(\omega) \cos (\omega t + \phi(\omega))
 \end{equation}
 
 Mit Hilfe der Kirchhoffschen Gesetze
@@ -81,20 +82,22 @@ Mit Hilfe der Kirchhoffschen Gesetze
 ergibt sich für die Phasenverschiebung
 
 \begin{equation}
-  \phi(\omega) = arctan(-\omega RC).
+  \label{eqn:phase}
+  \phi(\omega) = \arctan(-\omega RC).
 \end{equation}
 
-Die Formel zeigt, dass die Phasenverschiebung für kleine Frequenzen gegen 0 und für große Frequenzem gegem $\frac{\pi}{2}$ geht.
+Die Formel zeigt, dass die Phasenverschiebung für kleine Frequenzen gegen 0 und für große Frequenzen gegen $\frac{\pi}{2}$ geht.
 
 Für die frequenzabhängige Amplitude gilt
 \begin{equation}
+  \label{eqn:amplitude}
   A(\omega) = \frac{U_0}{\sqrt{1 + \omega^2R^2C^2}}.
 \end{equation}
 
-Hier ist erkennbar, dass sich $A(\omega)$ bei kleinen Frequenzen $U_0$ nähert und sich bei großen Freuquenzen 0 nähert. Da RC-Glieder nur kleine Frequenzen passieren lassen, werden diese als Tiefpässe verwendet.
+Hier ist erkennbar, dass sich $A(\omega)$ bei kleinen Frequenzen $U_0$ nähert und sich bei großen Frequenzen 0 nähert. Da RC-Glieder nur kleine Frequenzen passieren lassen, werden diese als Tiefpässe verwendet.
 
 \subsection{Der RC-Kreis als Integrator}
-Unter bestimmten Bedinungen kann ein RC-Glied als Integrator eingesetzt werden. Dazu muss $\omega >> \frac{1}{RC}$ erfüllt sein.
+Unter bestimmten Bedinungen kann ein RC-Glied als Integrator eingesetzt werden. Dazu muss $\omega \gg \frac{1}{RC}$ erfüllt sein.
 Dann gilt:
 \begin{equation}
   U_C(t) \approx \frac{1}{RC} \int_0^t U(t') \mathrm{d}t'.

@@ -4,33 +4,32 @@
 \input{../fehlerrechnung.tex}
 
 \subsection{Auf- und Entladevorgang}
-Die Zeitkonstante $\tau = RC$ eines RC-Kreises wird Anhand der Auf-/Entladekurve bestimmt. Dazu wird ein Stromkreis wie in Abb. \ref{fig:stromkreis1} genutzt, wobei $U_C$ mit einem digitalen Speicheroszilloskop gemessen wird. Der gemessene Spannungsverlauf findet sich in Abb. \ref{fig:entladekurve}.
-
+\label{sec:a}
+Die Zeitkonstante $\tau = RC$ eines RC-Kreises wird Anhand der Auf-/Entladekurve bestimmt. Dazu wird ein Stromkreis wie in Abb. \ref{fig:rc-kreis} genutzt, wobei $U_C$ mit einem digitalen Speicheroszilloskop gemessen wird. Der gemessene Spannungsverlauf findet sich in Abb. \ref{fig:entladekurve}.
 \begin{figure}
   \centering
   \includegraphics{build/a1.pdf}
   \caption{Verlauf der Kondensatorspannung $U_C$ bei angelegter Rechteckspannung am RC-Kreis. Zur Bestimmung der Zeitkonstante wird der mit den schwarzen vertikalen Linien markierte Zeitbereich genutzt.}
   \label{fig:entladekurve}
 \end{figure}
-
 Zur Auswertung wird nun das Spannungsoffset
 \begin{equation}
   U_0 = \SI{-5.6}{\volt}
 \end{equation}
-korrigiert, die Messwerte logarithmiert und mittels linearer Regression die Steigung einer Ausgleichsgeraden ermittelt. Nach
+korrigiert, die Messwerte logarithmiert und mittels linearer Regression die Steigung einer Ausgleichsgeraden ermittelt. Aus (\ref{a}) folgt über
 \begin{align}
   U (t) &= U (0) \cdot \symup{e}^{\sfrac{-t}{RC}}\\
   \ln{U(t)} &= \ln{(U (0) \cdot \symup{e}^{\sfrac{-t}{RC}})} \\
   \ln{U(t)} &= \ln{U (0)} - \frac{1}{RC} \cdot t
 \end{align}
 
-ist also
+, dass
 
 \begin{equation}
   RC = -\frac{1}{a}
 \end{equation}
 
-mit der Steigung $a$ der Ausgleichsgeraden. Die logarithmierten Messwerte über die Zeit aufgetragen finden sich in Abb. \ref{fig:auswertung_a}, das Ergebnis in Tab. \ref{tab:ergebnis_a}.
+ist, mit der Steigung $a$ der Ausgleichsgeraden. Die logarithmierten Messwerte über die Zeit aufgetragen finden sich in Abb. \ref{fig:auswertung_a}, das Ergebnis in Tab. \ref{tab:ergebnis_a}.
 
 \begin{table}
   \centering
@@ -59,7 +58,8 @@ mit der Steigung $a$ der Ausgleichsgeraden. Die logarithmierten Messwerte über 
 \end{figure}
 
 \subsection{Schwingungsverhalten}
-Nun soll die Zeitkonstante auf andere Art und Weise ermittelt werden, undzwar dadurch, dass eine Wechselspannung an den RC-Kreis angelegt wird und dabei die resultierende Spannung bzw. Phasenverschiebung gemessen wird. Der Aufbau der Schaltung findet sich an Abb. \ref{fig:aufbau_b}. Hierbei wird die Zeitkonstante mittels nichtlinearer Ausgleichsrechnung an die der Formeln (\ref{eqn:}) und (\ref{eqn:}) bestimmt. Die Ergebnisse finden sich in Tabelle \ref{tab:ergebnis_b} und Abb. \ref{fig:auswertung_b1}/\ref{fig:auswertung_b2}.
+\label{sec:b}
+Nun soll die Zeitkonstante auf andere Art und Weise ermittelt werden, undzwar dadurch, dass eine Wechselspannung an den RC-Kreis angelegt wird und dabei die resultierende Spannung bzw. Phasenverschiebung gemessen wird. Der Aufbau der Schaltung findet sich an Abb. \ref{fig:phase-frequenz}. Hierbei wird die Zeitkonstante mittels nichtlinearer Ausgleichsrechnung an die der Formeln (\ref{eqn:amplitude}) und (\ref{eqn:phase}) bestimmt. Die Ergebnisse finden sich in Tabelle \ref{tab:ergebnis_b} und Abb. \ref{fig:auswertung_b1}/\ref{fig:auswertung_b2}.
 
 \begin{table}
   \centering
@@ -95,26 +95,59 @@ Nun soll die Zeitkonstante auf andere Art und Weise ermittelt werden, undzwar da
   \label{fig:auswertung_b2}
 \end{figure}
 
+\newpage
 \subsection{Integrator}
+\label{sec:c}
 Bei ausreichend hohen Frequenzen $\omega \gg \sfrac{1}{RC}$ kann ein RC-Kreis als Integrationsglied verwendet werden. Die hochfrequenten Anteile der angelegten Spannung werden dabei aufintegriert. Einige Beispiele dazu finden sich in den Abbildungen \ref{fig:d1}, \ref{fig:d2} und \ref{fig:d3}.
 
 \begin{figure}
   \centering
-  \includegraphics{build/d1.pdf}
-  \caption{.}
+  \includegraphics[scale=0.8]{build/d1.pdf}
+  \caption{Spannungsverlauf einer Dreiecksschwingung und der vom RC-Kreis integrierten resultierenden Parabelschwingung.}
   \label{fig:d1}
 \end{figure}
 
 \begin{figure}
   \centering
-  \includegraphics{build/d2.pdf}
-  \caption{.}
+  \includegraphics[scale=0.8]{build/d2.pdf}
+  \caption{Spannungsverlauf einer Rechteckschwingung und der vom RC-Kreis integrierten resultierenden Dreieckschwingung.}
   \label{fig:d2}
 \end{figure}
 
 \begin{figure}
   \centering
-  \includegraphics{build/d3.pdf}
-  \caption{.}
+  \includegraphics[scale=0.8]{build/d3.pdf}
+  \caption{Spannungsverlauf einer Sinusschwingung und der vom RC-Kreis integrierten resultierenden Cosinusschwingung.}
   \label{fig:d3}
 \end{figure}
+
+\subsection{Messdaten}
+Die Angabe der Oszilloskop-Messdaten aus \ref{sec:a} ist aufgrund der Menge (6000 Punkte) nicht möglich. Die restlichen Daten finden sich in Tabelle \ref{tab:daten}.
+
+\begin{table}
+  \centering
+  \caption{Messdaten.}
+  \label{tab:daten}
+  \sisetup{
+    round-mode=figures
+  }
+  \begin{tabular}{
+      l@{}
+      S[table-format=5.0]
+      S[table-format=1.3]
+      S[table-format=1.1]
+      S[round-precision=3, table-format=1.4] @{${}\pm{}$} S[round-precision=2, table-format=1.5]
+      S[table-format=1.2]
+      S[round-precision=3, table-format=1.4] @{${}\pm{}$} S[round-precision=2, table-format=1.4]
+    }
+    \toprule
+    & {$f / \si{\hertz}$} & {$U/ \si{\volt}$} & {$U_0 / \si{\volt}$} & \multicolumn{2}{c}{A} & {$a / \si{\milli\second}$} & \multicolumn{2}{c}{$\phi / \si{\radian}$}\\
+    \midrule
+    \input{build/daten.txt}
+    \midrule
+    &\multicolumn{8}{c}{
+      $\Delta U^\text{rel} = 5\%, \quad \Delta U_0^\text{rel} = 5\%, \quad \Delta a^\text{rel} = 5\%$
+    }\\
+    \bottomrule
+  \end{tabular}
+\end{table}
