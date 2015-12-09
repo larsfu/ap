@@ -34,6 +34,6 @@ plt.plot(t_ber, U_ber, 'rx', label='Messwerte', markersize=3)
 plt.plot(x, slope * x + intercept, 'b-', label='Lineare Regression')
 
 plt.legend(loc='best')
-plt.xlabel(r'$t/s$')
-plt.ylabel(r'$ln(U/V)$')
+plt.xlabel(r'$t/\si{\second}$')
+plt.ylabel(r'$ln(U/\si{\volt})$')
 plt.savefig('build/a2.pdf')
