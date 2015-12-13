@@ -136,3 +136,16 @@
   }{}%
 }
 \publishers{TU Dortmund – Fakultät Physik}
+
+%Eigene Befehle
+\ExplSyntaxOn
+\NewDocumentCommand \fig {mmmO{}}
+{
+  \begin{figure}
+    \centering
+    \includegraphics[#4]{#1}
+    \caption{#2}
+    \label{fig:#3}
+  \end{figure}
+}
+\ExplSyntaxOff
