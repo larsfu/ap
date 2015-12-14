@@ -2,7 +2,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-x,y =np.genfromtxt('dispersion2.txt',unpack=True)
+x,y =np.genfromtxt('auswertung/dispersion2.txt',unpack=True)
 plt.plot(x,y,'rx',label="Messwerte")
 plt.ylabel(r'$\omega /\ \mathrm{Hz} $')
 plt.xlabel(r'$\theta$')
