@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-x,y =np.genfromtxt('v-ph.txt',unpack=True)
+x,y =np.genfromtxt('auswertung/v-ph.txt',unpack=True)
 plt.plot(x,y,'rx',label="Messwerte")
 plt.ylabel(r'$v_{\mathrm{ph}} /\ \mathrm{Hz} $')
 plt.xlabel(r'$\omega /\ \mathrm{Hz}$')
