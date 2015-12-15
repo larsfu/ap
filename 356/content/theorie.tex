@@ -2,5 +2,126 @@
 Es sollen das Schwingungsverhalten einer elektrischen Kette von Kapazitäten und Induktivitäten (siehe Abb. \ref{fig:tiefpass}) untersucht werden. Dazu gehören Durchlass- und Dispersionskurve und stehende Wellen.
 
 \fig{content/bilder/1}{$LC$-Kette mit parallelgeschalteten Kondensatoren und in Reihe geschalteten Spulen.}{tiefpass}
+
 \section{Theorie}
 \label{sec:Theorie}
+
+\subsection{Schwingungsgleichung im stationären Fall}
+
+Anhand der Kirchhoffschen Gesetze (hier Knotenregel) lässt sich für die unendliche $LC$-Kette (siehe Abb.~\ref{fig:kette}) eine Schwingugsgleichung mit
+\begin{align}
+  I_n - I_{n+1} + I_{n_\text{quer}} &= 0 \\
+  \shortintertext{zu}
+  \label{eqn:eins}
+  -\omega^2 C U_n + \frac{1}{L} (-U_{n-1} + 2U_n - U_{n+1}) &= 0
+\end{align}
+\begin{align}
+  \intertext{herleiten, wobei diese mit dem Ansatz}
+  U_n(t) &= U_0 \symup{e}^{i \omega t} \symup{e}^{-i n \theta t}
+\end{align}
+\begin{align}
+  \intertext{zur Lösung}
+  -\omega^2 LC + 2 - (\symup{e}^{i} + \symup{e}^{-i\theta}) &= 0
+\end{align}
+führt. Diese wiederum ergibt die Dispersionsrelation
+\begin{equation}
+  \omega^2 = \frac{2}{LC}(1-\cos \theta)
+\end{equation}
+anhand derer ersichtlich ist, dass ein Schwingungsverhalten der Kette nur bei Frequenzen
+\begin{equation}
+  0 \le \omega < \frac{\sqrt{2}}{\sqrt{LC}}
+\end{equation}
+möglich ist.
+
+Ähnlich verhält es sich auch im allgemeineren Fall einer alternierenden Kette aus $L, C_1$ und $C_2$ (siehe Abb.~\ref{fig:kette2}), wobei (\ref{eqn:eins}) dann zu
+\begin{align}
+  -\omega^2 C_1 U_{2n+1} + \frac{1}{L} (-U_{2n} + 2 U_{2n+1} - U_{2n+2}) &= 0
+  \shortintertext{und}
+  -\omega^2 C_2 U_{2n} + \frac{1}{L} (-U_{2n-1} + 2 U_{2n+1} - U_{2n+1}) &= 0
+\end{align}
+verallgemeinert wird. Durch die Lösung der Gleichungen mit einem ähnlichen Ansatz wie zu vor und einige mathematische Kunst
+ergibt sich für die alternierende Kette eine Dispersionsrelation der Form
+\begin{equation}
+  \label{eqn:disprel}
+  \omega_{1,2}^2 = \frac{1}{L} \left(\frac{1}{C_1} + \frac{1}{C_2}\right) \pm \frac{1}{L} \sqrt{\left(\frac{1}{C_1} + \frac{1}{C_2}\right)² - \frac{4\sin^2(\theta)}{C_1C_2}}.
+\end{equation}
+Demnach entstehen bei dieser Kette zwei Zweige der Dispersionskurve, bedingt durch die nötige Fallunterscheidung am $\pm$. Jene sind in Abb.~\ref{fig:alter} grafisch dargestellt.
+
+\fig{content/bilder/4}{Ströme und Spannungen in einer $LC$-Kette, aus \cite{anleitung356}.}{kette}
+\fig{content/bilder/5}{$LC$-Kette mit alternierenden Kondensatoren, aus \cite{anleitung356}.}{kette2}
+\fig{content/bilder/7}{Dispersionskurven der alternierenden Kette, aus \cite{anleitung356}.}{alter}
+
+\subsection{Mechanisches Analogon}
+Die $LC$-Kette weist starke Ähnlichkeiten zu einem mechanischen System gekoppelter Oszillatoren (siehe Abb.~\ref{fig:federn}) auf. Die Schwingungsgleichung
+\begin{equation}
+  -\omega^2 M u_n + \eta (-u_{n-1} + 2 u_n + u_{n+1}) = 0
+\end{equation}
+mit der Federkonstanten $\eta$, Masse $M$ und Elongation $u_n(t)$ ähnelt (\ref{eqn:eins}). Auch hierbei kann der Oszillator durch Erweiterung zu einer alternierenden Kette mit $M \neq m$ verallgemeinert werden. Wieder ergibt sich eine Dispersionsrelation
+\begin{equation}
+  \omega_{1,2}² = \eta\left(\frac{1}{m} + \frac{1}{M}\right) \pm \eta \sqrt{\left(\frac{1}{M} + \frac{1}{m}\right)^2 - \frac{4\sin^2(\theta)}{mM}}
+\end{equation}
+die genau wie (\ref{eqn:disprel}) zwei Lösungszweige enthält. In einem Kristall können elektromagnetische Wellen Schwingungen im oberen der Zweige auslösen, daher wird dieser auch optischer Zweig genannt. Der untere Zweig hingegen akustisch, da er \enquote{normale} Schwingungen der Gitteratome beschreibt.
+\fig{content/bilder/6}{Mechanisches Analogon zur $LC$-Kette, aus \cite{anleitung356}.}{federn}
+
+\subsection{Phasengeschwindigkeit}
+In der $LC$-Kette breiten sich Wellen mit der Wellengleichung
+\begin{equation}
+  U(t, n) = U_0 \symup{e}^{i(\omega t -n\theta)}
+\end{equation}
+aus, wobei $\theta$ die Phasenverschiebung pro Kettenglied darstellt. Die Phasengeschwindigkeit der Welle ist definiert als
+\begin{align}
+  v_\text{ph} &= \frac{\Delta n}{\Delta t}
+  \intertext{woraus über die Phase}
+  \Phi &= \omega t - n \theta \\
+  v_\text{ph} &= \frac{\omega}{\theta}
+\end{align}
+folgt.
+
+\subsection{Impedanz}
+Von Interesse ist weiterhin die Eingangsimpedanz $\mathfrak{Z}$ der $LC$-Kette. Diese kann erneut unter Zuhilfenahme der Kirchhoffschen Gesetze (Siehe Abb.~\ref{fig:imp}) ermittelt werden. Aus der Wellengleichung folgt letztendlich
+\begin{equation}
+  \label{eqn:wellnw}
+  \mathfrak{Z} = \frac{\mathfrak{u}_0}{\mathfrak{i}_0} = \frac{\omega L}{\sin \theta} = \frac{\sqrt{\frac{L}{C}}}{\sqrt{1-\frac{1}{4} \omega² LC}}.
+\end{equation}
+
+Daraus folgt, dass die Impedanz einer \emph{unendlich} langen Kette keinen Imaginärteil hat, also im Endeffekt einen Ohmschen Widerstand darstellt. Um dies nun mit einer \emph{endlichen} Kette nachzubilden wird ein Abschlusswiderstand an die Kette angeschlossen (Abb~\ref{fig:awid}), welcher Reflexionen am Ende der Kette, die zu imaginären Impedanzen führen könnten, vernichtet. Da der Wellenwiderstand der Kette nach (\ref{eqn:wellnw}) frequenzabhängig ist (siehe Abb.~\ref{fig:freqab}), muss für eine vollständige Verhinderung von Reflexionen auch der Abschlusswiderstand variabel angepasst sein.
+
+\fig{content/bilder/12}{Schaltbild zur Bestimmung der Impedanz der $LC$-Kette, aus \cite{anleitung356}.}{imp}
+\fig{content/bilder/13}{Endliche $LC$-Kette mit Abschlusswiderstand, aus \cite{anleitung356}.}{awid}
+\fig{content/bilder/14}{Frequenzabhängigkeit der charakteristischen Impedanz einer $LC$-Kette, aus \cite{anleitung356}.}{freqab}
+
+
+\subsection{Stehende Wellen}
+Im allgemeineren Fall, dass der Abschlusswiderstand nicht genau dem Wellenwiderstand der endlichen Kette entspricht (siehe Abb.~\ref{fig:endl}), können aufgrund der Reflexion am Kettenende bei bestimmten Frequenzen stehende Wellen auf der Kette beobachtet werden. Im Einzelnen sind verschiedene Fälle zu untersuchen:
+\fig{content/bilder/14}{Abschluss einer endlich langen $LC$-Kette mit einem (komplexen) Widerstand $Z$, aus \cite{anleitung356}.}{freqab}
+
+\subsubsection{\texorpdfstring{$Z = \infty$}{}: Offenes Ende}
+Die Welle wird ohne Phasensprung vollständig reflektiert, es ist
+\begin{equation}
+  u_\text{ref} = u_E
+\end{equation}
+mit der hinlaufenden Spannung $u_E$ und reflektierten Spannung $u_\text{ref}$.
+
+\subsubsection{\texorpdfstring{$Z = 0$}{}: Geschlossenes Ende}
+Am Ende wird die Welle mit Phasenverschiebung $\symup{\pi}$ vollständig reflektiert, also ist
+\begin{equation}
+  u_\text{ref} = -u_E.
+\end{equation}
+
+\subsubsection{\texorpdfstring{$Z = Z_\text{Kette}$}{}: Abschluss mit Wellenwiderstand}
+\begin{equation}
+  u_\text{ref} = 0,
+\end{equation}
+also wird nichts reflektiert, es kann nicht zu einer stehenden Welle kommen.
+
+\subsubsection{Bedingung für das Auftreten einer stehenden Welle}
+Im offenen Fall lässt sich aus den Schwingungsgleichungen die Bedingung
+\begin{equation}
+  n_\text{max} \theta_k = k \symup{\pi} \hfill k = 1,2,…,n_\text{max}
+\end{equation}
+für eine stehende Welle ermitteln, im geschlossenen Fall lautet diese
+\begin{equation}
+  n_\text{max} \theta_l = l \frac{\symup{\pi}}{2} \hfill l = 0,1,3,5,…,2 n_\text{max} -1.
+\end{equation}
+Wenn diese Bedingungen erfüllt werden ergeben sich stehende Wellen, wie beispielhaft in Abb.~\ref{fig:stewe} dargestellt
+\fig{content/bilder/17}{Beispiele von stehenden Wellen, aus \cite{anleitung356}.}{stewe}
