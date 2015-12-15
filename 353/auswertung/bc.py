@@ -27,7 +27,7 @@ paramsb, pcovb = curve_fit(phi, f, unp.nominal_values(phi_), p0=[1/742], sigma=u
 paramsa_u = unc.correlated_values(paramsa, pcova)
 paramsb_u = unc.correlated_values(paramsb, pcovb)
 maketable([paramsa_u], 'build/b1.txt', True)
-maketable([paramsb_u], 'build/b2.txt', True )
+maketable([paramsb_u], 'build/b2.txt', True)
 
 
 x = np.linspace(0.2, 10000, 100000)
@@ -55,7 +55,7 @@ plt.clf()
 
 RC = np.mean((paramsa[0], paramsb[0]))
 
-phi__ = np.linspace(0, 2*np.pi, 10000)
+#phi__ = np.linspace(0, 2*np.pi, 10000)
 plt.polar(phi(x, *paramsb), A(x, *paramsa), 'b-', label=r'$A(\omega) / U_0')
 plt.polar(unp.nominal_values(phi_), unp.nominal_values(A_), 'rx')
 plt.legend(loc='best')
