@@ -1,2 +1,102 @@
 \section{Auswertung}
 \label{sec:Auswertung}
+Die Gerätedaten der verwendeten Messapparatur lauten
+\begin {align}
+  L &= \SI{10.11+-0.03}{mH}\\
+  C &= \SI{2.098+-0.006}{nF}\\
+  R_1 &= \SI{30.1+-0.1}{\ohm}\\
+  R_2 &= \SI{509.5+-0.5}{\ohm}\\
+  R_\text{Generator} &= \SI{50}{\ohm}
+\end{align}
+
+\subsection{Effektiver Dämpfungswiderstand}
+Zuerst wird der effektive Dämpfungswiderstand eines $RLC$-Kreises bestimmt. Der gemessene Spannungsverlauf ist zusammen mit oberer und unterer Einhüllenden in Abb.~\ref{fig:a} dargestellt. Nach
+\begin{align}
+  I(t) &= A_0 e^{-2\pi\mu t} \cos{(2\pi\nu t + \eta)}\\
+  \intertext{und}
+  T_\text{ex} :&= \frac{1}{2\pi\mu}
+\end{align}
+lässt sich mit dem durch nichtlineare Ausgleichsrechnung ermittelten Exponenten der $\symup{e}$-Funktion die Abklingdauer
+\begin{equation}
+  T_\text{ex} = \SI{183.7+-2.0}{\second}
+\end{equation}
+bestimmen. Daraus folgt mit
+\begin{align}
+  T_\text{ex} &= \frac{2L}{R} \\
+  R_\text{eff} &= \SI {110.1+-1.2}{\ohm}
+\end{align}
+für den effektiven Widerstand. Dies ergibt zur Summe aus $R_1$ und $R_\text{Generator}$ eine relative Abweichung von
+\begin{equation}
+  \Delta R_\text{eff} = \SI{12,2}{\%}.
+\end{equation}
+\fig{build/a.pdf}{Gedämpfte Schwingung in einem $RLC$-Kreis, mit Einhüllenden.}{a}
+
+\subsection{Aperiodischer Grenzfall}
+Um $R_\text{ap}$ zu bestimmen wird ein veränderlicher Widerstand so eingestellt, dass auf dem Oszilloskopschirm der aperiodische Grenzfall zu sehen ist. Der gemessene Widerstand beträgt
+\begin{equation}
+  R_\text{ap} = \SI{3280}{\ohm}.
+\end{equation}
+Im Vergleich dazu liegt der theoretische Wert bei
+\begin{equation}
+  R_\text{ap}^\text{theoretisch} = \SI{4390.4+-9}{\ohm},
+\end{equation}
+hat demnach eine relative Abweichung von
+\begin{equation}
+  \Delta R_\text{ap} = \SI{33,9}{\%}
+\end{equation}
+
+\subsection{Erzwungene Schwingungen}
+\subsubsection{Frequenzabhängigkeit der Amplitude}
+Die Amplitude eines erregten Schwingkreises ist nach (\ref{eqn:}) abhängig von der Erregerfrequenz. In Abb.~\ref{fig:c1} ist die gemessene Amplitude über die Frequenz logarithmisch aufgetragen. In Abb~\ref{fig:c2} ist der Resonanzbereich noch einmal vergrößert linear dargestellt. Die aus den Messdaten bestimmten Werte sind
+\begin{align}
+  q &= 4,34 \\
+  \nu_+ - \nu_- &= \SI{8141.01}{\hertz}
+\end{align}
+für Resonanzüberhöhung und Resonankurvenbreite. Die zugehörigen theoretischen Werte lauten
+\begin{align}
+  q_\text{theoretisch} &= \num{3.92+-0.009},\\
+  \nu_+ - \nu_- &= \SI{8807.8+-27}{\hertz}.
+\end{align}
+
+\fig{build/c.pdf}{Frequenzabhängigkeit der Amplitude des erregten $RLC$-Kreises, doppeltlogarithmische Darstellung.}{c1}
+\fig{build/c_linear.pdf}{Frequenzabhängigkeit der Amplitude des erregten $RLC$-Kreises, lineare Darstellung im Resonanzbereich.}{c2}
+
+\subsubsection{Frequenzabhängigkeit der Phasenverschiebung}
+Nicht nur die Amplitude sondern auch die Phasenverschiebung der im $RLC$-Kreis ist eine Funktion der Frequenz. Analog zum vorherigen Abschnitt finden sich in den Abbildungen \ref{fig:d1} und \ref{fig:d2} Plots der gemessenen Phasenverschiebung.
+
+%Hier fehlt noch was.
+
+\fig{build/d.pdf}{Frequenzabhängigkeit der Phasenverschiebung des erregten $RLC$-Kreises, einfachlogarithmische Darstellung.}{d1}
+\fig{build/d_linear.pdf}{Frequenzabhängigkeit der Phasenverschiebung des erregten $RLC$-Kreises, lineare Darstellung im Resonanzbereich.}{d2}
+
+\subsection{Messdaten}
+\subsection{Messdaten}
+Die Angabe der Oszilloskop-Messdaten aus \ref{sec:a} ist aufgrund der Menge nicht möglich. Die restlichen Daten finden sich in Tabelle \ref{tab:daten}.
+
+\begin{table}
+  \tiny
+  \centering
+  \caption{Messdaten.}
+  \label{tab:daten}
+  \sisetup{
+    round-mode=figures
+  }
+  \begin{tabular}{
+      l@{}
+      S[table-format=5.0]
+      S[table-format=2.1]
+      S[table-format=2.3]
+      S[table-format=5.1]
+      S[table-format=1.3]
+    }
+    \toprule
+    & {$f / \si{\hertz}$} & {$U/ \si{\volt}$} & {$U_C / \si{\volt}$} & {$a / \si{\milli\second}$} & {$\phi / \si{\radian}$}\\
+    \midrule
+    \input{build/daten.txt}
+    %\midrule
+    %&\multicolumn{8}{c}{
+    %  $\Delta U^\text{rel} = 5\%, \quad \Delta U_0^\text{rel} = 5\%, \quad \Delta a^\text{rel} = 5\%$
+    %}\\
+    \bottomrule
+  \end{tabular}
+\end{table}

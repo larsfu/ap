@@ -1,4 +1,5 @@
 import uncertainties
+import numpy
 
 def format(row, reformat_with_exponent):
     row_reformatted = []
@@ -31,4 +32,24 @@ def maketable(values, file_path, reformat_with_exponent=False):
         output = format(values, reformat_with_exponent)
     f = open(file_path, 'w')
     f.write(output)
+    f.close()
+
+def writevalue(value, file_path):
+    o = ''
+    if isinstance(value, numpy.ndarray):
+        value = value.tolist()
+    if isinstance(value, uncertainties.UFloat):
+        n = value.n
+        s = value.s
+        #Ist das wohl böse? Ist mir egal!
+        if n == 0:
+            n = int(0)
+        if s == 0:
+            s = int(0)
+
+        o = str(n) + '+-' + str(s)
+    else:
+        o = str(value)
+    f = open(file_path, 'w')
+    f.write(o)
     f.close()

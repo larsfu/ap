@@ -2,7 +2,7 @@
 backend : pgf
 
 # Größe der Zeichenfläche in Zoll
-figure.figsize : 5.78, 3.57
+figure.figsize : 5.78, 3.5
 
 # Serifenfont benutzen
 font.family : serif

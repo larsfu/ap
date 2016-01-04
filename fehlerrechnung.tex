@@ -3,15 +3,15 @@
 
 \subsubsection{Mittelwert}
 \begin{equation}
-\overline{v_i} = \frac{1}{n} \sum_{i=1}^n x_i
+\overline{v} = \frac{1}{n} \sum_{i=1}^n v_i
 \end{equation}
 
 \subsubsection{Standardabweichung}
 \begin{equation}
-s_i = \sqrt{\frac{1}{N - 1} \sum_{j=1}^N \left(v_j - \overline{v_i}\right){^2}}
+s_i = \sqrt{\frac{1}{N - 1} \sum_{j=1}^N \left(v_j - \overline{v}\right){^2}}
 \end{equation}
 
-wobei $v_j$ ($j = 1, ..., N$) zufällige Fehler beschreibt.
+wobei $v_j$ ($j = 1, ..., N$) die Messwerte sind.
 
 \subsubsection{Streuung der Mittelwerte}
 \begin{equation}
@@ -19,7 +19,7 @@ wobei $v_j$ ($j = 1, ..., N$) zufällige Fehler beschreibt.
 \end{equation}
 
 \subsubsection{Gaußfehler}
-Hat man eine fehlerbehaftete Funktion $f$ mit $k$ als fehlerbehafteter Größe und $\sigma_k$ als Ungenauigkeit, gilt:
+Bei einer fehlerbehafteten Funktion $f$ mit $k$ als fehlerbehafteter Größe und $\sigma_k$ als Ungenauigkeit, gilt:
 
 \begin{equation}
 \Delta x_k = \frac{\mathrm{d}f}{\mathrm{d}k}\sigma_k

@@ -29,31 +29,33 @@ korrigiert, die Messwerte logarithmiert und mittels linearer Regression die Stei
   RC = -\frac{1}{a}
 \end{equation}
 
-ist, mit der Steigung $a$ der Ausgleichsgeraden. Die logarithmierten Messwerte über die Zeit aufgetragen finden sich in Abb. \ref{fig:auswertung_a}, das Ergebnis in Tab. \ref{tab:ergebnis_a}.
-
-\begin{table}
-  \centering
-  \caption{Ergebnis der Auswertung der Zeitkonstante des RC-Kreises.}
-  \label{tab:ergebnis_a}
-  \sisetup{
-    round-mode=figures
-  }
-  \begin{tabular}{
-    l@{}
-    S[table-format=1.3e2, round-precision=4] @{${}\pm{}$} S[table-format=1.2e2, round-precision=3]
-  }
-    \toprule
-    & \multicolumn{2}{c}{RC / \si{\ohm\farad}} \\
-    \midrule
-    \input{build/a.txt}
-    \bottomrule
-  \end{tabular}
-\end{table}
+ist, mit der Steigung $a$ der Ausgleichsgeraden. Die logarithmierten Messwerte über die Zeit aufgetragen finden sich in Abb. \ref{fig:auswertung_a}, das Ergebnis lautet
+\begin{equation}
+  RC = \SI{1.360+-0.001}{\milli\second}
+\end{equation}
+%\begin{table}
+%  \centering
+%  \caption{Ergebnis der Auswertung der Zeitkonstante des RC-Kreises.}
+%  \label{tab:ergebnis_a}
+%  \sisetup{
+%    round-mode=figures
+%  }
+%  \begin{tabular}{
+%    l@{}
+%    S[table-format=1.3e2, round-precision=4] @{${}\pm{}$} S[table-format=1.2e2, round-precision=3]
+%  }
+%    \toprule
+%    & \multicolumn{2}{c}{RC / \si{\second}} \\
+%    \midrule
+%    \input{build/a.txt}
+%    \bottomrule
+%  \end{tabular}
+%\end{table}
 
 \begin{figure}
   \centering
   \includegraphics{build/a2.pdf}
-  \caption{Logarithmierter Kondensatorspannungsverlauf mit Ausgleichsgerade.}
+  \caption{Logarithmierter Kondensatorspannungsverlauf mit Ausgleichsgerade. Fehlerbalken wurden zur Verbesserung der Lesbarkeit ausgelassen.}
   \label{fig:auswertung_a}
 \end{figure}
 
@@ -70,10 +72,10 @@ Nun soll die Zeitkonstante auf andere Art und Weise ermittelt werden, undzwar da
   }
   \begin{tabular}{
     l
-    S[table-format=1.3e2, round-precision=4] @{${}\pm{}$} S[table-format=1.2e2, round-precision=3]
+    S[table-format=1.3e2, round-precision=3] @{${}\pm{}$} S[table-format=1.2e2, round-precision=1]
   }
     \toprule
-    & \multicolumn{2}{c}{RC / \si{\ohm\farad}} \\
+    & \multicolumn{2}{c}{RC / \si{\second}} \\
     \midrule
     Messreihe Amplitude \input{build/b1.txt}
     Messreihe Phasenverschiebung \input{build/b2.txt}
@@ -102,21 +104,21 @@ Bei ausreichend hohen Frequenzen $\omega \gg \sfrac{1}{RC}$ kann ein RC-Kreis al
 
 \begin{figure}
   \centering
-  \includegraphics[scale=0.8]{build/d1.pdf}
+  \includegraphics[scale=0.8]{daten/d/MAP004.png}
   \caption{Spannungsverlauf einer Dreiecksschwingung und der vom RC-Kreis integrierten resultierenden Parabelschwingung.}
   \label{fig:d1}
 \end{figure}
 
 \begin{figure}
   \centering
-  \includegraphics[scale=0.8]{build/d2.pdf}
+  \includegraphics[scale=0.8]{daten/d/MAP005.png}
   \caption{Spannungsverlauf einer Rechteckschwingung und der vom RC-Kreis integrierten resultierenden Dreieckschwingung.}
   \label{fig:d2}
 \end{figure}
 
 \begin{figure}
   \centering
-  \includegraphics[scale=0.8]{build/d3.pdf}
+  \includegraphics[scale=0.8]{daten/d/MAP006.png}
   \caption{Spannungsverlauf einer Sinusschwingung und der vom RC-Kreis integrierten resultierenden Cosinusschwingung.}
   \label{fig:d3}
 \end{figure}
