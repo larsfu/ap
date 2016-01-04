@@ -1,3 +1,8 @@
+#Mein Zeug was mich nervt, keine Ahnung ob das auch irgendwie anders ginge das zu ignorieren
+356/daten/*.png
+356/daten/*.TIF
+303/daten
+
 ## Core latex/pdflatex auxiliary files:
 *.aux
 *.lof
