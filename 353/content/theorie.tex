@@ -5,7 +5,7 @@ Im folgenden Versuch gilt es, die Zeitkonstante eines RC-Gliedes zu bestimmen. A
 \section{Theorie}
 \label{sec:Theorie}
 \subsection{Allgemeine Relaxationsgleichung}
-Kehrt ein System nicht oszillatorisch in seinen Ausgangszustand, aus welchem es zuvor entfernt wurde, zurück, wird dies durch Relaxationsvorgänge beschrieben. Die zu betrachtende Größe A besitzt eine Änderungsgeschwindigkeit, welche proportional zu der Abweichung von A zu ihrem asymptotisch erreichbaren Endzustand $A(\infty)$ ist.
+Kehrt ein System nicht oszillatorisch in seinen Ausgangszustand, aus welchem es zuvor entfernt wurde, zurück, wird dies durch Relaxationsvorgänge beschrieben. Die zu betrachtende Größe $A$ besitzt eine Änderungsgeschwindigkeit, welche proportional zu der Abweichung von $A$ zu ihrem asymptotisch erreichbaren Endzustand $A(\infty)$ ist.
 \begin{equation}
 \label{eqn:dgl}
   \frac{\mathrm{d}A}{\mathrm{d}t} = c[A(t)-A(\infty)]
@@ -13,14 +13,14 @@ Kehrt ein System nicht oszillatorisch in seinen Ausgangszustand, aus welchem es 
 
 Integriert man diese Gleichung vom Zeitpunkt 0 bis zu einem Zeitpunkt t, folgt
 \begin{equation}
-  A(t) = A(\infty) + [A(0) - A(\infty)]e^ct
+  A(t) = A(\infty) + [A(0) - A(\infty)]e^{ct}
 \end{equation}
 mit $c > 0$, da A beschränkt sein muss.
 
 \begin{figure}
   \centering
   \includegraphics[scale=0.5]{content/RC-Kreis.jpg}
-  \caption{Schaltung eines RC-Kreises, Entladung (Stellung 1) und Aufladung (Stellung 2). Aus \cite{anleitung353}.}
+  \caption{Schaltung eines RC-Kreises, Entladung (Stellung 1) und Aufladung (Stellung 2). \cite{anleitung353}.}
   \label{fig:rc-kreis}
 \end{figure}
 
@@ -56,7 +56,7 @@ mit $U_0$ als Spannung der anliegenden Spannungsquelle.
 \begin{figure}
   \centering
   \includegraphics[scale=0.5]{content/RC-periodisch.jpg}
-  \caption{Schaltung eines RC-Kreises mit Wechselspannung betrieben, sodass periodische Auslenkungen auftreten. Aus \cite{anleitung353}.}
+  \caption{Schaltung eines RC-Kreises mit Wechselspannung betrieben, sodass periodische Auslenkungen auftreten.\cite{anleitung353}.}
   \label{fig:rc-periodisch}
 \end{figure}
 
@@ -97,8 +97,15 @@ Für die frequenzabhängige Amplitude gilt
 Hier ist erkennbar, dass sich $A(\omega)$ bei kleinen Frequenzen $U_0$ nähert und sich bei großen Frequenzen 0 nähert. Da RC-Glieder nur kleine Frequenzen passieren lassen, werden diese als Tiefpässe verwendet.
 
 \subsection{Der RC-Kreis als Integrator}
-Unter bestimmten Bedinungen kann ein RC-Glied als Integrator eingesetzt werden. Dazu muss $\omega \gg \frac{1}{RC}$ erfüllt sein.
-Dann gilt:
+Unter bestimmten Bedingungen kann ein RC-Glied als Integrator eingesetzt werden. Dazu muss $\omega \gg \frac{1}{RC}$ erfüllt sein. Nach der Kirchhoffschen Maschenregel gilt:
 \begin{equation}
-  U_C(t) \approx \frac{1}{RC} \int_0^t U(t') \mathrm{d}t'.
+  U(t) = U_\mathrm{R}(t) + U_\mathrm{C}(t) = I(t) \cdot R + U_\mathrm{C}(t)
 \end{equation}
+
+Mit $I(t) = \frac{\mathrm{d}Q}{\mathrm{d}t} = C \frac{\mathrm{d}U_\mathrm{C}}{\mathrm{d}t}$ und $\omega \gg \frac{1}{RC}$ gilt:
+
+\begin{equation}
+  U_C(t) \approx \frac{1}{RC} \int_0^t U(t') \mathrm{d}t'
+\end{equation}
+
+da \left|U_{\mathrm C}\right| \ll \left|U_{\mathrm R}\right| und \left|U_{\mathrm C}\right| \ll \left|U\right|, wenn $\omega \gg \frac{1}{RC}$.

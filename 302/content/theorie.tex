@@ -9,7 +9,7 @@ Brückenschaltungen dienen zum Ausmessen von Größen, welche sich als elektrisc
 \begin{figure}
   \centering
   \includegraphics[scale=0.5]{content/Brückenschaltung_prinzipiell.jpg}
-  \caption{Prinzipielle Brückenschaltung. Aus \cite{anleitung302}.}
+  \caption{Prinzipielle Brückenschaltung.\cite{anleitung302}.}
   \label{fig:brückenschaltung}
 \end{figure}
 
@@ -36,7 +36,7 @@ Die Brückenspannung geht gegen Null, wenn
   R_{1} R_4 = R_{2} R_3 .
 \end{equation}
 Dies ist die sogenannte Abgleichbedingung.
-$R_{1}$ und $R_4$ können sowohl ohmsche als auch komplexe Widerstände sein. Da sich komplexe Widerstände aus einem Wirk- und einem Blindwiderstand  zusammensetzen, werden in den folgenden Unterkapiteln spezielle Brückenschaltungen erläutert.
+Die Widerstände können dabei sowohl ohmsch als auch komplex sein. Da sich komplexe Widerstände aus einem Wirk- und einem Blindwiderstand  zusammensetzen, werden in den folgenden Unterkapiteln spezielle Brückenschaltungen erläutert.
 
 \subsection{Wheatstonesche Brücke}
 \begin{figure}
@@ -58,7 +58,7 @@ Da nur das Verhältnis der Widerstände $R_3$ und $R_4$ zur Berechnung von $R_x$
 \begin{figure}
   \centering
   \includegraphics[scale=0.5]{content/kapazitätsbrücke.jpg}
-  \caption{Kapazitätsmessbrücke. Aus \cite{anleitung302}.}
+  \caption{Kapazitätsmessbrücke.\cite{anleitung302}.}
   \label{fig:kapazität}
 \end{figure}
 
@@ -66,11 +66,11 @@ Zur Messung von Kapzitäten, also komplexen Widerständen, wird die Kapazitätsm
 Für reale Kondensatoren gilt für den Widerstand:
 
 \begin{equation}
-  \mathfrak{Z}_C = R - \frac{j}{\omega C}
+  \mathfrak{Z}_C = R - \frac{i}{\omega C}
 \end{equation}
 
 Da reale Kondensatoren einen Teil der elektrischen Energie in Wärme umwandeln, wird im Schaltbild ein ohmscher Widerstand zur Kapazität in Reihen geschaltet.
-Um die durch $R_x$ auftretende Phasenverschiebung zu kompenseiren, wird ein variabler Widerstand $R_{2}$ eingebaut. Für $C_x$ und $R_x$ folgt:
+Es wird ein variabler Widerstand $R_{2}$ eingebaut. Für $C_x$ und $R_x$ folgt:
 
 \begin{equation}
   \label{eqn:kapazität1}
@@ -86,7 +86,7 @@ Um die durch $R_x$ auftretende Phasenverschiebung zu kompenseiren, wird ein vari
 \begin{figure}
   \centering
   \includegraphics[scale=0.5]{content/induktivitätsmessbrücke.jpg}
-  \caption{Induktivitätsmessbrücke. Aus \cite{anleitung302}.}
+  \caption{Induktivitätsmessbrücke. \cite{anleitung302}.}
   \label{fig:induktivität}
 \end{figure}
 
@@ -94,12 +94,12 @@ Hier sollen Induktivitäten ausgemessen werden. Da diese ebenfalls komplexe Wide
 Der Widerstand einer realen Spule ergubt sich aus
 
 \begin{equation}
-  \mathfrak{Z}_L = R + j\omega L
+  \mathfrak{Z}_L = R + i\omega L
 \end{equation}
 
 
 Eine ideale Spule wandelt einen Teil der magnetischen Feldenergie in Wärme um. Auch ihr Schaltbild enthält zusätzlich einen in Reihe geschalteten ohmschen Widerstand.
-Auch hier dient der Widerstand $R_{2}$ dazu, eine Phasenverschiebung, welche durch den Innenwiederstand der Spule verursacht wird, auszugleichen.
+Auch hier wird ein variabler Widerstand $R_{2}$ eingebaut.
 Für $L_x$ und $R_x$ gilt:
 
 \begin{equation}
@@ -119,7 +119,7 @@ Für eine möglichst genaue Messung müsste nur $R_{2}$ in diesem Brückenzweig 
 \begin{figure}
   \centering
   \includegraphics[scale=0.5]{content/maxwell-brücke.jpg}
-  \caption{Maxwell-Brücke. Aus \cite{anleitung302}.}
+  \caption{Maxwell-Brücke. \cite{anleitung302}.}
   \label{fig:maxwell}
 \end{figure}
 
@@ -140,7 +140,7 @@ Auch die Maxwell-Brücke dient zum Messen von Induktivitäten. Die Widerstände 
 \begin{figure}
   \centering
   \includegraphics[scale=0.5]{content/wien-robinson.jpg}
-  \caption{Wien-Robinson-Brücke. Aus \cite{anleitung302}.}
+  \caption{Wien-Robinson-Brücke. \cite{anleitung302}.}
   \label{fig:wien-robinson}
 \end{figure}
 
@@ -148,7 +148,7 @@ Diese Schaltung enthält keine Abgleichelemente. Sie hat die Funktion eines elek
 
 
 \begin{equation}
-\left\lvert\frac{U_\mathrm{Br,eff}}{U_S}\right\rvert^2 = {(\omega^2 R^2 C^2 -1)^2}{9((1 - \omega^2 R^2 C^2)^2 + 9\omega^2 R^2 C^2)}
+\left\lvert\frac{U_\mathrm{Br,eff}}{U_S}\right\rvert^2 = \frac{(\omega^2 R^2 C^2 -1)^2}{9((1 - \omega^2 R^2 C^2)^2 + 9\omega^2 R^2 C^2)}
 \end{equation}
 
 Wenn
@@ -161,27 +161,6 @@ Mit $\Omega = \frac{\omega}{\omega_0}$ folgt:
 \begin{equation}
   \label{eqn:wr}
   \left\lvert \frac{U_\mathrm{Br,eff}}{U_S} \right\rvert^2 = \frac{1}{9} \frac {(\Omega^2 -1^2)}{(1 - \Omega^2)^2 + 9 \Omega^2}
-\end{equation}
-
-\subsection{TT-Brücke}
-\begin{figure}
-  \centering
-  \includegraphics[scale=0.5]{content/TT-Brücke.jpg}
-  \caption{TT-Brücke. Aus \cite{anleitung302}.}
-  \label{fig:tt}
-\end{figure}
-
-Die TT-Brücke hat ebenfalls die Funktion eines elktronischen Filters. Ein Vorteil gegenüber der Wien-Robinson-Brücke besteht darin, dass Eingangs-, Ausgangs- oder Brückenspannung gegen Masse angeschlossen werden können.
-Die Ausgangsspannung geht gegen Null, wenn $\omega_0 = \frac{1}{RC}$.
-Für die Brückenspannung gilt:
-
-\begin{equation}
-  U_\mathrm{Br} = U_S \frac{1 - \omega^2 R^2 C^2}{1 - \omega^2 R^2 C^2 + 4j \omega R C}
-\end{equation}
-
-Mit $\Omega = \frac{\omega}{\omega_0}$ und Multiplikation mit dem konjugiert Komplexen gilt:
-\begin{equation}
- \left\lvert\frac{U_\mathrm{Br}}{U_S}\right\rvert^2 = \frac{(\omega^2 - 1)^2}{(1 - \omega^2)^2 + 16\omega^2}
 \end{equation}
 
 \subsection{Klirrfaktor}

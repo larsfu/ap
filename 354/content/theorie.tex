@@ -1,2 +1,135 @@
+\section{Ziel}
+\label{sec:Ziel}
+In diesem Versuch sollen die zeitabhängige Amplitude und der sich daraus ergebende Dämpfungswiderstand eines gedämpften Schwingkreises untersucht werden. Außerdem soll der aperiodische Grenzfall betrachtet werden und der zugehörige Dämpfungswiderstand ermittelt werden. Darüber hinaus sollen die Kondensatorspannung sowie die Phasenverschiebung zwischen Erreger- und Kondensatorspannung eines Serienresonanzkreises in Abhängigkeit von der Frequenz ausgemessen werden.
+
 \section{Theorie}
-\label{sec:Theorie}
+\label{sec:theorie}
+\subsection{Ungedämpfter Schwingkreis}
+Ein ungedämpfter Schwingkreis besteht aus einer Spule mit der Indutivität $L$ und einem Kondensator mit der Kapazität $C$. Entlädt sich der Kondensator, baut sich in der Spule ein Magnetfeld auf, welches der Entladung entgegenwirkt. Ist dieses Magnetfeld wieder abgebaut, lädt sich der Kondensator auf und der Vorgang beginnt erneut. Der Strom $I(t)$ ändert periodisch das Vorzeichen. Die Energie schwingt ohne Verluste zwischen Kondensator und Spule hin und her.
+
+\fig{content/ungedämpft}{Ungedämpfter Schwingkreis \cite{anleitung354}.}{ungedämpft}
+
+\subsection{Gedämpfter Schwingkreis }
+Nun soll ein Schwingkreis mit ohmschem Widerstand $R$ betrachet werden. Es treten Verluste auf, da Teile der Energie irreversibel in Wärme umgewandelt werden. Folglich fallen die Amplituden von Spannung und Strom.
+
+\fig{content/gedämpft}{Gedämpfter Schwingkreis.\cite{anleitung354}.}{gedämpft}
+
+Es gelten die Kirchhoffschen Gesetze:
+\begin{enumerate}
+  \item In einem Knotenpunkt ist die Summe aller Ströme gleich Null.
+  \begin{equation}
+    \mathrm\sum_{k} I_k = 0
+  \end{equation}
+  \item In einer abgeschlossenen Masche ist die Summe aller Spannungen gleich Null.
+  \begin{equation}
+    \mathrm\sum_{k} U_k = 0
+  \end{equation}
+\end{enumerate}
+
+Damit folgt:
+\begin{equation}
+  U_{\mathrm R} + U_{\mathrm C} + U{\mathrm L} = 0.
+\end{equation}
+
+Außerdem gilt:
+$U_{\mathrm R}(t) = R I(t)$
+$U_{\mathrm C}(t) = \frac{Q(t)}{C}$
+$U_{\mathrm L}(t) = L \frac{\mathrm{d}I}{\mathrm{d}t}$ mit $I = \frac{\mathrm{d}Q}{\mathrm{d}t}$.
+
+Somit folgt eine Differentialgleichung zweiter Ordnung für gedämpfte Schwingungen
+\begin{equation}
+  \label{eqn:dgl}
+  \frac{\mathrm{d}^2 I}{\mathrm{d}t^2} + \frac{R}{L} \frac{\mathrm{d}I}{\mathrm{d}t} + \frac{1}{LC} I = 0
+\end{equation}
+ mit der Lösung
+ \begin{equation}
+   I(t) = e^{-2\pi \mu t}(A_{1} e^{2i\pi \nu t} + A_{2} e^{-2i\pi \nu t})
+\end{equation}
+mit $2\pi \mu := \frac{R}{2L}$ und $2\pi \nu := \sqrt{\frac{1}{LC} - \frac{R^2}{4L^2}}$.
+
+Hier muss eine Fallunterscheidung durchgeführt werden. Einmal für ein reelles und einmal für ein imaginäres $\nu$.
+Ist $\nu$ reell, gilt: $\frac{1}{LC} > \frac{R^2}{4L^2}$. Damit folgt mit Hilfe der Eulerschen Formel:
+\begin{equation}
+  I(t) = A_0 e^{-2\pi \mu t} \cos(2\pi\nu + \eta).
+\end{equation}
+Es ist erkennbar, dass für diesen Fall die Amplitude der Schwingung mit zunehmender Zeit gegen 0 geht.
+
+Mit $T = \frac{1}{\nu}$ folgt für die Abklingdauer:
+\begin{equation}
+  T_{\mathrm{ex}} = \frac{1}{2\pi\mu}.
+\end{equation}
+
+\fig{content/gedämpft-einhüllende}{Gedämpfte Schwingung (Einhüllende wird durch $\pm e^{-2\pi\mu t}$ beschrieben).\cite{anleitung354}.}{einhüllende}
+
+Für ein imaginäres $\nu$ muss die Bedingung $\frac{1}{LC} < \frac{R^2}{4L^2}$ erfüllt sein.
+Somit gilt:
+
+\begin{equation}
+  I(t) \propto e^{-(2\pi\mu -2i\pi\nu)t)}
+\end{equation}
+
+Es handelt sich um aperiodische Dämpfung. $I(t)$ kann zu Beginn ein Maximum annehmen oder direkt gegen 0 gehen. Dies hängt von der Wahl der Konstanten $A_{1}$ und $A_{2}$ ab.
+Im Spezialfall $\frac{1}{LC} = \frac{R_{\mathrm{ap}}^2}{4L^2}$ also $\nu = 0$
+lässt sich $I(t)$ wie folgt beschreiben:
+
+\begin{equation}
+  I(t) = A e^{-\frac{R}{2L}t} = A e^{-\frac{t}{\sqrt{LC}}}
+\end{equation}
+Dieser Fall heißt aperiodischer Grenzfall (gestrichelte Kurve in \ref{fig:aperiodisch}).
+\fig{content/aperiodisch}{Möglicher Zeitverlauf des Stromes in einem aperiodisch gedämpften Schwingkreis.\cite{anleitung354}.}{aperiodisch}
+
+\subsection{Erzwungene Schwingungen}
+Ein schwingungsfähiges System kann durch eine äußere periodische Kraft angeregt werden. Dazu wird eine Spannungsquelle eingebaut, welche den Schwingkreis mit sinusförmiger Wechselspannung anregt (siehe \ref{fig:erzwungen}).
+
+\fig{content/erzwungen}{Schaltung zur Erzeugung einer erzwungenen Schwingung im $RLC$-Kreis.\cite{anleitung354}.}{erzwungen}
+
+Die Differentialgleichung \ref{eqn:dgl} hat nun folgende Form:
+\begin{equation}
+  LC \frac{\mathrm{d}^2 U_{\mathrm C}(t)}{\mathrm{d}t^2} + RC \frac{\mathrm{d}U_{\mathrm C}(t)}{\mathrm{d}t} + U_{\mathrm C}(t) = U_0 e^{i\omega t}.
+\end{equation}
+
+Die Lösung für die Spannung ist:
+\begin{equation}
+  U(t) = \frac{U_0(1-LC\omega^2 - i\omega RC)}{(1 - LC\omega^2)^2 + \omega^2 R^2 C^2}.
+\end{equation}
+
+Für die Phasenverschiebung folgt:
+\begin{equation}
+  \phi(\omega) = \arctan \left(\frac{\Im(U)}{\Re(U)}\right) = \arctan \left(\frac{-\omega RC}{1 - LC\omega^2}\right)
+\end{equation}
+
+Für die Kondensatorspannung in Abhängigkeit von der Frequenz gilt:
+\begin{equation}
+\label{eqn:resonanz}
+U_C(\omega) = \frac{U_0}{\sqrt{\left(1 - LC\omega^2 \right)^2 + \omega^2R^2C^2}}.
+\end{equation}
+Diese nennt man Resonanzkurve, welche für große $\omega$ gegen 0 und für kleine $\omega$ gegen den Wert der Erregerspannung $U_0$ geht. Die Kurve nimmt bei einer bestimmten Frequenz, der sogenannten Resonanzfrequenz ein Maximum an, welches größer als $U_0$ sein kann. Die Resonanzfrequenz ergibt sich aus
+
+\begin{equation}
+  \omega_\mathrm{res} = \sqrt{\frac{1}{LC} - \frac{R^2}{2L^2}}
+\end{equation}
+
+\subsubsection*{Schwache Dämpfung}
+Im Fall der schwachen Dämpfung gilt $\frac{R^2}{2L^2} \ll \frac{1}{LC}$. Hier ist $\omega_\mathrm{res} \approx \omega_0$, wobei $\omega_0 = \sqrt{\frac{1}{LC}}$.
+Die maximale Kondensatorspannung ist $q = \frac{1}{\omega_0 RC}$ mal so groß wie die Erregerspannung $U_0$.
+\begin{equation}
+  U_\mathrm{C, max} = \frac{U_0}{\omega_0 RC} = \frac{1}{R}\sqrt{\frac{L}{C}}U_0
+\end{equation}
+ Der Faktor $q$ heißt Güte des Schwingkreises. Um die Breite der Resonanzkurve (siehe \ref{eqn:resonanz}) zu bestimmen, wir die Differenz der Frequenzen $\omega_+$ und $\omega_-$, bei denen $U_C = \frac{1}{\sqrt{2}} U_mathrm{C, max}$.
+Unter der Annahme $\frac{R^2}{L^2} \ll \omega_0^2$ lässt sich die Breite der Resonanzkurve wie folgt berechnen:
+\begin{equation}
+  \omega_+ - \omega_- \approx \frac{R}{L}.
+\end{equation}
+
+\subsubsection*{Starke Dämpfung}
+Im Fall der starken Dämpfung gilt $\frac{R^2}{2L^2} \gg \frac{1}{LC}$. Hier strebt $U_C$ mit zunehmender Frequenz monoton gegen 0.
+Für kleine Frequenzen sind Erreger- und Kondensatorspannung in Phase, während bei hohen Frequenzen eine Phasenverschiebung um $\pi$ mit zurückbleibender Kondensatorspannung zustande kommt. Bei $\omega_0^2 = \frac{1}{LC}$ beträgt die Phasenverschiebung $-\frac{\pi}{2}$.
+Für die Frequenzen mit der Phasenverschiebung $\frac{\pi}{4}$ oder $\frac{3\pi}{4}$ gilt:
+\begin{equation}
+  \omega_\mathrm{1,2} = \pm \frac{R}{2L} + \sqrt{\frac{R^2}{4L^2} + \frac{1}{LC}}.
+\end{equation}
+
+Damit folgt:
+\begin{equation}
+  \omega_{1} - \omega_{2} = \frac{R}{L}.
+\end{equation}
