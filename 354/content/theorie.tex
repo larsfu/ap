@@ -28,13 +28,16 @@ Es gelten die Kirchhoffschen Gesetze:
 
 Damit folgt:
 \begin{equation}
-  U_{\mathrm R} + U_{\mathrm C} + U{\mathrm L} = 0.
+  U_{\mathrm R} + U_{\mathrm C} + U_{\mathrm L} = 0.
 \end{equation}
 
 Außerdem gilt:
-$U_{\mathrm R}(t) = R I(t)$
-$U_{\mathrm C}(t) = \frac{Q(t)}{C}$
-$U_{\mathrm L}(t) = L \frac{\mathrm{d}I}{\mathrm{d}t}$ mit $I = \frac{\mathrm{d}Q}{\mathrm{d}t}$.
+\begin{align}
+U_{\mathrm R}(t) &= R I(t) \\
+U_{\mathrm C}(t) &= \frac{Q(t)}{C} \\
+U_{\mathrm L}(t) &= L \frac{\mathrm{d}I}{\mathrm{d}t}\\
+\end{align}
+mit $I = \frac{\mathrm{d}Q}{\mathrm{d}t}$.
 
 Somit folgt eine Differentialgleichung zweiter Ordnung für gedämpfte Schwingungen
 \begin{equation}
@@ -111,14 +114,26 @@ Diese nennt man Resonanzkurve, welche für große $\omega$ gegen 0 und für klei
 
 \subsubsection*{Schwache Dämpfung}
 Im Fall der schwachen Dämpfung gilt $\frac{R^2}{2L^2} \ll \frac{1}{LC}$. Hier ist $\omega_\mathrm{res} \approx \omega_0$, wobei $\omega_0 = \sqrt{\frac{1}{LC}}$.
-Die maximale Kondensatorspannung ist $q = \frac{1}{\omega_0 RC}$ mal so groß wie die Erregerspannung $U_0$.
+Die maximale Kondensatorspannung ist $q$ mal so groß wie die Erregerspannung $U_0$.
 \begin{equation}
   U_\mathrm{C, max} = \frac{U_0}{\omega_0 RC} = \frac{1}{R}\sqrt{\frac{L}{C}}U_0
 \end{equation}
- Der Faktor $q$ heißt Güte des Schwingkreises. Um die Breite der Resonanzkurve (siehe \ref{eqn:resonanz}) zu bestimmen, wir die Differenz der Frequenzen $\omega_+$ und $\omega_-$, bei denen $U_C = \frac{1}{\sqrt{2}} U_mathrm{C, max}$.
-Unter der Annahme $\frac{R^2}{L^2} \ll \omega_0^2$ lässt sich die Breite der Resonanzkurve wie folgt berechnen:
+ Der Faktor $q$ heißt Güte des Schwingkreises und berechnet sich aus
+
+\begin{equation}
+q = \frac{1}{\omega_0 RC}.
+\end{equation}
+
+Es ist erkennbar, je kleiner $R$ und $L$ sind, desto größer ist die Güte des Schwingkreises. Da bei steigendem $R$ und $L$ auch die Dämpfung zunimmt, bedeutet eine hohe Güte eine schwahe Dämpfung.
+Um die Breite der Resonanzkurve (siehe \ref{eqn:resonanz}) zu bestimmen, wird die Differenz der Frequenzen $\omega_+$ und $\omega_-$, bei denen $U_C = \frac{1}{\sqrt{2}} U_\mathrm{C, max}$.
+Unter der Annahme $\frac{R^2}{L^2} \ll \omega_0^2$ lässt sich die Breite der Resonanzkurve, welche ein Maß für die Schärfe der Resonanz darstellt, wie folgt berechnen:
 \begin{equation}
   \omega_+ - \omega_- \approx \frac{R}{L}.
+\end{equation}
+
+Die Breite der Resonanzkurve und die Güte stehen in folgendem Zusammenhang:
+\begin{equation}
+  q = \frac{\omega_0}{\omega_+ - \omega_-}.
 \end{equation}
 
 \subsubsection*{Starke Dämpfung}

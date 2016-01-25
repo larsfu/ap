@@ -1,26 +1,28 @@
-\section{Durchführung}
+\section{Aufbau und Durchführung}
 \label{sec:Durchführung}
 
 \subsection{Bauteilwerte}
-$L = 1,75$ \si{\milli\henry} \\
-$C_{1} = 22,0$ \si{\nano\farad} \\
-$C_{2} = 9,39$ \si{\nano\farad} \\
-Anzahl der Kettenglieder: $n = 16$ \\
-$Z = \sqrt{\frac{L}{C}} = 282 \si{\ohm}$
+\begin{align}
+L &= 1,75 \si{\milli\henry}
+C_{1} &= 22,0 \si{\nano\farad}
+C_{2} &= 9,39 \si{\nano\farad}
+Anzahl der Kettenglieder: n &= 16
+Z &= \sqrt{\frac{L}{C_{1}}} = 282 \si{\ohm}
+\end{align}
 
 \subsection{Durchlasskurve}
 
 \fig{content/bilder/18.pdf}{Schaltung zur Aufnahme der Durchlasskurve, aus \cite{anleitung356}.}{durchlasskurve}[width=0.8\textwidth]
 
 Um die Durchlasskurve einer LC-Kette aufzunehmen, wird die Schaltung aus \ref{fig:durchlasskurve}
-aufgebaut. Die Ausgangsspannung ist abhängig von von der Frequenz der Speisespannung bei konstantem Eingangsstrom. Der konstante Eingangsstrom wird annähernd durch einen \SI{10}{\kilo\ohm} Widerstnd realisiert werden. Beide Enden der Kette sind mit einem Wellenwiderstand Z abgeschlossen. Die Relation der Ausgangsspannung und Frequenz der Speisespannung soll mit Hilfe des XY-Schreibers gezeichnet werden.
+aufgebaut. Die Ausgangsspannung ist abhängig von von der Frequenz der Speisespannung bei konstantem Eingangsstrom. Der konstante Eingangsstrom wird annähernd durch einen \SI{10}{\kilo\ohm} Widerstand realisiert werden. Beide Enden der Kette sind mit einem Wellenwiderstand Z abgeschlossen. Die Relation der Ausgangsspannung und Frequenz der Speisespannung soll mit Hilfe des XY-Schreibers gezeichnet werden.
 Die Messung wird sowohl für die LC-Kette als auch für die $LC_{1}C_{2}$-Kette durchgeführt.
 
 \subsection{Dispersionskurven}
 
 \fig{content/bilder/19.pdf}{Schaltung zur Aufnahme der Dispersionsrelation, aus \cite{anleitung356}.}{dispersion}[width=0.8\textwidth]
 
-Zur Bestimmung der Dispersionsrelation wird die Schaltung nach \ref{fig:dispersion} aufgebaut.Um die Phasenverschiebung zwischen Eingangs- und Ausgangsspannung in Abhängigkeit von der Frequenz zu messen, betrachtet man auf dem Oszilloskop Lissajous-Figuren. Ist dies eine Greade, so beträgt die Phasenverschiebung ein vielfaches von $\pi$. Auch diese Messung wird für beide Ketten durchgeführt.
+Zur Bestimmung der Dispersionsrelation wird die Schaltung nach \ref{fig:dispersion} aufgebaut.Um die Phasenverschiebung zwischen Eingangs- und Ausgangsspannung in Abhängigkeit von der Frequenz zu messen, betrachtet man auf dem Oszilloskop Lissajous-Figuren. Ist dies eine Gerade, so beträgt die Phasenverschiebung ein Vielfaches von $\pi$. Auch diese Messung wird für beide Ketten durchgeführt.
 
 \subsection{Nachweis stehender Wellen}
 Erneut wird die Schaltung aus \ref{fig:durchlasskurve} verwendet; dieses Mal ohne XY-Schreiber und Wellenwiderstände. Stehende Wellen zeichnen sich durch eine maximale Spannung am Kettenanfang und -ende aus. Deshalb wird die Freqeunz so eingestellt, dass ein Maximum gemessen wird. Dann können die Spannungen an jedem Kettenglied aufgenommen werden. Die Messung wird für die ersten beiden Eigenschwingungen durchgeführt.

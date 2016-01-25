@@ -4,15 +4,20 @@
 \subsection{Durchlasskurven}
 Die aufgenommenen Durchlasskurven für die verschiedenen Ketten sind in Abb.~\ref{fig:durchl1} und \ref{fig:durchl2} aufgetragen (Die Plots wurden gescannt und danach wurde mittels eines Programms die Kurve in Daten umgewandelt). Die ermittelten Grenzfrequenzen ergeben sich zu
 \begin{align}
-  \omega_g^{LC} &= \SI{49.85}{\kilo\hertz}
-  \shortintertext{und}
-  \omega_g^{LC_1C_2} &= \SI{35.42}{\kilo\hertz}
+  f_g^{LC_{1}} &= \SI{49,85}{\kilo\hertz} \\
+  f_g^{LC_2} &= \SI{55,2}{\kilo\hertz} \\
+  f_g^{LC_1C_2} &= \SI{35,42}{\kilo\hertz}. \\
 \end{align}
+
 \fig{build/a1.pdf}{Durchlasskurve der $LC$-Kette}{durchl1}
 \fig{build/a2.pdf}{Durchlasskurve der $LC_1C_2$-Kette}{durchl2}
 
+In \ref{fig:durchl1} ist die Durchlasskurve einer $LC$-Kette abgebildet. Die Grenzfrequenz kann abgelesen werden; sie liegt bei ungefähr \SI{49}{\kilo\hertz}. Die Abweichung vom berechneten Wert $f_g^{LC_{1}}$ beträgt somit $1,7\%$.
+
+Die Durchlasskurve der $LC_1C_2$-Kette ist in \ref{fig:durchl2} dargestellt. Die abgelesene Grenzfrequenz liegt bei ungefähr \SI{35}{\kilo\hertz}. Sie weicht um $1,2\%$ vom zuvor berechneten Wert $f_g^{LC_1C_2}$ ab. Hier beginnt der optische Ast.
+
 \subsection{Dispersionskurven}
-Zunächst wird die LC-Kette betrachtet.Für die Phasenverschiebung pro Glied gilt:
+Zunächst wird die LC-Kette betrachtet.Es gilt:
 \begin{equation}
   \theta = \frac{\phi}{n}
 \end{equation}
@@ -27,18 +32,18 @@ Außerdem gilt $\omega = 2\pi f$.
     \toprule
     $\phi$ & $\theta$ & $f / \si{\hertz}$ & $\omega / \si{\hertz}$ \\
     \midrule
-$\pi$ & 0.196 & 5009 & 31472.48 \\
-$2\pi$ & 0.393 & 10036 & 63058.05 \\
-$3\pi$ & 0.589 & 14941 & 93877.07 \\
-$4\pi$ & 0.785 & 19678 & 123640.52 \\
-$5\pi$ & 0.982 & 24471 & 153755.83 \\
-$6\pi$ & 1.178 & 28517 & 179177.50 \\
-$7\pi$ & 1.374 & 32447 & 203870.51 \\
-$8\pi$ & 1.571 & 36158 & 227187.41 \\
-$9\pi$ & 1.768 & 39595 & 248782.72 \\
-$10\pi$ & 1.963 & 42676 & 268141.22 \\
-$11\pi$ & 2.160 & 45015 & 282837.59 \\
-$12\pi$ & 2.356 & 47255 & 296911.92 \\
+$\pi$ & 0,196 & 5009 & 31472,48 \\
+$2\pi$ & 0,393 & 10036 & 63058,05 \\
+$3\pi$ & 0,589 & 14941 & 93877,07 \\
+$4\pi$ & 0,785 & 19678 & 123640,52 \\
+$5\pi$ & 0,982 & 24471 & 153755,83 \\
+$6\pi$ & 1,178 & 28517 & 179177,50 \\
+$7\pi$ & 1,374 & 32447 & 203870,51 \\
+$8\pi$ & 1,571 & 36158 & 227187,41 \\
+$9\pi$ & 1,768 & 39595 & 248782,72 \\
+$10\pi$ & 1,963 & 42676 & 268141,22 \\
+$11\pi$ & 2,160 & 45015 & 282837,59 \\
+$12\pi$ & 2,356 & 47255 & 296911,92 \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -50,35 +55,35 @@ $12\pi$ & 2.356 & 47255 & 296911.92 \\
   \label{fig:dispersion-lc}
 \end{figure}
 
-Zur Darstellung der Dispersionskurve wird $\omega$ gegem $\theta$ aufgetragen. Neben den Messwerten wird eine Theoriekurve dargestellt, welche sich aus
+Zur Darstellung der Dispersionskurve wird $\omega$ gegen $\theta$ aufgetragen. Neben den Messwerten, welche in Tabelle \ref{tab:dispersion1} zu finden sind, wird eine Theoriekurve dargestellt, welche sich aus
 \begin{equation}
   \omega = \sqrt{\frac{2}{LC}(1-\cos(\theta))}
 \end{equation}
-ergibt.
+ ergibt. Abbildung \ref{fig:dispersion-lc} zeigt die Theoriekurve und die aufgenommenen Messwerte zur Dispersionsraltion der $LC$-Kette.
 
  Nun soll die Dispersionskurve für die $LC_{1}C_{2}$-Kette bestimmt werden.
  Für die Dispersionsrelation gilt:
  \begin{equation}
   \omega = \sqrt{\frac{1}{L}\left(\frac{1}{C_{1}}+\frac{1}{C_{2}}\right)\pm\frac{1}{L}\sqrt{\left(\frac{1}{C_{1}+\frac{1}{C_2}}\right)^2 + \frac{4\sin^2(\theta)}{C_{1}C_{2}}}}.
   \end{equation}
-  Nach dieser Formel ergibt sich die Theoriekurve der Dispersionsrelation einer $LC_{1}C_{2}$-Kette.
+  Nach dieser Formel ergibt sich die Theoriekurve der Dispersionsrelation einer $LC_{1}C_{2}$-Kette. Die Messwerte hierzu befinden sich in \ref{tab:dispersion2}. Der dazugehörige Plot in Abbildung \ref{fig:dispersion-lc1c2} zeigt den oberen und den unteren Ast der Theoriekurve der Dispersionsrelation einer $LC_{1}C_{2}$-Kette und die Messwerte, welche nur auf dem unteren Ast liegen.
 
 \begin{table}
   \centering
   \caption{Messwerte zur Dispersionsrelation der $LC_{1}C_{2}$-Kette.}
-  \label{tab:dispersion1}
+  \label{tab:dispersion2}
   \begin{tabular}{c c c c}
     \toprule
     $\phi$ & $\theta$ & $f / \si{\hertz}$ & $\omega / \si{\hertz}$ \\
     \midrule
-    $\pi$ & 0.196 & 5743 & 36084.333 \\
-    $2\pi$ & 0.393 & 11141 & 70000.968 \\
-    $3\pi$ & 0.589 & 16960 & 106562.823 \\
-    $4\pi$ & 0.785 & 22187 & 139405.032 \\
-    $5\pi$ & 0.982 & 27087 & 170192.64 \\
-    $6\pi$ & 1.178 & 31400 & 197292.019 \\
-    $7\pi$ & 1.374 & 34790 & 218592.017 \\
-    $8\pi$ & 1.571 & 38857 & 244145.731 \\
+    $\pi$ & 0,196 & 5743 & 36084,333 \\
+    $2\pi$ & 0,393 & 11141 & 70000,968 \\
+    $3\pi$ & 0,589 & 16960 & 106562,823 \\
+    $4\pi$ & 0,785 & 22187 & 139405,032 \\
+    $5\pi$ & 0,982 & 27087 & 170192,64 \\
+    $6\pi$ & 1,178 & 31400 & 197292,019 \\
+    $7\pi$ & 1,374 & 34790 & 218592,017 \\
+    $8\pi$ & 1,571 & 38857 & 244145,731 \\
     \bottomrule
     \end{tabular}
   \end{table}
@@ -91,12 +96,12 @@ ergibt.
   \end{figure}
 
   \subsection{Phasengeschwindigkeit}
-  Aus den Messwerten lässt sich die Phasengeschwindigkeit aus
+  Aus den Messwerten (siehe \ref{tab:v-phase})lässt sich die Phasengeschwindigkeit aus
   \begin{equation}
     v_\mathrm{ph} = \frac{\omega}{\theta}
   \end{equation}
   berechnen. Auch hier ist $\theta$ die Phasenverschiebung pro Kettenglied.
-  Die zum Vergleich dienende Theoriekurve ergibt sich aus \ref{eqn:vph}.
+  Die zum Vergleich dienende Theoriekurve ergibt sich aus Gleichung (\ref{eqn:vph}).
 
   \begin{table}
     \centering
@@ -106,20 +111,20 @@ ergibt.
       \toprule
       $\phi$ & $\theta$ & $f / \si{\hertz}$ & $\omega / \si{\hertz}$ & $v_\mathrm{ph}$ \\
       \midrule
-$\pi$ & 0.196 & 5055 & 31761.502 & 162048.478 \\
-$2\pi$ & 0.393 &  9922 &  62781.588 & 159749.587 \\
-$3\pi$ & 0.589 & 14938 & 93858.222 & 159351.587 \\
-$4\pi$ & 0.785 & 19262 & 123313.795 & 157087.637 \\
-$5\pi$ & 0.982 & 24187 & 151971.40 & 154757.03 \\
-$6\pi$ & 1.178 & 28510 & 179133.61 & 152065.885 \\
-$7\pi$ & 1.374 & 32438 & 203813.97 & 148336.219 \\
-$8\pi$ &  1.571 & 36279 & 227947.68 & 145097.186 \\
-$9\pi$ & 1.767  \\
-$10\pi$ & 1.963 & 45057 & 283101.48 & 144218.788 \\
-$11\pi$ &  2.160 & 47168 & 296365.285 & 137206.15 \\
-$12\pi$ & 2.356 & 48720 & 306116.788 & 129930.725 \\
-$13\pi$ & 2.553 & 49847 & 313197.938 & 126678.393 \\
-$14\pi$ & 2.749 & 50754 & 318896.787 & 116004.652 \\
+$\pi$ & 0,196 & 5055 & 31761,502 & 162048,478 \\
+$2\pi$ & 0,393 &  9922 &  62781,588 & 159749,587 \\
+$3\pi$ & 0,589 & 14938 & 93858,222 & 159351,587 \\
+$4\pi$ & 0,785 & 19262 & 123313,795 & 157087,637 \\
+$5\pi$ & 0,982 & 24187 & 151971,40 & 154757,03 \\
+$6\pi$ & 1,178 & 28510 & 179133,61 & 152065,885 \\
+$7\pi$ & 1,374 & 32438 & 203813,97 & 148336,219 \\
+$8\pi$ &  1,571 & 36279 & 227947,68 & 145097,186 \\
+$9\pi$ & 1,767  \\
+$10\pi$ & 1,963 & 45057 & 283101,48 & 144218,788 \\
+$11\pi$ &  2,160 & 47168 & 296365,285 & 137206,15 \\
+$12\pi$ & 2,356 & 48720 & 306116,788 & 129930,725 \\
+$13\pi$ & 2,553 & 49847 & 313197,938 & 126678,393 \\
+$14\pi$ & 2,749 & 50754 & 318896,787 & 116004,652 \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -134,34 +139,36 @@ Um trotzdem korrekte Ergebnisse für die Phasengeschwindigkeit zu erhalten, wird
   \label{fig:v-ph}
 \end{figure}
 
+In \ref{fig:v-ph} ist die Phasengeschwindigkeit einer $LC$-Kette dargestellt. Dazu wird die Phasengeschwindigkeit $v_\mathrm{ph}$ gegen die Kreisfrequenz $\omega$ aufgetragen.
+
 \subsection{Nachweis stehender Wellen}
 
-Für die erste Eigenschwingungen ergeben sich die Spannungen in \ref{tab:eigenschwingung1}. Der Wellenwiderstand ist zunächst nicht angeschlossen.
+Der Wellenwiderstand ist zunächst nicht angeschlossen. Für die erste Eigenschwingungen ergeben sich die Spannungen in Tabelle \ref{tab:eigenschwingung1}.Trägt man die Spannung gegen die Anzahl der Kettenglieder auf, ist die Form einer stehenden Welle zu erkennen.
 \begin{table}
   \centering
-  \caption{Messwerte zur 1.Eigenschwingung der offenen LC-Kette.}
+  \caption{Messwerte zur 1.Eigenschwingung der offenen LC-Kette bei $f = 5055 \si{\Hz}$.}
   \label{tab:eigenschwingung1}
   \begin{tabular}{c c}
     \toprule
     $n$ & $U / \si{\volt}$ \\
 \midrule
-1 & 1.90 \\
-2 & 1.85 \\
-3 & 1.75 \\
-4 & 1.60 \\
-5 & 1.35 \\
-6 & 1.05 \\
-7 & 0.71 \\
-8 & 0.38 \\
-9 & 0.01 \\
-10 & 0.34 \\
-11 & 0.66 \\
-12 & 0.94 \\
-13 & 1.15 \\
-14 & 1.25 \\
-15 & 1.40 \\
-16 & 1.42 \\
-17 & 1.43 \\
+1 & 1,90 \\
+2 & 1,85 \\
+3 & 1,75 \\
+4 & 1,60 \\
+5 & 1,35 \\
+6 & 1,05 \\
+7 & 0,71 \\
+8 & 0,38 \\
+9 & 0,01 \\
+10 & 0,34 \\
+11 & 0,66 \\
+12 & 0,94 \\
+13 & 1,15 \\
+14 & 1,25 \\
+15 & 1,40 \\
+16 & 1,42 \\
+17 & 1,43 \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -173,33 +180,33 @@ Für die erste Eigenschwingungen ergeben sich die Spannungen in \ref{tab:eigensc
   \label{fig:eigenschwingung1}
 \end{figure}
 
-Für die zweite Eigenschwingung ergeben sich die Werte in \ref{tab:eigenschwingung2}
+Für die zweite Eigenschwingung ergeben sich die Werte in \ref{tab:eigenschwingung2}. Abbildung \ref{fig:eigenschwingung2} zeigt die zweite Eigenschwingung der $LC$-Kette. Auch diese hat die Form einer stehenden Welle.
 
 \begin{table}
   \centering
-  \caption{Messwerte zur 2.Eigenschwingung der offenen LC-Kette.}
+  \caption{Messwerte zur 2.Eigenschwingung der offenen LC-Kette bei $f = 9992 \si{\Hz}$.}
   \label{tab:eigenschwingung2}
   \begin{tabular}{c c}
     \toprule
     $n$ & $U / \si{\volt}$ \\
 \midrule
-1 & 1.80 \\
-2 & 1.60 \\
-3 & 1.20 \\
-4 & 0.64 \\
-5 & 0.26 \\
-6 & 0.66 \\
-7 & 1.25 \\
-8 & 1.65 \\
-9 & 1.80 \\
-10 & 1.65 \\
-11 & 1.25 \\
-12 & 0.66 \\
-13 & 0.006 \\
-14 & 0.64 \\
-15 & 1.15 \\
-16 & 1.60 \\
-17 & 1.75 \\
+1 & 1,80 \\
+2 & 1,60 \\
+3 & 1,20 \\
+4 & 0,64 \\
+5 & 0,26 \\
+6 & 0,66 \\
+7 & 1,25 \\
+8 & 1,65 \\
+9 & 1,80 \\
+10 & 1,65 \\
+11 & 1,25 \\
+12 & 0,66 \\
+13 & 0,006 \\
+14 & 0,64 \\
+15 & 1,15 \\
+16 & 1,60 \\
+17 & 1,75 \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -211,32 +218,32 @@ Für die zweite Eigenschwingung ergeben sich die Werte in \ref{tab:eigenschwingu
   \label{fig:eigenschwingung2}
 \end{figure}
 
-Die mit angeschlossenem Wellenwiderstand aufgenommenen Messwerte sind in \ref{tab:wellenwiderstand} dargestellt.
+Die mit angeschlossenem Wellenwiderstand aufgenommenen Messwerte sind in \ref{tab:wellenwiderstand} dargestellt. Der dazugehörige Plot ist in Abbildung \ref{fig:wellenwiderstand} zu sehen.
 \begin{table}
   \centering
-  \caption{Messwerte zur 2. Eigenschwingung der offenen LC-Kette.}
-  \label{tab:eigenschwingung2}
+  \caption{Messwerte der Spannungen für angeschlossene Wellenwiderstände bei $f = 19,372 \si{\kilo \Hz}$.}
+  \label{tab:wellenwiderstand}
   \begin{tabular}{c c}
     \toprule
     $n$ & $U / \si{\volt}$\\
     \midrule
-1 & 0.59 \\
-2 & 0.38 \\
-3 & 0.15 \\
-4 & 0.49 \\
-5 & 0.60 \\
-6 & 0.40 \\
-7 & 0.14 \\
-8 & 0.46 \\
-9 & 0.59 \\
-10 & 0.42 \\
-11 & 0.13 \\
-12 & 0.44 \\
-13 & 0.60 \\
-14 & 0.43 \\
-15 & 0.125 \\
-16 & 0.43 \\
-17 & 0.60 \\
+1 & 0,59 \\
+2 & 0,38 \\
+3 & 0,15 \\
+4 & 0,49 \\
+5 & 0,60 \\
+6 & 0,40 \\
+7 & 0,14 \\
+8 & 0,46 \\
+9 & 0,59 \\
+10 & 0,42 \\
+11 & 0,13 \\
+12 & 0,44 \\
+13 & 0,60 \\
+14 & 0,43 \\
+15 & 0,125 \\
+16 & 0,43 \\
+17 & 0,60 \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -248,4 +255,4 @@ Die mit angeschlossenem Wellenwiderstand aufgenommenen Messwerte sind in \ref{ta
   \label{fig:wellenwiderstand}
 \end{figure}
 
-Durch Anschließen des Wellenwiderstandes sollen Reflexionen am Ende und die daraus resultierenden stehenden Wellen verhindert werden. Dies ist nicht vollständig gewährleistet. Es finden Teilreflexionen statt, die mit der hinlaufenden Welle interferieren und somit zu Schwankungen in der Amplitude führen. Die hohen Schwankungen können durch die große Frequenz erklärt werden.
+Durch Anschließen des Wellenwiderstandes sollen Reflexionen am Ende und die daraus resultierenden stehenden Wellen verhindert werden. Dies ist nicht vollständig gewährleistet. Es finden Teilreflexionen statt, die mit der hinlaufenden Welle interferieren und somit zu Schwankungen in der Amplitude führen. Die hohen Schwankungen können durch die große Frequenz erklärt werden, da bei hohen Frequenzen stärkere Reflexionen stattfinden, die mit der hinlaufenden Welle interferieren und somit Schwankungen verursachen.
