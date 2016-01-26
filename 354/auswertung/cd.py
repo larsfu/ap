@@ -88,14 +88,14 @@ writevalue(res, 'build/nu_res.txt')
 writevalue(eins, 'build/nu_1.txt')
 writevalue(zwei, 'build/nu_2.txt')
 
-res_t = unp.sqrt(1/(L*C))/2*np.pi
+res_t = unp.sqrt(1/(L*C))/(2*np.pi)
 eins_t = (R_ges/(2*L) + unp.sqrt(R_ges**2 / (4 * L**2) + 1 / (L*C)))/(2*np.pi)
 zwei_t = (-R_ges/(2*L) + unp.sqrt(R_ges**2 / (4 * L**2) + 1 / (L*C)))/(2*np.pi)
 
 print(res, res_t, eins, eins_t, zwei, zwei_t)
 writevalue(res_t, 'build/nu_res_t.txt')
-writevalue(eins, 'build/nu_1_t.txt')
-writevalue(zwei, 'build/nu_2_t.txt')
+writevalue(eins_t, 'build/nu_1_t.txt')
+writevalue(zwei_t, 'build/nu_2_t.txt')
 
 
 #plt.ylim(0,7)

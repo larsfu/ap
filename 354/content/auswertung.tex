@@ -10,6 +10,7 @@ Die Gerätedaten der verwendeten Messapparatur lauten
 \end{align}
 
 \subsection{Effektiver Dämpfungswiderstand}
+\label{sec:a}
 Zuerst wird der effektive Dämpfungswiderstand eines $RLC$-Kreises bestimmt. Der gemessene Spannungsverlauf ist zusammen mit oberer und unterer Einhüllenden in Abb.~\ref{fig:a} dargestellt. Nach
 \begin{align}
   I(t) &= A_0 e^{-2\pi\mu t} \cos{(2\pi\nu t + \eta)}\\
@@ -38,7 +39,7 @@ Um $R_\text{ap}$ zu bestimmen wird ein veränderlicher Widerstand so eingestellt
 \end{equation}
 Im Vergleich dazu liegt der theoretische Wert bei
 \begin{equation}
-  R_\text{ap}^\text{theoretisch} = \SI{4390.4+-9}{\ohm},
+  R_\text{ap}^\text{th} = \SI{4390.4+-9}{\ohm},
 \end{equation}
 hat demnach eine relative Abweichung von
 \begin{equation}
@@ -47,29 +48,48 @@ hat demnach eine relative Abweichung von
 
 \subsection{Erzwungene Schwingungen}
 \subsubsection{Frequenzabhängigkeit der Amplitude}
-Die Amplitude eines erregten Schwingkreises ist nach (\ref{eqn:}) abhängig von der Erregerfrequenz. In Abb.~\ref{fig:c1} ist die gemessene Amplitude über die Frequenz logarithmisch aufgetragen. In Abb~\ref{fig:c2} ist der Resonanzbereich noch einmal vergrößert linear dargestellt. Die aus den Messdaten bestimmten Werte sind
+Die Amplitude eines erregten Schwingkreises ist nach (\ref{eqn:jfjfjfjf}) abhängig von der Erregerfrequenz. In Abb.~\ref{fig:c1} ist die gemessene Amplitude über die Frequenz logarithmisch aufgetragen. In Abb~\ref{fig:c2} ist der Resonanzbereich noch einmal vergrößert linear dargestellt. Die aus den Messdaten bestimmten Werte sind
 \begin{align}
   q &= 4,34 \\
   \nu_+ - \nu_- &= \SI{8141.01}{\hertz}
 \end{align}
-für Resonanzüberhöhung und Resonankurvenbreite. Die zugehörigen theoretischen Werte lauten
+für Resonanzüberhöhung und Resonanzkurvenbreite. Die zugehörigen theoretischen Werte lauten
 \begin{align}
-  q_\text{theoretisch} &= \num{3.92+-0.009},\\
+  q_\text{th} &= \num{3.92+-0.009},\\
   \nu_+ - \nu_- &= \SI{8807.8+-27}{\hertz}.
+\end{align}
+Damit liegen die relativen Abweichungen bei
+\begin{align}
+  \Delta q &= \SI{10.72}{\%} \\
+  \Delta (\nu_+ - \nu_-) &= \SI{8.19}{\%}.
 \end{align}
 
 \fig{build/c.pdf}{Frequenzabhängigkeit der Amplitude des erregten $RLC$-Kreises, doppeltlogarithmische Darstellung.}{c1}
 \fig{build/c_linear.pdf}{Frequenzabhängigkeit der Amplitude des erregten $RLC$-Kreises, lineare Darstellung im Resonanzbereich.}{c2}
 
 \subsubsection{Frequenzabhängigkeit der Phasenverschiebung}
-Nicht nur die Amplitude sondern auch die Phasenverschiebung der im $RLC$-Kreis ist eine Funktion der Frequenz. Analog zum vorherigen Abschnitt finden sich in den Abbildungen \ref{fig:d1} und \ref{fig:d2} Plots der gemessenen Phasenverschiebung.
-
-%Hier fehlt noch was.
+Nicht nur die Amplitude sondern auch die Phasenverschiebung der im $RLC$-Kreis ist eine Funktion der Frequenz. Analog zum vorherigen Abschnitt finden sich in den Abbildungen \ref{fig:d1} und \ref{fig:d2} Plots der gemessenen Phasenverschiebung. Die aus den Messdaten bestimmten Werte sind
+\begin{align}
+  \nu_\text{res} &= \SI{34583.0}{\hertz} \\
+  \nu_1 &= \SI{39066.0}{\hertz}\\
+  \nu_2 &= \SI{30511.0}{\hertz}
+\end{align}
+für Resonanzüberhöhung und Resonankurvenbreite. Die zugehörigen theoretischen Werte lauten
+\begin{align}
+  \nu_\text{res}^\text{th} &= \SI{341069+-700}{\hertz} \\
+  \nu_1^\text{th} &= \SI{39241+-80}{\hertz}\\
+  \nu_2^\text{th} &= \SI{30433+-60}{\hertz}
+\end{align}
+Demnach liegen die relativen Abweichungen bei
+\begin{align}
+  \Delta \nu_\text{res} &= \SI{0.074}{\%} \\
+  \Delta \nu_1 &= \SI{0.45}{\%}\\
+  \Delta \nu_2 &= \SI{0.26}{\%}
+\end{align}
 
 \fig{build/d.pdf}{Frequenzabhängigkeit der Phasenverschiebung des erregten $RLC$-Kreises, einfachlogarithmische Darstellung.}{d1}
 \fig{build/d_linear.pdf}{Frequenzabhängigkeit der Phasenverschiebung des erregten $RLC$-Kreises, lineare Darstellung im Resonanzbereich.}{d2}
 
-\subsection{Messdaten}
 \subsection{Messdaten}
 Die Angabe der Oszilloskop-Messdaten aus \ref{sec:a} ist aufgrund der Menge nicht möglich. Die restlichen Daten finden sich in Tabelle \ref{tab:daten}.
 

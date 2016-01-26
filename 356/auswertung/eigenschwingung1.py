@@ -6,6 +6,7 @@ plt.plot(x,y,'rx',label="Messwerte")
 plt.ylabel(r'$U \ /\ \mathrm{V}$')
 plt.xlabel(r'$n$')
 plt.xlim(0,18)
+plt.ylim(-0.1,2)
 plt.legend(loc='best')
 
 plt.savefig('build/eigenschwingung1.pdf')
