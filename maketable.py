@@ -17,6 +17,8 @@ def format(row, reformat_with_exponent):
         elif number == None:
             row_reformatted.append('{}')
         else:
+            if number == 0:
+                number = "0"
             row_reformatted.append(number)
     if(reformat_with_exponent):
         return '& '  +  ' & '.join("{:.2e}".format(e) for e in row_reformatted) +  ' \\\\\n'

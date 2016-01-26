@@ -17,7 +17,15 @@ Zuerst wird der effektive Dämpfungswiderstand eines $RLC$-Kreises bestimmt. Der
   \intertext{und}
   T_\text{ex} :&= \frac{1}{2\pi\mu}
 \end{align}
-lässt sich mit dem durch nichtlineare Ausgleichsrechnung ermittelten Exponenten der $\symup{e}$-Funktion die Abklingdauer
+lässt sich mit dem durch nichtlineare Ausgleichsrechnung an die Funktion
+\begin{equation}
+  U_\text{env} = U_0 \cdot \symup{e}^{-\tau \cdot t}
+\end{equation}
+ermittelten Exponenten der $\symup{e}$-Funktion über
+\begin{equation}
+  T_\text{ex} = \frac{1}{\tau}
+\end{equation}
+die Abklingdauer
 \begin{equation}
   T_\text{ex} = \SI{183.7+-2.0}{\second}
 \end{equation}
@@ -50,13 +58,13 @@ hat demnach eine relative Abweichung von
 \subsubsection{Frequenzabhängigkeit der Amplitude}
 Die Amplitude eines erregten Schwingkreises ist nach (\ref{eqn:jfjfjfjf}) abhängig von der Erregerfrequenz. In Abb.~\ref{fig:c1} ist die gemessene Amplitude über die Frequenz logarithmisch aufgetragen. In Abb~\ref{fig:c2} ist der Resonanzbereich noch einmal vergrößert linear dargestellt. Die aus den Messdaten bestimmten Werte sind
 \begin{align}
-  q &= 4,34 \\
+  q &= \num{4.34+-0.01} \\
   \nu_+ - \nu_- &= \SI{8141.01}{\hertz}
 \end{align}
 für Resonanzüberhöhung und Resonanzkurvenbreite. Die zugehörigen theoretischen Werte lauten
 \begin{align}
   q_\text{th} &= \num{3.92+-0.009},\\
-  \nu_+ - \nu_- &= \SI{8807.8+-27}{\hertz}.
+  \nu_+ - \nu_- &= \SI{8810+-30}{\hertz}.
 \end{align}
 Damit liegen die relativen Abweichungen bei
 \begin{align}
@@ -70,13 +78,13 @@ Damit liegen die relativen Abweichungen bei
 \subsubsection{Frequenzabhängigkeit der Phasenverschiebung}
 Nicht nur die Amplitude sondern auch die Phasenverschiebung der im $RLC$-Kreis ist eine Funktion der Frequenz. Analog zum vorherigen Abschnitt finden sich in den Abbildungen \ref{fig:d1} und \ref{fig:d2} Plots der gemessenen Phasenverschiebung. Die aus den Messdaten bestimmten Werte sind
 \begin{align}
-  \nu_\text{res} &= \SI{34583.0}{\hertz} \\
-  \nu_1 &= \SI{39066.0}{\hertz}\\
-  \nu_2 &= \SI{30511.0}{\hertz}
+  \nu_\text{res} &= \SI{34850+-98}{\hertz} \\
+  \nu_1 &= \SI{38400+-180}{\hertz}\\
+  \nu_2 &= \SI{31290+-95}{\hertz}
 \end{align}
 für Resonanzüberhöhung und Resonankurvenbreite. Die zugehörigen theoretischen Werte lauten
 \begin{align}
-  \nu_\text{res}^\text{th} &= \SI{341069+-700}{\hertz} \\
+  \nu_\text{res}^\text{th} &= \SI{34560+-70}{\hertz} \\
   \nu_1^\text{th} &= \SI{39241+-80}{\hertz}\\
   \nu_2^\text{th} &= \SI{30433+-60}{\hertz}
 \end{align}
@@ -94,7 +102,7 @@ Demnach liegen die relativen Abweichungen bei
 Die Angabe der Oszilloskop-Messdaten aus \ref{sec:a} ist aufgrund der Menge nicht möglich. Die restlichen Daten finden sich in Tabelle \ref{tab:daten}.
 
 \begin{table}
-  \tiny
+  %\tiny
   \centering
   \caption{Messdaten.}
   \label{tab:daten}
@@ -105,11 +113,18 @@ Die Angabe der Oszilloskop-Messdaten aus \ref{sec:a} ist aufgrund der Menge nich
       l@{}
       S[table-format=5.0]
       S[table-format=2.1]
-      S[table-format=2.3]
+      S[table-format=2.0]
       S[table-format=5.1]
       S[table-format=1.3]
+      |
+      S[table-format=6.0]
+      S[table-format=2.1]
+      S[table-format=2.3]
+      S[table-format=2.1]
+      S[table-format=1.2]
     }
     \toprule
+    & {$f / \si{\hertz}$} & {$U/ \si{\volt}$} & {$U_C / \si{\volt}$} & {$a / \si{\milli\second}$} & {$\phi / \si{\radian}$}
     & {$f / \si{\hertz}$} & {$U/ \si{\volt}$} & {$U_C / \si{\volt}$} & {$a / \si{\milli\second}$} & {$\phi / \si{\radian}$}\\
     \midrule
     \input{build/daten.txt}
