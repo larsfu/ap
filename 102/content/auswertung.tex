@@ -2,14 +2,14 @@
 \label{sec:Auswertung}
 
 \begin{align}
-m_\mathrm{k}&=(5,833 \pm 0,235)\cdot 10^{-3} \si{\kilogram} \\
-2R_\mathrm{k}&=(51,03 \pm 0,02) \si{\milli \meter} \\
-\theta_\mathrm{k} &= 2.25 \cdot 10^‚{-6}   \si{\kilogram \meter}^2 \\
+m_\mathrm{k}&=\SI{588,3 \pm 0,24}{\gram} \\
+2R_\mathrm{k}&=\SI{51,03 \pm 0,02}{\milli \meter} \\
+\theta_\mathrm{k} &= \SI{2.25e-6}{\kilogram \meter\squared} \\
 N &= 80 \\
-R_\mathrm{Spule}&=72 \si{\milli \meter} \\
+R_\mathrm{Spule}&=\SI{72}{\milli \meter} \\
 \end{align}
 
-Das Trägheitsmoment der Kugel beträgt $\theta_\mathrm{Kugel} = \frac{2m_\mathrm{k} R_\mathrm{k}^2}{5} = (1,532 \pm 0,0013)\cdot 10^{-4} \si{\kilogram \meter}^2$. Das Gesamtträgheitsmoment ergibt sich durch die Addition des Trägheitsmoments der Halterung $\theta_\mathrm{k}$ und $\theta_\mathrm{Kugel}$.
+Das Trägheitsmoment der Kugel beträgt $\theta_\mathrm{Kugel} = \frac{2m_\mathrm{k} R_\mathrm{k}^2}{5} = \SI{1,532 \pm 0,0013e-4}{\kilogram \meter\squared}$. Das Gesamtträgheitsmoment ergibt sich durch die Addition des Trägheitsmoments der Halterung $\theta_\mathrm{k}$ und $\theta_\mathrm{Kugel}$.
 \begin{equation}
   \theta_\mathrm{ges}=(1,545 \pm 0,0013)\cdot 10^{-4} \si{\kilogram \meter}^2
 \end{equation}
@@ -22,6 +22,7 @@ Das Trägheitsmoment der Kugel beträgt $\theta_\mathrm{Kugel} = \frac{2m_\mathr
   \begin{tabular}{c}
     \toprule
     $T/s$ \\
+    \midrule
     19,798 \\
     19,795 \\
     19,811 \\
@@ -46,6 +47,7 @@ Das Trägheitsmoment der Kugel beträgt $\theta_\mathrm{Kugel} = \frac{2m_\mathr
       \begin{tabular}{c}
         \toprule
         $T/s$ \\
+        \midrule
         19,395 \\
         19,395 \\
         19,403 \\
@@ -63,8 +65,8 @@ Das Trägheitsmoment der Kugel beträgt $\theta_\mathrm{Kugel} = \frac{2m_\mathr
 Die Messwerte zur Periodendauer bei parallel zum Draht ausgerichtetem Magnetn befinden sich in Tabelle \ref{tab:par} und die zu senkrecht zum Draht ausgerichteten Magneten in Tabelle \ref{tab:senk}.
 Es ergeben sich folgende Mittelwerte für die Periodendauer:
 \begin{align}
-  T_\mathrm{parallel}&=(19,810 \pm 0,003) \si{\second} \\
-  T_\mathrm{senkrecht}&=(19,4047 \pm 0,0090) \si{\second} \\
+  T_\mathrm{parallel}&=\SI{19,810 \pm 0,003}{\second} \\
+  T_\mathrm{senkrecht}&=\SI{19,4047 \pm 0,0090}{\second} \\
 \end{align}
 Es fällt auf, dass die Periodendauer bei Nord-Süd Ausrichtung kürzer ist.
 
@@ -78,6 +80,7 @@ Es fällt auf, dass die Periodendauer bei Nord-Süd Ausrichtung kürzer ist.
   \begin{tabular}{c c c}
     \toprule
     $L_1 / \si{\meter}$ & $L_2 / \si{\meter}$ & $2R / \si{\milli \meter}$ \\
+    \midrule
 0,617 & 0,0045 & 0,203 \\
 0,615 & 0,0045 & 0,204 \\
 0,616 & 0,0046 & 0,204 \\
@@ -140,57 +143,35 @@ mit $\mu_0=4\pi \cdot 10^{-7} \frac{\si{\newton}}{\si{\ampere}^2}$ und $I$ als S
   \caption{Messwerte zur Periodendauer bei eingeschaltetem Magnetfeld.}
   \centering
   \label{tab:mag}
-  \begin{tabular}{c c }
+  \begin{tabular}{c c | cc}
     \toprule
-    $I/ \si{\ampere}$ & $T / \si{\second}$ \\
-0,5 & 13,409 \\
-0,5 & 13,417 \\
-0,5 & 12,337 \\
-0,5 & 13,433 \\
-0,5 & 13,439 \\
-0,5 & 13,439 \\
-0,5 & 13,420 \\
-0,5 & 13,467 \\
-1 & 10,846 \\
-1 & 10,868 \\
-1 & 10,843 \\
-1 & 10,857 \\
-1 & 10,847 \\
-1 & 10,855 \\
-1 & 10,856 \\
-1 & 10,851 \\
-1,5 & 9,357 \\
-1,5 & 9,346 \\
-1,5 & 9,328 \\
-1,5 & 9,318 \\
-1,5 & 9,369 \\
-1,5 & 9,338 \\
-1,5 & 9,324 \\
-1,5 & 9,350 \\
-2 & 8,340 \\
-2 & 8,321 \\
-2 & 8,359 \\
-2 & 8,338 \\
-2 & 8,325 \\
-2 & 8,338 \\
-2 & 8,320 \\
-2 & 8,348 \\
-2,5 & 7,588 \\
-2,5 & 7,544 \\
-2,5 & 7,553 \\
-2,5 & 7,592 \\
-2,5 & 7,556 \\
-2,5 & 7,551 \\
-2,5 & 7,581 \\
-2,5 & 7,594 \\
-3,5 & 6,548 \\
-3,5 & 6,558 \\
-3,5 & 6,540 \\
-3,5 & 6,557 \\
-3,5 & 6,523 \\
-3,5 & 6,571 \\
-3,5 & 6,502 \\
-3,5 & 6,579 \\
+    $I/ \si{\ampere}$ & $T / \si{\second}$ & $I/ \si{\ampere}$ & $T / \si{\second}$ \\
+    \midrule
+    0,5 & 13,409 &	2,0 & 8,340 \\
+    0,5 & 13,417 &	2,0 & 8,321 \\
+    0,5 & 12,337 &	2,0 & 8,359 \\
+    0,5 & 13,433 &	2,0 & 8,338 \\
+    0,5 & 13,439 &	2,0 & 8,325 \\
+    0,5 & 13,439 &	2,0 & 8,338 \\
+    0,5 & 13,420 &	2,0 & 8,320 \\
+    0,5 & 13,467 &	2,0 & 8,348 \\
+    1,0 & 10,846 &	2,5 & 7,588 \\
+    1,0 & 10,868 &	2,5 & 7,544 \\
+    1,0 & 10,843 &	2,5 & 7,553 \\
+    1,0 & 10,857 &	2,5 & 7,592 \\
+    1,0 & 10,847 &	2,5 & 7,556 \\
+    1,0 & 10,855 &	2,5 & 7,551 \\
+    1,0 & 10,856 &	2,5 & 7,581 \\
+    1,0 & 10,851 &	2,5 & 7,594 \\
+    1,5 & 9,357 &	3,5 & 6,548 \\
+    1,5 & 9,346 &	3,5 & 6,558 \\
+    1,5 & 9,328 &	3,5 & 6,540 \\
+    1,5 & 9,318 &	3,5 & 6,557 \\
+    1,5 & 9,369 &	3,5 & 6,523 \\
+    1,5 & 9,338 &	3,5 & 6,571 \\
+    1,5 & 9,324 &	3,5 & 6,502 \\
+    1,5 & 9,350 &	3,5 & 6,579 \\
+
 \bottomrule
 \end{tabular}
 \end{table}
@@ -204,7 +185,8 @@ Zur Bestimmung des magnetisches Moments wird $B$ gegen $\frac{1}{T^2}$ aufgetrag
   \label{tab:mag2}
   \begin{tabular}{c c }
     \toprule
-    $\frac{1}{T^2} / 10^{-2} \frac{1}{\si{\second}^2}$ & $B/ \si{\milli\tesla}$ \\
+    $T^{-2} / 10^{-2} {\si{\per\second\squared}}$ & $B/ \si{\milli\tesla}$ \\
+    \midrule
     0,566 & 0,5 \\
     0,849 & 0,999 \\
     1,146 & 1,499 \\
@@ -215,12 +197,7 @@ Zur Bestimmung des magnetisches Moments wird $B$ gegen $\frac{1}{T^2}$ aufgetrag
     \end{tabular}
     \end{table}
 
-    \begin{figure}
-      \centering
-      \includegraphics[width=\textwidth]{auswertung/magn-moment.pdf}
-    \caption{Ausgleichsgerade zur Bestimmung des magnetischen Moments.}
-      \label{fig:eckig}
-    \end{figure}
+    \fig{build/magn-moment}{Ausgleichsgerade zur Bestimmung des magnetischen Moments.}{eckig}
 
     Die Gerade hat die Form $y=ax+b$. Die Parameter $a$ und $b$ haben folgende Werte:
     \begin{align}

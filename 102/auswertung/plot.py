@@ -2,9 +2,9 @@ import matplotlib.pyplot as plt
 import numpy as np
 from scipy.optimize import curve_fit
 
-x=np.linspace(0,3)
+x_=np.linspace(0.5,2.5)
 plt.xlim(0.5,2.4)
-x,y=np.genfromtxt('daten.txt',unpack=True)
+x,y=np.genfromtxt('auswertung/daten.txt',unpack=True)
 
 def f(x,a,b):
     return a*x+b
@@ -14,9 +14,9 @@ print ('a=',params[0], '±', errors[0])
 print ('b=',params[1],'±', errors [1])
 
 plt.plot(x,y,'rx',label="Messwerte")
-plt.plot(x,f(x, *params), 'b-',label="Ausgleichsgerade")
-
-plt.xlabel(r'$\frac{1}{T^2}/10^{-2}\frac{1}{s^2}$')
-plt.ylabel(r'$B/10^{-3}T$')
+plt.plot(x_,f(x_, *params), 'b-',label="Ausgleichsgerade")
+plt.xlabel(r'$T^{-2}/\SI{1e-2}{\per\second\squared}$')
+plt.ylabel(r'$B/\si{\milli\tesla}$')
 plt.legend(loc='best')
-plt.savefig('magn-moment.pdf')
+plt.tight_layout()
+plt.savefig('build/magn-moment.pdf')
