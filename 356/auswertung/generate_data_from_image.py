@@ -22,12 +22,3 @@ header = 'arbitrary units \nln(f) U'
 np.savetxt('daten/a1_raw.txt', analyze('daten/a1.png').T, header=header)
 np.savetxt('daten/a2_raw.txt', analyze('daten/a2.png').T, header=header)
 
-
-
-#f, U = np.genfromtxt("daten/a_lc.txt", unpack=True)
-
-#plt.plot(*analyze('daten/a1.png'), 'r-', markersize=1)
-#plt.savefig('build/1.pdf')
-#plt.clf()
-#plt.plot(*analyze('daten/a2.png'), 'r-', markersize=1)
-#plt.savefig('build/2.pdf')
