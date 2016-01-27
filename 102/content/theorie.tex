@@ -1,5 +1,65 @@
 \section{Ziel}
 \label{sec:Ziel}
+Ziel des Versuchs ist die Bestimmung des Schubmoduls, der Querkontraktionszahl und des Kompressionsmoduls eines Metalldrahts sowie des magnetischen Moments eines Magneten und der Stärke Erdmagnetfelds.
+
 
 \section{Theorie}
 \label{sec:theorie}
+\subsection{Normal- und Schubspannung}
+Bei der Betrachtung der auf einen Körper wirkenden Kräfte ist der Begriff der Spannung $S$ zentral, dieser beschreibt die pro Fläche $A$ wirkende Kraft $\vec{F}$. Der normal zur Fläche stehende Anteil dieser Kraft wird Normalspannung $\sigma$ oder Druck $p$ genannt, der parallel zur Fläche Schubspannung $\tau$. Eine Verformung, die sich nach Verschwinden der externen Kräfte wieder aufhebt nennt sich \emph{elastische Deformation}. Wenn die Spannung klein ist, ist die Verformung proportional zur Spannung, dies nennt sich \emph{Hooksches Gesetz}. Dabei gilt dann
+\begin{align}
+  \sigma &= E \frac{\Delta L}{L} \label{eqn:E} \\
+  \tau &= Q \frac{\Delta V}{V}.
+\end{align}
+Die Atome in einem Feststoff sind in einem Gitter angeordnet, das einen Gleichgewichtszustand darstellt, bei dem die Atome einen Abstand $r_0$ haben. Wirkt nun eine Kraft, gibt es einen neuen Abstand $r_0'$, wie in Abb.~\ref{fig:hook} zu erkennen ist.
+
+\fig{bilder/hook}{Schematischer Kraftverlauf zwischen benachbarten Atomen in einem Kristall in einer Dimension; $r_0$ = Gleichgewichtsabstand im unbelasteten Fall, $r_0'$ = Gleichgewichtsabstand bei Einwirkung einer äußeren Spannung, aus \cite{anleitung102}.}{hook}
+
+\subsection{Elastische Konstanten}
+Um die elastischen Eigenschaften eines Festkörpers zu beschreiben ist eine $6 \times 6$-Matrix von nöten, welche jedoch symmetrisch ist und weiterhin bei isotropen Stoffen auf zwei Konstanten reduziert werden kann. Dies sind das Torsionsmodul $G$, das die Gestaltselastizität beschreibt und das Kompressionsmodul $Q$ für die Volumenelastizität. Zur Vereinfachung der Rechnung werden noch das Elastizitätsmodul $E$ (siehe (\ref{eqn:E})) und die Querkontraktionszahl
+\begin{equation}
+  \mu := -\frac{\Delta B}{B} \cdot \frac{L}{\Delta L}
+\end{equation}
+definiert (siehe Abb.~\ref{fig:my}). Zwischen den Größen bestehen die Beziehungen
+\begin{align}
+  E &= 2G (\mu + 1 ),\\
+  E &= 3(1-2\mu)Q.
+\end{align}
+
+\fig{bilder/µ}{Erklärung der Querkontraktionszahl $\mu$ an einem gedehnten Stab, aus \cite{anleitung102}.}{my}
+
+\subsection{Experimentelle Bestimmung des Schubmoduls $G$}
+Da bei einem statischen Verfahren die sog. elastischen Nachwirkungen, also eine verzögerte Einstellung der endgültigen Eigenschaften, die Messung verfälschen, wird ein dynamisches Messverfahren durchgeführt, das dies verhindert. Zur Bestimmung von $G$ wird ein zylindrischer Stab bzw. Draht an einem Ende eingespannt und am anderen Ende Tangentialkräfte aufgewandt, siehe Abb.~\ref{fig:G}.
+
+\fig{bilder/G}{Torsion eines zylindrischen Stabes, aus \cite{anleitung102}}{G}
+
+Um auf $G$ zu schließen wird der Zusammenhang zwischen dem Torsionswinkel der Stirnfläche $\phi$ und dem aufgewandten Drehmoment $M$ gesucht. Dieser lautet schließlich
+\begin{equation}
+  M = \frac{\pi}{2} G \frac{R^4}{L} \phi,
+\end{equation}
+mit dem Radius $R$ des Drahtes. Der Faktor
+\begin{equation}
+  \label{eqn:D}
+  D = \frac{\pi G R^4}{2L}
+\end{equation}
+wird \emph{Richtgröße} des Körpers genannt.
+
+Anhand dieses Zusammenhangs ließe sich eine statische Messung durchführen, welche jedoch wie bereits erwähnt nicht ausreichend genau wäre. Daher wird eine dynamische Messung durchgeführt, bei der eine Masse am unteren Ende des Drahtes befestigt wird und ausgelenkt wird, woraufhin das System zu schwingen beginnt. Das System kann durch die Bewegungsgleichung
+\begin{equation}
+  D\phi + \theta \frac{\symup{d}^2\phi}{\symup{d}t^2} = 0
+\end{equation}
+mit dem Trägheitsmoment $\theta$ des Körpers beschrieben werden. Sie besitzt die Lösung
+\begin{align}
+  \phi(t) &= \phi_0 \cos\left(\frac{2\pi}{T} t\right)
+  \shortintertext{mit}
+  T &= 2\pi \sqrt{\frac{\theta}{D}}.
+\end{align}
+Wenn man nun das Trägheitsmoment einer Kugel
+\begin{equation}
+  \theta_k = \frac{2}{5}m_k R_k^2
+\end{equation}
+einsetzt, kann man daraus auf die Fomel
+\begin{equation}
+  G = \frac{16\pi}{5} \frac{m_kR_k^2L}{T^2R^4}
+\end{equation}
+für das Schubmodul schließen.
