@@ -26,7 +26,7 @@ def analyze(f, x, y, pixels_per_unit, offset, first_value_x, name, index):
     plt.ylim(0,1.1)
     plt.xlim(np.min(x_fixed), (60, 72)[index])
     plt.xlabel('f/kHz')
-    plt.ylabel('U')
+    plt.ylabel('U / willk. Einh.')
     plt.savefig('build/'+name+'.pdf')
     plt.clf()
 
