@@ -1,5 +1,55 @@
 \section{Ziel}
-\label{sec:Ziel}
+\label{sec:ziel}
+In diesem Experiment soll anhand der Bestimmung der Molwärme von Blei und Zinn überprüft werden, ob die oszillatorischen Bewegungen der Atome und Moleküle innerhalb eines Festkörpers mit klassischen oder quantenmechanischen Methoden bestimmt werden können.
 
 \section{Theorie}
 \label{sec:theorie}
+
+ \subsection{Klassische Methode}
+Das Dulong-Petitsche Gesetz sagt aus, dass die Molwärme $C = 3R$ mit $R$ als universelle Gaskonstante $R = 8,314 \frac{\si{\joule}}{\si{\kilogram \kelvin}}$ \cite{codata}. Somit ist die Molwärme sowohl material- als auch temperaturunabhängig.
+
+Ein Körper nimmt die Wärmemenge $\Delta Q$ auf, wenn die Temperatur steigt ohne Arbeite an ihm zu verrichten.
+\begin{equation}
+  \Delta Q = mc \Delta T
+\end{equation}
+Dabei ist $c$ die spezifische Wärmekapazität des Körpers und hat die Einheit $\frac{\si{\joule}}{\si{\kilogram \kelvin}}$.
+Die Molwärme $C$ enstpricht der Wärmemenge $\mathrm{d}Q$, die benötigt wird, um die Temperatur einer Substanz eines Mols um $\mathrm{d}T$ zu erhöhen. Dabei wird zwischen spezifischer Wärmekapazität bei konstantem Druck und bei konstantem Volumen. Bei konstantem Volumen, erhält die Formel den Index $V$ und bei konstantem Druck entsprechend $P$. Hier soll nur der Fall des konstanten Volumens betrachtet werden.
+Mit dem ersten Hauptsatz der Wärmelehre $\mathrm{d}U = \mathrm{d}Q + \mathrm{d}A$ mit $U$ als innerer Energie eines Mols eines Stoffes und $A$ als mechanischer Arbeit, folgt für $C_\mathrm{V}$:
+
+\begin{equation}
+  C_\mathrm{V} = \frac{\mathrm{d}U}{\mathrm{d}T}
+\end{equation}
+
+Für den Zusammenhang zwischen $C_\mathrm{P}$ und $C_\mathrm{V}$ gilt:
+\begin{equation}
+  C_\mathrm{P}-C_\mathrm{V} = 9 \alpha^2\kappa V_0 T.
+\end{equation}
+Dabei ist $\alpha$ der lineare Ausdehungskoeffizientt, $\kappa$ der Kompressionsmodul und $V_0$ das Molvolumen.
+
+Nun soll die Energie der Atome betrachtet werden. Die Atome sind wegen der im Festkörper herrschenden Gitterkräfte an einen Punkt gebunde, um welchen sie harmonische Schwigungen ausführen können. Somit liegt ein Analogon zum harmonischen Oszillator vor, für welchen gilt, dass die kinetische und die potentielle Energie unter zeitlicher Mittelung gleich sind. Damit hat ein Atom die Gesamtenergie
+\begin{equation}
+  E_\mathrm{ges} = E_\mathrm{kin} + E_\mathrm{pot} = 2 \cdot E_\mathrm{kin}.
+\end{equation}
+
+Laut Äquipartionstheorem hat ein Atom im thermischen Gleichgewicht mit der Umgebung pro Bewegungsfreiheitsgrad eine mittlere kinetische Energie von $\frac{1}{2}kT$. Dabei ist $k$ die Boltzmannsche Konstante. Damit folgt für die Gesamtenergie
+\begin{equation}
+    E_\mathrm{ges} = kT
+\end{equation}
+
+Unter Berücksichigung der Tatsache, dass ein Atom in einem Festkörper in drei aufeinander senkrechte Richtungen schwingen kann und somit drei Bewegungsfreiheitsgrade besitzt, gilt
+\begin{align}
+  E &= 3RT \\
+  C_\mathrm{V} &= 3R \\
+\end{align}
+
+\subsection{Quantenmechanische Methode}
+Es fällt auf, dass Abweichungen auftreten, wie zum Beispiel, dass die Molwärme bei kleinen Temperaturen kleiner als $3R$ ist. Dies kann durch quantenmechanische Betrachtung erklärt werden. In der klassichen Methode, wird angenommen, dass die Energie beliebig geändert werden kann. Allerdings ist diese gequantelt und kann sich deshalb nur wie folgt ändern:
+\begin{equation}
+  \Delta E = nh\omega.
+\end{equation}
+Diese Tatsache führt dazu, dass die Energie nicht mehr proportional zu $T$ ist, sondern dass die Summe über alle möglichen Energien mit ihrer Wahrscheinlichkeit, welche durch die Boltzmann-Verteilung festgelegt ist, multipliziert werden muss.
+\begin{equation}
+  E = \frac{3N_\mathrm{L}h\omega}{e^{\frac{h\omega}{kT}}-1}
+\end{equation}
+Dabei ist $N_\mathrm{L}$ die Avogadrokonstante.
+Dieser Zusammenhang zeigt, dass die Emergie für hohe Temperaturen den Wert $3R$ annimmt. Für Stoffe mit kleinem Atomgewicht ist diese wegen des Zusammenhangs $\omega \propto \frac{1}{\sqrt{m}}$, deutlich höher als für Stoffe mit großem Atomgewicht.
