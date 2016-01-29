@@ -1,2 +1,48 @@
 \section{Auswertung}
 \label{sec:Auswertung}
+
+\subsection{Wärmekapazität der Apparatur}
+Die Wärmekapazität des Kalorimeters berechnet sich nach \eqref{eqn:cgmg} zu
+\begin{equation}
+  c_g m_g = \SI{338.85}{\joule\per\kelvin}.
+\end{equation}
+
+\subsection{Wärmekapazitäten der Metalle}
+Nach \eqref{eqn:ck} lassen sich die Wärmekapazitäten der Metalle berechnen als
+\begin{align}
+  c_k^\text{Graphit} &= \SI{1036}{\joule\per\kilogram\per\kelvin} \\
+  c_k^\text{Zinn} &= \SI{343 +- 70}{\joule\per\kilogram\per\kelvin},
+\end{align}
+woraus durch Multiplikation mit der Molmasse und Anwendung von \eqref{eqn:CvCp} die molaren isochoren Wärmekapazitäten
+\begin{align}
+  C_V^\text{Graphit} &= \SI{12.40}{\joule\per\mol\per\kelvin} \\
+  C_V^\text{Zinn} &= \SI{39.0 +- 8}{\joule\per\mol\per\kelvin}
+\end{align}
+resultieren. Zur Evaluation des Dulong-Petitschen Gesetzes werden diese nun noch mit $3R$ verglichen:
+\begin{align}
+  \frac{C_V^\text{Graphit}}{3R} &= 0.4971 \\
+  \frac{C_V^\text{Zinn}}{3R} &= 1.563
+\end{align}
+
+\subsection{Messdaten}
+Messung von $c_gm_g$:
+\begin{align}
+  m_\text{Glas} &= \SI{187.63}{g}\\
+  m_\text{Glas+Wasser} &= \SI{729.12}{g}\\
+  U_\text{vorher} &= \SI{0.84}{mV}\\
+  U_\text{nachher}&= \SI{2.25}{mV}\\
+  U_\text{Wasser} &= \SI{4.13}{mV}
+\end{align}
+
+\begin{table}
+  \caption{Messdaten.}
+  \centering
+  \label{tab:par}
+  \begin{tabular}{l@{} c S[table-format=1.2] S[table-format=1.2] S[table-format=1.3] S[table-format=3.2] S[table-format=3.2] S[table-format=3.2]}
+    \toprule
+    & Material & $U_k/\si{mV}$ & $U_w/\si{mV}$ & $U_m/\si{mV}$ & $m_k/\si{g}$ & $m_\text{Deckel}/\si{g}$ & $m_\text{Wasser+Glas}/\si{g}$ \\
+    \midrule
+    \input{build/daten.tex}
+    \bottomrule
+  \end{tabular}
+\end{table}
