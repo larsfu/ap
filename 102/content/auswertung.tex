@@ -129,7 +129,7 @@ Unter Verwendung der Geradengleichung gilt für $T$:
   T = 2\pi \sqrt{\frac{\theta_\mathrm{ges}}{aB+D}}.
 \end{equation}
 
-Mit Gleichung \ref{eqn:D} folgt 
+Mit Gleichung \ref{eqn:D} folgt
   \begin{equation}
   B = \frac{4\pi^2 \theta_\mathrm{ges}}{m-\mathrm{k}T_\mathrm{senkrecht}^2} - \frac{D}{m}
 \end{equation}
@@ -176,12 +176,30 @@ mit $\mu_0=4\pi \cdot 10^{-7} \frac{\si{\newton}}{\si{\ampere}^2}$ und $I$ als S
     1,5 & 9,338 &	3,5 & 6,571 \\
     1,5 & 9,324 &	3,5 & 6,502 \\
     1,5 & 9,350 &	3,5 & 6,579 \\
-
 \bottomrule
 \end{tabular}
 \end{table}
 
-Die Messwerte zur Periodendauer mit eingeschaltetem B-Feld mit verschiedenen Stromstärken sind in Tabelle \ref{tab:mag} zu finden.
+\begin{table}
+  \caption{Mittelwerte der Periodendauer bei eingeschaltetem Magnetfeld.}
+  \centering
+  \label{tab:t-mittel}
+  \begin{tabular}{c c}
+    \toprule
+    $I/ \si{\ampere}$ & $\overline{T} / \si{\second}$\\
+    \midrule
+    0,5 & 13,268 \pm 0,167 \\
+    1,0 & 10,853 \pm 0,008 \\
+    1,5 & 9,341 \pm 0,017 \\
+    2,0 & 8,336 \pm 0,014 \\
+    2,5 & 7,570 \pm 0,021 \\
+    3,5 & 6,547 \pm 0,025 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+
+Die Messwerte zur Periodendauer mit eingeschaltetem B-Feld mit verschiedenen Stromstärken sind in Tabelle \ref{tab:mag} zu finden. Die entsprechenden Mittelwerte zu $T$ befinden sich in Tabelle \ref{tab:t-mittel}
 Zur Bestimmung des magnetisches Moments wird $B$ gegen $\frac{1}{T^2}$ aufgetragen. Die Werte hierzu befinden sich in Tabelle \ref{tab:mag2} . Bei der angegebenen Periodendauer handelt es sich um den Mittelwert der in Tabelle \ref{tab:mag} aufgeführten Werte.
 
 \begin{table}
@@ -192,12 +210,12 @@ Zur Bestimmung des magnetisches Moments wird $B$ gegen $\frac{1}{T^2}$ aufgetrag
     \toprule
     $T^{-2} / 10^{-2} {\si{\per\second\squared}}$ & $B/ \si{\milli\tesla}$ \\
     \midrule
-    0,566 & 0,5 \\
-    0,849 & 0,999 \\
-    1,146 & 1,499 \\
-    1,397 & 1,998 \\
-    1,745 & 2,498 \\
-    2,333 & 3,497 \\
+    0,568 \pm 0,014 & 0,5 \\
+    0,849 \pm 0,001 & 0,999 \\
+    1,146 \pm 0,004 & 1,499 \\
+    1,439 \pm 0,005 & 1,998 \\
+    1,745 \pm 0,010 & 2,498 \\
+    2,333 \pm 0,018 & 3,497 \\
     \bottomrule
     \end{tabular}
 \end{table}
@@ -206,11 +224,11 @@ Zur Bestimmung des magnetisches Moments wird $B$ gegen $\frac{1}{T^2}$ aufgetrag
 
 Die Gerade hat die Form $y=ax+b$. Die Parameter $a$ und $b$ haben folgende Werte:
 \begin{align}
-  a&=1,692 \pm 0,027 \\
-  b&= -0,0435 \pm 0,0040 \\
+  a&=(1,692 \pm 0,027)10^{-1}\frac{\si{\tesla}}{\si{second}^2} \\
+  b&= (-0,0435 \pm 0,0040) \si{\milli\tesla} \\
 \end{align}
 
 Mit den Gleichungen \ref{eqn:D} und der Gleichung der Ausgleichsgeraden folgt
 \begin{equation}
-  M = 4\pi^2 \theta_\mathrm{ges} a = (0,01308 \pm 0,00017) \si{\ampere \meter}^2.
+  M = 4\pi^2 \theta_\mathrm{ges} a = (0,001308 \pm 0,000017) \si{\ampere \meter}^2.
 \end{equation}
