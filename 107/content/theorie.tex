@@ -1,5 +1,84 @@
-\section{Ziel}
+\section{Zielsetzung}
 \label{sec:Ziel}
+Mithilfe des Kugelfall-Viskosimeters nach Höppler soll die Temperaturabhängigkeit
+der dynamischen Viskosität destillierten Wassers bestimmt werden. Außerdem
+wird durch Ermittlung der Reynoldszahl eine Aussage über die Art der Strömung
+getroffen.
 
 \section{Theorie}
-\label{sec:theorie}
+\label{sec:Theorie}
+Die dynamische Viskosität $\eta$ einer Flüssigkeit ist eine temperaturabängige
+Materialkonstante, welche die Größe der auf einen sich durch die Flüssigkeit bewegenden
+Körper wirkenden Kräfte angibt. Fällt etwa ein Körper durch eine Flüssigkeit,
+so wirken auf ihn die Gewichtskraft $\vec{F_G}$ und dieser entgegengesetzt
+die Auftriebskraft $\vec{F_A}$ und die Reibungskraft $\vec{F_R}$.
+\newline
+\newline
+Bei dem Kugelfall-Viskosimeter nach Höppler wird die Viskosität dadurch bestimmt,
+dass eine Kugel durch die Flüssigkeit fällt. Nach einer gewissen Zeit gleichen sich
+die auf die Kugel wirkenden Kräfte aus und die Fallgeschwindigkeit bleibt konstant.
+Die Viskosität ergibt sich dann aus der Formel
+\begin{equation}
+  \label{eqn:eta}
+  \eta = K (\rho_\symup{K}-\rho_\symup{Fl}) \cdot t \, .
+\end{equation}
+$K$ ist dabei eine Apparaturkonstane, welche Fallhöhe und Kugelgeometrie beinhält.
+$\rho_\symup{K}$ bzw. $\rho_\symup{Fl}$ sind die Dichten der Kugel bzw. der Flüssigkeit,
+$t$ ist die Fallzeit.
+\newline
+Die Temperaturabhängigkeit der Viskosität ist durch die Andradesche Gleichung
+\begin{equation}
+  \label{eqn:etaT}
+  \eta(T) = A \; \exp \left(\frac{B}{T} \right)
+\end{equation}
+gegeben, wobei $A$ und $B$ Konstanten sind.
+\newline
+\newline
+Zur Bestimmung der wirkenden Kräfte ist die Art der Strömung wichtig. Es wird eine
+laminare, also nicht turbulente Strömung gefordert. Eine laminare Strömung zeichnet
+sich dadurch aus, dass sich keine Wirbel bilden. Um zu ermitteln um welche Strömung es sich handelt,
+wird die Reynoldszahl $Re$
+\begin{equation}
+  \label{eqn:reynolds}
+  Re = \frac{\rho v d}{\eta}
+\end{equation}
+bestimmt, wobei $\rho$ die Dichte der Flüssikeit, $v$ die Strömungsgeschwindigkeit,
+$d$ die charakteristische Länge des Körpers in Strömungsrichtung und $\eta$ die dynamische Viskosität
+darstellen.
+\newline
+\newline
+Handelt es sich um eine laminare Strömung, ergibt sich für die Reibung der
+Flüssigkeitsschischten die Stokessche Reibung
+\begin{equation}
+  \label{eqn:stokes}
+  F_R = 6 \pi \eta \, v \,r \; ,
+\end{equation}
+wobei $r$ der Radius der fallenden Kugel ist.
+
+\section{Fehlerrechnung}
+Der Mittelwert wird über die Gleichung
+\begin{equation}
+  \label{eqn:MW}
+   \overline{x_i} = \frac{1}{n} \sum_{i=1}^n  x_i
+\end{equation}
+bestimmt.
+\newline
+Der Fehler dieses Mittelwerts ergibt sich durch die Gleichung
+\begin{equation}
+  \label{eqn:MF}
+  \increment{x}=\frac{\sigma}{\sqrt{n}}\, ,
+\end{equation}
+wobei $\sigma$ die Standardabweichung
+\begin{equation}
+  \sigma = \sqrt{\frac{1}{n-1}\sum_{i=1}^n (x_i-\overline{x_i})^2}
+\end{equation}
+darstellt.
+\newline
+Wird eine Größe aus fehlerbehafteten Werten errechnet, ergibt sich der Fehler durch
+die Gaußsche Fehlerfortpflanzung
+\begin{equation}
+  \label{eqn:gauß}
+  \sigma_f = \sqrt{\left(\frac{\partial f}{\partial x_1}\right)^2\cdot \increment x_1^2
+  + \left(\frac{\partial f}{\partial x_2}\right)^2\cdot \increment x_2^2 + ...
+  + \left(\frac{\partial f}{\partial x_n}\right)^2\cdot \increment x_n^2 } \, .
+\end{equation}
