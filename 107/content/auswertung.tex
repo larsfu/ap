@@ -1,0 +1,107 @@
+\section{Auswertung}
+\label{sec:Auswertung}
+\subsection{Messung bei Raumtemperatur}
+Die Masse und Durchmesser der Kugeln sind
+\begin{align*}
+  m_\text{kl} &= \SI{4.43}{\gram} \\
+  m_\text{gr} &= \SI{4.95}{\gram} \\
+  d_\text{kl} &= \SI{15.311}{\milli\meter} \\
+  d_\text{gr} &= \SI{15.492}{\milli\meter},
+\end{align*}
+daraus ergeben sich die Dichten
+\begin{align*}
+  \rho_\text{kl} &= \SI{2354}{\kilogram\per\cubic\meter} \\
+  \rho_\text{gr} &= \SI{2543}{\kilogram\per\cubic\meter}.
+\end{align*}
+Die Dichte von Wasser bei der Messtemperatur $\SI{21.5}{\celsius}$ liegt nach \cite{wärmeatlas} bei
+\begin{align*}
+  \rho_\text{w} = \SI{998.21}{\kilogram\per\cubic\meter}.
+\end{align*}
+Mit diesen Größen, der gegebenen Gerätekonstante
+\begin{align*}
+  K_\text{kl} = \SI{0.07640}{\milli\pascal\cubic\centi\meter\per\gram}
+\end{align*}
+und der gemittelten Fallzeit
+\begin{align*}
+  \overline{t_\text{kl}} = \SI{12.4+-0.1}{s}
+\end{align*}
+ergibt sich nach \eqref{eqn:eta} eine dynamische Viskosität von
+\begin{align}
+  \eta_\text{kl} = \SI{1.28+-0.01}{\pascal\second}.
+\end{align}
+Anhand dieser Größe lässt sich zusammen mit der gemittelten Fallzeit der Zweiten Messreihe
+\begin{align*}
+  \overline{t_\text{gr}} = \SI{80.9+-0.6}{s}
+\end{align*}
+die Gerätekonstante der Apparatur mit der großen Kugel zu
+\begin{align}
+  K_\text{gr} = \SI{1.03+-0.01e-8}{\pascal\cubic\meter\per\kilogram}
+\end{align}
+bestimmen.
+
+\begin{table}
+  \caption{Messdaten der ersten Messreihe.}
+  \centering
+  \label{tab:d1}
+  \begin{tabular}{l@{} S S}
+    \toprule
+    & {$t_\text{kl}/\si{s}$} & $t_\text{gr}/\si{s}$ \\
+    \midrule
+    \input{content/d1.tex}
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\subsection{Messung der Temperaturabhängigkeit}
+
+Um $\eta$ bei verschiedenen Temperaturen zu ermitteln, muss jeweils die Dichte des Wassers bekannt sein. Dazu werden die in Tabelle~\ref{tab:dichte} gegebenen Literaturwerte mittels nichtlinearer Ausgleichsrechnung an ein quadratisches Polynom interpoliert, siehe Abb~\ref{fig:dichte}.
+
+\begin{table}
+  \caption{Literaturwerte zur Dichte von Wasser im Messbereich. Entnommen aus \cite{wärmeatlas}.}
+  \centering
+  \label{tab:dichte}
+  \begin{tabular}{l@{} S S}
+    \toprule
+    & {$T/\si{K}$} & $\rho_\text{Wasser}/\si{\kilogram\per\cubic\meter}$ \\
+    \midrule
+    \input{build/dichte.tex}
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\fig{build/dichte}{Literaturwerte zur Dichte von Wasser, interpoliert mit einer quadratischen Funktion.}{dichte}
+\FloatBarrier
+Nun kann wiederum anhand \eqref{eqn:eta} und der zuvor bestimmten Apparaturkonstante $K_\text{gr}$ die Viskosität für jede Temperatur bestimmt werden. Die Ergebnisse finden sich in Tabelle~\ref{tab:erg} und Abb.~\ref{fig:erg}.
+
+\begin{table}
+  \caption{Ergebnisse der Berechnungen im temperaturabhängigen Teil der Messung.}
+  \centering
+  \label{tab:erg}
+  \begin{tabular}{l@{} S S S
+      S[table-format=2.1, round-precision=3, round-mode=figures] @{${}\pm{}$} S[table-format=1.2, round-precision=1, round-mode=figures]
+      S[table-format=3.1, round-precision=4, round-mode=figures]
+      S[table-format=1.3, round-precision=3, round-mode=figures] @{${}\pm{}$} S[table-format=1.3, round-precision=1, round-mode=figures]
+      S[table-format=2.1, round-precision=3, round-mode=figures] @{${}\pm{}$} S[table-format=1.1, round-precision=1, round-mode=figures]}
+    \toprule
+     &{$T/\si{K}$} & {$t_1/\si{s}$} & {$t_2/\si{s}$} & \multicolumn{2}{c}{$t/\si{s}$} & {$\rho_\text{Wasser}/\si{\kilogram\per\cubic\meter}$} & \multicolumn{2}{c}{$\eta/\si{\milli\pascal\second}$} & \multicolumn{2}{c}{$Re$} \\
+    \midrule
+    \input{build/erg.tex}
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\fig{build/viskosität}{Berechnete Viskosität von Wasser, aufgetragen über die Temperatur; zusätzlich mit nichtlinearem Fit.}{erg}
+
+Um nun die materialspezifischen Größen $A$ und $B$ der Andradeschen Gleichung \eqref{eqn:etaT} zu bestimmen, wird $\ln(\eta)$ über $T^{-1}$ aufgetragen. Durch
+\begin{align}
+  \ln(\eta(T^{-1})) &= \ln\left(A \cdot \exp \left(\frac{B}{T^{-1}}\right)\right) \\
+  \ln(\eta) &= \ln(A) + BT
+\end{align}
+ist demnach $\ln(A)$ der $\eta$-Achsenabschnitt und $B$ die Steigung der Geraden. Durch die lineare Regression ergeben sich die folgenden Werte:
+\begin{align*}
+  A &= \SI{3.78+-0.29e-06}{\pascal\second}, \\
+  B &= \SI{1706+-24}{\kelvin}
+\end{align*}
+eine zusätzlich durchgeführte nichtlineare Ausgleichsrechnung ergab dieselben Werte. Zusätzlich wird noch für jede Temperatur die Reynoldszahl nach \eqref{eqn:reynolds} bestimmt. Im vorliegenden Versuchsaufbau entspricht $d$ dem Rohrdurchmesser, welcher durch den Durchmesser der fallenden Kugel hinreichend genau angenährt werden kann. Die Ergebnisse finden sich ebenfalls in Tabelle~\ref{tab:erg}.
+
+\fig{build/viskosität_linear}{Logarithmierte Viskositätswerte über reziproke Temperatur aufgetragen, sowie lineare Regression zur Bestimmung einer Geradengleichung.}{ergl}
