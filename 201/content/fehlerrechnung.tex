@@ -1,0 +1,36 @@
+\section{Fehlerrechnung}
+\label{subsec:fehlerrechnung}
+
+\subsubsection{Mittelwert}
+\begin{equation}
+\overline{v} = \frac{1}{N} \sum_{i=1}^N v_i
+\end{equation}
+
+\subsubsection{Standardabweichung}
+\begin{equation}
+s_i = \sqrt{\frac{1}{N - 1} \sum_{j=1}^N \left(v_j - \overline{v}\right){^2}}
+\end{equation}
+
+wobei $v_j$ ($j = 1, ..., N$) die Messwerte sind.
+
+\subsubsection{Streuung der Mittelwerte}
+\begin{equation}
+\sigma_i = \frac{s_i}{\sqrt{N}} = \sqrt{\frac{\sum_{j=1}^N \left(v_j - \overline{v_i}\right){^2}}{N \left(N - 1 \right)}}
+\end{equation}
+
+\subsubsection{Gaußfehler}
+Bei einer fehlerbehafteten Funktion $f$ mit $k$ als fehlerbehafteter Größe und $\sigma_k$ als Ungenauigkeit, gilt:
+
+\begin{equation}
+\Delta x_k = \frac{\mathrm{d}f}{\mathrm{d}k}\sigma_k
+\end{equation}.
+
+ Der relative Gaußfehler berechnet sich nach:
+\begin{equation}
+\Delta x_\text{k, rel} = 1 \pm \frac{\Delta x_k}{|x|}\cdot 100\%
+\end{equation}.
+
+Der absolute Gaußfehler ergibt sich aus:
+\begin{equation}
+\Delta x_i = \sqrt{\left(\frac{\mathrm{d}f}{\mathrm{d}k_{1}}\cdot \sigma_{k_{1}}\right)^2 + \left(\frac{\mathrm{d}f}{\mathrm{d}k_{2}}\cdot \sigma_{k_{2}}\right)^2 + ...}
+\end{equation}.
