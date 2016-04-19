@@ -1,14 +1,24 @@
 \section{Auswertung}
 \label{sec:Auswertung}
 
+\input{../fehlerrechnung.tex}
+
 \subsection{Wärmekapazität der Apparatur}
-Die Wärmekapazität des Kalorimeters berechnet sich nach \eqref{eqn:cgmg} zu
+Die Wärmekapazität des Kalorimeters berechnet sich nach \eqref{eqn:cgmg} mit
+\begin{align}
+  m_\text{Glas} &= \SI{187.63}{g}\\
+  m_\text{Glas+Wasser} &= \SI{729.12}{g}\\
+  U_\text{vorher} &= \SI{0.84}{mV}\\
+  U_\text{nachher}&= \SI{2.25}{mV}\\
+  U_\text{Wasser} &= \SI{4.13}{mV}
+\end{align}
+zu
 \begin{equation}
   c_g m_g = \SI{338.85}{\joule\per\kelvin}.
 \end{equation}
 
 \subsection{Wärmekapazitäten der Metalle}
-Nach \eqref{eqn:ck} lassen sich die Wärmekapazitäten der Metalle berechnen als
+Nach \eqref{eqn:ck} lassen sich die Wärmekapazitäten der Metalle mit den Messwerten aus Tabelle~\ref{tab:par} berechnen als
 \begin{align}
   c_k^\text{Graphit} &= \SI{1036}{\joule\per\kilogram\per\kelvin} \\
   c_k^\text{Zinn} &= \SI{343 +- 70}{\joule\per\kilogram\per\kelvin},
@@ -22,16 +32,6 @@ resultieren. Zur Evaluation des Dulong-Petitschen Gesetzes werden diese nun noch
 \begin{align}
   \frac{C_V^\text{Graphit}}{3R} &= 0.4971 \\
   \frac{C_V^\text{Zinn}}{3R} &= 1.563
-\end{align}
-
-\subsection{Messdaten}
-Messung von $c_gm_g$:
-\begin{align}
-  m_\text{Glas} &= \SI{187.63}{g}\\
-  m_\text{Glas+Wasser} &= \SI{729.12}{g}\\
-  U_\text{vorher} &= \SI{0.84}{mV}\\
-  U_\text{nachher}&= \SI{2.25}{mV}\\
-  U_\text{Wasser} &= \SI{4.13}{mV}
 \end{align}
 
 \begin{table}
