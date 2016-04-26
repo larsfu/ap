@@ -37,9 +37,9 @@ Es ist zu beobachten, dass bei $U=0$ ein geringer Anodenstrom gemessen werden ka
 Nach der Fermi-Diracschen Verteilungsfunktion, welche die Wahrscheinlichkeit für einen Energiezustand im thermischen Gleichgewicht angibt, existieren endlich viele Elektronen, die die Gegegenspannung überwinden können, was zu einem Anodenstrom führt.
 Für die Stromdichte $j$ gilt in diesem Gebiet:
 \begin{equation}
-  j_\mathrm{A}(V)=C e^{-\frac{e V}{k_\mathrm{B}T}}.
+  j_\mathrm{A}(U)=C e^{-\frac{e U}{k_\mathrm{B}T}}.
 \end{equation}
-Dabei ist $C$ eine Konstante, $V$ das äußere Potential, $e$ die Elementarladung und $k_\mathrm{B}$ die Boltzmann-Konstante.
+Dabei ist $C$ eine Konstante, $U$ das äußere Potential, $e$ die Elementarladung und $k_\mathrm{B}$ die Boltzmann-Konstante.
 
 \subsubsection{Raumladungsgebiet}
 Auf das Anlaufstromgebiet folgt das Raumladungsgebiet. Hier erreichen erst ab einer bestimmten Anodenspannung alle Elektronen die Anode. Dies kann durch die beschleunigte Bewegung der Elektronen von der Kathode zur Anode erklärt werden. Durch eben diese Beschleunigung ist die Raumladungsdichte $\rho$ nicht konstant, sondern abhängig vom Ort. Sie nimmt in Richtung der Anode ab, wie Abbildung \ref{fig:raumladung} zeigt. Die Raumladungsdichte beeimflusst den Verlauf der elektrischen Feldstärke $E$, was ebenfalls in Abbildung \ref{fig:raumladung} zu erkennen ist. Sie nimmt in Richtung der Anode zu.
@@ -53,13 +53,13 @@ Auf das Anlaufstromgebiet folgt das Raumladungsgebiet. Hier erreichen erst ab ei
 
 Es gilt das Langmuir-Schottkysche Raumladungsgesetz:
 \begin{equation}
-  j_\mathrm{R}=\frac{4}{9} \epsilon_0 \sqrt{\frac{2e}{m_0}}\frac{V^{\frac{3}{2}}}{a^2}
+  j_\mathrm{R}=\frac{4}{9} \epsilon_0 \sqrt{\frac{2e}{m_\mathrm{e}}}\frac{U^{\frac{3}{2}}}{a^2}
 \end{equation}
-mit $\epsilon_0$ als Dielektrizitätskonstante des Vakuums, $a$ als Ort der Anode.
+mit $\epsilon_0$ als Dielektrizitätskonstante des Vakuums, $a$ als Ort der Anode und $m_\mathrm{e}$ als Masse eines Elektrons.
 
 \subsubsection{Sättigungsstromgebiet}
 Im auf das Raumladungsgebiet folgende Sättigungsstromgebiet erreichen alle emittierten Elektronen die Anode. Es gilt die Richardson-Gleichung:
 \begin{equation}
-j_\mathrm{S}(T)=4\pi\frac{e m_0 k_\mathrm{B}^2}{h^3}T^2e^{\frac{-W_\mathrm{A}}{k_\mathrm{B}T}}
+j_\mathrm{S}(T)=4\pi\frac{e m_e k_\mathrm{B}^2}{h^3}T^2e^{\frac{-W_\mathrm{A}}{k_\mathrm{B}T}}
 \end{equation}
 Dabei ist $h$ das Plancksche Wirkungsquantum, $T$ die Temperatur und $W_\mathrm{A}$ die Austrittsarbeit für Elektronen.
