@@ -1,2 +1,58 @@
 \section{Auswertung}
 \label{sec:Auswertung}
+\subsection{Kennlinien und Sättigungsstrom}
+Mit dem zuvor beschriebenen Aufbau wird die Kennlinie der Diode bei fünf verschiedenen Heizströmen aufgenommen, diese finden sich in Abb.~\ref{fig:kennlinien}. Daraus lässt sich die jeweilige Sättigungsstromstärke ablesen (sofern in der Messreihe eine Sättigung eingetreten ist), welche in Tabelle~\ref{tab:sätt} aufgeführt ist. Die Messdaten sind in Tabelle~\ref{tab:kennlinien} niedergeschrieben.
+\fig{build/kennlinien.pdf}{Kennlinienschar der Diode bei verschiedenen Heizleistungen.}{kennlinien}
+\input{build/saett.tex}
+\input{build/kennlinien.tex}
+\newpage
+\subsection{Langmuir–Schottkysches Raumladungsgesetz}
+Die Gültigkeit des Langmuir-Schottkyschen Raumladungsgesetzes soll anhand der Messreihe mit der maximalen Heizleistung verifiziert werden.  Dazu wird der Exponent $b$ der aus \eqref{eqn:langmuir} übernommenen Gleichung
+\begin{align}
+  \frac{4}{9}\epsilon_0 \sqrt{\frac{2e}{m_e}} \frac{V^b}{a^2}
+\end{align}
+mittels linearer Regression auf den logarithmierten Daten bestimmt. Der Gültigkeitsbereich des Gesetzes wird anhand der Kennlinie auf 0–200\si{V} geschätzt. Es ergibt sich ein Wert von
+\begin{align}
+  b &= \num{1.45+-0.01}.
+\end{align}
+In Abb.~\ref{fig:langmuir} ist die Kennlinie zusammen mit der berechneten Kurve aufgetragen.
+
+\fig{build/b.pdf}{Kennlinie bei höchster Heizleistung, mit Ausgleichsrechnung.}{langmuir}
+
+\subsection{Anlaufstromgebiet}
+Mit dem in Abschnitt~\ref{sec:anlauf} angegebenen Aufbau wird das Anlaufstromgebiet näher untersucht. Dazu wird eine nichtlineare Ausgleichsrechnung an \eqref{eqn:anlauf} durchgeführt. Der Innenwiderstand des Nanoamperemeters von $R_\text{innen} = \SI{1}{\mega\ohm}$ wird gemäß
+\begin{equation}
+  U_\text{korr} = U_G - I \cdot R_\text{innen}
+\end{equation}
+korrigiert.
+Die Ergebnisse finden sich in Abb.~\ref{fig:anlauf} und Tabelle~\ref{tab:anlauf}. Es ergibt sich eine Temperatur von
+\begin{equation}
+  T = \SI{2464}{\kelvin}.
+\end{equation}
+\input{build/fqfepoijfewoij.tex}
+\fig{build/c.pdf}{Anlaufstromgebiet der Hochvakuumdiode mit Ausgleichsrechnung.}{anlauf}
+
+\subsection{Kathodentemperatur und Austrittsarbeit}
+Die Temperatur kann gemäß der Versuchsanleitung \cite{anleitung504} als
+\begin{equation}
+  T = \sqrt[4]{\frac{I_H U_H - \SI{1}{W}}{f  \eta  \sigma}}
+\end{equation}
+mit der Kathodenoberfläche
+\begin{equation}
+  f = \SI{0.35}{\centi\meter\squared}
+\end{equation}
+und dem Emissionsgrad der Oberfläche
+\begin{equation}
+  \eta = \num{0.28}
+\end{equation} abgeschätzt werden. Mithilfe der Temperatur lässt sich wiederum anhand der Richardson-Gleichung aus \eqref{eqn:richardson} über
+\begin{align}
+  j_\mathrm{S}(T)&=4\pi\frac{e m_e k_\mathrm{B}^2}{h^3}T^2e^{\frac{-W_\mathrm{A}}{k_\mathrm{B}T}} \\
+  &\Leftrightarrow \ln\left(\frac{jh^3}{4\pi e m_e k^2 T^2}\right) = \frac{-e\phi}{kT} \\
+  &\Leftrightarrow -\frac{kT}{e} \ln\left(\frac{I_S h^3}{4\pi f e  m_e k^2 T^2}\right) = \phi
+\end{align}
+die Austrittsarbeit berechnen. Es ergeben sich die in Tabelle~\ref{tab:temp} angegebenen Ergebnisse, sowie ein Mittelwert von
+\begin{equation}
+  \bar\phi = \SI{3.49+-0.02}{\electronvolt}
+\end{equation}
+für die Austrittsarbeit.
+\input{build/temp.tex}

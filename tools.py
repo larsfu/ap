@@ -3,10 +3,75 @@ import uncertainties as unc
 import uncertainties.unumpy as unp
 import itertools
 
-round_figures = 3
 round_figures_error = 1
 max_magnitude = 6
 min_magnitude = -4
+
+def table(values, names, file, label, caption, split=1, footer=None, round=True, round_figures=None):
+    result = r"""\begin{table}
+        \caption{"""+caption+"""}
+        \centering
+        \label{"""+label+r"""}
+        \begin{tabular}{l@{}"""
+
+    reformat_list = list()
+    unc_list = list()
+    columns = ""
+    for s in values if round_figures == None else zip(values, round_figures):
+        if round_figures != None:
+            round_figures_here = s[1]
+            s = s[0]
+        else:
+            round_figures_here = 4
+        if isinstance(s[0], unc.UFloat):
+            unc_list.append(True)
+            number_format, reformat = get_format_string(unp.nominal_values(s[s!=0]), round_figures_here)
+            error_format, reformat_ = get_format_string(unp.std_devs(s[s!=0]), round_figures_error)
+            if round:
+                columns += "S[table-format="+number_format+r", round-precision="+str(round_figures_here)+", round-mode=figures] @{${}\pm{}$} S[table-format="+error_format+", round-precision="+str(round_figures_error)+", round-mode=figures] "
+            else:
+                columns += "S[table-format="+number_format+r", round-mode=off] @{${}\pm{}$} S[table-format="+error_format+", round-mode=off] "
+        else:
+            unc_list.append(False)
+            number_format, reformat = get_format_string(s[s!=0], round_figures_here)
+            if round:
+                columns += "S[table-format="+number_format+r", round-precision="+str(round_figures_here)+", round-mode=figures] "
+            else:
+                columns += "S[table-format="+number_format+r", round-mode=off] "
+        reformat_list.append(reformat)
+
+    result += '|'.join([columns] * split) + r"} \toprule "
+
+    headers = ""
+    for l in zip(names, unc_list):
+        l, uncertain = l
+        l = l.split("/")
+        unit = ""
+        if len(l) > 1:
+            unit = r"/\si{"+l[1]+"}"
+        if not uncertain:
+            headers += r"& {$"+l[0]+unit+"$}"
+        else:
+            headers += r"& \multicolumn{2}{c}{$"+l[0]+unit+"$}"
+
+    result += headers * split + r"\\\midrule"
+
+    length = np.ceil(len(max(values,key=len))/split).astype(int)
+    final = list()
+
+    for i in range(0, split):
+        for v in values:
+            final.append(v[i*length:(i+1)*length])
+
+    for row in itertools.zip_longest(*final):
+        result += format_row(row, reformat_list*split, unc_list*split)
+
+    if footer != None:
+        result += r"\midrule" + footer
+
+    result += r" \bottomrule \end{tabular} \end{table}"
+    with open(file, 'w') as f:
+        f.write(result)
 
 def format_row(row, reformat_list, is_uncertain_list):
     row_reformatted = []
@@ -38,7 +103,7 @@ def format_row(row, reformat_list, is_uncertain_list):
     return '& '  +  ' & '.join(row_reformatted) +  ' \\\\\n'
 
 def get_format_string(set, precision):
-    mag = np.ceil(np.log10(set)).astype(int)
+    mag = np.ceil(np.log10(np.absolute(set))).astype(int)
 
     if mag.max() > max_magnitude or mag.min() < min_magnitude:
         reformat = True
@@ -52,59 +117,3 @@ def get_format_string(set, precision):
         if post < 0: post = 0
         string = "{}.{}".format(pre, post)
     return (string, reformat)
-
-def table(values, names, file, label, caption, split=1, footer=None):
-    result = r"""\begin{table}
-        \caption{"""+caption+"""}
-        \centering
-        \label{"""+label+r"""}
-        \begin{tabular}{l@{}"""
-
-    reformat_list = list()
-    unc_list = list()
-    columns = ""
-    for s in values:
-        if isinstance(s[0], unc.UFloat):
-            unc_list.append(True)
-            number_format, reformat = get_format_string(unp.nominal_values(s[s!=0]), round_figures)
-            error_format, reformat_ = get_format_string(unp.std_devs(s[s!=0]), round_figures_error)
-            columns += "S[table-format="+number_format+r", round-precision="+str(round_figures)+", round-mode=figures] @{${}\pm{}$} S[table-format="+error_format+", round-precision="+str(round_figures_error)+", round-mode=figures] "
-        else:
-            unc_list.append(False)
-            number_format, reformat = get_format_string(s[s!=0], round_figures)
-            columns += "S[table-format="+number_format+r", round-precision="+str(round_figures)+", round-mode=figures] "
-        reformat_list.append(reformat)
-
-    result += '|'.join([columns] * split) + r"} \toprule "
-
-    headers = ""
-    for l in zip(names, unc_list):
-        l, uncertain = l
-        l = l.split("/")
-        unit = ""
-        if len(l) > 1:
-            unit = r"/\si{"+l[1]+"}"
-        if not uncertain:
-            headers += r"& {$"+l[0]+unit+"$}"
-        else:
-            headers += r"& \multicolumn{2}{c}{$"+l[0]+unit+"$}"
-
-    result += headers * split + r"\\\midrule"
-
-    length = np.ceil(len(max(values,key=len))/split).astype(int)
-    final = list()
-
-    for i in range(0, split):
-        for v in values:
-            final.append(v[i*length:(i+1)*length])
-
-    for row in itertools.zip_longest(*final):
-        print(row)
-        result += format_row(row, reformat_list*split, unc_list*split)
-
-    if footer != None:
-        result += r"\midrule" + footer
-
-    result += r" \bottomrule \end{tabular} \end{table}"
-    with open(file, 'w') as f:
-        f.write(result)

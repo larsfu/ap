@@ -14,8 +14,14 @@ all: build/main.pdf
 build/kennlinien.pdf: auswertung/a.py matplotlibrc | build
 	TEXINPUTS="$(pwd):$(pwd)/../latex-template/:" PYTHONPATH="../" python auswertung/a.py
 
+build/c.pdf: auswertung/c.py matplotlibrc | build
+	TEXINPUTS="$(pwd):$(pwd)/../latex-template/:" PYTHONPATH="../" python auswertung/c.py
+
+build/d.tex: auswertung/d.py matplotlibrc | build
+	TEXINPUTS="$(pwd):$(pwd)/../latex-template/:" PYTHONPATH="../" python auswertung/d.py
+
 # hier weitere Abhängigkeiten für build/main.pdf deklarieren:
-#build/main.pdf: build/magn-moment.pdf
+build/main.pdf: build/kennlinien.pdf build/c.pdf build/d.tex
 
 build/main.pdf: FORCE | build
 	  TEXINPUTS="$(call translate,build:)" \
