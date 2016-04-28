@@ -1,0 +1,7 @@
+#Beschleunigungsspannugen / Volt
+250
+300
+350
+400
+450
+500
