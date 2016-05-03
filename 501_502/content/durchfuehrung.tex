@@ -1,2 +1,34 @@
 \section {Aufbau und Durchführung}
 \label{sec:durchführung}
+
+\subsection{Elektrisches Feld}
+Zur Bestimmung der Ablenkung durch ein elektrisches Feld wird eine Kathodenstrahlröhre, wie in Abb.~\ref{fig:kath} dargestellt, verwendet. Die im Vakuum thermisch emittierten Elektronen werden durch einen Wehneltzylinder in der Intensität reguliert und durch eine davor angebrachte gelochte Elektrode beschleunigt, sowie durch Fokussierungselektroden auf den Leuchtschirm fokussiert. Es folgen zwei Ablenkelektroden, jeweils für eine der beiden zueinander senkrechten Raumrichtungen.
+
+\fig{bilder/1}{Querschnitt einer Kathodenstrahlröhre. \cite{anleitung501502}}{kath}
+
+Mithilfe der in Abb.~\ref{fig:sch1} dargestellten Schaltung kann die Verschiebung des Leuchtflecks in Abhängigkeit von der Beschleunigungs- und Ablenkspannung bestimmt werden. Daraus lässt sich dann der Proportionalitätsfaktor $\sfrac{U_d}{U_B}$ aus aus \eqref{eqn:prop} bestimmen. Weiterhin wird im zweiten Versuchsteil als $x$-Ablenkung eine Sägezahnspannung angelegt, um den zeitlichen Verlauf der an die $y$-Elektrode beobachtenzu können. Dies erfolg durch die Schaltung in Abb.~\ref{fig:sch2}. Damit auf dem Schirm eine \enquote{stehende Welle} sichtbar wird, muss die Synchronisationsbedingung
+\begin{equation}
+  n f_\text{Sägezahn} = n f_\text{Welle}, \quad n \in ℕ
+\end{equation}
+erfüllt werden. Daher muss die Sägezahnfrequenz entsprechend eingestellt werden. Die Amplitude der Spannung kann Anhand der Ablenkung auf dem Schirm abgemessen werden.
+
+\fig{bilder/3}{Schaltung zur Bestimmung des Proportionalitätsfaktors. \cite{anleitung501502}}{sch1}
+\fig{bilder/4}{Schaltung als Oszillograph. \cite{anleitung501502}}{sch2}
+
+\subsection{Magnetisches Feld}
+Die Versuchsaufbau ist ähnlich wie beim elektrischen Feld, jedoch wird der gesamte Aufbau in ein durch ein Helmholtzspulenpaar erzeugtes homogenes Magnetfeld eingebracht.
+Zuerst wird der Aufbau so gedreht, dass das Erdmagnetfeld parallel zum Versuchsaufbau steht. Dann wird die Spule eingeschaltet und erzeugt ein Magnetfeld
+\begin{equation}
+  B = \mu_0 \frac{8}{\sqrt{125}} \frac{NI}{R},
+\end{equation}
+mit dem Spulenradius
+\begin{equation}
+  R = \SI{28.2}{cm}
+\end{equation}
+und der Windungszahl
+\begin{equation}
+  N = 20.
+\end{equation}
+Die Beschleunigungsspannung sowie der Spulenstrom werden variiert und die Ablenkung des Leuchtpunktes wird gemessen. So kann nach \eqref{eqn:spez} die spezifische Ladung des Elektrons $\sfrac{e}{m_e}$ bestimmt werden.
+
+Im zweiten Versuchsteil wird das Erdmagnetfeld dadurch bestimmt, dass der Aufbau nun senkrecht zum Erdmagnetfeld gestellt wird und dann, die erzeugte Ablenkung dann durch das erzeugte Magnetfeld kompensiert wird. Zur Bestimmung der Totalintensität wird daraufhin noch der Inklinationswinkel $\phi$ des Erdmagnetfelds mit einem Kompass bestimmt.
