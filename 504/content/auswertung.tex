@@ -18,24 +18,27 @@ mittels linearer Regression auf den logarithmierten Daten bestimmt. Der Gültigk
 In Abb.~\ref{fig:langmuir} ist die Kennlinie zusammen mit der berechneten Kurve aufgetragen.
 
 \fig{build/b.pdf}{Kennlinie bei höchster Heizleistung, mit Ausgleichsrechnung.}{langmuir}
-
+\newpage
 \subsection{Anlaufstromgebiet}
-Mit dem in Abschnitt~\ref{sec:anlauf} angegebenen Aufbau wird das Anlaufstromgebiet näher untersucht. Dazu wird eine nichtlineare Ausgleichsrechnung an \eqref{eqn:anlauf} durchgeführt. Der Innenwiderstand des Nanoamperemeters von $R_\text{innen} = \SI{1}{\mega\ohm}$ wird gemäß
+Mit dem in Abschnitt~\ref{sec:anlauf} angegebenen Aufbau wird das Anlaufstromgebiet näher untersucht. Dazu wird eine nichtlineare Ausgleichsrechnung an \begin{equation}
+  j_\mathrm{A}(U)=C e^{-\frac{e U}{k_\mathrm{B}T}}.
+\end{equation}
+durchgeführt. Die Beschleunigungsspannung wird mit dem Innenwiderstand des Nanoamperemeters von $R_\text{innen} = \SI{1}{\mega\ohm}$ gemäß
 \begin{equation}
   U_\text{korr} = U_G - I \cdot R_\text{innen}
 \end{equation}
 korrigiert.
 Die Ergebnisse finden sich in Abb.~\ref{fig:anlauf} und Tabelle~\ref{tab:anlauf}. Es ergibt sich eine Temperatur von
 \begin{equation}
-  T = \SI{2464}{\kelvin}.
+  T = \SI{2287}{\kelvin}.
 \end{equation}
 \input{build/fqfepoijfewoij.tex}
 \fig{build/c.pdf}{Anlaufstromgebiet der Hochvakuumdiode mit Ausgleichsrechnung.}{anlauf}
-
+\newpage
 \subsection{Kathodentemperatur und Austrittsarbeit}
 Die Temperatur kann gemäß der Versuchsanleitung \cite{anleitung504} als
 \begin{equation}
-  T = \sqrt[4]{\frac{I_H U_H - \SI{1}{W}}{f  \eta  \sigma}}
+  T = \sqrt[4]{\frac{I_H U_H - \SI{0.95}{W}}{f  \eta  \sigma}}
 \end{equation}
 mit der Kathodenoberfläche
 \begin{equation}
@@ -52,7 +55,7 @@ und dem Emissionsgrad der Oberfläche
 \end{align}
 die Austrittsarbeit berechnen. Es ergeben sich die in Tabelle~\ref{tab:temp} angegebenen Ergebnisse, sowie ein Mittelwert von
 \begin{equation}
-  \bar\phi = \SI{3.49+-0.02}{\electronvolt}
+  \bar\phi = \SI{4.78+-0.07}{\electronvolt}
 \end{equation}
 für die Austrittsarbeit.
-\input{build/temp.tex}
+\input{build/d.tex}

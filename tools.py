@@ -7,7 +7,7 @@ round_figures_error = 1
 max_magnitude = 6
 min_magnitude = -4
 
-def table(values, names, file, label, caption, split=1, footer=None, round=True, round_figures=None):
+def table(values, names, file, label, caption, split=1, footer=None, round_figures=None):
     result = r"""\begin{table}
         \caption{"""+caption+"""}
         \centering
@@ -23,18 +23,23 @@ def table(values, names, file, label, caption, split=1, footer=None, round=True,
             s = s[0]
         else:
             round_figures_here = 4
-        if isinstance(s[0], unc.UFloat):
+        if isinstance(s, np.ndarray) and s.dtype == 'object':
+            number_format = get_format_string_bytes(s)
+            reformat = False
+            unc_list.append(False)
+            columns += "S[round-mode=off, table-format="+number_format+"]"
+        elif isinstance(s[0], unc.UFloat):
             unc_list.append(True)
             number_format, reformat = get_format_string(unp.nominal_values(s[s!=0]), round_figures_here)
             error_format, reformat_ = get_format_string(unp.std_devs(s[s!=0]), round_figures_error)
-            if round:
+            if True:
                 columns += "S[table-format="+number_format+r", round-precision="+str(round_figures_here)+", round-mode=figures] @{${}\pm{}$} S[table-format="+error_format+", round-precision="+str(round_figures_error)+", round-mode=figures] "
             else:
                 columns += "S[table-format="+number_format+r", round-mode=off] @{${}\pm{}$} S[table-format="+error_format+", round-mode=off] "
         else:
             unc_list.append(False)
             number_format, reformat = get_format_string(s[s!=0], round_figures_here)
-            if round:
+            if True:
                 columns += "S[table-format="+number_format+r", round-precision="+str(round_figures_here)+", round-mode=figures] "
             else:
                 columns += "S[table-format="+number_format+r", round-mode=off] "
@@ -79,6 +84,8 @@ def format_row(row, reformat_list, is_uncertain_list):
         number, reformat, is_uncertain = number
         if number == None:
             row_reformatted.append('{}')
+        elif isinstance(number, bytes):
+            row_reformatted.append(number.decode('utf-8'))
         elif is_uncertain:
             n = number.n
             s = number.s
@@ -117,3 +124,19 @@ def get_format_string(set, precision):
         if post < 0: post = 0
         string = "{}.{}".format(pre, post)
     return (string, reformat)
+
+def get_format_string_bytes(set):
+    pre = 0
+    post = 0
+    for s in set:
+        k = s.decode('utf-8').split('.')
+        if len(k) == 1:
+            if len(k[0]) > pre:
+                pre = len(k[0])
+        else:
+            if len(k[0]) > pre:
+                pre = len(k[0])
+            if len(k[1]) > post:
+                post = len(k[1])
+
+    return str(pre) + '.' + str(post)

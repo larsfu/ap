@@ -5,10 +5,11 @@ import scipy.constants as const
 import scipy.stats as stats
 import tools
 
-Ur, I = np.genfromtxt('daten/c.txt', unpack=True)
+d = np.genfromtxt('daten/c.txt', unpack=True, dtype=object)
+Ur, I = d.astype(float)
 innenwiderstand = 1e6
 I /= 1e9
-U = -(Ur - I*innenwiderstand)
+U = Ur - I*innenwiderstand
 print(U)
 def anlaufstrom(U, C, T):
     j = C * np.exp((const.elementary_charge * U)/(const.k * T))
@@ -27,4 +28,4 @@ plt.tight_layout()
 plt.legend(loc='best')
 plt.savefig('build/c.pdf')
 
-tools.table((-Ur, U, I*1e9), ("U_G/V",r"U_\text{korr}/V", "I/nA"), "build/fqfepoijfewoij.tex", "tab:anlauf", "Daten der Messreihe für das Anlaufstromgebiet.", round_figures=(2,2,3), split=2)
+tools.table((d[0], U, d[1]), ("U_G/V",r"U_\text{korr}/V", "I/nA"), "build/fqfepoijfewoij.tex", "tab:anlauf", "Daten der Messreihe für das Anlaufstromgebiet.", round_figures=(2,2,3), split=2)

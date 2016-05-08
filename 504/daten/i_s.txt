@@ -1,4 +1,6 @@
 #Sättigungsstrom/mA, abgelesen aus den Kennlinien.
-1.6
+3.30
+2.60
+1.60
 0.82
 0.38
