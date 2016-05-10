@@ -21,4 +21,4 @@ f = 0.35e-4
 phi = - const.Boltzmann * T / const.e * np.log(I_s * const.h**3 / (4*np.pi * f * const.e * const.m_e * const.Boltzmann**2 * T**2))
 print(phi.mean(), phi.std())
 
-tools.table([U_h_[::-1], I_h_[::-1], T[::-1], I_s_[::-1], phi[::-1]], ["U_H/V", "I_H/A","T/K", "I_S/mA", "\phi/\electronvolt"], "build/d.tex", "tab:temp", "Abgeschätzte Kathodentemperaturen.")
+tools.table([U_h_[::-1], I_h_[::-1], T[::-1], I_s_[::-1], phi[::-1]], ["U_H/V", "I_H/A","T/K", "I_S/mA", "\phi/\electronvolt"], "build/d.tex", "Abgeschätzte Kathodentemperaturen.", "tab:temp")

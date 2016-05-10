@@ -1,0 +1,56 @@
+\section{Auswertung}
+\label{sec:Auswertung}
+Um die Eigenschaften der untersuchten Stoffe herausfinden zu können, müssen zuerst einige Apparataturparameter anhand von einem bekannten Spektrum (Helium) bestimmt werden.
+\subsection{Gitterkonstante}
+Die Gitterkonstante $g$ des Reflexionsgitters wird bestimmt, indem die Reflexionswinkel der Spektrallinien aus Tabelle~\ref{tab:a} gemessen werden. Dabei berechnet sich $\phi$ gemäß der Versuchsanleitung als
+\begin{align}
+  \phi &= \gamma + \beta - \SI{180}{\degree} \\
+  \shortintertext{mit}
+  \beta &= \SI{90}{\degree} - \frac{\alpha}{2}
+  \shortintertext{und}
+  \alpha &= \SI{400}{\degree} - \delta
+  \shortintertext{bzw.}
+  \gamma &= \SI{400}{\degree} - \delta,
+\end{align}
+wobei $\delta$ den jeweils abgelesenen Winkel auf dem Goniometer bezeichnet. $\alpha$ ist der Winkel der Totalreflexion und liegt bei dieser Messung bei
+\begin{equation}
+  \alpha = \SI{62.2}{\degree}.
+\end{equation}
+Die Gitterkonstante ergibt sich schließlich aus
+\begin{equation}
+  g = \frac{\lambda}{\sin \beta + \sin \phi}
+\end{equation}
+und ist ebenfalls in Tabelle~\ref{tab:a} eingetragen. Der gemittelte Wert lautet
+\begin{equation}
+  g = \SI{865+-4}{nm}.
+\end{equation}
+Alternativ kann $g$ auch als Steigung der Ausgleichsgeraden in Abb.~\ref{fig:a} bestimmt werden, dann ergibt sich ein Wert von
+\begin{equation}
+  g = \SI{842+-2}{nm}.
+\end{equation}
+Da sich dort anhand des $\sin \phi$-Achsenabschnitts allerdings auch ein Wert für $\sin \beta$ ergibt, der mit
+\begin{equation}
+  \sin \beta_1 = 0.873
+\end{equation}
+deutlich vom zuvor rechnerisch bestimmten Wert von
+\begin{equation}
+  \sin \beta_2 = 1.028
+\end{equation}
+unterscheidet, wird mit dem durch Mittelung bestimmten $g$ fortgefahren.
+\input{build/a.tex}
+\fig{build/a.pdf}{Auftragung der gemessenen Winkel über die Wellenlänge der jeweiligen Spektrallinie.}{a}
+
+\subsection{Okularmikrometer}
+Für die genaue Bestimmung des Abstandes zweier Dublettlinien wird das Okularmikrometer verwendet. Um dort Wellenlängenunterschiede abmessen zu können, muss das Gerät zunächst geeicht werden. Dies geschieht wiederum anhand des Heliumspektrums, genauer anhand der zwei grünen und der zwei violetten Linien. Die Messung findet sich in Tabelle~\ref{tab:b}. Anhand dieser wird die Eichgröße bestimmt, deren Mittelwert sich zu
+\begin{equation}
+  \frac{\Delta \lambda}{\Delta t \cos \overline{\phi_{1,2}}} = \num{1.48+-0.02e-11}
+\end{equation}
+ergibt.
+
+\input{build/b.tex}
+
+\subsection{Messung}
+
+
+
+\input{build/erg.tex}

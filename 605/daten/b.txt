@@ -1,0 +1,3 @@
+#Delta_lambda/nm Delta_t/arbitrary units
+3.2 221
+8.3 606

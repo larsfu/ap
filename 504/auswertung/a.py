@@ -7,7 +7,7 @@ import tools
 
 d = np.genfromtxt('daten/a.txt', unpack=True, dtype=object)
 
-tools.table(d, ("U/\,V", *["I_{{{}}}/mA".format(["2,5", "2,4", "2,3", "2,2", "2,1"][i]) for i in range(0,5)]), "build/kennlinien.tex", "tab:kennlinien", "Messdaten der Kennlinien.")
+tools.table(d, ("U/\,V", *["I_{{{}}}/mA".format(["2,5", "2,4", "2,3", "2,2", "2,1"][i]) for i in range(0,5)]), "build/kennlinien.tex", "Messdaten der Kennlinien.", "tab:kennlinien")
 U = d[0].astype(float)
 I = d[1:6].astype(float)
 
@@ -26,7 +26,7 @@ plt.ylabel(r"$I/\si{mA}$")
 plt.legend(loc='best')
 plt.savefig("build/kennlinien.pdf")
 
-tools.table((np.array((b"2.1",b"2.2", b"2.3",b"2.4",b"2.5"), dtype=object), np.array((b"0.82", b"0.38", b"1.60",b"2.60",b"3.30"), dtype=object)), ("I_H/A", "I_S/mA"), "build/saett.tex", "tab:sätt", "Sättigungsströme bei verschiedenen Heizleistungen.")
+tools.table((np.array((b"2.1",b"2.2", b"2.3",b"2.4",b"2.5"), dtype=object), np.array((b"0.82", b"0.38", b"1.60",b"2.60",b"3.30"), dtype=object)), ("I_H/A", "I_S/mA"), "build/saett.tex", "Sättigungsströme bei verschiedenen Heizleistungen.", "tab:sätt")
 plt.clf()
 
 i = I[0]/1e3

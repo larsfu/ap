@@ -7,7 +7,7 @@ round_figures_error = 1
 max_magnitude = 6
 min_magnitude = -4
 
-def table(values, names, file, label, caption, split=1, footer=None, round_figures=None):
+def table(values, names, file, caption, label, split=1, footer=None, round_figures=None, interrows=None):
     result = r"""\begin{table}
         \caption{"""+caption+"""}
         \centering
@@ -23,7 +23,7 @@ def table(values, names, file, label, caption, split=1, footer=None, round_figur
             s = s[0]
         else:
             round_figures_here = 4
-        if isinstance(s, np.ndarray) and s.dtype == 'object':
+        if isinstance(s, np.ndarray) and s.dtype == 'object' and not isinstance(s[0], unc.UFloat):
             number_format = get_format_string_bytes(s)
             reformat = False
             unc_list.append(False)
@@ -31,6 +31,7 @@ def table(values, names, file, label, caption, split=1, footer=None, round_figur
         elif isinstance(s[0], unc.UFloat):
             unc_list.append(True)
             number_format, reformat = get_format_string(unp.nominal_values(s[s!=0]), round_figures_here)
+            print(unp.std_devs(s[s!=0]), round_figures_error)
             error_format, reformat_ = get_format_string(unp.std_devs(s[s!=0]), round_figures_error)
             if True:
                 columns += "S[table-format="+number_format+r", round-precision="+str(round_figures_here)+", round-mode=figures] @{${}\pm{}$} S[table-format="+error_format+", round-precision="+str(round_figures_error)+", round-mode=figures] "
@@ -68,8 +69,12 @@ def table(values, names, file, label, caption, split=1, footer=None, round_figur
         for v in values:
             final.append(v[i*length:(i+1)*length])
 
+    i = 0
     for row in itertools.zip_longest(*final):
+        if interrows != None and i in interrows:
+            result += r" \multicolumn{{{}}}{{c}}{{{}}} \rule{{0pt}}{{3ex}}\\".format(len(row)+unc_list.count(True), interrows[i])
         result += format_row(row, reformat_list*split, unc_list*split)
+        i+=1
 
     if footer != None:
         result += r"\midrule" + footer
@@ -94,8 +99,8 @@ def format_row(row, reformat_list, is_uncertain_list):
             if s == 0:
                 s = int(0)
             if not reformat:
-                row_reformatted.append(str(n))
-                row_reformatted.append(str(s))
+                row_reformatted.append("{:.20f}".format(n))
+                row_reformatted.append("{:.20f}".format(s))
             else:
                 row_reformatted.append("{:.2e}".format(n))
                 row_reformatted.append("{:.2e}".format(s))
@@ -103,7 +108,7 @@ def format_row(row, reformat_list, is_uncertain_list):
             if number == 0:
                 number = "0"
             if not reformat:
-                row_reformatted.append(str(number))
+                row_reformatted.append("{:.20f}".format(number))
             else:
                 row_reformatted.append("{:.2e}".format(number))
 
@@ -115,7 +120,7 @@ def get_format_string(set, precision):
     if mag.max() > max_magnitude or mag.min() < min_magnitude:
         reformat = True
         string = "{}.{}".format(1, precision-1)
-        string += "e{}".format(np.ceil(np.log10(abs(mag).max())).astype(int) + (1 if mag[abs(mag).max()] < 0 else 0))
+        string += "e{}".format(np.ceil(np.log10(abs(mag).max())).astype(int) + (1 if mag[abs(mag).argmax()] < 0 else 0))
     else:
         reformat = False
         pre = mag.max()

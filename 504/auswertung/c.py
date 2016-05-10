@@ -28,4 +28,4 @@ plt.tight_layout()
 plt.legend(loc='best')
 plt.savefig('build/c.pdf')
 
-tools.table((d[0], U, d[1]), ("U_G/V",r"U_\text{korr}/V", "I/nA"), "build/fqfepoijfewoij.tex", "tab:anlauf", "Daten der Messreihe für das Anlaufstromgebiet.", round_figures=(2,2,3), split=2)
+tools.table((d[0], U, d[1]), ("U_G/V",r"U_\text{korr}/V", "I/nA"), "build/fqfepoijfewoij.tex", "Daten der Messreihe für das Anlaufstromgebiet.", "tab:anlauf", round_figures=(2,2,3), split=2)
