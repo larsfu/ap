@@ -45,9 +45,9 @@ eich = unc.ufloat(eich.mean(), eich.std())
 print("Eichgröße b) : {}".format(eich))
 
 d = np.genfromtxt('daten/cd.txt', unpack=True, dtype=object)
-gammab, delta_s, z, n, l = d.astype(float)
+gammab_, delta_s, z, n, l = d.astype(float)
 
-gammab = np.deg2rad(400-gammab)
+gammab = np.deg2rad(400-gammab_)
 phib = gammab - alpha/2 - np.pi/2
 lambdab = g * (np.sin(beta) + np.sin(phib))
 print(lambdab)
@@ -61,4 +61,4 @@ print(delta_E_D)
 sigma_2 = z - (l*(l+1) * delta_E_D * n**3 / (const.Rydberg * const.h * const.c / const.e * const.alpha**2))**0.25
 print(sigma_2)
 
-tools.table((gammab, phib, lambdab*1e9, delta_lambd*1e9, delta_E_D*1e3, sigma_2), (r"\gamma/rad", r"\phi/rad", r"\lambda/nm", r"\Delta\lambda/nm", "\Delta E_D/\milli\electronvolt", "\sigma_2"), "build/erg.tex", "Tabelle der Messergebnisse.", "tab:erg", round_figures=(4,4,3,3,3,4), interrows={0:"Natrium", 4:"Kalium", 7:"Rubidium"})
+tools.table((400-gammab_, phib, lambdab*1e9, d[1], delta_lambd*1e9, delta_E_D*1e3, sigma_2), (r"\gamma/°", r"\phi/rad", r"\lambda/nm", r"\Delta s/Skt.", r"\Delta\lambda/nm", "\Delta E_D/\milli\electronvolt", "\sigma_2"), "build/erg.tex", "Tabelle der Messergebnisse.", "tab:erg", round_figures=(4,4,3,3,3,4,4), interrows={0:"Natrium ($z=11, n=3, l=1$)", 3:"Kalium ($z=19, n=4, l=1$)", 7:"Rubidium ($z=37, n=5, l=1$)"})

@@ -38,8 +38,7 @@ deutlich vom zuvor rechnerisch bestimmten Wert von
 \end{equation}
 unterscheidet, wird mit dem durch Mittelung bestimmten $g$ fortgefahren.
 \input{build/a.tex}
-\fig{build/a.pdf}{Auftragung der gemessenen Winkel über die Wellenlänge der jeweiligen Spektrallinie.}{a}
-
+\fig{build/a.pdf}{Auftragung des Sinus der gemessenen Winkel über die Wellenlänge der jeweiligen Spektrallinie.}{a}
 \subsection{Okularmikrometer}
 Für die genaue Bestimmung des Abstandes zweier Dublettlinien wird das Okularmikrometer verwendet. Um dort Wellenlängenunterschiede abmessen zu können, muss das Gerät zunächst geeicht werden. Dies geschieht wiederum anhand des Heliumspektrums, genauer anhand der zwei grünen und der zwei violetten Linien. Die Messung findet sich in Tabelle~\ref{tab:b}. Anhand dieser wird die Eichgröße bestimmt, deren Mittelwert sich zu
 \begin{equation}
@@ -50,7 +49,10 @@ ergibt.
 \input{build/b.tex}
 
 \subsection{Messung}
-
-
+Mit den nun kalibrierten Messinstrumenten werden einige Dublettlinien von Natrium, Kalium und Rubidium vermessen. Aus dem gemessenen mittleren Winkel wird die mittlere Wellenlänge bestimmt, aus dem mit dem Okularmikrometer gemessenen Abstand die Wellenlängendifferenz zwischen den Linien. Über \eqref{eq:ED2} wird daraus der Unterschied der Energieniveaus $\Delta E_D$ bestimmt. Dieser wird in
+\begin{equation}
+  \sigma_2 = z - \sqrt[4]{l(l+1) \cdot \Delta E_D \cdot \frac{n³}{R_\infty \alpha^2}}
+\end{equation}
+eingesetzt und ergibt dadurch die gesuchte Abschirmungszahl, was aus \eqref{eq:ED1} gefolgert wird. Die Konstanten entstammen \cite{codata}. Die Ergebnisse der Auswertung finden sich in Tabelle~\ref{tab:erg}.
 
 \input{build/erg.tex}
