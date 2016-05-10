@@ -1,15 +1,15 @@
 \section{Ziel}
 \label{sec:Ziel}
-Es soll die Abhängigkeit der Ablenkung eines Elektronenstrahls von der Stärke eines elektrischen beziehungsweise magnetischen Feldes, sowie die spezifische Ladung des Elektrons und das lokale Erdmagnetfeld bestimmt werden.
+Es soll die Empfindlichkeit der Ablenkung eines Elektronenstrahls von der Stärke eines elektrischen beziehungsweise magnetischen Feldes bestimmt werden. Weiterhin wird mit demselben Aufbau die spezifische Ladung des Elektrons und das lokale Erdmagnetfeld bestimmt.
 
 \section{Theorie}
 \label{sec:theorie}
 
 \subsection{Elektrisches Feld}
-Die kinetische Energie eines durch die Spannung $U_B$ in $z$-Richtung beschleunigten Elektrons beträgt
+Die kinetische Energie eines durch die Spannung $U_\text{B}$ in $z$-Richtung beschleunigten Elektrons beträgt
 \begin{equation}
   \label{eqn:vz}
-  E_\text{kin} = \frac{1}{2} m_e v_z^2 = e \cdot U_B.
+  E_\text{kin} = \frac{1}{2} m_e v_z^2 = e \cdot U_\text{B}.
 \end{equation}
 Die Stärke eines in einem (hinreichend langen) Plattenkondensator herrschenden homogenen Elektrische Felds beträgt
 \begin{equation}
@@ -19,7 +19,7 @@ mit der anliegenden Spannung $U_d$ und dem Plattenabstand $d$. Mit der elektrisc
 \begin{equation}
   \vec F  = q \vec E
 \end{equation}
-folgt daraus für die Geschwindigkeit, die ein Elektron im Zeitintervall $\Delta t$ erreicht
+folgt daraus für die Geschwindigkeit, die ein Elektron im Zeitintervall $\Delta t$, in dem es zwischen den Platten ist, erreicht
 \begin{equation}
   v_y = \frac{e}{m_e} \frac{U_d}{d} \Delta t.
 \end{equation}
@@ -27,7 +27,7 @@ Das Elektron, das wie in Abb.~\ref{fig:ablenkung} mit einer Anfangsgeschwindigke
 \begin{equation}
   v_y = \frac{e U_d p}{m_e d v_z}.
 \end{equation}
-Unter Näherung der Sinusfunktion für kleine Winkel ergibt sich für den Ablenkwinkel
+Unter Näherung der Tangensfunktion für kleine Winkel ergibt sich für den Ablenkwinkel
 \begin{equation}
   \theta \approx \frac{v_y}{v_z} = \frac{e U_d p}{m_e d v_z^2}.
 \end{equation}
@@ -47,7 +47,7 @@ Wenn das Teilchen (hier Elektron) sich senkrecht zum Magnetfeld bewegt, vereinfa
 \begin{equation}
   F_L = e v_0 B.
 \end{equation}
-Da die Kraft immer senkrecht zur Bewegungsrichtung steht ist Energie des Teilchens im Gegensatz zum elektrischen Feld konstant, es ändert sich lediglich die Richtung des Geschwindigkeitsvektors. Demnach wirkt die Lorentzkraft als Zentripetalkraft und wird auf eine Kreisbahn gezwungen. Über
+Da die Kraft immer senkrecht zur Bewegungsrichtung steht ist die Energie des Teilchens im Gegensatz zum elektrischen Feld konstant, es ändert sich lediglich die Richtung des Geschwindigkeitsvektors. Demnach wirkt die Lorentzkraft als Zentripetalkraft und das Elektron wird auf eine Kreisbahn gezwungen. Über
 \begin{align}
   e m_e B &= \frac{m_e v^2}{r}
 \end{align}
@@ -55,7 +55,7 @@ und die Tatsache, dass die Geschwindigkeit konstant bleibt folgt dann
 \begin{equation}
   r = \frac{m_e v_0}{e B}
 \end{equation}
-für den Radius der Teilchenbahn, siehe Abb.~\ref{fig:ablenkungB}
+für den Radius der Teilchenbahn, siehe Abb.~\ref{fig:ablenkungB}.
 Bei einer Anfangsgeschwindigkeit
 \begin{equation}
   v_0 = \sqrt{2 U_B \frac{e}{m_e}}
@@ -67,3 +67,5 @@ erhält man über den Satz des Pythagoras die Beziehung
 \end{equation}
 mit der Länge $L$ und der Ablenkung $D$, siehe wiederum Abb.~\ref{fig:ablenkungB}.
 \fig{bilder/6}{Ablenkung eines Elektronenstrahls durch ein homogenes Magnetfeld. \cite{anleitung501502}}{ablenkungB}
+
+Die Erde besitzt aufgrund ihres flüssigen äußren Kerns ein Magnetfeld. Den Winkel zwischen der Magnetfeldrichtung und der Horizontalen in einem Punkt auf der Erde nennt man Inklination. Diese kann mit einem Inklinatorium bestimmt werden.
