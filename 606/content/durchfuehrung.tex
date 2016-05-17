@@ -1,2 +1,45 @@
 \section {Aufbau und Durchführung}
 \label{sec:durchführung}
+\subsection{Brückenschaltung}
+Um die Suszeptibilität der Verbindungen zu untersuchen, wird die Änderung der Induktivität einer Spule nach einbringen der Proben in deren Inneres gemessen. Die Induktivität einer schönen langen Zylinderspule ist gegeben als
+\begin{equation}
+  L = \mu \mu_0 \frac{n^2}{l} F
+\end{equation}
+mit der Windungszahl $n$, der Länge $l$ und Querschnittsfläche $F$ der Spule, sowie der magnetischen Permeabilität $\mu$, die im Vakuum und genähert auch in Luft $1$ ist. Da die Spule nicht komplett von der Probe ausgefüllt wird, ergibt sich eine effektive Induktivität von
+\begin{equation}
+  L_M = \mu_0 \frac{n^2 F}{l} + \chi \, \mu_0 \, \frac{n^2 Q}{l}
+\end{equation}
+mit der Querschnittsfläche der Probe $Q$. Demnach ist die Induktivitätsdifferenz, die gemessen werden muss
+\begin{equation}
+  \Delta L = \mu_0 \chi Q \frac{n^2}{l}.
+\end{equation}
+Dies geschieht mithilfe einer Brückenschaltung wie in Abb.~\ref{fig:schaltung}.
+Die Brückenspannung ergibt sich zu
+\begin{equation}
+  U_\text{Br} = \frac{R_4 R_1 - R_3 R_2}{(r_1+r_2)(r_3+r_4)} U_\text{Sp}.
+\end{equation}
+Mit einigen Zwischenschritten kann der Zusammenhang
+\begin{equation}
+  \chi = \frac{U_\text{Br}}{U_\text{Sp}} \frac{4l}{\omega \mu_0 n^2 Q} \sqrt{R^2 + \omega^2 \, \left(\mu_0 \frac{n^2}{l} F\right)}
+\end{equation}
+für die Suszeptibilität hergeleitet werden, der für $\omega \rightarrow \infty$ zu
+\begin{equation}
+  \label{eqn:chi2}
+  \chi \approx 4 \frac{F}{Q}\frac{U_\text{Br}}{U_\text{Sp}}
+\end{equation}
+genähert werden kann.
+Neben der Brückenspannung nach Einführen der Probe soll die Suszeptibilität weiterhin durch die Widerstandsdifferenz ermittelt werden, die nötig ist, um die Brücke wieder abzugleichen. Mithilfe der Ableichbedingung
+\begin{equation}
+  R_1 R_4 = R_2 R_3
+\end{equation}
+kann dafür
+\begin{equation}
+  \label{eqn:chi3}
+  \chi = 2 \frac{\Delta R}{R_3} \frac{F}{Q}
+\end{equation}
+\fig{bilder/schaltung.pdf}{Brückenschaltung für die Messung der Induktivitätsdifferenz \cite{anleitung606}.}{schaltung}
+
+\subsection{Selektivverstärker}
+Um die sehr kleine Brückenwechselspannung vor dem Rauschhintergrund messen zu können, ist ein selektiver Verstärker mit möglichst hoher Güte nötig, der die ungewollten Störspannungen ausblendet. Dieser wird zu Beginn des Versuchs vermessen. Der Aufbau ist in Abb.~\ref{fig:schaltung2} skizziert.
+
+\fig{bilder/fäkalschlucker.pdf}{Blockschaltbild der verwendeten Messapparatur \cite{anleitung606}.}{schaltung2}

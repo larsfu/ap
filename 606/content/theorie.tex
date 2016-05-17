@@ -1,5 +1,45 @@
 \section{Ziel}
 \label{sec:Ziel}
+In diesem Versuch soll die magnetische Suszeptibilität von Gadolinium(III)-oxid, Neodym(III)-oxid und Dysprosium(III)-oxid ermittelt werden.
 
 \section{Theorie}
 \label{sec:theorie}
+\subsection{Suszeptibilität}
+Wenn sich Materie in einem Magnetfeld $\vec H$ befindet, wird das Feld durch die Magnetisierung $\vec M$, welche von den magnetischen Momenten der Atome ausgeht, überlagert. Es ergibt sich der Zusammenhang
+\begin{equation}
+  \vec B = \mu_0 \vec H + \vec M
+\end{equation}
+für die magnetische Flussdichte im Medium. Die Materialeigenschaften werden in der Suszeptibilität $\chi$ zusammengefassst:
+\begin{equation}
+  \vec M = \mu_0 \chi(\vec H, T) \, \vec H
+\end{equation}
+Alle Atome weisen den sogenannten Diamagnetismus auf, dabei erzeugen die induzierten Momente ein dem urpsprünglichen Magnetfeld entgegengerichtetes Feld und schwächen dieses dadurch ab ($\chi < 0$). Bei Atomen mit Eigendrehimpuls hingegen ist das erzeugte Feld aufgrund der Ausrichtung der Momente in derselben Richtung, daher wird das äußere Feld verstärkt (\chi > 0).
+
+%Abschnitt?
+Der Gesamtdrehimpuls der Atomhülle ist
+\begin{equation}
+  \vec J  = \vec L + \vec S,
+\end{equation}
+der Drehimpuls des Atomkerns ist hier vernachlässigbar. Nach einiger Überlegung ergibt sich für das magnetische Moment der Atomhülle ein Wert von
+\begin{align}
+  |\vec \mu_j| &\approx \mu_B \sqrt{J(J+1)} \, g_j
+  \intertext{mit dem Landé-Faktor}
+  g_j &= \frac{3J(J+1) + (S(S+1) - L(L+1))}{2J(J+1)},
+\end{align}
+wobei $L$ die Bahndrehimpuls-, $S$ die Spin- und $J$ die Gesamtdrehimpulsquantenzahl und $\mu_b$ das Bohrsche Magneton darstellen. Nach weiteren Überlegungen zur Richtungsquantelung und temperaturabhängigen Besetzungswahrscheinlichkeiten erhält man
+\begin{align}
+  M = \mu_0 \, N \, \bar \mu = \frac{1}{3} \mu_0 \mu_b^2 g_j^2 \, N \frac{J(J+1)\,B}{k\,T}
+\end{align}
+mit der Teilchenzahl $N$ für die makroskopische Magnetisierung. Demnach ist
+\begin{equation}
+  \label{eqn:chi1}
+  \chi = \frac{\mu_0 \mu_b^2 g_j^2 \, N \, J (J+1)}{3\,k\,T}.
+\end{equation}
+
+\subsection{Seltene Erden}
+Um die theoretischen Suszeptibilitäten der untersuchten Verbindungen zu berechnen, müssen die Quantenzahlen der jeweiligen Atome bekannt sein. Die Elektronen auf den äußeren Schalen können für den Paramagnetismus der Verbindungen keine Rolle spielen, da es sich um Kationen handelt. In allen Orbitalen außer dem 4f-Orbital sind die Spins und Drehimpulse abgesättigt, das heißt sie haben keinen Einfluss auf den Gesamtdrehimpuls und damit die Suszeptibilität. Um die Quantenzahlen zu bestimmen, werden die sogennanten Hundschen Regeln angewandt. Diese besagen, dass
+\begin{enumerate}
+  \item sich der Gesamtspin $\vec S$ aus der höchsten Summe der Einzelspins zusammensetzt, die nach dem Pauliverbot erlaubt ist,
+  \item sich der Gesamtbahndrehimpuls $\vec L$ aus der höchsten Summe der Einzelbahndrehimpulse zusammensetzt, die nach dem Pauliverbot und Regel 1 erlaubt ist,
+  \item $\vec J = \vec L - \vec S$, bei weniger als halbgefüllten Schalen, ansonten $\vec J = \vec L + \vec S$.
+\end{enumerate}
