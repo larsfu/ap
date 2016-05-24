@@ -2,98 +2,165 @@
 \label{sec:Auswertung}
 
 \subsection{Empfindlichkeit der Braunschen Röhre}
-Um die Empfindlichkeit $\frac{D}{U_\mathrm{d}}$ zu ermitteln, wird für die sieben Messreihen (siehe Tabelle \ref{tab:messwerte1}) bei unterschiedlichen Beschleunigugsspannungen $U_\mathrm{B}$ jeweils die Auslenkung $D$ gegen die Ablenkspannung $U_\mathrm{d}$ aufgetragen. Mittels einer linearen Ausgleichsrechnung wird die Steigung der Geraden der Form $y=ax+b$, welche der Empfindlichkeit entspricht, bestimmt. Dargestellt ist dies in den Abbildungen \ref{fig:empfindlichkeit1} und \ref{fig:empfindlichkeit2}.
+Um die Empfindlichkeit $\frac{D}{U_\mathrm{d}}$ zu ermitteln, wird für die sieben Messreihen (siehe Tabelle \ref{tab:messwerte1}) bis \ref{tab:messwerte5} bei unterschiedlichen Beschleunigugsspannungen $U_\mathrm{B}$ jeweils die Auslenkung $D$ gegen die Ablenkspannung $U_\mathrm{d}$ aufgetragen. Mittels einer linearen Ausgleichsrechnung wird die Steigung der Geraden der Form $D(U_d)=a\cdot U_d+b$, welche der Empfindlichkeit entspricht, bestimmt. Dargestellt ist dies in den Abbildungen \ref{fig:empfindlichkeit1} bis \ref{fig:empfindlichkeit7}.
 
 \begin{table}
 \centering
-  \caption{Messwerte zu $U_\mathrm{d}$ und $D$ bei verschiedenen $U_\mathrm{B}$.}
+  \caption{Messwerte zur Ablenkspannung $U_\mathrm{d}$ und zur Ablenkung $D$ bei verschiedenen Beschleunigungsspannungen $U_\mathrm{B}$.}
   \label{tab:messwerte1}
-\scalebox{0.69}{
-  \begin{tabular}{c c c}
+  \resizebox{\textwidth}{!}{
+  \begin{tabular}{c c c c}
     \toprule
-    $U_\mathrm{B}/ \si{\volt}$ & $D/\si{\meter}$ & $U_\mathrm{d}/\si{\volt}$\\
+    Ablenkung $D/\si{\meter}$ & Ablenkspannung $U_d(U_\mathrm{B}=200\si{\volt})/\si{\volt}$ & Ablenkspannung $U_d(U_\mathrm{B}=250\si{\volt})/\si{\volt}$
+    & Ablenkspannung $U_d(U_\mathrm{B}=300\si{\volt})/\si{\volt}$\\
     \midrule
-200 & -0,0254 & -20,43 \\
-200 &-0,01905 & -16,85 \\
-200 & -0,0127 & -13,44 \\
-200 & -0,00635 & -9,64 \\
-200 & 0 & -6,15 \\
-200 & 0,00635 & -2,49 \\
-200 & 0,0127 & 1,22 \\
-200 & 0,01905 & 4,98 \\
-200 & 0,254 & 7,89 \\
-250 & -0,0254 & -25,50 \\
-250 &-0,01905 & -21,59 \\
-250 & -0,0127 & -16,95 \\
-250 & -0,00635 & -12,29 \\
-250 & 0 & -7,76 \\
-250 & 0,00635 & -3,24 \\
-250 & 0,0127 & 1,24 \\
-250 & 0,01905 & 6,19 \\
-250 & 0,254 & 10,51 \\
-300 & -0,0254 & -30,40 \\
-300 &-0,01905 & -25,03 \\
-300 & -0,0127 & -20,04 \\
-300 & -0,00635 & -14,72 \\
-300 & 0 & -9,19 \\
-300 & 0,00635 & -3,90 \\
-300 & 0,0127 & 1,84 \\
-300 & 0,01905 & 7,92\\
-300 & 0,0254 & 13,27 \\
-350 & -0,0238125 & -33,96 \\
-350 &-0,01905 & -29,50 \\
-350 & -0,0127 & -23,85 \\
-350 & -0,00635 & -17,05 \\
-350 & 0 & -10,79 \\
-350 & 0,00635 & -4,46 \\
-350 & 0,0127 & 2,49 \\
-350 & 0,01905 & 8,49 \\
-350 & 0,0254 & 15,36 \\
-400 & -0,0206375 & -34,60 \\
-400 &-0,01905 & -32,82 \\
-400 & -0,0127 & -26,18 \\
-400 & -0,00635 &-19,28 \\
-400 & 0 &-12,26 \\
-400 & 0,00635 &-5,24 \\
-400 & 0,0127 & 2,15 \\
-400 & 0,01905 & 9,66 \\
-400 & 0,0254 &16,76 \\
-450 & -0,015875 & -33,85 \\
-450 &-0,0142875 & 31,38 \\
-450 & -0,0127 & -26,69 \\
-450 & -0,00635 & -21,80 \\
-450 & 0 & -13,89 \\
-450 & 0,00635 & -5,87 \\
-450 & 0,0127 & 2,32 \\
-450 & 0,01905 & 10,37 \\
-450 & 0,0254 & 18,93 \\
-500 & -0,0142875 & -34,52 \\
-500 &-0,0127 & 32,93 \\
-500 & -0,009525 & -28,12 \\
-500 & -0,00635 & -23,72 \\
-500 & 0 & -15,33 \\
-500 & 0,00635 & -6,46 \\
-500 & 0,0127 & 2,57 \\
-500 & 0,01905 & 12,02 \\
-500 & 0,0254 & 21,21 \\
+ -0,025 & -20,43 & -25,50 & -30,40 \\
+-0,0191 & -16,85 & -21,59 & -25,03\\
+ -0,012 & -13,44 & -16,95 & -20,04\\
+ -0,006 & -9,64 & -12,29 & -14,72 \\
+ 0 & -6,15 & -7,76 & -9,19   \\
+ 0,006 & -2,49 & -3,24 & -3,90  \\
+ 0,013 & 1,22 & 1,24 & 1,84 \\
+ 0,019 & 4,98 & 6,19 & 7,92 \\
+ 0,025 & 7,89 & 10,51 & 13,27  \\
 \bottomrule
 \end{tabular}
 }
 \end{table}
 
+\begin{table}
+  \caption{Messwerte zur Ablenkspannung $U_\mathrm{d}$ und zur Ablenkung $D$ bei $U_\mathrm{B}=350$.}
+  \centering
+  \label{tab:messwerte2}
+  \begin{tabular}{c c}
+    \toprule
+   Ablenkung $D/\si{\meter}$ &  Ablenkspannung $U_d/\si{\volt}$\\
+    \midrule
+-0,024 &-33,96 \\
+-0,019 & -29,50 \\
+-0,013 & -23,86 \\
+-0,006 & -17,05 \\
+0 & -10,79 \\
+0,006 & -4,46 \\
+0,013 & 2,49 \\
+0,019 & 8,49 \\
+0,025 & 15,36 \\
+    \bottomrule
+    \end{tabular}
+\end{table}
+
+\begin{table}
+  \caption{Messwerte zur Ablenkspannung $U_\mathrm{d}$ und zur Ablenkung $D$ bei $U_\mathrm{B}=400$.}
+  \centering
+  \label{tab:messwerte3}
+  \begin{tabular}{c c }
+    \toprule
+   Ablenkung $D/\si{\meter}$ & Ablenkspannung $U_d/\si{\volt}$\\
+    \midrule
+-0,021 &-34,60 \\
+-0,019 & -32,82 \\
+-0,013 & -26,18 \\
+-0,006 & -19,28 \\
+0 & -12,26 \\
+0,006 & -5,24 \\
+0,013 & 2,15 \\
+0,019 & 9,66 \\
+0,025 & 16,76 \\
+    \bottomrule
+    \end{tabular}
+\end{table}
+
+\begin{table}
+  \caption{Messwerte zur Ablenkspannung $U_\mathrm{d}$ und zur Ablenkung $D$ bei $U_\mathrm{B}=450$.}
+  \centering
+  \label{tab:messwerte4}
+  \begin{tabular}{c c }
+    \toprule
+    Ablenkung $D/\si{\meter}$ &  Ablenkspannung $U_d/\si{\volt}$\\
+    \midrule
+-0,016 &-33,85 \\
+-0,014 & -31,38 \\
+-0,013 & -26,69 \\
+-0,006 & -21,80 \\
+0 & -13,89 \\
+0,006 & -5,87 \\
+0,013 & 2,32 \\
+0,019 & 10,37 \\
+0,025 & 18,93 \\
+    \bottomrule
+    \end{tabular}
+\end{table}
+
+\begin{table}
+  \caption{Messwerte zur Ablenkspannung $U_\mathrm{d}$ und zur Ablenkung $D$ bei $U_\mathrm{B}=500$.}
+  \centering
+  \label{tab:messwerte5}
+  \begin{tabular}{c c }
+    \toprule
+    Ablenkung $D/\si{\meter}$ &    Ablenkspannung $U_d/\si{\volt}$\\
+    \midrule
+-0,014 &-34,52 \\
+-0,013 & -32,93 \\
+-0,010 & -28,12 \\
+-0,006 & -23,72 \\
+0 & -15,33 \\
+0,006 & -6,46 \\
+0,013 & 2,57\\
+0,019 & 12,02 \\
+0,025 & 21,21 \\
+    \bottomrule
+    \end{tabular}
+\end{table}
+
 \begin{figure}
   \centering
   \includegraphics[scale=0.8]{auswertung/501-a1.pdf}
-\caption{Ablenkung $D$ in Abhängigkeit von $U_\mathrm{d}$ für $U_\mathrm{B}$ 200 - 350 \si{\volt}.}
+\caption{Ablenkung $D$ in Abhängigkeit von $U_\mathrm{d}$ für $U_\mathrm{B}$ 200 \si{\volt}.}
   \label{fig:empfindlichkeit1}
 \end{figure}
 
 \begin{figure}
   \centering
-  \includegraphics[scale=0.8]{auswertung/501-a2.pdf}
-\caption{Ablenkung $D$ in Abhängigkeit von $U_\mathrm{d}$ für $U_\mathrm{B}$ 400 - 500 \si{\volt}.}
+  \includegraphics[scale=0.8]{auswertung/501-a-2.pdf}
+\caption{Ablenkung $D$ in Abhängigkeit von $U_\mathrm{d}$ für $U_\mathrm{B}$ 250\si{\volt}.}
   \label{fig:empfindlichkeit2}
 \end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[scale=0.8]{auswertung/501-a-3.pdf}
+\caption{Ablenkung $D$ in Abhängigkeit von $U_\mathrm{d}$ für $U_\mathrm{B}$ 300\si{\volt}.}
+  \label{fig:empfindlichkeit3}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[scale=0.8]{auswertung/501-a4.pdf}
+\caption{Ablenkung $D$ in Abhängigkeit von $U_\mathrm{d}$ für $U_\mathrm{B}$ 350\si{\volt}.}
+  \label{fig:empfindlichkeit4}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[scale=0.8]{auswertung/501-a5.pdf}
+\caption{Ablenkung $D$ in Abhängigkeit von $U_\mathrm{d}$ für $U_\mathrm{B}$ 400\si{\volt}.}
+  \label{fig:empfindlichkeit5}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[scale=0.8]{auswertung/501-a6.pdf}
+\caption{Ablenkung $D$ in Abhängigkeit von $U_\mathrm{d}$ für $U_\mathrm{B}$ 450\si{\volt}.}
+  \label{fig:empfindlichkeit6}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \includegraphics[scale=0.8]{auswertung/501-a7.pdf}
+\caption{Ablenkung $D$ in Abhängigkeit von $U_\mathrm{d}$ für $U_\mathrm{B}$ 500\si{\volt}.}
+  \label{fig:empfindlichkeit7}
+\end{figure}
+
 
 Die berechneten Werte für Die Steigung und den y-Achsenabschnitt der Geraden befinden sich in Tabelle \ref{tab:empfindlichkeit}.
 
@@ -103,7 +170,7 @@ Die berechneten Werte für Die Steigung und den y-Achsenabschnitt der Geraden be
   \label{tab:empfindlichkeit}
   \begin{tabular}{c c c}
     \toprule
-    $U_\mathrm{B} / \si{\volt}$ & $\frac{D}{U_\mathrm{d}}/ 10^{-2} \frac{\si{\meter}}{\si{\volt}}$ & $b / 10^{-2}\si{\meter}$ \\
+     Beschleunigungsspannung $U_\mathrm{B} / \si{\volt}$ &  Empfindlichkeit $\frac{D}{U_\mathrm{d}}/ 10^{-2} \frac{\si{\meter}}{\si{\volt}}$ & $b / 10^{-2}\si{\meter}$ \\
     \midrule
 200 & 0,177 \pm 0,001 & 1,078 \pm 0,014 \\
 250 & 0,140 \pm 0,001 & 1,077 \pm 0,012 \\
@@ -116,7 +183,7 @@ Die berechneten Werte für Die Steigung und den y-Achsenabschnitt der Geraden be
 \end{tabular}
 \end{table}
 
-Damit ergibt sich für die Empfindlichkeit gemittelt $\frac{D}{U_\mathrm{d}}=(0.0100 \pm 0.0004)10^{-2}\frac{\si{\meter}}{\si{\volt}}$.
+Damit ergibt sich für die Empfindlichkeit gemittelt $\langle\frac{D}{U_\mathrm{d}}\rangle=(0.0100 \pm 0.0004)10^{-2}\frac{\si{\meter}}{\si{\volt}}$.
 
 \subsection{Bestimmung der Apparaturkonstante}
 Die zuvor bestimmten Empfindlichkeiten sollen nun gegen $\frac{1}{U_\mathrm{B}}$ aufgetragen werden(siehe Abbildung \ref{fig:A}). erneut wird mittels linearer Ausgleichrechung die Steigung bestimmt und soll mit der Konstante $A=\frac{pL}{2d}$ verglichen werden.
@@ -124,11 +191,11 @@ Die zuvor bestimmten Empfindlichkeiten sollen nun gegen $\frac{1}{U_\mathrm{B}}$
 \begin{figure}
   \centering
   \includegraphics[scale=0.8]{auswertung/501-a3.pdf}
-\caption{$\frac{D}{U_\mathrm{d}}$ in Abhängigkeit von $\frac{1}{U_\mathrm{B}}$ .}
+\caption{ Empfindlichkeit $\frac{D}{U_\mathrm{d}}$ in Abhängigkeit von der reziproken Beschleunigungsspannung $\frac{1}{U_\mathrm{B}}$ .}
   \label{fig:A}
 \end{figure}
 
-Für die Gerade gilt erneut $y=ax+b$. Für $a$ und $b$ ergeben sich folgende Werte:
+Für die Gerade gilt erneut $D(U_d)=a\cdot U_d+b$. Für $a$ und $b$ ergeben sich folgende Werte:
 \begin{align}
   a&=(34,147 \pm 0,972)10^{-2}\si{\meter}\\
   b&=(0,004 \pm 0,003)\frac{10^{-2}\si{\meter}}{\si{\volt}}\\
@@ -136,10 +203,10 @@ Für die Gerade gilt erneut $y=ax+b$. Für $a$ und $b$ ergeben sich folgende Wer
 Mit
 \begin{align}
   p&=0,0019 \si{\meter}\\
-  l&=0,143 \si{\meter} \\
-  d&=0,00038 \si{\meter}\\
+  l&=0,1533 \si{\meter} \\
+  d&=0,000665 \si{\meter}\\
 \end{align}
-ergibt sich für $A=0,3575$ \si{\meter}. Das entspricht einer Abweichung von $(4,7 \pm 3)\%$ zur berechneten Steigung der Ausgleichsgeraden.
+ergibt sich für $A=0,438$ \si{\meter}. Das entspricht einer Abweichung von $(28 \pm 0,04)\%$ zur berechneten Steigung der Ausgleichsgeraden.
 
 \subsection{Kathodenstrahl-Oszillograph}
 Im folgenden Teil soll aus den vier gemessenen Frequenzen der Sägezahnspannung die Frequenz der anliegenden Sinusspannung ermittelt sowie ih Scheitelwert berechnet werden. Die gemessenen Frequenzen befinden sich in Tabelle \ref{tab:frequenzen}.
@@ -148,14 +215,14 @@ Im folgenden Teil soll aus den vier gemessenen Frequenzen der Sägezahnspannung 
   \caption{Werte für die Steigungen der Ausgleichsgeraden.}
   \centering
   \label{tab:frequenzen}
-  \begin{tabular}{c c}
+  \begin{tabular}{c c c}
     \toprule
-    $f / \si{\Hz}$ & $D/\si{\meter}$ \\
+    $f / \si{\Hz}$ & $D/\si{\meter}$ &$n$ \\
     \midrule
-79,87 & 0,01905 \\
-39,95 & 0,01905\\
-159,75 & 0,01905 \\
-239,37 & 0,01905 \\
+79,87 & 0,01905 & 1 \\
+39,95 & 0,01905 & 2\\
+159,75 & 0,01905 & 1/2\\
+239,37 & 0,01905 & 1/3\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -163,66 +230,115 @@ Im folgenden Teil soll aus den vier gemessenen Frequenzen der Sägezahnspannung 
 Mit der Synchronisationsbedingung $n f_\mathrm{Sä}= m f_\mathrm{sin}$ folgt, dass $f_\mathrm{sin}=79,87$ \si{\Hz}.
 Setzt man die Empfindlichkeit mit $\frac{D}{U_\mathrm{sin}}$ gleich, erhält man.
 \begin{equation}
-  (0.0100 \pm 0.0004)10^{-2}\frac{\si{\meter}}{\si{\volt}} = \frac{0,1905 \si{\meter}}{U_\mathrm{sin}}
-\Rightarrow U_\mathrm{sin} = 190,5 \si{\volt}.
+  (0.0100 \pm 0.0004)10^{-2}\frac{\si{\meter}}{\si{\volt}} = \frac{0,01905 \si{\meter}}{U_\mathrm{sin}}
+\Rightarrow U_\mathrm{sin} = 19,5 \si{\volt}.
 \end{equation}
 
 \subsection{Ablenkung der Elektronen im Magnetfeld}
-Die gemessenen Spulenströme für verschiedene Beschleunigungsspannungen sind in Tabelle \ref{tab:messwerte2} dargestellt. Das $B$-Feld innerhalb der Spule kann mit Formel \eqref{eqn:spule} berechnet werden. Nun soll, wie in Abbildung \ref{fig:spez.ladung1} und \ref{fig:spez.ladung2} dargestellt, $\frac{D}{L^2+D^2}$ gegen $B$ aufgetragen werden und aus der Steigung der Ausgleichsgeraden die spezifische Ladung $\frac{e}{m_\mathrm{e}}$ bestimmt werden.
+Die gemessenen Spulenströme für verschiedene Beschleunigungsspannungen sind in Tabelle \ref{tab:messwerte-a} bis \ref{tab:messwerte-e} dargestellt. Das $B$-Feld innerhalb der Spule kann mit Formel \eqref{eqn:spule} berechnet werden. Nun soll, wie in Abbildung \ref{fig:spez.ladung1} und \ref{fig:spez.ladung2} dargestellt, $\frac{D}{L^2+D^2}$ gegen $B$ aufgetragen werden und aus der Steigung der Ausgleichsgeraden die spezifische Ladung $\frac{e}{m_\mathrm{e}}$ bestimmt werden.
+
 
 \begin{table}
-  \caption{Messwerte zu $U_\mathrm{d}$, und $D$ bei verschiedenen $U_\mathrm{B}$.}
+  \caption{Messwerte zur Ablenkung $D$, zum Spulenstrom $I_\mathrm{S}$ und dem daraus resultierenden $B$-feld bei der Beschleunigungsspannung $U_\mathrm{B}=250 \si{\volt}$.}
   \centering
-  \label{tab:messwerte2}
+  \label{tab:messwerte-a}
   \begin{tabular}{c c c}
     \toprule
-    $U_\mathrm{B}/ \si{\volt}$ & $D/\si{\meter}$ & $I_\mathrm{s}/\si{\ampere}$\\
+      Ablenkung $D/\si{\meter}$ & $I_\mathrm{s}/\si{\ampere}$ & $B$/\si{\milli\tesla}\\
     \midrule
-250 & 0 & 0 \\
-250 & 0,0254 & 0,27 \\
-250 & 0,0508 & 0,60 \\
-250 & 0,0762 & 0,91 \\
-250 & 0,1016 & 1,25 \\
-250 & 0,127 & 1,58 \\
-250 & 0,1524 & 1,91 \\
-250 & 0,1778 & 2,25 \\
-250 & 0,2032 & 2,59 \\
-300 & 0  & 0 \\
-3000 & 0,0254 &0,32 \\
-300 & 0,0508 & 0,67 \\
-300 & 0,0762 & 1,04 \\
-300 & 0,1016 & 1,38 \\
-300 & 0,127 & 1,75 \\
-300 & 0,1524 & 2,09 \\
-300 & 0,1778 & 2,45 \\
-300 & 0,2032 & 2,81 \\
-350 & 0  & 0 \\
-350 & 0,0254 & 0,33 \\
-350 & 0,0508 & 0,70\\
-350 & 0,0762 & 1,09 \\
-350 & 0,1016 & 1,47 \\
-350 & 0,127 & 1,84 \\
-350 & 0,1524 & 2,27 \\
-350 & 0,1778 &2,68 \\
-350 & 0,2032 & 3,02 \\
-400 & 0  & 0 \\
-400 & 0,0254 & 0,4 \\
-400 & 0,0508 & 0,77 \\
-400 & 0,0762 & 1,22 \\
-400 & 0,1016 & 1,63 \\
-400 & 0,127 & 2,05 \\
-400 & 0,1524 & 2,49 \\
-400 & 0,1778 & 2,88 \\
-400 & 0,2032 & / \\
-450 & 0  & 0 \\
-450 & 0,0254 & 0,41 \\
-450 & 0,0508 & 0,82 \\
-450 & 0,0762 & 1,28 \\
-50 & 0,1016 & 1,69 \\
-450 & 0,127 & 2,12 \\
-450 & 0,1524 & 2,58 \\
-450 & 0,1778 & 3,01 \\
-450 & 0,2032 & / \\
+ 0 & 0 & 0\\
+0,0254 & 0,27 & 0,017 \\
+0,0508 & 0,60  & 0,038\\
+0,0762 & 0,91  & 0,058\\
+0,1016 & 1,25  & 0,080\\
+0,127 & 1,58  & 0.101\\
+0,1524 & 1,91 & 0,122\\
+0,1778 & 2,25  & 0,143\\
+0,2032 & 2,59  & 0,165\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}
+  \caption{Messwerte zur Ablenkung $D$, zum Spulenstrom $I_\mathrm{S}$ und dem daraus resultierenden $B$-feld bei der Beschleunigungsspannung $U_\mathrm{B}=300 \si{\volt}$.}
+  \centering
+  \label{tab:messwerte-b}
+  \begin{tabular}{c c c}
+    \toprule
+      Ablenkung $D/\si{\meter}$ & $I_\mathrm{s}/\si{\ampere}$ & $B$/\si{\milli\tesla}\\
+    \midrule
+0  & 0 &0\\
+0,0254 &0,32 & 0,20 \\
+0,0508 & 0,67 & 0,043 \\
+0,0762 & 1,04  & 0,066\\
+0,1016 & 1,38  & 0,088\\
+0,127 & 1,75  & 0,112\\
+0,1524 & 2,09  & 0,133\\
+0,1778 & 2,45  & 0,156\\
+0,2032 & 2,81  & 0,179\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}
+  \caption{Messwerte zur Ablenkung $D$, zum Spulenstrom $I_\mathrm{S}$ und dem daraus resultierenden $B$-feld bei der Beschleunigungsspannung $U_\mathrm{B}=350 \si{\volt}$.}
+  \centering
+  \label{tab:messwerte-c}
+  \begin{tabular}{c c c}
+    \toprule
+      Ablenkung $D/\si{\meter}$ & $I_\mathrm{s}/\si{\ampere}$ & $B$/\si{\milli\tesla}\\
+    \midrule
+0  & 0 & 0\\
+0,0254 & 0,33 & 0,021 \\
+0,0508 & 0,70 & 0,045\\
+0,0762 & 1,09 & 0,070 \\
+0,1016 & 1,47  & 0,094\\
+0,127 & 1,84  & 0,117\\
+0,1524 & 2,27 & 0,145 \\
+0,1778 &2,68  & 0,171\\
+0,2032 & 3,02 & 0,193 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}
+  \caption{Messwerte zur Ablenkung $D$, zum Spulenstrom $I_\mathrm{S}$ und dem daraus resultierenden $B$-feld bei der Beschleunigungsspannung $U_\mathrm{B}=400 \si{\volt}$.}
+  \centering
+  \label{tab:messwerte-d}
+  \begin{tabular}{c c c}
+    \toprule
+      Ablenkung $D/\si{\meter}$ & $I_\mathrm{s}/\si{\ampere}$ & $B$/\si{\milli\tesla}\\
+    \midrule
+0  & 0 &  0\\
+0,0254 & 0,4 & 0,026\\
+0,0508 & 0,77 & 0,049\\
+0,0762 & 1,22 & 0,078 \\
+0,1016 & 1,63  & 0,104\\
+0,127 & 2,05 & 0,131\\
+0,1524 & 2,49 & 0,159 \\
+0,1778 & 2,88  0,184\\
+0,2032 & / & /\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}
+  \caption{Messwerte zur Ablenkung $D$, zum Spulenstrom $I_\mathrm{S}$ und dem daraus resultierenden $B$-feld bei der Beschleunigungsspannung $U_\mathrm{B}=450 \si{\volt}$.}
+  \centering
+  \label{tab:messwerte-e}
+  \begin{tabular}{c c c}
+    \toprule
+      Ablenkung $D/\si{\meter}$ & $I_\mathrm{s}/\si{\ampere}$ & $B$/\si{\milli\tesla}\\
+    \midrule
+0  & 0 & 0 \\
+0,0254 & 0,41 & 0,026 \\
+0,0508 & 0,82 & 0,052\\
+0,0762 & 1,28 & 0,082\\
+0,1016 & 1,69 & 0,108 \\
+0,127 & 2,12 & 0,135\\
+0,1524 & 2,58 & 0,165\\
+0,1778 & 3,01  0,192\\
+0,2032 & / & / \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -254,18 +370,18 @@ Die Werte hierzu befinden sich ebenfalls in \ref{tab:spez.ladung}.
   \label{tab:spez.ladung}
   \begin{tabular}{c c c c}
     \toprule
-     $U_\mathrm{B} / \si{\volt}$ & $a/ \frac{1}{\si{\meter\milli\tesla}}$ & $b / \frac{1}{\si{\meter}}$ & $\frac{e}{m_\mathrm{e}}/\frac{\si{\coulomb}}{\si{\kilo\gram}}10^9$ \\
+     $U_\mathrm{B} / \si{\volt}$ & $a/ \frac{1}{\si{\meter\milli\tesla}}$ & $b / \frac{1}{\si{\meter}}$ & $\frac{e}{m_\mathrm{e}}/\frac{\si{\coulomb}}{\si{\kilo\gram}}10^11$ \\
     \midrule
-250 & 13,308 \pm 0,366 & 0,090 \pm 0,035 & 11,1 \pm 1,8  \\
-300 & 12,323 \pm 0,274 & 0,069 \pm 0,029 & 8,4 \pm 1,1 \\
-350 & 11,326 \pm 0,001 & 0,086 \pm 0,035 &5,9 \pm 0,9\\
-400 & 10,745 \pm 0,226 & 0,051 \pm 0,025 & 4,9 \pm 0,6\\
-450 & 10,339 \pm 0,220 & 0,049 \pm 0,025 & 4,4 \pm 0,6\\
+250 & 9,218 \pm 0,197 & 0,050 \pm 0,019 & 1,70 \pm 0,07  \\
+300 & 8,945 \pm 0,040 & -0,021 \pm 0,019 & 1,92 \pm 0,16 \\
+350 & 7,849 \pm 0,162 & 0,046 \pm 0,019 & 1,72 \pm 0,07\\
+400 & 7,389 \pm 0,121 & 0,026 \pm 0,013 & 1,75 \pm 0,06\\
+450 & 7,110 \pm 0,115 & 0,024 \pm 0,013 & 1,82 \pm 0,06\\
 \bottomrule
 \end{tabular}
 \end{table}
 
-Damit ergibt sich für die spezifische Ladung ein Mittelwert von $\frac{e}{m_\mathrm{e}}=(6,9 \pm 0,5)10^9 \frac{\si{\coulomb}}{\si{\kilo\gram}}$.
+Damit ergibt sich für die spezifische Ladung ein Mittelwert von $\langle\frac{e}{m_\mathrm{e}}\rangle=(1,78 \pm 0,04)10^11 \frac{\si{\coulomb}}{\si{\kilo\gram}}$.
 
 \subsection{Bestimmung der Totalintensität des Erdmagnetfeldes}
 Für den Spulestrom und dem Inklinationswinkel werden folgende Werte gemessen:
@@ -278,4 +394,4 @@ Es wird erneut Gleichung \eqref{eqn:spule} für das $B$-Feld innerhalb einer Hel
 \begin{equation}
   B_\mathrm{total}=\frac{B_\mathrm{hor}}{\cos(\phi)}.
 \end{equation}
-Damit ergibt sich $B_\mathrm{total}=2.54 \cdot 10^{-5}\si{\tesla}$.
+Damit ergibt sich $B_\mathrm{total}=2,54 \cdot 10^{-5}\si{\tesla}$.

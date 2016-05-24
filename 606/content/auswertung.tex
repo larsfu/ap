@@ -1,2 +1,180 @@
 \section{Auswertung}
 \label{sec:Auswertung}
+
+\subsection{Selektivverstärker}
+Um die Güte des Selektivverstärker zu bestimmen, wird die Ausgangsspannung $U_\mathrm{A}$ gegen die Frequenz $f$ aufgetragen. Die Messwerte hierzu befinden sich in Tabelle \ref{tab:verstaerker}.
+
+\begin{table}
+  \caption{Messwerte zur Ausgangsspannung $U_\mathrm{A}$ und zur Frequenz $f$}
+  \centering
+  \label{tab:verstaerker}
+  \begin{tabular}{c c }
+    \toprule
+   $U_\mathrm{A}/\si{\milli\volt}$&  $f$ /\si{\kilo\Hz}\\
+    \midrule
+    30 & 30 \\
+    31 & 40\\
+    32 & 50\\
+    33 & 70\\
+    34 & 140\\
+    35 & 690\\
+    36 & 220\\
+    37 & 100\\
+    38 & 60\\
+    39 & 45\\
+    40 & 35\\
+    33.5 & 100\\
+    34.5 & 250\\
+    35.5 & 580\\
+    36.5 & 140\\
+    37.5 & 80\\
+    33.75  &120\\
+    34.25 & 180\\
+    34.75 & 370\\
+    35.25 & 1183\\
+    35.75 & 340\\
+    36.25 & 180\\
+    35.1 & 925\\
+    35.2 & 1200\\
+    35.3 & 1100\\
+    35.4 & 830\\
+    34.9 & 500\\
+    \bottomrule
+    \end{tabular}
+\end{table}
+
+In Abbildung \ref{fig:verst} ist die Filterkurve des Selektivverstärkers graphisch dargestellt. Die Güte berechnet sich wie folgt:
+\begin{equation}
+  Q=\frac{f_0}{f_+ - f_-}.
+\end{equation}
+Dabei ist $f_0$ die Durchlassfrequenz und $f_+$ und $f_-$ liegen jeweils an der Stelle, wo die Ausgangsspannnung auf das $\frac{1}{\sqrt{2}}$-fache des Maximums erreicht hat.
+Mit
+\begin{align}
+  f_0 &= 35,2 \si{\kilo\Hz}\\
+  f_+ &= 35,4 \si{\kilo\Hz}\\
+  f_- &= 35,05 \si{\kilo\Hz}\\
+\end{align}
+ergibt sich eine Güte von $Q=100,571$.
+
+\begin{figure}
+  \centering
+  \includegraphics{build/a.pdf}
+\caption{Filterkurve des Selektivverstärkers.}
+  \label{fig:verst}
+\end{figure}
+
+\subsection{Bestimmung der Suszeptibilitäten}
+Um zu berücksichtigen, dass die aus staubförmigem Material bestehenden Proben nur eingeschränkt dicht gestopft werden können, wird der Querschnitt $Q_\mathrm{real}$ berechnet.
+\begin{equation}
+  Q_\mathrm{real}=\frac{m}{L \rho}
+\end{equation}
+$L$ ist die Länge der Probe, $m$ die Masse und $\rho$ die Dichte.
+Die entsprechenden Werte sind in \ref{tab:daten} zu finden. Die Messwerte zu den verschiedenen Widerständen und Spannungen sind in \ref{tab:messwerte} dargestellt. $U_1$ ist dabei die abgeglichene Brückenspannung ohne Probe, $U_2$ Brückenspannung mit Probe, $U_3$ die abgeglichene Brückenspannung mit Probe, $R_1$ der Widerstand ohne und $R_2$ mit Probe. Die Speisespannung beträgt $U_\mathrm{Sp}=0,98 \si{\volt}$ und der Querschnitt der Spule $F=86,6 \cdot 10^{-6} \si{\meter}^2$.
+
+\begin{table}
+  \caption{Masse, Länge, Dichte und Querschnitt der Proben.}
+  \centering
+  \label{tab:daten}
+  \begin{tabular}{c c c c c}
+    \toprule
+    Probe &  $m /10^{-3}\si{\kilo\gram}$ & $L$/\si{\meter} & $\rho/10^3 \si{\kilo\gram}/\si{\meter}^3$ & $Q/10^{-6}\si{\meter}^2$\\
+    \midrule
+    $Gd_2 O_3$ & 14,08 & 0,147 & 7,4 & 12,94 \\
+    $Nd_2 O_3$ & 9 & 0,149 & 7,24 & 8,34 \\
+    $Dy_2 O_3$ & 18,5 & 0,149 & 7,8 & 1,59 \\
+    \bottomrule
+    \end{tabular}
+  \end{table}
+
+  \begin{table}
+    \caption{Messwerte zur Bestimmung der Suszeptibilitäten.}
+    \centering
+    \label{tab:messwerte}
+    \begin{tabular}{c c c c c c}
+      \toprule
+      Probe & $U_1$/\si{\milli\volt} & $U_2$/\si{\milli\volt} & $U_3$/\si{\milli\volt} & $R_1$/ 5\cdot\si{\milli\volt} &$R_2$/ 5\cdot\si{\milli\volt} \\
+      \midrule
+    $Gd_2 O_3$ & 4,65 & 38,0 & 5,80 & 719 & 559 \\
+     - & 4,70 & 38,5 & 5,30 & 720,5 & 557 \\
+     - & 4,60 & 39,0 & 5,50 & 720,0 & 554 \\
+    $Nd_2 O_3$ & 4,65 & 8,9 & 4,70 & 720,0 & 688 \\
+    - & 4,65 & 8,5 & 4,65 & 717,5 & 717 \\
+    - & 4,65 & 8,0 & 4,75 & 714,0 & 698 \\
+    $Dy_2 O_3$ & 4,65 & 91,5 & 9,10 & 719,5 & 338 \\
+    - & 4,70 & 89,0 & 9,30 & 718,0 & 337 \\
+    - & 4,65 & 89,0 & 9,50 & 719,5 & 339 \\
+    \bottomrule
+    \end{tabular}
+  \end{table}
+
+  $\chi_1$ berechnet sich nach Gleichung \ref{eqn:chi2} und $chi_2$ nach Gleichung \ref{eqn:chi3}. Mit den gemittelten Werten für die Spannungen und Widerstände aus Tabelle \ref{tab:messwerte} ergeben sich für die drei Proben die Werte in \ref{tab:suszep}.
+
+  \begin{table}
+    \caption{Berechnete Suszeptibilitäten.}
+    \centering
+    \label{tab:suszep}
+    \begin{tabular}{c c c}
+      \toprule
+      Probe & $\chi_1$ & $\chi_2$ \\
+      \midrule
+  $Gd_2 O_3$ & 0,00925 \pm 0,00008  & 0,01105 \pm 0,00010 \\
+  $Nd_2 O_3$ & 0,00153 \pm 0,0010 & 0,0027 \pm 0,0013 \\
+  $Dy_2 O_3$ & 0,03608 \pm 0,00035 & 0,04003 \pm 0,00008 \\
+  \bottomrule
+  \end{tabular}
+\end{table}
+
+Zusätzlich sollen die Suszeptibilitäten mit Gleichung \ref{eqn:chi1} berechnet werden. Dazu müssen zunächst die Quantenzahlen und daraus der Landé-Faktor $g_\mathrm{J}$  nach Gleichung \ref{eqn:lande} bestimmt werden. Die Ergebnisse sind in \ref{tab:quantenzahlen} aufgeführt. Für $N$ aus Gleichung \ref{eqn:chi1} gilt:
+\begin{equation}
+  N=\frac{\rho N_\mathrm{A}}{M}
+\end{equation}
+mit $M$ als molare Masse und $N_\mathrm{A} = 1,381 \cdot 10^{-23} \frac{\si{\joule}}{\si{\kelvin}}$ als Avogadro-Konstante \cite{codata}.
+
+\begin{table}
+  \caption{Quantenzahlen der Proben.}
+  \centering
+  \label{tab:quantenzahlen}
+  \begin{tabular}{c c c c c c}
+    \toprule
+    - & $L$ & $S$ & $J$ & $g_\mathrm{j}$ & $N/10^28\si{\meter}^3$ \\
+    \midrule
+  $Gd_2 O_3$ & 0 & 3,5 & 3,5 & 2 & 1,229 \\
+  $Nd_2 O_3$ & 6 & 1,5 & 4,5 & 0,72 & 1,296 \\
+  $Dy_2 O_3$ & 5 & 2,5 & 7,5 & 4/3 & 2,819 \\
+  \bottomrule
+  \end{tabular}
+\end{table}
+
+Für die Suszeptibilitäten ergeben sich damit die Werte in Tabelle \ref{tab:chi-theo}.
+
+\begin{table}
+  \caption{Theoriewerte für die Suszeptibilitäten.}
+  \centering
+  \label{tab:chi-theo}
+  \begin{tabular}{c c}
+    \toprule
+    Probe & $\chi_\mathrm{theoretisch}$ \\
+    \midrule
+  $Gd_2 O_3$ & 0,007 \\
+  $Nd_2 O_3$ & 0,0014 \\
+  $Dy_2 O_3$ & 0,029 \\
+  \bottomrule
+  \end{tabular}
+\end{table}
+
+Die Abweichungen der berechneten Werte $\chi_1$ und $\chi_2$ von den Theoriewerten $\chi_\mathrm{theoretisch}$ sind in Tabelle \ref{tab:abweichungen} aufgeführt.
+
+\begin{table}
+  \caption{Abweichungen der berechneten Suszeptibilitäten $\chi_1$ und $\chi_2$ vpn den Theoriewerten.}
+  \centering
+  \label{tab:Abweichungen}
+  \begin{tabular}{c c c}
+    \toprule
+    Probe & Abweichung $\chi_1$ & Abweichung $\chi_2$ \\
+    \midrule
+  $Gd_2 O_3$ & (32,1 \pm 1,1)\% & (57,9 \pm 1,5) \% \\
+  $Nd_2 O_3$ & (9 \pm 7)\% & (90 \pm 90)\% \\
+  $Dy_2 O_3$ & (24,4 \pm 1,2)\% & (38 \pm 0,28)\% \\
+  \bottomrule
+  \end{tabular}
+\end{table}

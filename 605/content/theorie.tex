@@ -15,18 +15,18 @@ Für Alkalimetalle gilt die Ein-Elektron-Näherung, da über abgeschlossenen Ele
 Dabei ist $z$ die Kernladungszahl des jeweiligen Atoms.
 
 \subsubsection{Strahlungsenergien}
-Um die Energieniveaus hinreichend genau beschreiben zu können, wird angenommen, dass diese von der Hauptquantenzahl $n$ und den Nebenquantenzahlen $l$ und $j$ abhängig sind. $l$ wird als Bahndrehimpulsquantenzahl und $j$ als zum Spin des Elektrons zugehörige Quantenzahl bezeichnet. Der Spin eines Elektrons wird auch Eigendrehimpuls genannt, da er auch vorliegt, wenn das Elektron keine kinetische Energie besitzt. Er kann nur den Wert $s=\pm\frac{1}{2}$ annehmen.
+Um die Energieniveaus hinreichend genau beschreiben zu können, wird angenommen, dass diese von der Hauptquantenzahl $n$ und den Nebenquantenzahlen $l$ und $j$ abhängig sind. $l$ wird als Bahndrehimpulsquantenzahl und $s$ als zum Spin des Elektrons zugehörige Quantenzahl bezeichnet. Der Spin eines Elektrons wird auch Eigendrehimpuls genannt, da er auch vorliegt, wenn das Elektron keine kinetische Energie besitzt. Er kann nur den Wert $s=\pm\frac{1}{2}$ annehmen. Der Gesamtdrehimpuls $j$ ergibt sich aus $j = l\pm\frac{1}{2}$.
 Dass es sich bei den Emissionsspektren um Linienspektren handelt, kann wie folgt erklärt werden:
 Das äußere Elektron kann durch Zuführen von Energie auf ein höheres Energieniveau gelangen. Gelangt es zurück auf das niedrigere Energienniveau, wird die Energiedifferenz als Elektromagnetische Strahlung emittiert. Da nur bestimmte Energieniveaus existieren, ergibt sich ein Linienspektrum.
 Mit Hilfe der Schrödinger-Gleichung
 \begin{equation}
   \left(\sum_{i}\frac{P_\mathrm{i}^2}{2m_\mathrm{i}}+U\right)\psi =  E\psi
 \end{equation}
-mit $\psi$ als Wellenfunktion, $P_\mathrm{i}$ als Impulsoperator, $U$ als potentielle Energie und $m_\mathrm{i}$ als Masse, wird eine Gleichung für die Energiewerte in Abhängigkeit der Quantenzahlen hergeleitet. Für den Hamilton-Operator des Atoms gilt:
+mit $\psi$ als Wellenfunktion, $P_\mathrm{i}$ als Impulsoperator, $U$ als Potential und $m_\mathrm{i}$ als Masse, wird eine Gleichung für die Energiewerte in Abhängigkeit der Quantenzahlen hergeleitet. Für den Hamilton-Operator des Atoms gilt:
 \begin{equation}
-  H=\sum_{i}\frac{P_\mathrm{i}^2}{2m-\mathrm{i}} + U.
+  H=\sum_{i}\frac{P_\mathrm{i}^2}{2m_\mathrm{i}} + U.
 \end{equation}
-Bei Atomen mit großer Kernladungszahl müssen realtivistische Effekte berücksichtigt werden. Zur Vereinfachung werden diese als Störung behandelt. Schließlich ergibt sich für die Enegieeigenwerte
+Bei Atomen mit großer Kernladungszahl müssen relativistische Effekte berücksichtigt werden, welche sich nur auf die kinetische Energie auswirken. Damit hängen die Energiewerte zusätzlich von $l$ ab. Zur Vereinfachung werden diese als Störung behandelt, um die Energieeigenwerte mittels quantenmechanischer Störungstheorie bestimmen zu können. Schließlich ergibt sich für die Energieeigenwerte
 \begin{equation}
   E_\mathrm{n,l,j} = -R_\infty \left(\frac{(z-\sigma)^2}{n^2}+\alpha^2\frac{(z-\sigma)^4}{n3}\left(\frac{2}{2l+1}-\frac{3}{4n}-\frac{j(j+1)-l(l+1)-(3/4)}{l(l+1)(2l+1)}\right)\right).
 \end{equation}
@@ -43,7 +43,7 @@ Für $l=0$ gilt:
 Die Gleichungen \ref{eqn:sommerfeld1} und \ref{eqn:sommerfeld2} werden Sommerfeldsche Feinstrukturformeln in erster Näherung genannt.
 
 \subsubsection{Auswahlregeln}
-Für die Übergänge zwischen den Energieniveaus gelten unterschiedliche Übergangswahrscheinlichkeiten. Es existieren keine Übergänge ohne Änderung des Bahndrehimpulses $l$. Außerdem muss immer $\Delta l = \pm 1$ gelten. Übergänge ohne Änderung der Spinquantenzahl $j$ sind möglich, allerdings unwahrscheinlich. Die Änderung der Hauptquantenzahl $n$  ist uneingeschränkt. Jedoch werden Übergänge mit großem $\Delta n$ zunehmend unwahrscheinlicher.
+Für die Übergänge zwischen den Energieniveaus gelten unterschiedliche Übergangswahrscheinlichkeiten. Es existieren keine Übergänge ohne Änderung des Bahndrehimpulses $l$. Außerdem muss immer $\Delta l = \pm 1$ gelten. Übergänge ohne Änderung des Gesamtdrehimpulses $j$ sind möglich, allerdings unwahrscheinlich. Die Änderung der Hauptquantenzahl $n$  ist uneingeschränkt. Jedoch werden Übergänge mit großem $\Delta n$ zunehmend unwahrscheinlicher.
 Die in Alkalispektren auftretenden Dublett-Strukturen, die sich durch zwei nah nebeneinander liegende Linien äußern könnnen darauf zurückgeführt werden, dass Energieniveaus mit gleichem $l$ udn unterschiedlichem $j$ in einem kleineren Abstand zueinander liegen als die mit unterschiedlichem $l$.
 
 \begin{figure}

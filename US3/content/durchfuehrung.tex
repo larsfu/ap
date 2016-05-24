@@ -1,2 +1,22 @@
 \section {Aufbau und Durchführung}
 \label{sec:durchführung}
+
+Der Aufbau setzt sich aus einem Ultraschall Doppler-Generator sowie Ultraschallsonden mit einer Frequenz von 2\si{\mega\Hz} zusammen. Um die Messdaten aufzunehmen, wird ein Computer verwendet. Desweiteren besteht der Aufbau aus Strömungsrohren mit drei verschiedenen Innen- und Außendurchmessern (7\si{\milli\meter}, 10\si{\milli\meter}, 16\si{\milli\meter}) und zum Rohrdurchmesser passenden Doppler-Prismen. Ein Doppler-Prisma, welches in Abbildung \ref{fig:prisma} dargestellt ist, besitzt drei verschiedene Einfallswinkel ($\theta = 15^\circ, 30^\circ, 45^\circ$). Der Dopplerwinkel $\alpha$ lässt sich mit folgendem Zusammenhang berechnen:
+\begin{equation}
+   \alpha = 90^\circ -arcsin \left(\sin\theta\cdot\frac{c_\mathrm{L}}{c_\mathrm{P}}\right)
+\end{equation}
+mit $c_\mathrm{L}$ als Schallgeschwindigkeit Doppler-Flüssigkeit und $c_\mathrm{P}$ als Schallgeschwindigkeit des Materials des Prismas. Die Prismen bestehen aus Acryl.
+Die verwendete Flüssigkeit besteht aus Wasser, Glycerin und Glaskugeln. Mit Hilfe einer Zentrifugalpumpe kann die Strömungsgeschwindigkeit zwischen 0 und 10\si{\liter\per\minute} variiert werden.
+
+\begin{figure}
+  \centering
+  \includegraphics{content/prisma.pdf}
+\caption{Doppler-Prisma\cite{anleitungUS3}.}
+  \label{fig:prisma}
+\end{figure}
+
+Zunächst wird der Dopplerwinkel für fünf Strömungsgeschwindigkeiten gemessen. Dafür wird bei einer eingestellten Strömungsgeschwindigkeitbei jedem Winkel des Prismas die Frequenzverschiebung $\Delta f$ gemessen. Dies wird für vier weitere Geschwindigkeiten wiederholt. Die gleiche Messung wird erneut mit den beiden anderen Prismen durchgeführt.
+
+Um das Strömungsprofil der Doppler-Flüssigkeit am 10\si{\milli\meter} Rohr unter $\alpha=15^\circ$ zu untersuchen, wird die Messtiefe variiert. Dafür wird am Ultraschallgenerator das SAMPLE VOLUME aud SMALL gestellt. Bei der Einheit der Messtiefe handelt es sich hier um $\textmu\si{\second}$. Diese wird im Bereich von 4 bis 19,5 $\textmu\si{\second}$ stetig um 0,5$\textmu\si{\second}$ erhöht und der entsprechende Wert für die Frequenzverschiebung $\Delta f$ sowie für die Streuintensität $I$ aufgenommen. Dies wird für eine Pumpleistung von $45\%$ sowie $75\%$ durchgeführt.
+
+In Acryl gilt $4\textmu\si{\second}=10\si{\milli\meter}$. Für die Dopplerflüssigkeit gilt $4\textmu\si{\second}=6\si{\milli\meter}$.

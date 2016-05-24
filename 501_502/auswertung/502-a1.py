@@ -35,9 +35,7 @@ plt.plot(x2,y, 'gx', label="Messwerte für $U_\mathrm{B}=350V$")
 plt.plot(x2,f(x2, *params), 'g-')
 
 
-
-
-plt.xlabel('$B/mT$')
-plt.ylabel(r'$\frac{D}{L^2+D^2}/\frac{1}{m}$')
+plt.xlabel(r'Magnetfeld $B/\mathrm{mT}$')
+plt.ylabel(r'$\frac{D}{L^2+D^2}/\frac{1}{\mathrm{m}}$')
 plt.legend(loc='best')
 plt.savefig('502-a.pdf')
