@@ -40,7 +40,7 @@ delta_lambda, delta_t = np.genfromtxt('daten/b.txt', unpack=True)
 delta_lambda /= 1e9
 phi12 = np.array([np.mean(phi[3:5]), np.mean(phi[7:9])])
 eich = delta_lambda / (delta_t * np.cos(phi12))
-tools.table((delta_lambda*1e9, delta_t, phi12, eich), (r"\Delta\lambda/nm", r"\Delta t/Skt.", r"\overline{\phi_{1,2}}/rad", r"\Delta\lambda/(\Delta t \cos \overline{\phi_{1,2}})"), "build/b.tex", "Eichmessung des Okularmikrometers.", "tab:b", round_figures=(2,3,4,4))
+tools.table((delta_lambda*1e9, delta_t, phi12, eich), (r"\Delta\lambda/nm", r"\Delta t/Skt.", r"\overline{\phi_{1,2}}/rad", r"(\Delta\lambda (\Delta t \cos \overline{\phi_{1,2}})^{-1})/(nm\per Skt)"), "build/b.tex", "Eichmessung des Okularmikrometers.", "tab:b", round_figures=(2,3,4,4))
 eich = unc.ufloat(eich.mean(), eich.std())
 print("Eichgröße b) : {}".format(eich))
 
@@ -59,6 +59,6 @@ delta_E_D = const.h * const.c * delta_lambd/(lambdab**2) / const.e
 print(delta_E_D)
 
 sigma_2 = z - (l*(l+1) * delta_E_D * n**3 / (const.Rydberg * const.h * const.c / const.e * const.alpha**2))**0.25
-print(sigma_2)
+print(sigma_2[0:3].mean(), sigma_2[3:7].mean())
 
 tools.table((400-gammab_, phib, lambdab*1e9, d[1], delta_lambd*1e9, delta_E_D*1e3, sigma_2), (r"\gamma/°", r"\phi/rad", r"\lambda/nm", r"\Delta s/Skt.", r"\Delta\lambda/nm", "\Delta E_D/\milli\electronvolt", "\sigma_2"), "build/erg.tex", "Tabelle der Messergebnisse.", "tab:erg", round_figures=(4,4,3,3,3,4,4), interrows={0:"Natrium ($z=11, n=3, l=1$)", 3:"Kalium ($z=19, n=4, l=1$)", 7:"Rubidium ($z=37, n=5, l=1$)"})
