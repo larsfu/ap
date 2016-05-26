@@ -1,2 +1,30 @@
 \section{Auswertung}
 \label{sec:Auswertung}
+
+\subsection{Strömungsgeschwindigkeit}
+
+Gemäß \eqref{eqn:delta_f} lässt sich für die Strömungsgeschwindigkeit des Mediums die Formel
+\begin{equation}
+  v = \frac{\Delta f c_\text{L}}{2 f_0 \cos \alpha}
+\end{equation}
+aufstellen. Dabei ist $\alpha$ der Dopplerwinkel, welcher aus dem Prismenwinkel über die Beziehung
+\begin{equation}
+  \alpha = \frac{\pi}{2} - \arcsin\left({\sin \theta \cdot \frac{c_\text{L}}{c_\text{P}}}\right)
+\end{equation}
+ermittelt wird.
+
+Die berechneten und gemittelten Geschwindigkeiten zu den verschiedenen Rohrduchmessern und Dopplerwinkeln finden sich in Tabelle~\ref{tab:erg}. Weiterhin wird gefordert, $\Delta f / \cos \alpha$ über $v$ aufzutragen, da jedoch zuvor $v$ über einen proportionalen Zusammenhang aus $\Delta f$ ermittelt wurde, ergeben sich lediglich Punkte auf einer Ursprungsgeraden. Die Diagramme finden sich in Abb.~\ref{fig:a0},~\ref{fig:a1} und \ref{fig:a2}.
+\input{build/a.tex}
+\fig{build/a0.pdf}{Plot von $\Delta f / \cos \alpha$ über $v$ bei $d=\SI{16}{mm}$.}{a0}
+\fig{build/a1.pdf}{Plot von $\Delta f / \cos \alpha$ über $v$ bei $d=\SI{10}{mm}$.}{a1}
+\fig{build/a2.pdf}{Plot von $\Delta f / \cos \alpha$ über $v$ bei $d=\SI{7}{mm}$.}{a2}
+
+\subsection{Strömungsprofil}
+Im zweiten Versuchsteil wurde das Strömungsprofil im $\SI{10}{mm}$-Rohr durch Variation der Messtiefe ermittelt. In den Abbildungen~\ref{fig:b1} und \ref{fig:b2} sind Strömungsgeschwindigkeit bzw. Streuintensität über die Tiefe aufgetragen, jeweils für \SI{70}{\percent} und \SI{45}{\percent} Pumpleistung.
+\fig{build/b1.pdf}{Plot der Strömungsgeschwindigkeit in Abhängigkeit von der Messtiefe.}{b1}
+\fig{build/b2.pdf}{Plot der Streuintensität in Abhängigkeit von der Messtiefe.}{b2}
+
+\newpage
+\subsection{Messdaten}
+\input{build/datena.tex}
+\input{build/datenb.tex}

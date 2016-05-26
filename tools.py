@@ -31,7 +31,6 @@ def table(values, names, file, caption, label, split=1, footer=None, round_figur
         elif isinstance(s[0], unc.UFloat):
             unc_list.append(True)
             number_format, reformat = get_format_string(unp.nominal_values(s[s!=0]), round_figures_here)
-            print(unp.std_devs(s[s!=0]), round_figures_error)
             error_format, reformat_ = get_format_string(unp.std_devs(s[s!=0]), round_figures_error)
             if True:
                 columns += "S[table-format="+number_format+r", round-precision="+str(round_figures_here)+", round-mode=figures] @{${}\pm{}$} S[table-format="+error_format+", round-precision="+str(round_figures_error)+", round-mode=figures] "
@@ -72,7 +71,7 @@ def table(values, names, file, caption, label, split=1, footer=None, round_figur
     i = 0
     for row in itertools.zip_longest(*final):
         if interrows != None and i in interrows:
-            result += r" \multicolumn{{{}}}{{c}}{{{}}} \rule{{0pt}}{{3ex}}\\".format(len(row)+unc_list.count(True), interrows[i])
+            result += r" \multicolumn{{{}}}{{c}}{{{}}} \rule{{0pt}}{{3ex}}\\".format(len(row)+unc_list.count(True)+1, interrows[i])
         result += format_row(row, reformat_list*split, unc_list*split)
         i+=1
 
