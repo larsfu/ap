@@ -6,5 +6,74 @@ Im Versuch 311 sollen die Hall-Spannung und der ohmsche Widerstand einer Metallp
 \label{sec:theorie}
 
 \subsection{Elektrische Leitfähigkeit von Metallen}
+Die Energieniveaus eines Atoms teilen sich in Energiebänder auf (siehe Abbildung \ref{fig:niveaus}), da alle Elektronen dem Pauli-Prinzip unterliegen. Laut diesem Prinzip existieren nie zwei Elektronen eines Systems mit dem gleichen Quantenzustand.
+Es ist möglich, dass sich zwei der Energiebänder überschneide. Ebenso ist es möglich, dass eine Lücke zwischen zwei Energiebändern existiert, welche als verbotene Zone bezeichnet wird. Kein Elektron des Körpers besitzt einen Energiewert, welcher innerhalb der verbotenen Zone liegt.
+Für die elektrische Leitfähigkeit eines Metalls ist das sogenannte Leitfähigkeitsband  mit seinen Leitungselektronen verantwortlich, welches nicht voll besetzt ist. Die Leitungselektronen verhalten sich näherungsweise wie die Atome eines idealen Gases. Dass einige Festkörper keine elektrische Leitfähigkeit bestitzen, kann wie folgt erklärt werden: Es existieren keine ungepaarten Elektronen und die verbotene Zone ist so breit, dass die Elektronen des darunter liegenden Energiebandes nicht in der Lage sind, diese zu überwinden. Somit beinhaltet das obere Band keine Elektronen.
 \fig{bilder/niveaus.pdf}{Die Energieniveaus von Atomen spalten sich bei periodischer Anordnung in Energiebänder auf. Hier am Beispiel von Natrium. \cite{anleitung311}}{niveaus}
+Bewegen sich die Leitungselektronen innerhalb eines Metalls, treten Zusammenstöße mit Strukturdefekten oder Ionenrümpfen auf. Für die mittlere Flugzeit $\overline{\tau}$, welche den Zeitraum zwischen zwei Zusammenstößen beschreibt, gilt:
+\begin{equation}
+\Delta\overline{v}_\mathrm{d}=-\frac{e_0}{m_0}\vec{E} \overline{\tau}
+\end{equation}
+mit $e_0$ als Elementarladung, $m_0$ als Masse eines Elektrons und $E$ als äußeres elektrisches Feld. Als Folge jdes Zusammesstoßes erleidet das Elektron eine Streuung in eine beliebige Richtung. Für die mittlere Driftgeschwindigkeit $v_\mathrm{d}$, welche in Richtung des elektrischen Felds zeigt, ergibt sich
+\begin{equation}
+\overline{v}_\mathrm{d} = \frac{1}{2}\Delta \overline{v}.
+\end{equation}
+Die Stromidchte lässt sich nach
+\begin{equation}
+  j=-n\,\overline{v}_\mathrm{d} e_0
+\end{equation}
+berechnen. Dabei ist $n$ die Anzahl der Elektronen pro Volumeneinheit.
+Für einen homogenen Leiter der Länge $L$ mit Querschnittsfläche $Q$ folgt für die Stromstärke $I$
+\begin{equation}
+  I=S\,U.
+\end{equation}
+$S$ wird als elektrische Leitfähigkeit bezeichnet und berechnet sich nach
+\begin{equation}
+  S=\frac{1}{2}\frac{e_0 ^2}{m_0}n\overline{\tau}\frac{Q}{L}.
+\end{equation}
+Der elektrische Widerstand ist durch die reziproke Leitfähigkeit definiert. Damit kann sowohl die spezifische Leitfähigkeit $\sigma$
+\begin{equation}
+  \sigma = \frac{1}{2}{e_0 ^2}{m_0}n\overline{\tau}
+\end{equation}
+als auch der spezifische Widerstand $\rho$
+\begin{equation}
+  \rho = 2 \frac{m_0}{e_0 ^2}\frac{1}{n\overline{\tau}}
+\end{equation}
+berechnet werden.
+Für die mittlere freie Weglänge, welche die durchschnittliche Strecke, die ein Elektron zwischen zwei Zusammenstößen überwindet, beschreibt, gilt folgender Zusammenhang:
+\begin{equation}
+  \overline{l}=\overline{\tau}\cdot|v|
+\end{equation}
+mit $|v|$ als Totalgeschwindigkeit der Elektronen.
+Wegen des Pauli-Verbots kann die Energieverteilung nicht mit der klassischen Maxwell-Boltzmann-Statistik bestimmt werden. Sie ist durch die Fermi-Dirac-Verteilung gegeben.
+\begin{equation}
+  f(E)\mathrm{d}E= \frac{1}{e^{\frac{E-E_\mathrm{F}}{kT}}+1}\mathrm{d}E
+\end{equation}
+$k$ bezeichnet hierbei  die Boltzmann-Konstante; $E_\mathrm{F}$ ist die Fermi-Energie, welche dem höchsten Energiewert eines Elektrons am absoluten Nullpunkt entspricht. Sie berechnet sich aus
+\begin{equation}
+E_\mathrm{F}=\frac{h^2}{2m_0}\sqrt[3]{\left( \frac{3}{8\pi}n\right)^2}
+\end{equation}
+mit $h$ als Planksches Wikungsquantum.
+In Abbildung \ref{fig:fermi} ist die Fermi-Dirac Verteilung für die Elektronen eines Festkörpers graphisch dargestellt.
+\fig{bilder/fermidirac.pdf}{Fermi-Dirac-Verteilung für die Elektronen eines Festkörpers.\cite{anleitung311}}{fermi}
+Für die mittlere freie Weglänge ergibt sich:
+\begin{equation}
+\overline{l} \approx \overline{\tau}\sqrt{\frac{2\,E_\mathrm{F}}{m_0}}.
+\end{equation}
+Die Beweglichkeit $\mu$ der Ladungsträger lässt sich aus dem Zusammenhang zwischen der mittleren Dirftgeschwindigkeit und der äußeren Feldstärke bestimmen.
+\begin{equation}
+\overline{v}_\mathrm{d}=\mu \vec{E}.
+\end{equation}
+
 \subsection{Hall-Effekt}
+Befindet sich, wie in Abbuldung \ref{fig:hall} dargestellt, eine stromdurchflossene homogene Leiterplatte mit der Dicke $d$ und der Breite $b$ in einem zur Oberfläche der Platte senkrechten homogenen Magnetfeld, tritt an den Punkten A und B eine Spannung auf, welche als Hallspannung $U_\mathrm{H}$ bezeichnet wird. Sie wird durch die Lorentzkraft, welche auf die sich in negative $x$-Richtung bewegenden Elektronen wirkt, verursacht. Da die Lorentzkraft in die negative $y$-Richtung wirkt, wird durch die Ablenkung der Elektronen in eben diese Richtung ein elektrisches Feld $E_y$ aufgebaut, welches entgegen der Bewegung der Elektronen wirkt.
+
+\fig{bilder/hall.pdf}{Versuchsanordnung zur Beobachtung des Hall-Effektes. \cite{anleitung311}}{hall}
+
+Für die Hallspannung gilt
+\begin{equation}
+  U_\mathrm{H} = -\frac{1}{n\,e_0}\frac{B\cdot I_\mathrm{q}}{d}.
+\end{equation}
+Dabei ist $I_\mathrm{q}$ der Querstrom und $B$ das Magnetfeld.
+
+Beim anomalen Hall-Effekt treten aufgrund der Tatsache, dass sich die Energiebänder überschneiden und somit Elektronen beliebig den Übergang von unteren in das obere Energieband vollziehen, wobei sie im unteren Band sogenannte Löcher hinterlassen. Sie weisen das Verhalten einer positiven Ladung auf. Das Vorzeichen der Hallspannung ist entsprechend umgekehrt.

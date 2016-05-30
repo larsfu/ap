@@ -92,7 +92,7 @@ Die entsprechenden Werte sind in \ref{tab:daten} zu finden. Die Messwerte zu den
     \label{tab:messwerte}
     \begin{tabular}{c c c c c c}
       \toprule
-      Probe & $U_1$/\si{\milli\volt} & $U_2$/\si{\milli\volt} & $U_3$/\si{\milli\volt} & $R_1$/ 5\cdot\si{\milli\volt} &$R_2$/ 5\cdot\si{\milli\volt} \\
+      Probe & $U_1$/\si{\milli\volt} & $U_2$/\si{\milli\volt} & $U_3$/\si{\milli\volt} & $R_1$/ 5\cdot\si{\milli\Ohm} &$R_2$/ 5\cdot\si{\milli\Ohm} \\
       \midrule
     $Gd_2 O_3$ & 4,65 & 38,0 & 5,80 & 719 & 559 \\
      - & 4,70 & 38,5 & 5,30 & 720,5 & 557 \\
@@ -107,7 +107,7 @@ Die entsprechenden Werte sind in \ref{tab:daten} zu finden. Die Messwerte zu den
     \end{tabular}
   \end{table}
 
-  $\chi_1$ berechnet sich nach Gleichung \ref{eqn:chi2} und $chi_2$ nach Gleichung \ref{eqn:chi3}. Mit den gemittelten Werten für die Spannungen und Widerstände aus Tabelle \ref{tab:messwerte} ergeben sich für die drei Proben die Werte in \ref{tab:suszep}.
+  $\chi_1$ berechnet sich nach Gleichung \ref{eqn:chi2} und $\chi_2$ nach Gleichung \ref{eqn:chi3}. Mit den gemittelten Werten für die Spannungen und Widerstände aus Tabelle \ref{tab:messwerte} ergeben sich für die drei Proben die Werte in \ref{tab:suszep}.
 
   \begin{table}
     \caption{Berechnete Suszeptibilitäten.}
@@ -128,7 +128,7 @@ Zusätzlich sollen die Suszeptibilitäten mit Gleichung \ref{eqn:chi1} berechnet
 \begin{equation}
   N=\frac{\rho N_\mathrm{A}}{M}
 \end{equation}
-mit $M$ als molare Masse und $N_\mathrm{A} = 1,381 \cdot 10^{-23} \frac{\si{\joule}}{\si{\kelvin}}$ als Avogadro-Konstante \cite{codata}.
+mit $M$ als molare Masse und $N_\mathrm{A} = 6,022 \cdot 10^{23} \frac{1}{\si{\mol}}$ als Avogadro-Konstante \cite{codata}.
 
 \begin{table}
   \caption{Quantenzahlen der Proben.}
@@ -136,7 +136,7 @@ mit $M$ als molare Masse und $N_\mathrm{A} = 1,381 \cdot 10^{-23} \frac{\si{\jou
   \label{tab:quantenzahlen}
   \begin{tabular}{c c c c c c}
     \toprule
-    - & $L$ & $S$ & $J$ & $g_\mathrm{j}$ & $N/10^28\si{\meter}^3$ \\
+    - & $L$ & $S$ & $J$ & $g_\mathrm{j}$ & $N/10^{28}$ \\
     \midrule
   $Gd_2 O_3$ & 0 & 3,5 & 3,5 & 2 & 1,229 \\
   $Nd_2 O_3$ & 6 & 1,5 & 4,5 & 0,72 & 1,296 \\
@@ -167,7 +167,7 @@ Die Abweichungen der berechneten Werte $\chi_1$ und $\chi_2$ von den Theoriewert
 \begin{table}
   \caption{Abweichungen der berechneten Suszeptibilitäten $\chi_1$ und $\chi_2$ vpn den Theoriewerten.}
   \centering
-  \label{tab:Abweichungen}
+  \label{tab:abweichungen}
   \begin{tabular}{c c c}
     \toprule
     Probe & Abweichung $\chi_1$ & Abweichung $\chi_2$ \\
