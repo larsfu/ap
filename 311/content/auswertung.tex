@@ -1,2 +1,49 @@
 \section{Auswertung}
 \label{sec:Auswertung}
+\subsection{Leitfähigkeitsparameter}
+Die gemessenen Hallspannungen werden über den Strom durch die Probe aufgetragen und es wird eine lineare Regression der Daten durchgeführt und damit die Steigung der Geraden $m$ bestimmt. Die zugehörigen Plots finden sich in Abb.~\ref{fig:b} und Abb.~\ref{fig:b1}. Da für Kupfer die Dicke der Probe bekannt ist, kann dort die Hallkonstante
+\begin{equation}
+  R_\text{H} = \frac{1}{ne}
+\end{equation}
+gemäß \eqref{eqn:hall} bestimmt werden. Es wird ein Magnetfeld von $B = \SI{1.059}{T}$ angenommen (siehe nächster Abschnitt). Für Zink ist dies nicht möglich, es wird stattdessen ein Literaturwert für die Hallkonstante aus \cite{zinkhall} benutzt, um die Dicke zu bestimmen.
+
+\fig{build/b2.pdf}{Hallspannung in Abhängigkeit von der Stromstärke für Kupfer.}{b1}
+\fig{build/b.pdf}{Hallspannung in Abhängigkeit von der Stromstärke für Zink.}{b}
+
+Aus $R_H$ kann wiederum auf triviale Art und Weise die Ladungsträgerdichte bestimmt werden. Aus
+\begin{equation}
+  z = n  V_m / N_A
+\end{equation}
+kann mit dem molaren Volumen, das jeweils \cite{chemie.de} entnommen ist, die Zahl der Ladungsträger pro Atom bestimmt werden. Für weitere Berechnugen ist der Ohmsche Widerstand der Probe nötig, der über
+\begin{equation}
+  R = \frac{U}{I}
+\end{equation}
+aus der Widerstandsmessreihe (gemittelt) bestimmt wird. Für die mittlere Flugzeit folgt aus \eqref{eqn:S}
+\begin{equation}
+  \bar\tau = \left(\frac{e^2 R Q n}{2 m_e L}\right)^{-1}.
+\end{equation}
+Die mittlere Driftgeschwindigkeit
+\begin{equation}
+  \bar v_d = -\frac{j}{ne}
+\end{equation}
+wird für
+\begin{equation}
+  j = \SI{1}{\ampere\per\milli\meter\squared}
+\end{equation}
+berechnet.
+Die Totalgeschwindigkeit
+\begin{equation}
+  v \approx \sqrt{\frac{2 E_F}{m_e}}
+\end{equation}
+und die mittlere freie Weglänge
+\begin{equation}
+  \bar l \approx \bar \tau \sqrt{\frac{2 E_F}{m_e}}
+\end{equation}
+werden aus den zuvor berechneten Größen bestimmt. Alle Ergebnisse der angegebenen Berechnungen finden sich in den Tabellen~\ref{tab:erg}~und~\ref{tab:erg2}.
+\input{build/erg.tex}
+\input{build/erg2.tex}
+
+\subsection{Hysteresekurve}
+Die magnetische Flussdichte des Elektromagneten in Abhängigkeit vom Spulenstrom findet sich in Abb.~\ref{fig:hyst}.
+
+\fig{build/hysterese.pdf}{Hysteresekurve des verwendeten Elektromagneten. Zur Verdeutlichung des Kurvenverlaufs wurden die Messwerte mit einem Polygonzug interpoliert.}{hyst}
