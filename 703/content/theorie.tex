@@ -1,5 +1,26 @@
 \section{Ziel}
 \label{sec:Ziel}
 
+In diesem Versuch soll die Charakteristik eines Geiger-Müller-Zählrohrs untersucht werden. Dazu werden die Plateausteigung des Geiger-Müller-Bereichs, die Tot- und Erholungszeit, die Zeit zwischen Primär- und Nachentladungsimpuls, sowie die pro Impuls freigesetzte Ladung bestimmt.
+
 \section{Theorie}
 \label{sec:theorie}
+\subsection{Einführung und Aufbau}
+Ein Geiger-Müller-Zählrohr ist ein Messgerät zur Detektion ionisierender Strahlung. Beim Auftreffen eines Teilchens von $\upalpha$-, $\upbeta$- und teilweise auch $\upgamma$-Strahlung fließt ein Impulsstrom. Diese Ereignisse können mit einem Zähler aufgenommen oder mit einem Lautsprecher als typisches Knacken hörbar gemacht werden.
+
+Das Gerät besteht aus einem einseitig offenen Stahlzylinder, wobei die offene Seite mit einer Mylar-Folie verschlossen ist, die dünn genug ist, um sogar von $\upalpha$-Teilchen durchdrungen zu werden. Im Zylinder ist ein Anodendraht isoliert befestigt; der Zylinder ist mit einem Gas gefüllt, welches durch die eintreffenden Partikel ionisiert werden kann. Zwischen Stahlzylinder und Anodendraht wird eine Spannung zwischen \SI{300}{\volt} und \SI{1000}{\volt} angelegt. Der Aufbau des Geräts ist auch Abb.~\ref{fig:aufbau} zu entnehmen.
+
+\fig{bilder/aufbau}{Schnittbild eines Geiger-Müller-Zählrohrs mit Endfenster. \cite{anleitung703}}{aufbau}
+
+\subsection{Funktionsprinzip}
+Wenn nun ein Teilchen durch das Eintrittsfenster in den Gasraum eintritt, ionisiert es solange durch Stoßprozesse Gasatome, bis seine kinetische Energie aufgebraucht ist. Die darauf folgenden Prozesse sind abhängig von der angelegten Spannung $U$. In Abb.~\ref{fig:kennlinie} sind die im Nachfolgenden beschriebenen Bereiche grafisch aufgetragen und markiert. In Bereich I rekombinieren die Ionen und Elektronen größtenteils wieder, nur eine kleine Zahl von Elektronen erreicht den Anodendraht. Wenn man nun die Spannung leicht erhöht, werden proportional mehr Elektronen \enquote{abgesogen} (Bereich II). In Bereich III können die von der Spannung beschleunigten Elektronen so viel Energie aufnehmen, dass durch Stöße weitere Gasatome ionisiert werden. Dies führt zu einer Kettenreaktion, der sogenannten \emph{Townsend-Lawine}. Die freigesetzte Ladung ist nun in einem messbaren Bereich und weiterhin Proportional zur Spannung. Im \emph{Geiger-Müller-Bereich} (IV), in dem das untersuchte Gerät arbeitet, ist die Energie der Elektronen dann so hoch, dass durch zusätzlich freigesetzte UV-Photonen das gesamte Gasvolumen ionisiert wird. Die freigesetzte Ladung ist dann nicht mehr proportional zur Energie der auftreffenden Teilchen, es ist nur noch die Detektion ihres Eintreffens (mit einfachen Mitteln) möglich. Erhöht man die Spannung weiter erhöhen (Bereich V), rekombinieren die Elektron-Ion-Paare nicht in ausreichender Zahl zwischen zwei Impulsen und es kommt zu einer dauerhaften Gasentladung, die das Zählrohr schnell zerstören wurde.
+\fig{bilder/kennlinie}{Anzahl der ionisierten Gasatome in Abhängigkeit der Spannung im Zählrohr. \cite{anleitung703}}{kennlinie}
+
+\subsection{Ioneneffekte}
+Durch die durch Stoßionisation gebildeten Gasionen, die sich (im Vergleich zu den Elektronen) nur langsam in Richtung des Zylinders bewegen, wird die Feldstärke des Anodendrahtes nach einem Impuls kurzzeitig abgeschirmt. In dieser Zeit sind keine erneuten Ionisationen möglich, daher nennt man den Zeitraum, bis wieder neue Impulse aufgenommen werden können \emph{Totzeit} $T$. Durch den gleichen Effekt stehen bei einem Ereignis kurz nach dem Ende der Totzeit noch nicht wieder alle Gasatome zur Verfügung, daher ist die freigesetzte Ladung bis zum verstreichen der \emph{Erholungszeit} $T_\text{E}$ herabgesetzt. Beide Zeiten sind in Abb.~\ref{fig:totzeit} grafisch verdeutlicht.
+\fig{bilder/totzeit}{Grafische Darstellung von Tot- und Erholungszeit. \cite{anleitung703}}{totzeit}
+Beim Auftreffen der Ionen auf den Zylindermantel werden teilweise Sekundärelektronen freigesetzt. Diese Sind in der Lage, wiederum eine Lawinenionisation auszulösen. Diesen Effekt nennt man \emph{Nachentladung}, er ist unerwünscht und lässt sich durch das einbringen einer geringen Menge von Alkoholdampf in des Zylindervolumen reduzieren, da bei seiner Ionisation keine Elektronen freiwerden.
+
+\subsection{Charakteristik}
+Die Abhängigkeit der Zählrate von der Zählrohrspannung nennt man \emph{Charakteristik}. Im Geiger-Müller-Bereich ist eigentlich eine konstante Zählrate zu erwarten. Allerdings wird aufgrund der Nachentladungen, die mit steigender Spannung zunehmen, eine Kurve wie in Abb.~\ref{fig:plateau} erreicht. Es wird eine möglichst geringe Steigung des Plateaus angestrebt. Diese soll im Versuch bestimmt werden.
+\fig{bilder/plateau}{Charakteristik eines Geiger-Müller-Zählrohrs}{plateau}

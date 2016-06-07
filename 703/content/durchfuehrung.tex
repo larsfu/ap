@@ -1,2 +1,10 @@
 \section {Aufbau und Durchführung}
 \label{sec:durchführung}
+
+Um mit dem Geiger-Müller-Zählrohr Zählraten aufzunehmen, wird eine Schaltung wie in Abb.~\ref{fig:schaltung} genutzt. Vor dem Zählrohr wird eine Probe aus Thallium-204 angebracht. Der Impulsstrom fließt durch den Widerstand R und lädt den Kondensator C. Das dortige Signal wird verstärkt und kann entweder mit einem Zähler gezählt oder auf einem Oszilloskop zur näheren Untersuchung betrachtet werden.
+\fig{bilder/schaltung}{Skizze der Messapparatur. \cite{anleitung703}}{schaltung}
+Um die Steigung des Geiger-Müller-Plateaus zu bestimmen wird die Zählrate in Abhängigkeit von der Spannung aufgenommen. Weiterhin wird auf dem Oszilloskop der zeitliche Abstand zwischen Primär- und Nachentladung abgelesen. Um Tot- und Erholungszeit mit dem Oszilloskop zu bestimmen, wird die Intensität des Strahlers abgesenkt, bis einzelne Impulse auf dem Schirm sichtbar sind. Die Totzeit wird daraufhin noch mit der Zwei-Quellen-Methode bestimmt. Dazu wird nacheinander mit einem, zwei und dann dem zweiten Präparat allein die Messung durchgeführt. Daraus kann angenähert über
+\begin{equation}
+    T \approx \frac{N_1 + N_2 - N_{1+2}}{2N_1N_2}
+\end{equation}
+die Totzeit bestimmt werden, wobei $N_{i}$ die jeweiligen Messraten bezeichnet.
