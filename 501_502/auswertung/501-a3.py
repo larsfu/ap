@@ -9,12 +9,12 @@ x=[1/200, 1/250, 1/300, 1/350, 1/400, 1/450, 1/500]
 y=[0.177, 0.140, 0.116, 0.099, 0.089, 0.080, 0.076]
 e=[0.001, 0.001, 0.001, 0.001, 0.001, 0.002, 0.001]
 
-def f(x, a, b):
-  return a*x+b
-params,covariance=curve_fit(f,x,y)
-params, covariance = curve_fit(f, x, y, sigma=e)
-print ('a=',params[0], '±', covariance[0,0]**0.5)
-print ('b=',params[1], '±', covariance[1,1]**0.5)
+def f(x,a,b):
+    return a*x+b
+params,covariance = curve_fit(f,x,y)
+errors = np.sqrt(np.diag(covariance))
+print ('a=',params[0], '±', errors[0])
+print ('b=',params[1],'±', errors [1])
 e=[0.001, 0.001, 0.001, 0.001, 0.001, 0.002, 0.001]
 plt.errorbar(x,y,yerr=e, fmt='None',label="Messwerte")
 xfine=np.linspace(0.002 ,0.005,100)
