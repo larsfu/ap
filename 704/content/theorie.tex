@@ -1,5 +1,80 @@
 \section{Ziel}
 \label{sec:Ziel}
 
+Im folgenden Experiment soll das exponentielle Absorptionsgesetz für $\gamma$-Strahlung bestätigt sowie die Absorptionskoeffizienten von Kupfer und Blei bestimmt werden. Für $\beta$-Strahlung soll ebenfalls die Absorptionskurve aufgenommen werden. Hier wird Aluminium verwendet. Daraus soll die Maximalenergie des $\beta$-Strahlers berechnet werden.
+
 \section{Theorie}
 \label{sec:theorie}
+Sowohl bei $\beta$- als auch bei $\upgamma${γ}-Strahlung treten Wechselwirkungen mit Materie auf. Um die Häufigkeit der Wechselwirkungen darzustellen, wird der Wirkungsqueschnitt $\sigma$ eingeführt. Je größer $\sigma$, desto größer ist die Anzahl der Wechselwirkungen. Für $\upgamma${γ}-Strahlung gilt:
+\begin{equation}
+  N(D)=N_0 e^{-\mu D}.
+\end{equation}
+
+Dabei ist $N(D)$ die Anzahl der Teilchen hinter dem Absorber, $N_0$ die Ausgangsaktivität, $D$ die Dicke des Absorbers und $\mu$ der Absorptionskoeffizient, der sich aus
+\begin{equation}
+  \mu=n \cdot \sigma
+\end{equation}
+berechnet.
+Für die Anzahl der Teilchen innerhalb des Absorbers ergibt sich folgender Zusammenhang:
+\begin{equation}
+  n=\frac{z\,N_\mathrm{A}}{V_\mathrm{mol}}=\frac{z\,N_\mathrm{A}\,\rho}{M}
+\end{equation}
+mit $z$ als Ordnungszahl, $N_\mathrm{A}$ als Avogadrokonstante $V_\mathrm{mol}$ als Molvolumen, $M$ als Molekulargewicht und $\rho$ als Dichte.
+
+\subsection{\texorpdfstring{$\upgamma$}{γ}-Strahlung}
+\subsubsection{Entstehung}
+Wenn ein angeregter Atomkern seinen Energiezustand in einen niedrigeren Zustand ändert, entsteht $\upgamma${γ}-Strahlung. Da die Energiezustände, welche der Atomkern annehmen kann, diskret sind, handelt es sich bei dem Spektrum eines $\upgamma${γ}-Strahlers um ein Linienspektrum.Bei den emittierten $\upgamma${γ}-Quanten handelt es sich um Photonen. Somit breitet sich $\upgamma${γ}-Strahlung mit Lichtgeschwindigkeit aus und weist Eigenschaften, zum Beispiel Inteferenz, einer elektromagnetischen Welle auf.
+
+\subsubsection{Wechselwirkung mit Materie}
+\fig{bilder/wechselwirkung.pdf}{Verschiedene Arten der Wechselwirkung von $\upgamma${γ}-Strahlung mit Materie \cite{anleitung704}.}{ww}
+In Abbildung \ref{fig:ww} sind die verschiedenen Wechselwirkungen von $\upgamma${γ}-Strahlung mit Materie dargestellt. Es treten Annihilationsprozesse, wobei das $\upgamma${γ}-Quant vernichtet wird, inelastische Streuung, welche eine Richtungsänderung und einen Energieverlust des Quants zur Folge hat und elastische Streuung, welche nur eine Richtungsänderung verursacht, auf.
+Im Folgenden sollen der Compton- sowie der Photo-Effekt und die Paarbildung genauer betrachtet werden.
+Beim Compton-Effekt,dargestellt in \ref{fig:compton}, wechselwirkt das $\upgamma${γ}-Quant mit einem freien Elektron. Bei Metallen sind dies die Leitungselektronen. Bei anderen Materialien können die Elektronen auf den äußeren Schalen als frei genähert werden. Da es sich bei der Wechselwirkung um eine inelastische Streuung handelt, tritt sowohl eine Änderung der Energie als auch der Richtung auf. Aus dem Energie- und Impulssatz folgt, dass ein $\upgamma${γ}-Quant nie seine Gesamtenergie auf ein freies Elektron übertragen kann. Nach dem Streuprozess ist eine geringere Intesität festzustellen, welche durch die Ablenkung in unterschiedliche Richtungen erklärt werden kann. Für den Wirkungsquerschnitt gilt
+\begin{equation}
+\label{eqn:sigma_com}
+\sigma_\mathrm{com}=2\pi\,r_\mathrm{e}^2\left(\frac{1+\epsilon}{\epsilon^2}\left(\frac{2(1+\epsilon)}{1+2\epsilon}-\frac{1}{\epsilon}\ln(1+2\epsilon) \right)\frac{1}{2\epsilon}\ln(1+2\epsilon)-\frac{1+3\epsilon}{(1+2\epsilon)^2}\right).
+\end{equation}
+Dabei entspricht $\epsilon = \frac{E_\mathrm{q}}{m_0\,c^2}$ dem Verhältnis der Quantenenergie $E_\mathrm{q}$ zur Ruheenergie des Elektrons und für den Elektronenradius $r_\mathrm{e}$ gilt
+\begin{equation}
+\label{eqn:r_e}
+ r_\mathrm{e}=\frac{e^2}{4\pi\epsilon_0 m_\mathrm{e}c^2}=2,82\cdot10^{-15}\si{\meter}.
+\end{equation}
+Der Absorptionskoeffizient $\mu_\mathrm{com}$ lässt sich wie folgt berechnen:
+\begin{equation}
+  \label{eqn:mu_com}
+\mu_\mathrm{com}=\frac{z\,N_\mathrm{A}\,\rho}{M}\sigma_\mathrm{com}.
+\end{equation}
+
+Beim Photo-Effekt tritt eine Wechelwirkung zwischen $\upgamma${γ}-Quant und einem Hüllenelektron des Absorbers auf. Die Energie wird vollständig auf das Hüllenelektron übergeben. Somit wird das $\upgamma${γ}-Quant vernichtet. Für diesen Prozess muss die Energie des $\upgamma${γ}-Quants größer sein als die Bindungsenergie, weshalb der Photo-Effekt erst ab einem bestimmten Energiewert auftritt (siehe \ref{fig:energie}).
+
+Zu Paarbildung kommt es nur, wenn ein $\upgamma${γ}-Quant mindestens zweimal so viel Energie wie ein ruhendes Elektron besitzt. Dabei werden ein Elektron und ein Positron gebildet, was zur Annihlation des $\upgamma${γ}-Quants führt. Dieser Prozess tritt nur innerhalb von Coulomb-Feldern auf.
+
+\fig{bilder/compton.pdf}{Schematische Darstellung des Compton-Effektes \cite{anleitung704}.}{compton}
+\fig{bilder/energie.pdf}{Darstellung des Absorptionskoeffizienten in Abhägigkeit von der Energie; hier am Beispeil von Germanium \cite{anleitung704}.}{energie}
+
+\subsection{\texorpdfstring{$\upbeta$}{β}-Strahlung}
+\subsubsection{Entstehung}
+Werden Elektronen mit großer kinetischer Energie von instabilen Atomkernen emittiert, wird dies als $\upbeta${β}-Strahlung bezeichnet. Dabei wird ein Nukleon wie folgt umgewandelt:
+\begin{align}
+  n \rightarrow p + \beta^- + \overline{\nu}_\mathrm{e}
+  p \rightarrow n + \beta^+ +\nu_\mathrm{e}.
+\end{align}
+Zusätzlich zur Emission des Elektrons erfolgt die Emission eines Antineutrinos $\overline{mu}_\mathrm{e}$ oder eines Neutrinos $\mu_\mathrm{e}$. Da sich die Energie auf die beiden emittierten Teilchen aufteilt, besitzt $\beta$-Strahlung ein kontinuierliches Spektrum. Die Wechselwirkung des Neutrinos mit Materie ist vernachlässigbar klein.
+
+\subsubsection{Wechselwirkung mit Materie}
+Die verschiedenen Arten der Wechselwirkung von $\upbeta${β}-Strahlung mit Materie sind elastische und inelastische Streuung am Atomkern und inelastische Streuung an Elektronen, welche im Folgenden erklärt werden sollen.
+Die elastische Streuung an Atomkernen des Absorbermaterials wird auch als Rutherford-Streuung bezeichnet. Dabei werden die Elektronen der $\upbeta${β}-Strahlung durch die wirkenden Kräfte des Coulomb-Felds der Atomkerne abgelenkt. Im Vergleich zu anderen Effekten ist die Energiedifferenz vor und nach der Wechselwirkung klein.
+Bei der inelastischen Streuung an Atomkernen erfahren die $\upbeta${β}-Teilchen eine Beschleunigung im Coulomb-Feld der Atomkerne, wobei Energie als elektromagnetische Strahlung abgegeben wird. Durch diese elektromagnetische Strahlung werden die $\upbeta${β}-Teilchen abgebremst. Deshalb wird sie auch Bremsstrahlung genannt.
+Die inelastische Streuung an Elektronen des Absorbermaterials beschreibt den Prozess der Ionisation und Anregung der Atome des Absorbers. Die Wahrscheinlichkeit für diese Art der Wechselwirkung ist proportional zur Kernladungszahl $z$ und der Anzahl der Atome pro Volumeneinheit.
+
+\subsubsection{Absorptionskurve}
+\fig{bilder/absorption.pdf}{Absorptionskurve eines natürlichen $\upbeta${β}-Strahlers \cite{anleitung704}.}{absorption}
+Abbildung \ref{fig:absorption} zeigt die Absoprtionskurve eines natürlichen $\upbeta${β}-Strahlers. Zu Beginn gilt für die Absorptionskurve eines $\upbeta${β}-Strahlers ebenfalls ein exponentieller Zusammenhang. Entspricht die Dicke $D$ des Absorbers ungefähr der maximalen Reichweite $R_\mathrm{max}$, wird wird die Absorptionskurve durch einen linearen Zusammenhang. $R$ und $D$ hängen wie folgt zusammen:
+\begin{equation}
+  R=\rho\,D
+\end{equation}
+Aus der maximalen Reichweite $R_\mathrm{max}$ kann nun die maximale Energie $E_\mathrm{max}$ berechnet werden:
+\begin{equation}
+  E_\mathrm{max} = 1,92 \sqrt{R_\mathrm{max}^2+0,22\,R_\mathrm{max}}
+\end{equation}
+mit $[R_\mathrm{max}]=\si{\gram\per\centi\meter}$ und $[E_\mathrm{max}]= \si{\mega\electronvolt}$.
