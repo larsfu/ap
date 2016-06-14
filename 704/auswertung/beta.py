@@ -31,7 +31,7 @@ N_u = unc.ufloat(324/900, np.sqrt(324)/900)
 d = unp.uarray(d, delta_d) * 1e-6
 N = unp.uarray(n/t, np.sqrt(n)/t) - N_u
 
-tools.table((*Al, N), ("d/mm", "n", "(N-N_U)/\per\second"), "build/Al.tex", "Messdaten von Aluminium.", "tab:datenAl", split=2)
+tools.table((Al[0], Al[1], Al[2], N), ("d/mm", "n", "(N-N_U)/\per\second"), "build/Al.tex", "Messdaten von Aluminium.", "tab:datenAl", split=2)
 
 slope1, std_a1, intercept1, std_b1 = linregress(unp.nominal_values(d[:4]), unp.nominal_values(N[:4]))
 slope2, std_a2, intercept2, std_b2 = linregress(unp.nominal_values(d[5:]), unp.nominal_values(N[5:]))
