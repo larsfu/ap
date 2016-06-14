@@ -76,7 +76,7 @@ def table(values, names, file, caption, label, split=1, footer=None, round_figur
         i+=1
 
     if footer != None:
-        result += r"\midrule" + footer
+        result += r"\midrule \multicolumn{{{}}}{{c}}{{{}}}\\".format(len(row)+unc_list.count(True)+1, footer)
 
     result += r" \bottomrule \end{tabular} \end{table}"
     with open(file, 'w') as f:
