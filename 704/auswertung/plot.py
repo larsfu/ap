@@ -14,9 +14,9 @@ def auswerten(name, d, n, t, z, V_mol, eps, raw):
     N = unp.uarray(n/t, np.sqrt(n)/t) - N_u
 
     if name=="Cu":
-        tools.table((raw[0], raw[1], N), ("d/mm", "n", "(N-N_U)/\per\second"), "build/{}.tex".format(name), "Messdaten von {}.".format(name), "tab:daten{}".format(name), split=2, footer=r"$\Delta t = \SI{60}{s}$")#"(N-N_U)/\per\second"
+        tools.table((raw[0], raw[1], N), ("D/mm", "n", "(N-N_U)/\per\second"), "build/{}.tex".format(name), "Messdaten von {}.".format(name), "tab:daten{}".format(name), split=2, footer=r"$\Delta t = \SI{60}{s}$")#"(N-N_U)/\per\second"
     else:
-        tools.table((raw[0], raw[1], raw[2], N), ("d/mm", "n", "\Delta t/s", "(N-N_U)/\per\second"), "build/{}.tex".format(name), "Messdaten von {}.".format(name), "tab:daten{}".format(name), split=2)
+        tools.table((raw[0], raw[1], raw[2], N), ("D/mm", "n", "\Delta t/s", "(N-N_U)/\per\second"), "build/{}.tex".format(name), "Messdaten von {}.".format(name), "tab:daten{}".format(name), split=2)
     mu = z * const.N_A / V_mol * 2 * np.pi * (const.e**2 / (4 * np.pi * const.epsilon_0 * const.m_e * const.c**2))**2 * ((1+eps)/eps**2 * ((2 * (1+eps))/(1+2*eps) - 1/eps * np.log(1+2*eps)) + 1/(2*eps) * np.log(1+ 2*eps) - (1+ 3*eps)/(1+2*eps)**2)
 
     params, pcov = curve_fit(fit, d, unp.nominal_values(N), sigma=unp.std_devs(N))
@@ -29,8 +29,8 @@ def auswerten(name, d, n, t, z, V_mol, eps, raw):
     valuesm = (fit(sd, *(unp.nominal_values(params_) - 10*unp.std_devs(params_)))).astype(float)
 
     #plt.xlim(0,7)
-    plt.xlabel(r"$d/\si{mm}$")
-    plt.ylabel(r"$N/\si{\per\second}$")
+    plt.xlabel(r"$D/\si{mm}$")
+    plt.ylabel(r"$(N-N_U)/\si{\per\second}$")
     plt.plot(1e3*sd, fit(sd, *params), 'b-', label="Fit")
     plt.fill_between(1e3*sd, valuesm, valuesp, facecolor='blue', alpha=0.125, edgecolor='none', label=r'$1\sigma$-Umgebung ($\times 10$)')
     plt.errorbar(1e3*d, unp.nominal_values(N), yerr=unp.std_devs(N), fmt='rx', label="Messdaten")

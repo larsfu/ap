@@ -26,12 +26,12 @@ Al = np.genfromtxt('daten/{}.txt'.format('Al'), unpack=True, dtype=object)
 
 d, delta_d, t, n = Al.astype(float)
 
-delta_d /= 1e6
+#delta_d /= 1e6
 N_u = unc.ufloat(324/900, np.sqrt(324)/900)
 d = unp.uarray(d, delta_d) * 1e-6
 N = unp.uarray(n/t, np.sqrt(n)/t) - N_u
 
-tools.table((Al[0], Al[1], Al[2], N), ("d/mm", "n", "(N-N_U)/\per\second"), "build/Al.tex", "Messdaten von Aluminium.", "tab:datenAl", split=2)
+tools.table((Al[0], Al[2], Al[3], N), ("D/µm", "n", "\Delta t/s", "(N-N_U)/\per\second"), "build/Al.tex", "Messdaten von Aluminium.", "tab:datenAl", split=2, round_figures=(0,0,0,3))
 
 slope1, std_a1, intercept1, std_b1 = linregress(unp.nominal_values(d[:4]), unp.nominal_values(N[:4]))
 slope2, std_a2, intercept2, std_b2 = linregress(unp.nominal_values(d[5:]), unp.nominal_values(N[5:]))
@@ -39,8 +39,10 @@ slope2, std_a2, intercept2, std_b2 = linregress(unp.nominal_values(d[5:]), unp.n
 print(std_a1, std_a2)
 
 D_max = (unc.ufloat(intercept2, std_b2)-unc.ufloat(intercept1, std_b1))/(unc.ufloat(slope1, std_a1) - unc.ufloat(slope2, std_a2))
-R_max = D_max * 2700 * 10
-print("D_max = {}µm, R_max = {}g/cm², E_max = {} MeV".format(D_max*1e6, R_max, 1.92*unp.sqrt(R_max**2 - 0.22*R_max)))
+R_max = D_max * 2700
+print(D_max*1e6, R_max)
+D_max = 1.92*unp.sqrt(R_max**2 - 0.22*R_max)
+print("D_max = {}µm, R_max = {}kg/m², E_max = {} MeV".format(D_max*1e6, R_max, D_max))
 #print(unp.nominal_values(d), N)
 sd = np.linspace(0, 0.5e-3)
 
@@ -53,8 +55,8 @@ plt.errorbar(1e6*unp.nominal_values(d[5:]), unp.nominal_values(N[5:]), fmt='bx',
 plt.errorbar(1e6*unp.nominal_values(d[4:5]), unp.nominal_values(N[4:5]), fmt='kx', yerr=unp.std_devs(N[4:5]), label=r"Messdaten, unberücksichtigt")
 
 plt.legend(loc='best')
-plt.xlabel(r"$d/\si{\micro\meter}$")
-plt.ylabel(r"$N/\si{\per\second}$")
+plt.xlabel(r"$D/\si{\micro\meter}$")
+plt.ylabel(r"$(N-N_U)/\si{\per\second}$")
 plt.tight_layout(pad=0)
 plt.savefig("build/beta.pdf")
 plt.clf()
