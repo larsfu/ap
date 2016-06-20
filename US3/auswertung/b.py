@@ -28,6 +28,11 @@ v2 = -delta_f2 * c_l / nu_0 / 2 / np.cos(alpha)
 
 plt.plot(depth*1e3, v1, 'x', label="70% Pumpenleistung")
 plt.plot(depth*1e3, v2, 'x', label="45% Pumpenleistung")
+
+plt.plot((33, 33), (0, 0.7), 'r--', label='Rohr')
+plt.plot((41.7, 41.7), (0, 0.7), 'r--')
+
+
 plt.ylabel(r'$v/\si{\meter\per\second}$')
 plt.xlabel(r'$d/\si{mm}$')
 plt.legend(loc='best')
@@ -36,6 +41,11 @@ plt.clf()
 
 plt.plot(depth*1e3, I1, 'x', label="70% Pumpenleistung")
 plt.plot(depth*1e3, I2, 'x', label="45% Pumpenleistung")
+
+plt.plot((33, 33), (0, 14000), 'r--', label='Rohr')
+plt.plot((41.7, 41.7), (0, 14000), 'r--')
+
+
 plt.ylabel(r'$I/1000\si{\volt\squared\per\second}$')
 plt.xlabel(r'$d/\si{mm}$')
 plt.legend(loc='best')
