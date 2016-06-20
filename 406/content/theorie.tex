@@ -1,5 +1,64 @@
 \section{Ziel}
 \label{sec:Ziel}
+Das Ziel des Versuchs ist die Untersuchung von Beugungseffekten bei sichtbarem Licht. In diesem Rahmen soll anhand von Beugungsmustern auf die Spaltgeometrie zurückgeschlossen werden.
 
 \section{Theorie}
 \label{sec:theorie}
+
+\subsection{Einführung}
+Da Licht Welleneigenschaften besitzt, kann man daran Beugungsphänomene beobachten. Das bedeutet, dass es auch in den \emph{Schattenraum} hinter Hindernissen eindringen kann. Dies soll hier am einfachen Beispiel eines Spaltes näher untersucht werden. Dazu wird das Muster beobachtet, das entsteht, wenn das Licht einer Lichtquelle durch einen Spalt auf einen Schirm trifft und dort interferiert. Für die mathematische Betrachtung sind zwei herangehensweisen möglich, die \emph{Fraunhofer-} und die \emph{Fresnel-Näherung}. Bei der Fresnelschen Beugung divergiert das von der Lichtquelle ausgehende Strahlenbündel und fällt dann durch den Spalt auf den Schirm (siehe Abb.~\ref{fig:frausnel}). Da die Fraunhofersche Beugung, bei der ein paralleler Lichtstrahl senkrecht auf das Beugungshindernis auftrifft und danach auf dem Schirm dargestellt wird, eine einfachere mathematische Struktur besitzt, wird sie hier benutzt.
+
+\fig{bilder/beugung}{Fresnelsche und Fraunhofersche Beugung an einem Spalt. \cite{anleitung406}}{frausnel}
+
+Die Beugung lässt sich anhand des \emph{Huygensschen Prinzips} verbildlichen. Jeder Punkt der Lichtwelle, die durch den Spalt tritt, lässt sich als Ursprung einer elementaren Kugelwelle auffassen. Ohne Hindernis überlagern sich diese zu einer Ebenen Wellenfront, was durch den Spalt jedoch verhindert wird. Daher wird klar, dass auch Anteile in den Schattenraum eindringen.
+
+\subsection{Einzelspalt}
+Um eine Gleichung für Wellenamplitude hinter dem Spalt zu bekommen ist es von zentraler Bedeutung, den Phasenunterschied
+\begin{equation}
+  \delta = \frac{2\pi s}{\lambda} = \frac{2\pi x \sin \phi}{\lambda}
+\end{equation}
+zweier Teilstrahlen zu betrachten (siehe Abb.~\ref{fig:spalt}). Wird über alle infinitesimalen Strahlenbündel integriert, ergibt sich final ein Zusammenhang
+\begin{equation}
+  B(z, t, \phi) = A_0 \exp\left(\symup{i}\left(\omega t - \frac{2\pi z}{\lambda}\right)\right) \cdot \exp\left(\frac{\pi \symup{i} b \sin \phi}{\lambda}\right) \cdot \frac{\lambda}{\pi \sin \phi} \sin \left( \frac{\pi b \sin \phi}{\lambda}\right)
+\end{equation}
+für die Amplitude der Lichtwelle. Da wir lediglich an der Intensitätsverteilung interessiert sind, können die Phasenfaktoren vernachlässigt werden, womit sich über
+\begin{align}
+  \eta &:= \frac{\pi b \sin \phi}{\lambda} \\
+  \intertext{schließlich die Funktion}
+  B(\phi) &= A_0 b\, \frac{\sin \eta}{\eta}
+\end{align}
+ergibt, die in Abb.~\ref{fig:einzelplot} grafisch aufgetragen ist.
+Da die Amplitude jedoch im Gegensatz zur Intensität nicht direkt gemessen werden kann, wird die Intensitätsverteilung
+\begin{equation}
+  I(\phi) \propto B(\phi)^2 = A_0^2 b^2 \left(\frac{\lambda}{\pi b \sin \phi}\right)^2 \cdot \sin^2 \left(\frac{\pi b \sin \phi}{\lambda}\right)
+\end{equation}
+experimentell genutzt.
+
+\fig{bilder/fraunhofer}{Darstellung der geometrischen Beziehungen am Spalt. \cite{anleitung406}}{spalt}
+\fig{bilder/beugungsbild}{Plot der Amplitudenfunktion am Einzelspalt. \cite{anleitung406}}{einzelplot}[width=12cm]
+\subsection{Doppelspalt}
+Um eine Intensitätsverteilung für das Beugungsbild hinter einem Doppelspalt zu erhalten werden zwei Einzelspalte überlagert (siehe auch Abb.~\ref{fig:doppelspalt}). Es folgt
+\begin{equation}
+  I(\phi) \propto B(\phi)^2 = 4 \cos^2 \left(\frac{\pi s \sin \phi}{\lambda}\right) \cdot \left(\frac{\lambda}{\pi b \sin \phi}\right)^2 \cdot \sin ^2 \left(\frac{\pi b \sin \phi}{\lambda}\right)
+\end{equation}
+analog zum Einzelspalt für die Intensität.
+\fig{bilder/doppelspalt}{Darstellung der geometrischen Beziehungen am Doppelpalt. \cite{anleitung406}}{doppelspalt}
+
+\subsection{Fouriertransformierte der Blendenfunktion}
+Die Theorie zeigt, dass in der Fraunhofernäherung die Amplitudenverteilung auch durch eine Fouriertransformation der Blendenfunktion gegeben ist. Für den oben beschriebenen Fall eines Spaltes ergibt sich die Aperturfunktion
+\begin{align}
+  f(x) =
+    \begin{cases}
+      A_0 & \text {für } 0 \leq x \leq b \\
+      0 & \text{sonst}
+    \end{cases},
+\end{align}
+die Fourier-transformiert in die Gestalt
+\begin{align}
+  g(\xi) = \int^\infty_{-\infty} f(x) \, \symup{e}^{\symup i x \xi}\,\symup dx = A_0 \int_0^b \symup e ^ {\symup i x \xi} \, \symup d x = \frac{A_0}{\symup i \xi} \left(-1 + \symup e ^{\symup i \xi b}\right) = \frac{2 A_0}{\xi} \exp \left(\frac{\symup i \xi b}{2}\right) \, \sin \frac{\xi b}{2}
+\end{align}
+übergeht. Setzt man nun
+\begin{equation}
+  \xi := \frac{2 \pi \sin \phi}{\lambda}
+\end{equation}
+ein, ergibt sich die bereits bekannte Amplitudenfunktion.
