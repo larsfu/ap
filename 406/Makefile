@@ -11,11 +11,17 @@ endif
 all: build/main.pdf
 
 # hier Python-Skripte:
-#build/magn-moment.pdf: auswertung/plot.py matplotlibrc | build
-#	TEXINPUTS="$(pwd):$(pwd)/../latex-template/:" PYTHONPATH="../" python auswertung/plot.py
+build/einzel1.pdf: auswertung/a1.py matplotlibrc | build
+	TEXINPUTS="$(pwd):$(pwd)/../latex-template/:" PYTHONPATH="../" python auswertung/a1.py
+build/einzel2.pdf: auswertung/a1.py matplotlibrc | build
+	TEXINPUTS="$(pwd):$(pwd)/../latex-template/:" PYTHONPATH="../" python auswertung/a2.py
+build/einzel3.pdf: auswertung/a1.py matplotlibrc | build
+	TEXINPUTS="$(pwd):$(pwd)/../latex-template/:" PYTHONPATH="../" python auswertung/a3.py
+build/doppel.pdf: auswertung/a1.py matplotlibrc | build
+	TEXINPUTS="$(pwd):$(pwd)/../latex-template/:" PYTHONPATH="../" python auswertung/b.py
 
 # hier weitere Abhängigkeiten für build/main.pdf deklarieren:
-#build/main.pdf: build/magn-moment.pdf
+build/main.pdf: build/einzel1.pdf build/einzel2.pdf build/einzel3.pdf build/doppel.pdf
 
 build/main.pdf: FORCE | build
 	  TEXINPUTS="$(call translate,build:)" \
