@@ -1,12 +1,13 @@
 \section{Auswertung}
 \label{sec:Auswertung}
 \subsection{Leitfähigkeitsparameter}
-Die gemessenen Hallspannungen werden über den Strom durch die Probe aufgetragen und es wird eine lineare Regression der Daten durchgeführt und damit die Steigung der Geraden $m$ bestimmt. Die zugehörigen Plots finden sich in Abb.~\ref{fig:b} und Abb.~\ref{fig:b1}. Da für Kupfer die Dicke der Probe bekannt ist, kann dort die Hallkonstante
-\begin{equation}
-  R_\text{H} = \frac{1}{ne}
+Die gemessenen Hallspannungen werden über den Strom durch die Probe aufgetragen und es wird eine lineare Regression der Daten durchgeführt und damit die Steigung der Geraden $m$ bestimmt. Die zugehörigen Plots finden sich in Abb.~\ref{fig:b} und Abb.~\ref{fig:b1}. Da die Dicken der Proben unbekannt sind (oder bei Kupfer als unbekannt angenommen werden soll), werden sie über \begin{equation}
+  d = \frac{\rho L}{R b}
 \end{equation}
-gemäß \eqref{eqn:hall} bestimmt werden. Es wird ein Magnetfeld von $B = \SI{1.059}{T}$ angenommen (siehe nächster Abschnitt). Für Zink ist dies nicht möglich, es wird stattdessen ein Literaturwert für die Hallkonstante aus \cite{zinkhall} benutzt, um die Dicke zu bestimmen.
-
+mit dem spezifischen Widerstand $\rho$ (aus \cite{kkfkfkfkfkfkfkfkfkfkfkfkkfkfkfkfkkfkfkfkfkoekfoefkwpokwpoekfpowkefpowkefpowkefpowkpokwefpowkfpoewkfpowekfpoewkfpowkefpokefpowkefpowekfpoewkfpowekf}) bestimmt. Damit kann dann über \begin{equation}
+  R_H = \frac{m}{bd} = \frac{1}{ne}
+\end{equation}
+die Hall-Konstante bestimmt werden.
 \fig{build/b2.pdf}{Hallspannung in Abhängigkeit von der Stromstärke für Kupfer.}{b1}
 \fig{build/b.pdf}{Hallspannung in Abhängigkeit von der Stromstärke für Zink.}{b}
 
@@ -39,10 +40,11 @@ und die mittlere freie Weglänge
 \begin{equation}
   \bar l \approx \bar \tau \sqrt{\frac{2 E_F}{m_e}}
 \end{equation}
-werden aus den zuvor berechneten Größen bestimmt. Alle Ergebnisse der angegebenen Berechnungen finden sich in den Tabellen~\ref{tab:erg}~und~\ref{tab:erg2}.
+werden aus den zuvor berechneten Größen bestimmt. Alle Ergebnisse der angegebenen Berechnungen finden sich in den Tabellen~\ref{tab:erg},~\ref{tab:erg2}~und~\ref{tab:erg3}.
 \input{build/erg.tex}
 \input{build/erg2.tex}
-
+\input{build/erg3.tex}
+\FloatBarrier
 \subsection{Hysteresekurve}
 Die magnetische Flussdichte des Elektromagneten in Abhängigkeit vom Spulenstrom findet sich in Abb.~\ref{fig:hyst}.
 
