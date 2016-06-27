@@ -1,5 +1,37 @@
 \section{Ziel}
 \label{sec:Ziel}
+Ziel dieses Experiments ist es die Brennweite von Linsen sowie Linsensystemen mittels Messung der Gegenstandsweite und Bildweite, der Methode vpn Bessel und der Methode von Abbe ermittelt werden. Außerdem sollen die Abbildungsgleichung (Gleichung\ref{eqn:abbildung}) und die Linsengleichung(Gleichung \ref{eqn:linse})  für eine Sammellinse bestätigt werden. Desweiteren wird chromatische Abberation an einer Sammellinse betrachtet.
+
 
 \section{Theorie}
 \label{sec:theorie}
+\subsection{Brechung}
+Beim Übergang eines Lichtstrahls von zwei Medien unterschiedlicher optischer Dichte, wird dieser gebrochen. Es gilt das Brechungsgesetz:
+\begin{equation}
+n_1 \sin(\alpha)=n_2 \sin(\beta).
+\end{equation}
+$n_1$ und $n_2$ entsprechen den Brechungszahlen der beiden Medien, $\alpha$ ist der Einfallswinkel vor der Brechung und $\beta$ der Winkel nach der Brechung. Geht der Lichtstrahl von einem optisch dünneren in ein dichteres Medium über ($n_1 < n_2$), wird der Strahl zum Lot hin gebrochen. Beim umgekehrten Fall ($n_1 > n_2$) erfolgt die Brechung vom Lot weg.
+\subsection{Linsen}
+Es gibt Sammel- und Zerstreuungslinsen, welche beide als dünn angenommen werden. Somit gilt näherungsweise, dass die Brechung des Strahls lediglich an der Mittelebene der Linse erfolgt. Zur Bildkonstruktion gibt es bei allen Linsen einen Parallelstrahl $P$ einen Mittelpunktstrahl $M$ und einen Brennpunktstrahl $F$. Der Parallelstrahl wird nach der Brechung zum Brennpunktstrahl; der Mittelpunktstrahl verläuft durch die Mitte der Linse und bleibt unverändert; der Brennpunktstrahl durchläuft den Brennpunkt und ist nach der Brechung parallel zur optischen Achse.
+Zunächst soll die Sammellinse, welche in Abbildung \ref{fig:sammel} dargestellt ist, genauer betrachtet werden.
+\fig{bilder/sammel.pdf}{Darstellung des Strahlenverlaufs an einer Sammellinse \cite{anleitung408}.}{sammel}
+\fig{bilder/zerstreu.pdf}{Darstellung des Strahlenverlaufs an einer Zerstreuungslinse \cite{anleitung408}.}{zerstreu}
+\fig{bilder/dick.pdf}{Darstellung des Strahlenverlaufs an einer dicken Linse \cite{anleitung408}.}{dick}
+ Bei Sammellinsen erfolgt die Bündelung des einfallenden Lichts im Brennpunkt $f$. Sowohl bei der Bildweite $b$ als auch bei der Gegenstandsweite $g$ handelt es sich um positive Größen. Bei dem entstehenden Bild handelt es sich um ein reelles Bild.
+Im Gegensatz zur Sammellinse betitzen die Bildweite $g$ sowie die Gegenstandsweite $b$ negative Werte. Bei dem konstruierten Bild handelt es sich um ein virtuelles Bild.
+Bei dicken Linsen gilt die Näherung, dass der Lichtstrahl nur einmal an der Mittelebene gebrochen wird, nicht mehr. Aus diesem Grund wird angenommen, dass zwei Hauptebenen $H$ und $H'$ existieren, an denen die Brechung erfolgt.
+Mit Hilfe der Strahlensätze folgt sas Abbildungsgesetz:
+\begin{equation}
+  \label{eqn:abbildung}
+  V=\frac{B}{G}=\frac{b}{g}
+\end{equation}
+mit $B$ als Bildgröße, $G$ als Gegenstandsgröße, $b$ als Bildweite und $g$ als Gegenstandsweite. Somit ist $V$ der Abbildungsmaßstab.
+Für dünne Linsen gilt zusätzlich die Linsengleichung.
+\begin{equation}
+  \label{eqn:linse}
+  \frac{1}{f}=\frac{1}{b}+\frac{1}{g}
+\end{equation}
+
+\subsection{Abbildungsfehler}
+Die Annahme, dass die Brechung nur an der Mittelebene oder an den Haputebenen stattfindet, ist nur für achsnahe Strahlen gültig. Für achsferne Strahlen treten Abbildungsfehler auf. Diese bestehen darin, dass der Gegensttand nicht mehr scharf abgebildet werden kann. Werden achsferne Strahlen stärker gebrochen als achsnahe, wird dies als sphärische Abberation bezeichnet.
+Unter chromatischer Abberation wird verstanden, dass der Brennpunkt des blauen Lichts näher an der Linse liegt als der des roten. Die Brechung ist somit abhängig von der Wellenlänge (Dispersion).
