@@ -1,2 +1,34 @@
 \section{Auswertung}
 \label{sec:Auswertung}
+
+%Anpassen!
+\input{../fehlerrechnung.tex}
+
+\subsection{Linsengleichung}
+Es gilt, die Linsengleichung \eqref{eqn:linse}, sowie die Abbildungsgleichung \eqref{eqn:abbildung} zu verifizieren. Dazu werden die gemessenen Längen (siehe Tabelle~\ref{tab:a1} und~\ref{tab:a2}) dort eingesetzt. Für die Gegenstandsgröße wurde
+\begin{equation}
+  G = \SI{2.8}{cm}
+\end{equation}
+gemessen. Als Mittelwerte ergeben sich
+\begin{align}
+  \langle f_1\rangle &= \SI{164+-0.8}{mm} \\
+  \langle f_2\rangle &= \SI{99.8+-1.6}{mm} \\
+  \left\langle \frac{b_1}{g_1}\right\rangle &= \num{3.0+-1.4} \\
+  \left\langle \frac{B}{G}\right\rangle &= \num{3.0+-1.4},
+\end{align}
+wobei $f_n$ die Messung an zwei verschiendenen Linsen darstellen, die eine vom Hersteller angegebene Brennweite von $f_1^\text{man} = \SI{150}{mm}$ bzw. $f_2^\text{man} = \SI{100}{mm}$ besitzen. Zusätzlich sind in Abb.~\ref{fig:a1}--\ref{fig:a2z} Plots zu finden, bei denen zwischen den auf Abszisse und Ordinate aufgetragenen Messwerten Geraden gezogen wurden. Im idealisierten Fall würden sich diese in einem Punkt, eben dem Brennpunkt, schneiden. Hierbei ist aufgefallen, dass ein Messwert aus der $f_1$-Reihe diesen Brennpunkt deutlich weiter verfehlt als alle anderen. Daher wurde dieser (vierte) Wert von den weiteren Berechnungen, insbesondere der Mittelung, ausgeschlossen.
+\fig{build/a1}{Grafische Darstellung der $f_1$-Messreihe. Die Messwerte wurden auf den Achsen aufgetragen und verbunden.}{a1}
+\fig{build/a1_zoom}{Vergrößerte Darstellung von Abb.\ref{fig:a1}.}{a1z}
+\fig{build/a2}{Grafische Darstellung der $f_2$-Messreihe. Die Messwerte wurden auf den Achsen aufgetragen und verbunden.}{a2}
+\fig{build/a2_zoom}{Vergrößerte Darstellung von Abb.\ref{fig:a2}.}{a2z}
+\input{build/a.tex}
+\input{build/a2.tex}
+
+\subsection{Bessel-Methode}
+\input{build/b.tex}
+
+
+\subsection{Abbe-Methode}
+\fig{build/c1}{}{}
+\fig{build/c2}{}{}
+\input{build/c.tex}
