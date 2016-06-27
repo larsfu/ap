@@ -1,8 +1,31 @@
 \section{Auswertung}
 \label{sec:Auswertung}
 
-%Anpassen!
-\input{../fehlerrechnung.tex}
+\subsection{Fehlerrechnung}
+\subsubsection{Mittelwert und Standardabweichung}
+Der Mittelwert mehrerer Messwerte wird berechnet durch
+\begin{equation}
+\langle v\rangle = \frac{1}{N} \sum_{i=1}^N v_i,
+\end{equation}
+dabei ist die Standardabweichung
+\begin{equation}
+s_i = \sqrt{\frac{1}{N - 1} \sum_{j=1}^N \left(v_j - \langle v\rangle\right){^2}},
+\end{equation}
+wobei $v_j$ ($j = 1, ..., N$) die Messwerte sind.
+
+\subsubsection{Lineare Regression}
+Bei einer linearen Regression über den Messdaten ${x_i, y_i}$ wird für die Steigung
+\begin{align}
+  m &= \frac{\langle x y \rangle - \langle x \rangle \langle y \rangle}{\langle x^2 \rangle - \langle x \rangle ^2}
+  \intertext{und für den $y$-Achsenabschnitt}
+  b &= \langle y \rangle - m \cdot \langle x\rangle
+\end{align}
+angenommen. Für die Standardabweichung gelten
+\begin{align}
+  s_m &= \sqrt{\frac{1}{N-2} \sum^N_{i=1} (y_i - b - mx_i)^2}
+  \shortintertext{und}
+  s_b &= s_m \cdot \sqrt{\frac{1}{N (\langle x^2 \rangle - \langle x \rangle ^2)}}.
+\end{align}
 
 \subsection{Linsengleichung}
 Es gilt, die Linsengleichung \eqref{eqn:linse}, sowie die Abbildungsgleichung \eqref{eqn:abbildung} zu verifizieren. Dazu werden die gemessenen Längen (siehe Tabelle~\ref{tab:a1} und~\ref{tab:a2}) dort eingesetzt. Für die Gegenstandsgröße wurde
@@ -25,10 +48,45 @@ wobei $f_n$ die Messung an zwei verschiendenen Linsen darstellen, die eine vom H
 \input{build/a2.tex}
 
 \subsection{Bessel-Methode}
+Die Brennweite einer Linse soll nun auf andere Art und Weise bestimmt werden. Bei der (zuvor beschriebenen) Bessel-Methode ergibt sich die Brennweite zu
+\begin{equation}
+  f = \frac{e^2 - d^2}{4e}.
+\end{equation}
+Die Größen sind in Abschnitt~\ref{sec:bessel} beschrieben. Da drei Messreihen durchgeführt wurden, einmal ohne Filter und jeweils eine mit rotem und blauem Filter, ergeben sich drei Mittelwerte:
+\begin{align}
+  \langle f_\text{ohne}\rangle &= \SI{100.6+-0.6}{mm} \\
+  \langle f_\text{rot}\rangle &= \SI{101.9+-0.7}{mm} \\
+  \langle f_\text{blau}\rangle &= \SI{101.1+-0.6}{mm},
+\end{align}
+wobei die Messreihe mit einer Linse mit einer Herstellerangabe $f^\text{man} = \SI{100}{mm}$ durchgeführt wurde.
+Die Messdaten sowie die einzelnen Brennweiten finden sich in Tab.~\ref{tab:b}.
 \input{build/b.tex}
 
-
 \subsection{Abbe-Methode}
-\fig{build/c1}{}{}
-\fig{build/c2}{}{}
+Zuletzt soll noch die Brennweite und die Lage der Hauptebenen eines Linsensystems aus Zerstreuungs- und Sammellinse mit der Abbe-Methode bestimmt werden. Die Linsen haben die vom Hersteller angegebenen Brennweiten
+\begin{align}
+  f_1^\text{man} = \SI{-100}{mm} \\
+  f_2^\text{man} = \SI{100}{mm}.
+\end{align}
+Sie sind in einem Abstand von
+\begin{equation}
+  d = \SI{60}{mm}
+\end{equation}
+aufgebaut, die Gegenstandsgröße beträgt
+\begin{equation}
+  G = \SI{28}{mm}.
+\end{equation} Um die gesuchten Größen zu ermitteln, werden lineare Regressionen der Messdaten (siehe Tab.~\ref{tab:c}) an die Gleichungen \eqref{eqn:abbe} durchgeführt, welche auch grafisch in Abb.~\ref{fig:c1} und~\ref{fig:c2} dargestellt sind. Daraus folgen die Ergebnisse
+\begin{align}
+  f_\text{I} &= \SI{162+-2}{mm} \\
+  f_\text{II} &= \SI{168+-1}{mm} \\
+  \langle f_\text{I/II}\rangle &= \SI{165+-1}{mm}\\
+  h &= \SI{-12.0+-0.4}{cm} \\
+  h' &= \SI{19.4+-0.3}{cm}.
+\end{align}
+Die theoretische Brennweite ergibt sich als
+\begin{equation}
+  \frac{1}{f_\text{th}} = \frac{1}{f_1} + \frac{1}{f_2}-\frac{d}{f_1 \cdot f_2} = \SI{166.67}{mm}.
+\end{equation}
+\fig{build/c1}{Die Gegenstandsweite aufgetragen über $1+\frac{1}{V}$, dazu lineare Regression zur Ermittlung von $f_\text I$ und $h$.}{c1}
+\fig{build/c2}{Die Bildweite aufgetragen über $1+V$, dazu lineare Regression zur Ermittlung von $f_\text{II}$ und $h'$.}{c2}
 \input{build/c.tex}
