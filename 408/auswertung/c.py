@@ -49,7 +49,7 @@ f = (f1+f2)/2
 ft = 1/(1/100e-3 + 1/-100e-3 - 6e-2/(100e-3*-100e-3))
 print("Bestimmte Brennweite: f = {}mm, Theoretische Brennweite: f_t = {}mm".format(f*1e3, ft*1e3))
 
-plt.figure(figsize=(5.6, 3.2))
+plt.figure(figsize=(5.6, 3.5))
 plt.xlim(1,2.6)
 plt.xlabel(r'$1+\frac{1}{V}$')
 plt.ylabel(r"$g'/\si{cm}$")
@@ -68,3 +68,10 @@ plt.plot((1+V), b_, 'rx', label='Messdaten')
 plt.legend(loc='best')
 plt.tight_layout(h_pad=-1)
 plt.savefig("build/c2.pdf")
+
+m  = np.array((b"Linsengleichung", b"Linsengleichung", b"Bessel-Methode", b"Abbe-Methode"), dtype=object)
+ber = unp.uarray((164.0, 99.8, 100.6, 165), (0.8, 1.6, 0.6, 1))
+t = (150, 100, 100, 166.67)
+a = np.absolute(ber-t)/t
+
+#tools.table((m, ber, t, a*1e2), ("\text{Messreihe}", r"f/mm", r"f^\text{man}/mm", "\text{Abweichung}/\percent"), "build/disk.tex", "", "")

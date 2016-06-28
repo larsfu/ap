@@ -33,13 +33,13 @@ Es gilt, die Linsengleichung \eqref{eqn:linse}, sowie die Abbildungsgleichung \e
   G = \SI{2.8}{cm}
 \end{equation}
 gemessen. Als Mittelwerte ergeben sich
-\begin{align}
+\begin{align*}
   \langle f_1\rangle &= \SI{164+-0.8}{mm} \\
   \langle f_2\rangle &= \SI{99.8+-1.6}{mm} \\
-  \left\langle \frac{b_1}{g_1}\right\rangle &= \num{3.0+-1.4} \\
-  \left\langle \frac{B}{G}\right\rangle &= \num{3.0+-1.4},
-\end{align}
-wobei $f_n$ die Messung an zwei verschiendenen Linsen darstellen, die eine vom Hersteller angegebene Brennweite von $f_1^\text{man} = \SI{150}{mm}$ bzw. $f_2^\text{man} = \SI{100}{mm}$ besitzen. Zusätzlich sind in Abb.~\ref{fig:a1}--\ref{fig:a2z} Plots zu finden, bei denen zwischen den auf Abszisse und Ordinate aufgetragenen Messwerten Geraden gezogen wurden. Im idealisierten Fall würden sich diese in einem Punkt, eben dem Brennpunkt, schneiden. Hierbei ist aufgefallen, dass ein Messwert aus der $f_1$-Reihe diesen Brennpunkt deutlich weiter verfehlt als alle anderen. Daher wurde dieser (vierte) Wert von den weiteren Berechnungen, insbesondere der Mittelung, ausgeschlossen.
+  %\left\langle \frac{b_1}{g_1}\right\rangle &= \num{3.0+-1.4} \\
+  %\left\langle \frac{B}{G}\right\rangle &= \num{3.0+-1.4},
+\end{align*}
+wobei $f_n$ die Messung an zwei verschiedenen Linsen darstellen, die eine vom Hersteller angegebene Brennweite von $f_1^\text{man} = \SI{150}{mm}$ bzw. $f_2^\text{man} = \SI{100}{mm}$ besitzen. Zusätzlich sind in Abb.~\ref{fig:a1}--\ref{fig:a2z} Plots zu finden, bei denen zwischen den auf Abszisse und Ordinate aufgetragenen Messwerten Geraden gezogen wurden. Im idealisierten Fall würden sich diese in einem Punkt, eben dem Brennpunkt, schneiden. Hierbei ist aufgefallen, dass ein Messwert aus der $f_1$-Reihe diesen Brennpunkt deutlich weiter verfehlt als alle anderen. Daher wurde dieser (vierte) Wert von den weiteren Berechnungen, insbesondere der Mittelung, ausgeschlossen.
 \fig{build/a1}{Grafische Darstellung der $f_1$-Messreihe. Die Messwerte wurden auf den Achsen aufgetragen und verbunden.}{a1}
 \fig{build/a1_zoom}{Vergrößerte Darstellung von Abb.\ref{fig:a1}.}{a1z}
 \fig{build/a2}{Grafische Darstellung der $f_2$-Messreihe. Die Messwerte wurden auf den Achsen aufgetragen und verbunden.}{a2}
@@ -53,36 +53,36 @@ Die Brennweite einer Linse soll nun auf andere Art und Weise bestimmt werden. Be
   f = \frac{e^2 - d^2}{4e}.
 \end{equation}
 Die Größen sind in Abschnitt~\ref{sec:bessel} beschrieben. Da drei Messreihen durchgeführt wurden, einmal ohne Filter und jeweils eine mit rotem und blauem Filter, ergeben sich drei Mittelwerte:
-\begin{align}
+\begin{align*}
   \langle f_\text{ohne}\rangle &= \SI{100.6+-0.6}{mm} \\
   \langle f_\text{rot}\rangle &= \SI{101.9+-0.7}{mm} \\
   \langle f_\text{blau}\rangle &= \SI{101.1+-0.6}{mm},
-\end{align}
+\end{align*}
 wobei die Messreihe mit einer Linse mit einer Herstellerangabe $f^\text{man} = \SI{100}{mm}$ durchgeführt wurde.
 Die Messdaten sowie die einzelnen Brennweiten finden sich in Tab.~\ref{tab:b}.
 \input{build/b.tex}
 
 \subsection{Abbe-Methode}
 Zuletzt soll noch die Brennweite und die Lage der Hauptebenen eines Linsensystems aus Zerstreuungs- und Sammellinse mit der Abbe-Methode bestimmt werden. Die Linsen haben die vom Hersteller angegebenen Brennweiten
-\begin{align}
+\begin{align*}
   f_1^\text{man} = \SI{-100}{mm} \\
   f_2^\text{man} = \SI{100}{mm}.
-\end{align}
+\end{align*}
 Sie sind in einem Abstand von
-\begin{equation}
+\begin{equation*}
   d = \SI{60}{mm}
-\end{equation}
+\end{equation*}
 aufgebaut, die Gegenstandsgröße beträgt
-\begin{equation}
+\begin{equation*}
   G = \SI{28}{mm}.
-\end{equation} Um die gesuchten Größen zu ermitteln, werden lineare Regressionen der Messdaten (siehe Tab.~\ref{tab:c}) an die Gleichungen \eqref{eqn:abbe} durchgeführt, welche auch grafisch in Abb.~\ref{fig:c1} und~\ref{fig:c2} dargestellt sind. Daraus folgen die Ergebnisse
-\begin{align}
+\end{equation*} Um die gesuchten Größen zu ermitteln, werden lineare Regressionen der Messdaten (siehe Tab.~\ref{tab:c}) an die Gleichungen \eqref{eqn:abbe} durchgeführt, welche auch grafisch in Abb.~\ref{fig:c1} und~\ref{fig:c2} dargestellt sind. Daraus folgen die Ergebnisse
+\begin{align*}
   f_\text{I} &= \SI{162+-2}{mm} \\
   f_\text{II} &= \SI{168+-1}{mm} \\
   \langle f_\text{I/II}\rangle &= \SI{165+-1}{mm}\\
   h &= \SI{-12.0+-0.4}{cm} \\
   h' &= \SI{19.4+-0.3}{cm}.
-\end{align}
+\end{align*}
 Die theoretische Brennweite ergibt sich als
 \begin{equation}
   \frac{1}{f_\text{th}} = \frac{1}{f_1} + \frac{1}{f_2}-\frac{d}{f_1 \cdot f_2} = \SI{166.67}{mm}.

@@ -1,2 +1,19 @@
 \section{Diskussion}
 \label{sec:Diskussion}
+
+Die Messergebnisse, Theoriewerte und Abweichungen sind noch einmal in Tab.~\ref{tab:disk} zusammengefasst, wobei sich die Abweichungen über
+\begin{equation}
+  \Delta f^\text{rel} = \frac{|f - f^\text{man}|}{f^\text{man}}
+\end{equation}
+berechnen.
+\input{content/disk_tab.tex}
+Es ist zu erkennen, dass die Linse mit $f^\text{man} = \SI{100}{mm}$ sowohl mit der Linsengleichung, als auch mit der Bessel-Methode sehr genau bestimmt werden konnte. Die $f^\text{man} = \SI{150}{mm}$-Linse hingegen zeigt ein unpräziseres Ergebnis, obwohl eine Messung, die sich anhand von Abb.~\ref{fig:a1} als fehlerhaft erwiesen hatte, vom Ergebnis ausgeschlossen wurde. Im Vergleich von Abb.~\ref{fig:a1z} und~\ref{fig:a2z} ist zu erkennen, dass die Geradenschnittpunkte ungefähr gleich viel vom Brennpunkt abweichen, daher ist das Problem eher bei unbekannten systematischen Fehlern oder einer unpräzisen Herstellerangabe zu suchen. Die Abbildungsgleichung kann im Rahmen der Messgenauigkeit als validiert angesehen werden, da, wie in Tab.~\ref{tab:a1} abzulesen ist, $\sfrac{B}{G}$ und $\sfrac{b}{g}$ jeweils annähernd den gleichen Wert annehmen.
+\begin{align*}
+  \intertext{In der Messreihe zur chromatischen Aberration ist zu erkennen, dass das blaue Licht mit}
+  f_\text{blau} &= \SI{101.1+-0.6}{mm} \\
+  \intertext{eine kürzere Brennweite hat, also stärker gebrochen wird, als das rote Licht mit}
+  f_\text{rot} &= \SI{101.9+-0.7}{mm}.
+\end{align*}
+Erstaunlicherweise liegen beide Werte jedoch über der Brennweite ohne Farbfilter.
+
+Bei der Abbe-Methode ist (im Vergleich zum berechneten Wert) ebenfalls eine genaue Bestimmung der Brennweite möglich, die bestimmte Lage $h, h'$ der Hauptebenen ist plausibel. Die linearen Regressionen in Abb.~\ref{fig:c1} und~\ref{fig:c2} passen gut zu den Werten.
