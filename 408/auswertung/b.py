@@ -1,12 +1,13 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import tools
+import scipy.stats
 
 def auswerten(blende, linse1, linse2, schirm, name):
     e = blende-schirm
     d = linse2-linse1
     f = (e**2-d**2)/(4*e)
-    print("{}: f = ({}+-{})mm".format(name, f.mean()*1e3, f.std(ddof=1)*1e3))
+    print("{}: f = ({}+-{})mm".format(name, f.mean()*1e3, scipy.stats.sem(f)*1e3))
     return f
 
 l1, l2, s = np.genfromtxt('daten/b1_o.txt', unpack=True)
