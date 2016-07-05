@@ -1,5 +1,51 @@
 \section{Ziel}
 \label{sec:Ziel}
 
+In diesem Versuch sollen verschiedene Ultraschall-Scanverfahren betrachtet werden. Dazu wird ein mit Bohrungen versehener Acrylblock, sowie ein Herzmodell untersucht.
+
 \section{Theorie}
 \label{sec:theorie}
+\subsection{Grundlagen}
+Ultraschallwellen sind Schallwellen, also sich in einem Medium ausbreitende Druckwellen, die in einem Frequenzbereich zwischen ca. \SI{20}{kHz} und \SI{1}{GHz} liegen. Sie können genutzt werden, um zerstörungsfrei Informationen über die innere Struktur von Objekten zu erhalten, etwa bei Festkörpern oder Lebewesen. Wenn sich der Schall nur longitudinal ausbreitet, wie dies etwa in Flüssigkeiten oder Gasen der Fall ist, sich für den Druck in Abhängigkeit von Ort und Zeit die Gleichung
+\begin{equation}
+  p(x, t) = p_0 + v_0 Z \cos (\omega t - k x)
+\end{equation}
+aufstellen, wobei die materialabhängige Größe
+\begin{equation}
+  Z = c \rho
+\end{equation}
+mit der Schallgeschwindigkeit $c$ und der Dichte $\rho$ \emph{akustische Impedanz} genannt wird. In Flüssigkeiten und Gasen lässt sich die Schallgeschwindigkeit über
+\begin{equation}
+  c_\text{Fl} = \sqrt{\frac{1}{\kappa \rho}}
+\end{equation}
+mit der Kompressibilität $\kappa$ bestimmen, in Festkörpern über
+\begin{equation}
+  c_\text{Fe} =  \sqrt{\frac{E}{\rho}}
+\end{equation}
+mit dem Elastizitätsmodul $E$. Der Unterschied rührt daher, dass sich in Festkörpern nicht nur longitudinale, sondern auch transversale Schallwellen ausbreiten. Da der Ultraschall im Medium teilweise absorbiert wird, nimmt seine Intensität gemäß
+\begin{equation}
+  I(x) = I_0 \symup e ^ {\alpha x}
+\end{equation}
+mit dem Absorptionskoeffizienten $\alpha$ ab. An Grenzflächen wird der Schall wie bei anderen Wellen teilweise reflektiert, und zwar gemäß
+\begin{equation}
+  R = \left(\frac{Z_1-Z_2}{Z_1+Z_2}\right)^2
+\end{equation}
+mit dem Reflexionskoeffizienten $R$. Für die Transmission folgt trivial $T = 1-R$.
+
+Um Ultraschallwellen technisch zu erzeugen kann beispielsweise der reziproke piezoelektrische Effekt genutzt werden. Der piezoelektrische Effekt beschreibt die Erzeugung einer Spannung bei Ausübung eines Drucks auf bestimmte Kristalle. Umgekehrt kann auch eine Verformung beim Anlegen einer Spannung beobachtet werden. Wird eine Wechselspannung angelegt, deren Frequenz mit der Resonanzfrequenz des Kristalls übereinstimmt, kann so eine starke Ultraschallquelle realisiert werden. Andererseits wird der normale piezoelektrische Effekt auch als Ultraschall-Empfänger genutzt.
+
+\subsection{Durchschallungs- und Impuls-Echo-Verfahren}
+Es gibt zwei Verfahren, um Informationen über die Struktur des untersuchten Objekts mithilfe von Ultraschall zu erhalten. Beim Durchschallungsverfahren befindet sich der Ultraschallsender auf einer Seite des Objekts, der Empfänger auf der anderen. Dadurch kann eine Aussage über das Ausmaß von Fehlstellen im Objekt getroffen werden, jedoch nicht über deren Ort, da sie auf die Empfängerebene projiziert. Beim Impuls-Echo-Verfahren befinden sich Sender und Empfänger an der gleichen Stelle und es wird die reflektierte und nicht die transmittierte Welle aufgenommen (siehe Abb.~\ref{fig:v}). Die Entfernung vom reflektierenden Ort (Störstelle) lässt sich dann über
+\begin{equation}
+  \label{eqn}
+  s = \frac{1}{2} c t
+\end{equation}
+bestimmen.
+\fig{bilder/v.pdf}{Grafische Darstellung von Durchschallungs- und Impuls-Echo-Verfahren.\cite{anleitungus2}}{v}
+\subsection{A-Scan}
+Wird nun die Intensität der aufgenommen reflektierten Welle in Abhängigkeit von der Zeit aufnimmt, ergibt dies einen sogenannten Amplituden-Scan oder A-Scan. Ein Beispiel für einen A-Scan ist in Abb.~\ref{fig:asc} zu finden. Anhand dessen kann die Lage der Störstellen bestimmt werden.
+\fig{build/a.pdf}{Beispielhafter A-Scan.}{asc}
+\subsection{B-Scan}
+Werden mehrere A-Scans hintereinander ausführt und dabei den Ort variiert, erhält man einen Brightness- oder B-Scan. Zur grafischen Darstellung wird der Ort auf der Abszisse und die Messtiefe (bzw. Zeit) auf der Ordinate aufgetragen, die einzelnen Reflexionsintensitäten werden dann farbkodiert dargestellt.
+\subsection{TM-Scan}
+Im Gegensatz zum B-Scan wird beim Time-Motion-Scan auf der Abszisse die Zeit aufgetragen, sodass etwa Bewegungen im Körper, wie zum Beispiel der Herzschlag im Zeitverlauf beobachtet werden können.

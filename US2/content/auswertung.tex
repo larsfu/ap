@@ -1,2 +1,87 @@
+\pagebreak
 \section{Auswertung}
 \label{sec:Auswertung}
+
+\subsection{A-Scan}
+Aus den gemessenen Zeiten können über \eqref{eqn} die Tiefen $d_{1/2}$ ausgerechnet werden. Es wird eine Laufzeitkorrektur von
+\begin{equation}
+  t_\text{korr} = \SI{0.5}{µs},
+\end{equation}
+bedingt durch die Schutzschicht auf der Ultraschallsonde, abgezogen. Der Durchmesser der Störstellen $2r$ wird über
+\begin{equation}
+  2r = h - d_1 - d_2
+\end{equation} mit der gemessenen Höhe
+\begin{equation}
+  h = \SI{80.04}{mm}
+\end{equation}
+des Acrylblocks berechnet. Dabei wird eine Schallgeschwindigkeit in Acryl von $\SI{2730}{\meter\per\second}$ \cite{olympus} angenommen. Die Ergebnisse, sowie die mit dem Messschieber gemessenen Längen finden sich in Tab.~\ref{tab:a}.
+\input{content/a.tex}
+
+\subsection{B-Scan}
+Die gleiche Messung wird erneut mit einem B-Scan durchgeführt und wie zuvor ausgewertet. Hier wurde keine Laufzeitkorrektur durchgeführt, da die Werte bereits ohne diese gut zu den mechanisch ermittelten Längen passen. Die grafischen Darstellungen der Scans finden sich in Abb.~\ref{fig:b1} und~\ref{fig:b2}. Daraus werden die in Tab.~\ref{tab:b} notierten Längen bestimmt.
+\fig{build/b1.pdf}{Grafische Darstellung des ersten B-Scans (von oben), sowie der bestimmten Längen.}{b1}
+\fig{build/b2.pdf}{Grafische Darstellung des zweiten B-Scans (von unten), sowie der bestimmten Längen. Störstelle 10 war in einer anderen Farbtabelle ablesbar (siehe Abb.~\ref{fig:b3} im Anhang), die jedoch viel Rauschen erzeugte. Daher wurde die hier vorliegende Farbtabelle benutzt und nur der Messwert eingetragen.}{b2}
+\FloatBarrier
+\input{content/b.tex}
+
+\subsection{TM-Scan}
+Zuletzt wird das Herzmodell, beschrieben in Abschnitt~\ref{sec:durchführung}, untersucht. Der TM-Scan ist in Abb.~\ref{fig:tm1} und~\ref{fig:tm2} zu finden. Die Herzfrequenz ist
+\begin{equation}
+  \nu_\text{Herz} = \frac{16}{\SI{25}{s}} = \SI{0.64}{\hertz} = \SI{38.4}{\per\minute}.
+\end{equation}
+Für die Schallgeschwindigkeit in Wasser wird hier
+\begin{equation}
+  c = \SI{1480}{\meter\per\second},
+\end{equation}
+ebenfalls aus \cite{olympus}, angenommen.
+Es ergibt sich
+\begin{align*}
+  \Delta t_\text{A-Scan} &= \SI{48.4}{µs} - \SI{16.2}{µs} \\
+  \Delta t_\text{TM-Scan} &= \SI{44}{µs} - \SI{3}{µs} \\
+  \Delta d_\text{A-Scan} &= \SI{2.38}{cm} \\
+  \Delta d_\text{TM-Scan} &= \SI{3.03}{cm}.
+\end{align*}
+Daraus folgt über das Volumen eines Kugelsegments (\cite{wurst}) das Schlagvolumen
+\begin{equation}
+  SV = \frac{1}{3} \pi (\Delta d)^2 (3R - \Delta d)
+\end{equation}
+als Schlagvolumen
+\begin{align*}
+  SV_\text{A-Scan} &= \SI{67.17}{\cubic\centi\meter} \\
+  SV_\text{TM-Scan} &= \SI{102.62}{\cubic\centi\meter}
+\end{align*}
+und über
+\begin{equation}
+  HZV = SV \cdot \nu_\text{Herz}
+\end{equation}
+das Herzzeitvolumen
+\begin{align*}
+  HZV_\text{A-Scan} &= \SI{42.99}{\cubic\centi\meter\per\second} \\
+  HZV_\text{TM-Scan} &= \SI{65.68}{\cubic\centi\meter\per\second}.
+\end{align*}
+
+\fig{build/tm.pdf}{Time-Motion-Scan des Herzmodells.}{tm1}
+\fig{build/tm_zoom.pdf}{Kleinerer Zeitausschnitt aus dem Time-Motion-Scan.}{tm2}
+\FloatBarrier
+\subsection{Messdaten}
+\input{build/a_d.tex}
+
+\fig{build/b3.pdf}{Variante von Abb.~\ref{fig:b2} mit veränderter Farbtabelle, Störstelle 10 ist deutlich zu erkennen.}{b3}
+\begin{figure}
+  \centering
+  \begin{subfigure}{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{daten/b/1.png}
+    \caption{Erster Scan, von oben.}
+    \label{fig:db1}
+  \end{subfigure}
+  \begin{subfigure}{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{daten/b/2.png}
+    \caption{Zweiter Scan, von unten.}
+    \label{fig:db2}
+  \end{subfigure}
+  \caption{Originalbilder der B-Scans.}
+  \label{fig:db}
+\end{figure}
+\fig{daten/tm/scan.png}{Originalbild des TM-Scans.}{dtm}[width=0.5\textwidth]
