@@ -8,11 +8,11 @@ Zur Darstellung der Zählrohr-Charakteristik wird die Zählrate $N$ gegen die Sp
   \label{eqn:fehler}
   \Delta N =\frac{\sqrt{n_\mathrm{Impulse}}}{\Delta t}.
 \end{equation}
-Die Messwerte sowie der dazugehörige Fehler, sind in \ref{tab:charakteristik} dargestellt. Die grapische Darstellung, ist in \ref{fig:plateau} zu sehen.
+Die Messwerte sowie der dazugehörige Fehler, sind in Tabelle \ref{tab:charakteristik} dargestellt. Die grapische Darstellung, ist in Abbildung \ref{fig:plateau} zu sehen.
 Für den Bereich des Plateaus ((410-640)\si{\volt}) wird eine lineare Ausgleichsrechnung der Form $y=ax+b$ durchgeführt. Für Die Parameter $a$ und $b$ ergibt sich
 \begin{align}
   a&=(0,05 \pm 0,01)\frac{1}{\si{\volt\second}} \\
-  b&=(408,40 \pm 6,81)\frac{1}{\si{\second}} \\
+  b&=(408,40 \pm 6,81)\frac{1}{\si{\second}}
 \end{align}
 Die prozentuale Steigung $m$ des Plateaus pro 100\si{volt} folgt mithilfe von
 \begin{equation}
@@ -20,7 +20,7 @@ Die prozentuale Steigung $m$ des Plateaus pro 100\si{volt} folgt mithilfe von
 \end{equation}
 Mit $N(500\si{\volt})= 417,1 \frac{1}{\si{\second}}$ beträgt diese
 \begin{equation}
-  m=(0,012 \pm 0,002)\%.
+  m=(0,012 \pm 0,002)\ = (1.2 \pm 0.2) \%.
 \end{equation}
 
 \begin{figure}
@@ -76,7 +76,6 @@ Mit $N(500\si{\volt})= 417,1 \frac{1}{\si{\second}}$ beträgt diese
     \end{tabular}
 \end{table}
 
-\subsection{Primär- und Nachentladungsimpulse}
 Der zeitliche Abstand zwischen Primär- und Nachentladungsimpuls bei geringer Strahlintensität beträgt
 \begin{equation}
   \Delta t \approx 225\mu\si{\second}.
@@ -91,15 +90,15 @@ Zunächst wird die Totzeit $T$ sowie die Erholungszeit $T_\mathrm{E}$ durch Absc
 
 Außerdem wird die Totzeit mittels der Zwei-Quellen-Methode bestimmt. Für die gemessenen Zählraten lässt sich der Fehler erneut nach Gleichung \ref{eqn:fehler} ermitteln. Somit ergeben sich für die Zählraten folgende Werte:
 \begin{align}
-  N_1&=2258,90 \pm 4,75 \\
-  N_2 &= 2478,30 \pm 4,98 \\
-  N_{1+2} &= 3776,10 \pm 6,14 \\.
+  N_1&=(225,890 \pm 4,75) \frac{1}{\si{\second}} \\
+  N_2 &= (247,830 \pm 4,98) \frac{1}{\si{\second}} \\
+  N_{1+2} &= (377,610 \pm 6,14) \frac{1}{\si{\second}}.
 \end{align}
 Die Totzeit lässt sich nach
 \begin{equation}
-  T \approx \frac{N_1+N2-N_{1+2}}{2N_1N_2}
+  T \approx \frac{N_1+N_2-N_{1+2}}{2N_1N_2}
 \end{equation}
-berechnen. Sie hat den Wert
+berechnen. Da die Werte fehlerbehaftet sind, wird eine Fehlerrechnung mit uncertainties in Python durchgeführt.  Damit ergibt sich:
 \begin{equation}
   T\approx (86 \pm 7)\mu\si{\second}.
 \end{equation}
@@ -113,13 +112,13 @@ wobei $I$ die gemessenen Stromstärke, $\Delta Q$ der freigesetzten Ladung und $
 Um den Zusammenhang zwischen der freigesetzten Ladung $\Delta Q$ und der Spannung zu untersuchen, wird $\Delta Q$ aus den gemessenen Stromstärken berechnet und gegen die Spannung $U$ aufgetragen. Dies ist in Abbildung \ref{fig:ladung} dargestellt. Die entsprechnenden Messwerte sowie die freigesetzte Ladung in Einheiten der Elementarladung sind in Tabelle \ref{tab:frei-ladung} zu finden.
 Wie Abbildung \ref{fig:ladung} zeigt, ist der Zusammenhang zwischen $\Delta Q$ und $U$ linear. Für die Ausgleichgerade gilt:
 \begin{equation}
-  \Delta Q = (2,0038 \pm 3,7011)x - (0,0056\pm0,0002)
+  \Delta Q = ((3,21 \pm 0.06)\cdot 10^8)\frac{1}{\si{\volt}}x + (893,55 \pm 30,77)\cdot 10^8
 \end{equation}
 
 \begin{figure}
   \centering
   \includegraphics[scale=0.8]{auswertung/d.pdf}
-\caption{Freigesetzte Ladung $\Delta Q$ in Abhämgigkeit von der Spannung $U$}
+\caption{Freigesetzte Ladung $\Delta Q$ in Abhängigkeit von der Spannung $U$}
   \label{fig:ladung}
 \end{figure}
 
@@ -129,7 +128,7 @@ Wie Abbildung \ref{fig:ladung} zeigt, ist der Zusammenhang zwischen $\Delta Q$ u
   \label{tab:frei-ladung}
   \begin{tabular}{c c c c c}
     \toprule
-   $U/\si{\volt}$ & $I$/$\mu$\si{\ampere} & $n_\mathrm{Impuls}$ & $\Delta Q /\mu \si{\coulomb}$ & $\frac{Delta Q}{e_0}/10^{10}$\\
+   $U/\si{\volt}$ & $I$/$\mu$\si{\ampere} & $n_\mathrm{Impuls}$ & $\Delta Q /\mu \si{\coulomb}$ & $\frac{\Delta Q}{e_0}/10^{10}$\\
     \midrule
 320	& 0,1	& 4250 & 0,0002 & 0,12 \\
 310	& 0,2	& 3762 & 0,0005 & 0,31\\

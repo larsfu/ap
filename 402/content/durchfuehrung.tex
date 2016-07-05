@@ -1,2 +1,29 @@
 \section {Aufbau und Durchführung}
 \label{sec:durchführung}
+\subsection{Aufbau}
+Das verwendete Prisma besteht aus Flintglas und bei der Lampe handelt es sich um eine Hg-Cd-Lampe.
+Der Aufbau ist in Abbildung \ref{fig:aufbau} zu sehen. Nachdem das Licht durch einen Spalt und eine Sammellinse gefallen ist, trifft es auf das Prisma. Anschließend gealngt es in ein Fernrohr. Durch die Objektivlinse entsteht ein reelles Bild in der Brennebene, welche mittels eines Okulars vergrößert wird.
+\fig{bilder/aufbau.pdf}{Schematische Darstellung eines Prismen-Spektralapparates. \cite{anleitung402}}{aufbau}
+
+\subsection{Bestimmung des Winkels zwischen den brechenden Oberflächen des Prismas}
+Zunächst soll der Winkel $\phi$ zwischen den brechenden Flächen gemessen werden. Dazu wird die brechende Kante des Prismas in Richtung des Kollimatorrohrs positioniert (siehe Abbildung \ref{fig:phi}).
+\fig{bilder/phi.pdf}{Aufbau zur Bestimmung des Winkels $\phi$ zwischen den brechenden Oberflächen des Prismas.\cite{anleitung402}}{phi}
+Der Winkel ergibt sich aus den Winkeln $\phi_\mathrm{r}$ und $\phi_\mathrm{l}$ der reflektierten Strahlen rechts und links, welche gemessen werden:
+\begin{equation}
+\label{eqn:winkel}
+  \phi=\frac{1}{2}(\phi_\mathrm{r}-\phi_\mathrm{l})
+\end{equation}
+
+\subsection{Brechungswinkel für die wichtigsten Spektrallinien des Hg-Cd-Spektrums}
+Um die Beugungswinkel messen zu können, wird ein symmetrischer Strahlgang benötigt. Dazu wird das Prisma so positioniert, dass der gebrochene und der reflektierte Strahl zusammenfallen. Der dazugehörige Winkel $\Omega_\mathrm{r,l}$ kann abgelesen werden. Diese Messung wird für die linke und die rechte Seite durchgeführt.
+Der Brechungswinkel lässt sich daraus wie folgt berechnen:
+\begin{equation}
+  \label{eqn:eta}
+  \eta = 180 - (\Omega_\mathrm{r}-\Omega_\mathrm{l}).
+\end{equation}
+
+Für den Brechungsindex gilt:
+\begin{equation}
+  \label{eqn:brechung}
+  n= \frac{\sin\left(\frac{n+\phi}{2}\right)}{\sin\left(\frac{\phi}{2}\right)}.
+\end{equation}
