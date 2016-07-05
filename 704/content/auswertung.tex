@@ -56,7 +56,7 @@ Die Messdaten sind in den Tabellen \ref{tab:datenCu}~und~\ref{tab:datenPb} zu fi
 
 \FloatBarrier
 \subsection{\texorpdfstring{$\upbeta$}{β}-Absorption}
-Da die die Mechanismen bei der $\upbeta$-Strahlung ungleich komplexer sind, kann aus der Absorptionskurve lediglich die maximale Eindringtiefe und damit die maximale Energie der Strahlung bestimmt werden. Dazu legt man an die zwei Bereiche der Absorptionskurve jeweils mittels linearer Regression eine Gerade an und bestimmt den Schnittpunkt der beiden Geraden, siehe Abb.~\ref{fig:beta}. Die Zählrate
+Da die die Mechanismen bei der $\upbeta$-Strahlung ungleich komplexer sind, kann aus der Absorptionskurve lediglich die maximale Eindringtiefe und damit die maximale Energie der Strahlung bestimmt werden. Dazu legt man an die zwei Bereiche der logarithmierten Absorptionskurve jeweils mittels linearer Regression eine Gerade an und bestimmt den Schnittpunkt der beiden Geraden, siehe Abb.~\ref{fig:beta}. Der Messwert ohne Absorber wird nicht berücksichtigt. Die Zählrate
 \begin{equation}
   N_U = \frac{324}{\SI{900}{\second}} \approx \SI{0.36}{\per\second},
 \end{equation}
@@ -66,14 +66,14 @@ die ohne Strahlungsquelle ermittelt wurde, wird als Nulleffekt abgezogen. Es erg
 \end{equation}
 mit den Geradenparametern $a_i$ und $b_i$. Daraus folgt
 \begin{align}
-  D_\text{max} &= \SI{165+-17}{\micro\meter}
+  D_\text{max} &= \SI{241+-24}{\micro\meter}
   \shortintertext{und}
-  R_\text{max} = \rho \cdot D_\text{max}  &= \SI{0.45+-0.05}{\kilogram\per\meter\squared},
+  R_\text{max} = \rho \cdot D_\text{max}  &= \SI{0.065+-0.006}{\gram\per\centi\meter\squared},
 \end{align}
 wobei die Dichte $\rho = \SI{2700}{\kilogram\per\cubic\meter}$ aus \cite{chemie.de} stammt.
 Nach \eqref{eqn:E_max} folgt daraus eine maximale Energie von
 \begin{equation}
-  E_\text{max} = \SI{0.61+-0.09}{\mega\electronvolt}.
+  E_\text{max} = \SI{0.26+-0.02}{\mega\electronvolt}.
 \end{equation}
 Die Messdaten aus diesem Aufgabenteil finden sich in Tabelle~\ref{tab:datenAl}.
 \fig{build/beta.pdf}{Beta-Absorptionskurve mit zwei linearen Ausgleichsgeraden.}{beta}
