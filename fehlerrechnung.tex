@@ -1,19 +1,21 @@
 \subsection{Fehlerrechnung}
+
 \subsubsection{Mittelwert und Standardabweichung}
 Der Mittelwert mehrerer Messwerte wird berechnet durch
 \begin{equation}
-\overline{v} = \frac{1}{N} \sum_{i=1}^N v_i,
+\langle v\rangle = \frac{1}{N} \sum_{i=1}^N v_i,
 \end{equation}
 dabei ist die Standardabweichung
 \begin{equation}
-s_i = \sqrt{\frac{1}{N - 1} \sum_{j=1}^N \left(v_j - \overline{v}\right){^2}},
+s_i = \sqrt{\frac{1}{N - 1} \sum_{j=1}^N \left(v_j - \langle v\rangle\right){^2}},
 \end{equation}
 wobei $v_j$ ($j = 1, ..., N$) die Messwerte sind.
-
-Die Streuung der Mittelwerte lautet
+Der Standardfehler ist über
 \begin{equation}
-\sigma_i = \frac{s_i}{\sqrt{N}} = \sqrt{\frac{\sum_{j=1}^N \left(v_j - \overline{v_i}\right){^2}}{N \left(N - 1 \right)}}.
+\sigma_i = \frac{s_i}{\sqrt{N}} = \sqrt{\frac{\sum_{j=1}^N \left(v_j - \langle v_i\rangle\right){^2}}{N \left(N - 1 \right)}}.
 \end{equation}
+definiert.
+
 
 \subsubsection{Gaußfehler}
 Bei einer fehlerbehafteten Funktion $f$ mit $k$ als fehlerbehafteter Größe und $\sigma_k$ als Ungenauigkeit, gilt
@@ -30,6 +32,21 @@ Der absolute Gaußfehler ergibt sich aus
 \begin{equation}
 \Delta x_i = \sqrt{\left(\frac{\mathrm{d}f}{\mathrm{d}k_{1}}\cdot \sigma_{k_{1}}\right)^2 + \left(\frac{\mathrm{d}f}{\mathrm{d}k_{2}}\cdot \sigma_{k_{2}}\right)^2 + ...}.
 \end{equation}
+
+\subsubsection{Lineare Regression}
+\label{sec:linregress}
+Bei einer linearen Regression über den Messdaten ${x_i, y_i}$ wird für die Steigung
+\begin{align}
+  m &= \frac{\langle x y \rangle - \langle x \rangle \langle y \rangle}{\langle x^2 \rangle - \langle x \rangle ^2}
+  \intertext{und für den $y$-Achsenabschnitt}
+  b &= \langle y \rangle - m \cdot \langle x\rangle
+\end{align}
+angenommen. Für die Standardabweichung gelten
+\begin{align}
+  s_m &= \sqrt{\frac{1}{N-2} \sum^N_{i=1} (y_i - b - mx_i)^2}
+  \shortintertext{und}
+  s_b &= s_m \cdot \sqrt{\frac{1}{N (\langle x^2 \rangle - \langle x \rangle ^2)}}.
+\end{align}
 
 %\subsubsection{Lineare Regression}
 %\begin{equation}
