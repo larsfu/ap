@@ -1,7 +1,14 @@
 \section{Auswertung}
 \label{sec:Auswertung}
+
+\input{../fehlerrechnung.tex}
+
 \subsection{Leitfähigkeitsparameter}
-Die gemessenen Hallspannungen werden über den Strom durch die Probe aufgetragen und es wird eine lineare Regression der Daten durchgeführt und damit die Steigung der Geraden $m$ bestimmt. Die zugehörigen Plots finden sich in Abb.~\ref{fig:b} und Abb.~\ref{fig:b1}. Da die Dicken der Proben unbekannt sind (oder bei Kupfer als unbekannt angenommen werden soll), werden sie über \begin{equation}
+Die gemessenen Hallspannungen werden über den Strom durch die Probe aufgetragen und es wird eine lineare Regression der Daten durchgeführt und damit die Steigung der Geraden $m$ bestimmt. Das bedeutet, dass eine Ausgleichsrechnung an die Funktion
+\begin{equation}
+  B(I) = m I + n
+\end{equation}
+durchgeführt wird, siehe \ref{sec:linregress}. Die zugehörigen Plots finden sich in Abb.~\ref{fig:b} und Abb.~\ref{fig:b1}. Da die Dicken der Proben unbekannt sind (oder bei Kupfer als unbekannt angenommen werden soll), werden sie über \begin{equation}
   d = \frac{\rho L}{R b}
 \end{equation}
 mit dem spezifischen Widerstand $\rho$ (aus \cite{kkfkfkfkfkfkfkfkfkfkfkfkkfkfkfkfkkfkfkfkfkoekfoefkwpokwpoekfpowkefpowkefpowkefpowkpokwefpowkfpoewkfpowekfpoewkfpowkefpokefpowkefpowekfpoewkfpowekf}) bestimmt. Damit kann dann über \begin{equation}
@@ -41,7 +48,7 @@ und die mittlere freie Weglänge
   \bar l \approx \bar \tau \sqrt{\frac{2 E_F}{m_e}}
 \end{equation}
 werden aus den zuvor berechneten Größen bestimmt. Alle Ergebnisse der angegebenen Berechnungen finden sich in den Tabellen~\ref{tab:erg},~\ref{tab:erg2}~und~\ref{tab:erg3}.
-\input{build/erg.tex}
+\input{content/erg.tex}
 \input{build/erg2.tex}
 \input{build/erg3.tex}
 \FloatBarrier
@@ -49,3 +56,8 @@ werden aus den zuvor berechneten Größen bestimmt. Alle Ergebnisse der angegebe
 Die magnetische Flussdichte des Elektromagneten in Abhängigkeit vom Spulenstrom findet sich in Abb.~\ref{fig:hyst}.
 
 \fig{build/hysterese.pdf}{Hysteresekurve des verwendeten Elektromagneten. Zur Verdeutlichung des Kurvenverlaufs wurden die Messwerte mit einem Polygonzug interpoliert.}{hyst}
+\FloatBarrier
+\subsection{Messdaten}
+\input{build/datena.tex}
+\input{content/datenb.tex}
+\input{content/e.tex}

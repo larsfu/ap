@@ -1,23 +1,24 @@
 \section{Ziel}
-Ziel des folgenden Experiments ist, typische Eigenschaften verschiedener Strömungen mittels Impuls-Echo-Verfahren zu bestimmen.
+Ziel des folgenden Experiments ist, mithilfe der Dopplersonographie die Strömung einer für diese Anwendung blutähnlichen Flüssigkeit (Suspension aus Wasser, Glycerin und Glaskügelchen) näher zu untersuchen.
 
 \section{Theorie}
 \label{sec:theorie}
 \subsection{Schall}
-Schall kann anhand seiner Freqeunz in zwei Bereiche unterteilt werden.
+Schall, also allgemein die Ausbreitung von Druckwellen innerhalb von Medien, kann anhand seiner Freqeunz in zwei Bereiche unterteilt werden:
 \begin{enumerate}
-  \item <16 \si{\Hz}: Infraschall
-  \item 20 \si{\kilo\Hz} - 1\si{\giga\Hz}: Ultraschall
+  \item <\SI{16}{\Hz}: Infraschall
+  \item \SI{20}{\kilo\Hz} -- \SI{1}{\giga\Hz}: Ultraschall
 \end{enumerate}
-Der für Menschen hörbare Schall befindet sich im Bereich von $16\si{\Hz}$ - $20\si{\kilo\Hz}$.
+Der für Menschen hörbare Schall befindet sich im Bereich von $\SI{16}{\Hz}$ -- $\SI{20}{\kilo\Hz}$. In diesem Experiment wird Ultraschall benutzt, um die Flüssigkeitsströmung zu untersuchen.
 
 \subsection{Piezoelektrischer Effekt}
+Es stellt sich die Frage, wie Ultraschall erzeugt werden kann. Eine Möglichkeit ist die Nutzung des reziproken piezoelektrischen Effekts.
 Im Allgemeinen wird unter dem piezoelektrischen Effekt verstanden, dass durch Verformung eines Kristalls eine Spannung auftritt. Der reziproke piezoelektrische Effekt bezeichnet den Vorgang, dass es durch eine Spannung (Kristall im elektrischen Wechselfeld) zu Verformungen kommt.
 
-Ultraschall wird durch hier durch den reziproken piezo-elektrischen Effekt hervorgerufen. Dabei befindet sich ein piezoelektrischer Kristall mit einer polaren Achse in Feldrichtung in einem elektrischen Wechselfeld. Der Kristall beginnt zu schwingen und sendet dabei Ultraschallwellen aus. Wird ein piezoelektrischer Kristall als Schallempfänger verwendet, wird dieser von auftreffenden Schallwellen zum Schwingen angeregt.
+In der konkreten Anwendung befindet sich ein Kristall mit einer polaren Achse in Feldrichtung in einem elektrischen Wechselfeld. Der Kristall beginnt zu schwingen und sendet dabei Ultraschallwellen aus. Wird ein piezoelektrischer Kristall als Schallempfänger verwendet, wird dieser von auftreffenden Schallwellen zum Schwingen angeregt, die auftretende Spannung kann gemessen werden.
 
 \subsection{Doppler-Effekt}
-Bewegen sich die Schallquelle und der Empfänger relativ zueinandern, tritt eine Frequenzänderung auf. Dies wird als Doppler-Effekt bezeichnet.
+Bewegen sich Schallquelle und der Empfänger relativ zueinandern, tritt eine Frequenzänderung auf. Dies wird als Doppler-Effekt bezeichnet.
 Zunächst wird der Fall mit ruhendem Empfänger und sich bewegender Quelle betrachtet. Wenn sich die Quelle in Richtung des Empfängers bewegt, wird die Frequenz $f_0$ zu $f_\mathrm{kl}$ erhöht und es gilt folgender Zusammenhang:
 \begin{equation}
   f_\mathrm{kl} = \frac{f_0}{1-\frac{v}{c}}
@@ -37,7 +38,7 @@ Die Frequenz sinkt auf eine kleinere Frequenz $f_\mathrm{n}$, wenn die Entfernun
   f_\mathrm{n} =f_0\left(1-\frac{v}{c}\right)
 \end{equation}
 
-Mit Hilfe des beschriebenen Doppler-Effekts kann die Geschwindigkeit von Blutströmungen bestimmt werden. Beim Auftreffem auf sich bewegende Blutkörper wird die Frequenz $f_0$ der Ultraschallwelle wie folgt verschoben:
+Mit Hilfe des beschriebenen Doppler-Effekts kann die Geschwindigkeit von Blutströmungen bestimmt werden. Beim Auftreffen auf sich bewegende Blutkörper wird die Frequenz $f_0$ der Ultraschallwelle wie folgt verschoben:
 \begin{equation}
   \Delta f = f_0 \frac{v}{c}(\cos\alpha + \cos\beta)
 \end{equation}

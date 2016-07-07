@@ -20,7 +20,8 @@ def auswerten(I, U_H, name):
     plt.clf()
     return slope
 
-I_, Zn, Cu = np.genfromtxt('daten/b.txt', delimiter=';', unpack=True)
+data2 = np.genfromtxt('daten/b.txt', delimiter=';', unpack=True)
+I_, Zn, Cu = data2
 Zn *= 1e-6
 Cu *= 1e-6
 
@@ -55,11 +56,6 @@ z = n * Vm / const.N_A
 #print(R_H, d, n, z)
 
 
-
-
-
-
-
 tau = 1/(R / 2 * const.e**2 / const.m_e * n / (2.8e-2, 4.4e-2) * d * (2.5e-2, 2.6e-2))
 v_d = 1e9 / n / const.e
 µ = const.e * tau / const.m_e
@@ -68,6 +64,7 @@ v = unp.sqrt(2*E_F/const.m_e)
 l = tau * unp.sqrt(2*E_F/const.m_e)
 
 
-tools.table((sl, R_H, d*1e6, n), (r"m/\ohm", r"R_H/(\cubic\meter\per\coulomb)", r"d/µm", r"n/\per\cubic\meter"), "build/erg.tex", "Ergebnisse der Auswertung, erster Teil.", "tab:erg", round_figures=(3,3,3,3), interrows={0:"Kupfer", 1:"Zink"})
-tools.table((z, R*1e3, tau), ("z", "R/\milli\ohm", r"\bar\tau/s"), "build/erg3.tex", "Ergebnisse der Auswertung, dritter Teil.", "tab:erg3", round_figures=(3,3,3), interrows={0:"Kupfer", 1:"Zink"})
-tools.table((v_d*1e3, 1e4*µ, v/1e6, l), (r"\bar v_d/(\milli\meter\per\second)", r"\mu/(\centi\meter\squared\per\volt\per\second)", "v/(\mega\meter\per\second)", r"\bar l/m"), "build/erg2.tex", "Ergebnisse der Auswertung, zweiter Teil.", "tab:erg2", round_figures=(3,3,3,3), interrows={0:"Kupfer", 1:"Zink"})
+tools.table((sl, R_H*1e11, d*1e6, n/1e27), (r"m/\ohm", r"R_H/(10^{-11} \cubic\meter\per\coulomb)", r"d/µm", r"n/\per\cubic\nano\meter"), "build/erg.tex", "Ergebnisse der Auswertung, erster Teil.", "tab:erg", round_figures=(3,3,3,3), interrows={0:"Kupfer", 1:"Zink"})
+tools.table((z, R*1e3, tau*1e15), ("z", "R/\milli\ohm", r"\bar\tau/fs"), "build/erg3.tex", "Ergebnisse der Auswertung, dritter Teil.", "tab:erg3", round_figures=(3,3,3), interrows={0:"Kupfer", 1:"Zink"})
+tools.table((v_d*1e3, 1e4*  µ, v/1e6, l*1e9), (r"\bar v_d/(\milli\meter\per\second)", r"\mu/(\centi\meter\squared\per\volt\per\second)", "v/(\mega\meter\per\second)", r"\bar l/nm"), "build/erg2.tex", "Ergebnisse der Auswertung, zweiter Teil.", "tab:erg2", round_figures=(3,3,3,3), interrows={0:"Kupfer", 1:"Zink"})
+tools.table(data, ('I/A', r'U_\text{Zn}/mV', r'U_\text{Cu}/mV'), 'build/datena.tex', 'Messdaten, Widerstandsmessreihe.', 'datena',  split=2)
