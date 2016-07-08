@@ -1,6 +1,6 @@
 \section{Ziel}
 \label{sec:Ziel}
-In diesem Experiment soll der Brechungsindex $n$ in Abhängigkeit von der Wellenlänge $\lambda$ (Dispersion) an einem Glasprisma untersucht werden. Zunächst soll die Dispersionsgleichung bestimmt werden. Damit können die Abbesche Zahl $\nu$, das Auflösungsvermögen $A$ des Spektralapparates und die zum sichtbaren Licht am nächsten gelegene Absorptionsstelle $\lambda_i$ berechnet werden.
+In diesem Experiment soll der Brechungsindex in Abhängigkeit von der Wellenlänge (Dispersion) an einem Glasprisma untersucht werden. Zunächst soll die Dispersionsgleichung bestimmt werden. Damit können die Abbesche Zahl, das Auflösungsvermögen des Spektralapparates und die zum sichtbaren Licht am nächsten gelegene Absorptionsstelle berechnet werden.
 
 \section{Theorie}
 \label{sec:theorie}
@@ -13,7 +13,7 @@ Trifft ein Lichtstrahl auf die Grenzfläche zweier optischer Medien, wird dieser
 Dabei sind $v_1$ und $v_2$ die Geschwindigkeiten des Lichts in den beiden Medien.
 
 \subsubsection{Huygenssches Prinzip}
-Um eine Aussage über die Richtungsänderung und die Geschwindigkeit des Strahls treffen zu können, wird das Huygenssche Prinzip betrachtet. Es besagt, dass von jedem Punkt einer Wellenfront eine kugelförmige Elementarwelle ausgeht. Somit ist jede Wellenfront die Einhüllende aller Elementarwellen. Mit dem Brechungsgesetz
+Um eine Aussage über die Richtungsänderung und die Geschwindigkeit des Strahls treffen zu können, wird das Huygenssche Prinzip betrachtet. Es besagt, dass von jedem Punkt einer Wellenfront eine kugelförmige Elementarwelle ausgeht. Somit ist jede Wellenfront die Einhüllende aller Elementarwellen. In Abbildung \ref{fig:brechung} ist dies grapisch dargestellt. Mit dem Brechungsgesetz
 \begin{equation}
   \frac{\sin(\alpha)}{\sin(\beta)} =\frac{v_1}{v_2}
 \end{equation}
@@ -21,6 +21,7 @@ mit $\alpha$ als Winkel vor und $\beta$ als Winkel nach der Brechung an der Gren
 \begin{equation}
   \frac{\sin(\alpha)}{\sin(\beta)} = n.
 \end{equation}
+\fig{bilder/brechung.pdf}{Ableitung des Snelliuschen Brechungsgesetzes mit Hilfr des Huygensschen Prinzps.\cite{anleitung402}}{brechung}
 
 \subsection{Dispersionsgleichung}
 Da es sich bei Licht um eine elektromagnetische Welle handelt, ist es in der Lage die sich im Material befindenden Elektronen und Ionenrümpfe zu Schwingungen anzuregen. Die Polarisation $\vec{P}$ der Materie ist gegenüber der elektrischen Feldstärke $\vec{E}$ der Lichtwelle vernachlässigbar. Durch das magnetische Wechselfeld der Welle wirkt eine Lorentzkraft auf die in der Materie befindlichen Elektronen und Ionenrümpfe, welche diese um $\vec{x}_\mathrm{h}$ verschiebt, wodurch ein elektrischer Dipol entsteht. Des Weiteren wirkt eine rücktreibende Kraft, welche proportional zur Auslenkung ist. Außerdem wird die Schwingung der Teilchen durch eine weitere Kraft gedämpft, welche proportional zu Geschwindigkeit der Elektronen und Ionenrümpfe ist. Mit diesen Kräften kann eine Differentialgleichung für die Bewegung der Teilchen aufgestellt werden:
@@ -42,22 +43,24 @@ Es wird nur der Bereich $n^2\,k \approx 0$ betrachtet, da die Gleichung für and
   n^2(\lambda)=1+\sum \frac{N_\mathrm{h}\,q_\mathrm{h}^2}{4\pi^2\,c^2\,\epsilon_0\,m_\mathrm{h}}\frac{\lambda^2\,\lambda_\mathrm{h}^2}{\lambda^2-\lambda_\mathrm{h}^2}
 \end{equation}
 
-\subsubsection{Normale Dispersion}
-Bei der normalen Dispersion nimmt der Brechungsindex mit zunehmender Wellenlänge ab, wie in Abbildung \ref{fig:normal} dargestellt. Sie wird durch folgende Gleichung beschrieben:
+Bei der normalen Dispersion nimmt der Brechungsindex mit zunehmender Wellenlänge ab. Dabei können zwei Fälle unterschieden werden:
+Der erste Fall ist in Abbildung \ref{fig:normal} dargestellt. Dieser wird durch folgende Gleichung beschrieben:
 \begin{equation}
+  \label{eqn:normal1}
   n^2(\lambda)=A_0+\frac{A_2}{\lambda^2}+...
 \end{equation}
-Die Absorptionsstelle $\lambda_i < \lambda$ liegt im ultravioletten Bereich.
-\fig{bilder/normal.pdf}{Dispersionskurve für normale Dispersion.\cite{anleitung402}}{normal}
 
-\subsubsection{Anomale Dispersion}
-Im Gegensatz zur normalen Dispersion fällt der Brechungsindex mit steigender Wellenlänge, was in Abbildung \ref{fig:anomal} graphisch dargestellt ist.
-Die Dispersionskurve wird durch folgenden Zusammenhang beschrieben:
+\fig{bilder/normal.pdf}{Dispersionskurve für normale Dispersion nach Gleichung \ref{eqn:normal1}.\cite{anleitung402}}{normal}
+Der zweite Fall der normalen Dispersion erfüllt die Gleichung
 \begin{equation}
+  \label{eqn:normal2}
   n^2(\lambda)=A_0'-A_2'\lambda^2-...
 \end{equation}
+\fig{bilder/normal2.pdf}{Dispersionskurve für Dispersion nach Gleichung \ref{eqn:normal2}.\cite{anleitung402}}{normal2}
+Die graphische Darstellung dieses Zusammenhangs ist in Abbildung \ref{fig:normal2} zu sehen.
+Die Absorptionsstelle $\lambda_i < \lambda$ liegt für beide Fälle der normalen Dispersion im ultravioletten Bereich.
+Im Gegensatz zur normalen Dispersion wird der Brechungsindex mit steigender Wellenlänge größer.
 Für die Absoprtionsstelle gilt $\lambda_i>\lambda$. Sie befindet sich somit im Infraroten.
-\fig{bilder/anomal.pdf}{Dispersionskurve für anomale Dispersion.\cite{anleitung402}}{anomal}
 
 \subsection{Auflösungsvermögen eines Prismen-Spektralapparates}
 Das Auflösungsvermögen $A$ beschreibt den kleinstmöglichen Abstand zwei nebeneinanderliegender Spektrallinien $\Delta \lambda$, bei dem Der Prismen-Spektralapparat in der Lage ist, diese zu trennen.

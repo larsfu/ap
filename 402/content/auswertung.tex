@@ -20,7 +20,7 @@ In Tabelle \ref{tab:messwerte} sind die Messwerte für die Winkel links und rech
    $\Omega_\mathrm{l}/\si{\degree}$ & $\Omega_\mathrm{r}/\si{\degree}$ & $\lambda/\si{\nano\meter}$ & $n(\lambda)$\\
  \midrule
 107.3 & 110.8 & 579 & 1.76 \\
-106.9 & 111.0 & 546 & 1.77 \\
+106.9 & 111.0 & 577 & 1.77 \\
 105.0 & 111.8 & 492 & 1.79 \\
 106.0 & 111.9 & 509 & 1.78 \\
 104.8 & 113.0 & 468 & 1.80 \\
@@ -38,13 +38,13 @@ In Abbildung \ref{fig:dispersion} ist dieser Zusammenhang graphisch dargestellt.
 \end{equation}
 ergeben sich für die Parameter folgende Werte:
 \begin{align}
-  A_0 &= 2.91 \pm 0.03 \nonumber \\
-  A_2 &= (6.76 \pm 0.78)\cdot 10^{-14}. \nonumber \\
+  A_0 &= 2.93 \pm 0.03 \nonumber \\
+  A_2 &= (6.45 \pm 0.68)\cdot 10^{-14}. \nonumber \\
 \end{align}
 Damit gilt für den Brechungsindex in Abhängigkeit von der Wellenlänge
 \begin{equation}
   \label{eqn:n}
-  n(\lambda) =\sqrt{2.91 + \frac{6.76\cdot10^{-14}}{\lambda^2}m}
+  n(\lambda) =\sqrt{(2.93 \pm 0.03) + \frac{(6.45 \pm 0.68)\cdot10^{-14}}{\lambda^2}m}
 \end{equation}
 
 \begin{figure}
@@ -71,16 +71,16 @@ Mit Gleichung \ref{eqn:n} ergeben sich die Brechungsindizes zu den entsprechende
   \toprule
   Fraunhoferlinie & Wellenlänge $\lambda /\si{\nano\meter}$ & Brechungsindex $n$\\
  \midrule
- C & 656 & 1.75 \\
- D & 589 & 1.76 \\
- F & 486 & 1.79 \\
+ C & 656 & 1.755 \pm 0.010 \\
+ D & 589 & 1.765 \pm 0.010 \\
+ F & 486 & 1.790 \pm 0.012  \\
  \bottomrule
  \end{tabular}
  \end{table}
 
- Mit den Werten aus Tabelle \ref{tab:abbe} und Gleichung \ref{eqn:abbe1} ergibt scih für die Abbesche Zahl
+ Mit den Werten aus Tabelle \ref{tab:abbe} und Gleichung \ref{eqn:abbe1} ergibt sich für die Abbesche Zahl
  \begin{equation}
-   \nu = 25
+   \nu = 21.9 \pm 10
 \end{equation}
 
 \subsection{Auflösungsvermögen}
@@ -97,11 +97,11 @@ Damit ergeben sich die Werte in Tabelle \ref{tab:aufloesung}.
   \label{tab:aufloesung}
   \begin{tabular}{c c c}
   \toprule
-  Fraunhoferlinie & Wellenlänge $\lambda /\si{\nano\meter}$ & Brechungsindex $n$\\
+  Fraunhoferlinie & Wellenlänge $\lambda /\si{\nano\meter}$ & Auflösungsvermögen $A /10^3$\\
  \midrule
- C & 656 & 4101.98 \\
- D & 589 & 5632.50 \\
- F & 486 & 9881.93 \\
+ C & 656 & 3.9 \pm 0.4 \\
+ D & 589 & 5.4 \pm 0.5 \\
+ F & 486 & 9.4 \pm 1 \\
  \bottomrule
  \end{tabular}
  \end{table}
@@ -109,6 +109,6 @@ Damit ergeben sich die Werte in Tabelle \ref{tab:aufloesung}.
  \subsection{Absorptionsstelle}
  Die Absorpstionsstelle ergibt sich durch umformen nach $\lambda$ von Gleicung \ref{eqn:disp} für $n=1$.
  \begin{equation}
-   \lambda_1 = \sqrt{\frac{A_2}{A_0-1}} = 186.96 \si{\nano\meter}.
+   \lambda_1 = \sqrt{\frac{A_2}{A_0-1}} = (183 \pm 10) \si{\nano\meter}.
  \end{equation}
  Somit befindet sich die am nächsten zum sichtbaren Spektralbereich gelegene Absorptionsstelle im Bereich des für den Menschen nicht sichtbaren ultravioletten Lichts.
