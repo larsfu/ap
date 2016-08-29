@@ -6,15 +6,15 @@ In diesem Versuch sollen verschiedene Ultraschall-Scanverfahren betrachtet werde
 \section{Theorie}
 \label{sec:theorie}
 \subsection{Grundlagen}
-Ultraschallwellen sind Schallwellen, also sich in einem Medium ausbreitende Druckwellen, die in einem Frequenzbereich zwischen ca. \SI{20}{kHz} und \SI{1}{GHz} liegen. Sie können genutzt werden, um zerstörungsfrei Informationen über die innere Struktur von Objekten zu erhalten, etwa bei Festkörpern oder Lebewesen. Wenn sich der Schall nur longitudinal ausbreitet, wie dies etwa in Flüssigkeiten oder Gasen der Fall ist, sich für den Druck in Abhängigkeit von Ort und Zeit die Gleichung
+Ultraschallwellen sind Schallwellen, also sich in einem Medium ausbreitende Druckwellen, die in einem Frequenzbereich zwischen ca. \SI{20}{kHz} und \SI{1}{GHz} liegen. Sie können genutzt werden, um zerstörungsfrei Informationen über die innere Struktur von Objekten zu erhalten, etwa bei Festkörpern oder Lebewesen. Wenn sich der Schall nur longitudinal ausbreitet, wie dies etwa in Flüssigkeiten oder Gasen der Fall ist, lässt sich für den Druck in Abhängigkeit von Ort und Zeit die Gleichung
 \begin{equation}
   p(x, t) = p_0 + v_0 Z \cos (\omega t - k x)
 \end{equation}
-aufstellen, wobei die materialabhängige Größe
+aufstellen. Dabei wird die materialabhängige Größe
 \begin{equation}
   Z = c \rho
 \end{equation}
-mit der Schallgeschwindigkeit $c$ und der Dichte $\rho$ \emph{akustische Impedanz} genannt wird. In Flüssigkeiten und Gasen lässt sich die Schallgeschwindigkeit über
+mit der Schallgeschwindigkeit $c$ und der Dichte $\rho$ \emph{akustische Impedanz} genannt. In Flüssigkeiten und Gasen lässt sich die Schallgeschwindigkeit über
 \begin{equation}
   c_\text{Fl} = \sqrt{\frac{1}{\kappa \rho}}
 \end{equation}
@@ -43,7 +43,7 @@ Es gibt zwei Verfahren, um Informationen über die Struktur des untersuchten Obj
 bestimmen.
 \fig{bilder/v.pdf}{Grafische Darstellung von Durchschallungs- und Impuls-Echo-Verfahren.\cite{anleitungus2}}{v}
 \subsection{A-Scan}
-Wird nun die Intensität der aufgenommen reflektierten Welle in Abhängigkeit von der Zeit aufnimmt, ergibt dies einen sogenannten Amplituden-Scan oder A-Scan. Ein Beispiel für einen A-Scan ist in Abb.~\ref{fig:asc} zu finden. Anhand dessen kann die Lage der Störstellen bestimmt werden.
+Wird nun die Intensität der reflektierten Welle in Abhängigkeit von der Zeit aufgenommen, ergibt dies einen sogenannten Amplituden-Scan oder A-Scan. Ein Beispiel für einen A-Scan ist in Abb.~\ref{fig:asc} zu finden. Anhand dessen kann die Lage der Störstellen bestimmt werden.
 \fig{build/a.pdf}{Beispielhafter A-Scan.}{asc}
 \subsection{B-Scan}
 Werden mehrere A-Scans hintereinander ausführt und dabei den Ort variiert, erhält man einen Brightness- oder B-Scan. Zur grafischen Darstellung wird der Ort auf der Abszisse und die Messtiefe (bzw. Zeit) auf der Ordinate aufgetragen, die einzelnen Reflexionsintensitäten werden dann farbkodiert dargestellt.
